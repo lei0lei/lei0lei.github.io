@@ -28,7 +28,7 @@ twitter_username: jekyllrb
 github_username:  lei0lei
 #
 # Build settings
-theme: minima
+theme: just-the-docs
 plugins:
   - jekyll-feed
 
