@@ -31,7 +31,7 @@ github_username:  lei0lei
 theme: just-the-docs
 plugins:
   - jekyll-feed
-
+enable_copy_code_button: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
