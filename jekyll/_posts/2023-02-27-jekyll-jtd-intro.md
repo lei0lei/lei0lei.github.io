@@ -17,7 +17,7 @@ J-T-D站点的主导航在页面的左侧，如果屏幕的小的话在顶部。
 ## 有序页面
 
 要明确页面顺序可以在`front matter`中使用`mnav_order`参数。
-```ymal
+```yaml
 ---
 layout: default
 title: Customization
