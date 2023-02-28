@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-24 Fri 14:29 -->
+<!-- 2023-02-24 Fri 16:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -200,62 +200,78 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbbc769d">1. Creational Pattern</a>
+<li><a href="#org08b3fd7">1. Creational Pattern</a>
 <ul>
-<li><a href="#orgb406c6b">1.1. Factory method</a></li>
-<li><a href="#org506a4cf">1.2. Abstract factory</a></li>
-<li><a href="#orgb41569d">1.3. Builder</a></li>
-<li><a href="#orgde9d7a6">1.4. Prototype</a></li>
-<li><a href="#org0c1073e">1.5. Singleton</a></li>
+<li><a href="#org8e053b6">1.1. Factory method</a>
+<ul>
+<li><a href="#org55cc01a">1.1.1. Intent</a></li>
+<li><a href="#org0a41eeb">1.1.2. Problem</a></li>
+<li><a href="#org88cd0ed">1.1.3. Solution</a></li>
+<li><a href="#orgd792349">1.1.4. Structure</a></li>
+<li><a href="#org8aaa6e7">1.1.5. Pseudocode</a></li>
+<li><a href="#org01bd7a0">1.1.6. Applicability</a></li>
+<li><a href="#org7fe1097">1.1.7. How to Implement</a></li>
+<li><a href="#orga9cc2d6">1.1.8. Pros and Cons</a></li>
+<li><a href="#org6e1cf7e">1.1.9. Relations with Other Patterns</a></li>
+<li><a href="#orgcba567b">1.1.10. python 示例</a></li>
 </ul>
 </li>
-<li><a href="#org38b5d34">2. Structural Pattern</a>
-<ul>
-<li><a href="#orgff7ebe8">2.1. Adapter</a></li>
-<li><a href="#orgd774693">2.2. Bridge</a></li>
-<li><a href="#org8f64a09">2.3. Composite</a></li>
-<li><a href="#orgd3af736">2.4. Decorator</a></li>
-<li><a href="#orgd0271f3">2.5. Facade</a></li>
-<li><a href="#org9e124ca">2.6. Flyweight</a></li>
-<li><a href="#org552b54b">2.7. Proxy</a></li>
+<li><a href="#orgfab4922">1.2. Abstract factory</a></li>
+<li><a href="#orge536c09">1.3. Builder</a></li>
+<li><a href="#org28b7c94">1.4. Prototype</a></li>
+<li><a href="#org7a70879">1.5. Singleton</a></li>
 </ul>
 </li>
-<li><a href="#orga47e54d">3. Behavioral Pattern</a>
+<li><a href="#orgc563415">2. Structural Pattern</a>
 <ul>
-<li><a href="#org6748426">3.1. Chain of Responsibility</a></li>
-<li><a href="#orga02fcf7">3.2. Command</a></li>
-<li><a href="#org5e80e6f">3.3. Iterator</a></li>
-<li><a href="#org5591661">3.4. Mediator</a></li>
-<li><a href="#org44d6f68">3.5. Memento</a></li>
-<li><a href="#orga02863f">3.6. Observer</a></li>
-<li><a href="#orgeb1c081">3.7. State</a></li>
-<li><a href="#org01a4902">3.8. Strategy</a></li>
-<li><a href="#org96a9e44">3.9. Template method</a></li>
-<li><a href="#org3992421">3.10. Visitor</a></li>
+<li><a href="#org43417b3">2.1. Adapter</a></li>
+<li><a href="#org7696687">2.2. Bridge</a></li>
+<li><a href="#org54887a2">2.3. Composite</a></li>
+<li><a href="#org0196b76">2.4. Decorator</a></li>
+<li><a href="#org3c2df13">2.5. Facade</a></li>
+<li><a href="#org1bc5c09">2.6. Flyweight</a></li>
+<li><a href="#orge4ac5af">2.7. Proxy</a></li>
+</ul>
+</li>
+<li><a href="#orgb644f5f">3. Behavioral Pattern</a>
+<ul>
+<li><a href="#org9a59697">3.1. Chain of Responsibility</a></li>
+<li><a href="#org437eb1e">3.2. Command</a></li>
+<li><a href="#orgbb1289d">3.3. Iterator</a></li>
+<li><a href="#org44517ac">3.4. Mediator</a></li>
+<li><a href="#orge3d195f">3.5. Memento</a></li>
+<li><a href="#org72abeab">3.6. Observer</a></li>
+<li><a href="#org0bf306b">3.7. State</a></li>
+<li><a href="#orgf816ea5">3.8. Strategy</a></li>
+<li><a href="#orgab3cfef">3.9. Template method</a></li>
+<li><a href="#org44ef053">3.10. Visitor</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-orgbbc769d" class="outline-2">
-<h2 id="orgbbc769d"><span class="section-number-2">1.</span> Creational Pattern</h2>
+---
+layout: default
+title: Benighted on the Ben.
+excerpt: An unplanned bivouac on Ben Nevis.
+---
+<div id="outline-container-org08b3fd7" class="outline-2">
+<h2 id="org08b3fd7"><span class="section-number-2">1.</span> Creational Pattern</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 这个设计模式提供了多个对象创建机制，可以提高现存代码的灵活度和复用程度。
 </p>
 </div>
 
-<div id="outline-container-orgb406c6b" class="outline-3">
-<h3 id="orgb406c6b"><span class="section-number-3">1.1.</span> Factory method</h3>
+<div id="outline-container-org8e053b6" class="outline-3">
+<h3 id="org8e053b6"><span class="section-number-3">1.1.</span> Factory method</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 又叫：虚拟构造函数、Virtual Constructor、Factory Method
 </p>
 </div>
-<div id="outline-container-org0c297bb" class="outline-4">
-<h4 id="org0c297bb"><span class="section-number-4">1.1.1.</span> Intent</h4>
+<div id="outline-container-org55cc01a" class="outline-4">
+<h4 id="org55cc01a"><span class="section-number-4">1.1.1.</span> Intent</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 工厂方法模式是一种创建型设计模式， 其在父类中提供一个创建对象的方法， 允许子类决
@@ -263,7 +279,7 @@
 </p>
 
 
-<div id="orga6e6e52" class="figure">
+<div id="org3e126f5" class="figure">
 <p><img src="file:///home/lei/github/lei0lei.github.io/resource/python/designpattern_ims/factory-method-1.png" alt="factory-method-1.png" />
 </p>
 </div>
@@ -271,8 +287,8 @@
 </div>
 
 
-<div id="outline-container-org2bbd56d" class="outline-4">
-<h4 id="org2bbd56d"><span class="section-number-4">1.1.2.</span> Problem</h4>
+<div id="outline-container-org0a41eeb" class="outline-4">
+<h4 id="org0a41eeb"><span class="section-number-4">1.1.2.</span> Problem</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 这可是个好消息。 但是代码问题该如何处理呢？ 目前， 大部分代码都与`卡车`类相关。在
@@ -285,15 +301,15 @@
 </p>
 
 
-<div id="orge682af1" class="figure">
+<div id="orga3fc745" class="figure">
 <p><img src="file:///home/lei/github/lei0lei.github.io/resource/python/designpattern_ims/problem1-en.png" alt="problem1-en.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9c525b5" class="outline-4">
-<h4 id="org9c525b5"><span class="section-number-4">1.1.3.</span> Solution</h4>
+<div id="outline-container-org88cd0ed" class="outline-4">
+<h4 id="org88cd0ed"><span class="section-number-4">1.1.3.</span> Solution</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用 （即使用
@@ -302,7 +318,7 @@
 </p>
 
 
-<div id="org4d9065e" class="figure">
+<div id="org2f05f0d" class="figure">
 <p><img src="file:///home/lei/github/lei0lei.github.io/resource/python/designpattern_ims/solution1.png" alt="solution1.png" />
 </p>
 </div>
@@ -348,8 +364,8 @@ ATTR<sub>ORG</sub>: :width 1200
 </div>
 </div>
 
-<div id="outline-container-org563e9d0" class="outline-4">
-<h4 id="org563e9d0"><span class="section-number-4">1.1.4.</span> Structure</h4>
+<div id="outline-container-orgd792349" class="outline-4">
+<h4 id="orgd792349"><span class="section-number-4">1.1.4.</span> Structure</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 ATTR<sub>ORG</sub>: :width 1200
@@ -390,8 +406,8 @@ ATTR<sub>ORG</sub>: :width 1200
 </div>
 </div>
 
-<div id="outline-container-org5c9a43e" class="outline-4">
-<h4 id="org5c9a43e"><span class="section-number-4">1.1.5.</span> Pseudocode</h4>
+<div id="outline-container-org8aaa6e7" class="outline-4">
+<h4 id="org8aaa6e7"><span class="section-number-4">1.1.5.</span> Pseudocode</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <p>
 以下示例演示了如何使用工厂方法开发跨平台 UI （用户界面） 组件， 并同时避免客户代
@@ -399,7 +415,7 @@ ATTR<sub>ORG</sub>: :width 1200
 </p>
 
 
-<div id="orgc2bf936" class="figure">
+<div id="orgaf4ec6a" class="figure">
 <p><img src="file:///home/lei/github/lei0lei.github.io/resource/python/designpattern_ims/example.png" alt="example.png" />
 </p>
 </div>
@@ -501,8 +517,8 @@ class Application is
 </div>
 </div>
 
-<div id="outline-container-org362c8f7" class="outline-4">
-<h4 id="org362c8f7"><span class="section-number-4">1.1.6.</span> Applicability</h4>
+<div id="outline-container-org01bd7a0" class="outline-4">
+<h4 id="org01bd7a0"><span class="section-number-4">1.1.6.</span> Applicability</h4>
 <div class="outline-text-4" id="text-1-1-6">
 <ul class="org-ul">
 <li><p>
@@ -587,8 +603,8 @@ UIUIWith­Round­Buttons ， 并且重写其 create­Button创建按钮方法。
 </div>
 
 
-<div id="outline-container-org7d3cf23" class="outline-4">
-<h4 id="org7d3cf23"><span class="section-number-4">1.1.7.</span> How to Implement</h4>
+<div id="outline-container-org7fe1097" class="outline-4">
+<h4 id="org7fe1097"><span class="section-number-4">1.1.7.</span> How to Implement</h4>
 <div class="outline-text-4" id="text-1-1-7">
 <ol class="org-ol">
 <li>让所有产品都遵循同一接口。 该接口必须声明对所有产品都有意义的方法。</li>
@@ -634,8 +650,8 @@ UIUIWith­Round­Buttons ， 并且重写其 create­Button创建按钮方法。
 
 
 
-<div id="outline-container-org78ac6d4" class="outline-4">
-<h4 id="org78ac6d4"><span class="section-number-4">1.1.8.</span> Pros and Cons</h4>
+<div id="outline-container-orga9cc2d6" class="outline-4">
+<h4 id="orga9cc2d6"><span class="section-number-4">1.1.8.</span> Pros and Cons</h4>
 <div class="outline-text-4" id="text-1-1-8">
 <ul class="org-ul">
 <li>pros
@@ -654,8 +670,8 @@ UIUIWith­Round­Buttons ， 并且重写其 create­Button创建按钮方法。
 </div>
 </div>
 
-<div id="outline-container-orgcafc80a" class="outline-4">
-<h4 id="orgcafc80a"><span class="section-number-4">1.1.9.</span> Relations with Other Patterns</h4>
+<div id="outline-container-org6e1cf7e" class="outline-4">
+<h4 id="org6e1cf7e"><span class="section-number-4">1.1.9.</span> Relations with Other Patterns</h4>
 <div class="outline-text-4" id="text-1-1-9">
 <ul class="org-ul">
 <li>在许多设计工作的初期都会使用工厂方法模式 （较为简单， 而且可以更方便地通过子类
@@ -676,8 +692,8 @@ UIUIWith­Round­Buttons ， 并且重写其 create­Button创建按钮方法。
 </div>
 </div>
 
-<div id="outline-container-orgbe310bf" class="outline-4">
-<h4 id="orgbe310bf"><span class="section-number-4">1.1.10.</span> python 示例</h4>
+<div id="outline-container-orgcba567b" class="outline-4">
+<h4 id="orgcba567b"><span class="section-number-4">1.1.10.</span> python 示例</h4>
 <div class="outline-text-4" id="text-1-1-10">
 <p>
 工厂方法是一种创建型设计模式， 解决了在不指定具体类的情况下创建产品对象的问题。
@@ -798,138 +814,138 @@ if __name__ == "__main__":
 </div>
 </div>
 
-<div id="outline-container-org506a4cf" class="outline-3">
-<h3 id="org506a4cf"><span class="section-number-3">1.2.</span> Abstract factory</h3>
+<div id="outline-container-orgfab4922" class="outline-3">
+<h3 id="orgfab4922"><span class="section-number-3">1.2.</span> Abstract factory</h3>
 </div>
 
 
-<div id="outline-container-orgb41569d" class="outline-3">
-<h3 id="orgb41569d"><span class="section-number-3">1.3.</span> Builder</h3>
+<div id="outline-container-orge536c09" class="outline-3">
+<h3 id="orge536c09"><span class="section-number-3">1.3.</span> Builder</h3>
 </div>
 
 
-<div id="outline-container-orgde9d7a6" class="outline-3">
-<h3 id="orgde9d7a6"><span class="section-number-3">1.4.</span> Prototype</h3>
+<div id="outline-container-org28b7c94" class="outline-3">
+<h3 id="org28b7c94"><span class="section-number-3">1.4.</span> Prototype</h3>
 </div>
 
 
-<div id="outline-container-org0c1073e" class="outline-3">
-<h3 id="org0c1073e"><span class="section-number-3">1.5.</span> Singleton</h3>
+<div id="outline-container-org7a70879" class="outline-3">
+<h3 id="org7a70879"><span class="section-number-3">1.5.</span> Singleton</h3>
 </div>
 </div>
 
 
 
-<div id="outline-container-org38b5d34" class="outline-2">
-<h2 id="org38b5d34"><span class="section-number-2">2.</span> Structural Pattern</h2>
+<div id="outline-container-orgc563415" class="outline-2">
+<h2 id="orgc563415"><span class="section-number-2">2.</span> Structural Pattern</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgff7ebe8" class="outline-3">
-<h3 id="orgff7ebe8"><span class="section-number-3">2.1.</span> Adapter</h3>
+<div id="outline-container-org43417b3" class="outline-3">
+<h3 id="org43417b3"><span class="section-number-3">2.1.</span> Adapter</h3>
 </div>
 
 
 
-<div id="outline-container-orgd774693" class="outline-3">
-<h3 id="orgd774693"><span class="section-number-3">2.2.</span> Bridge</h3>
+<div id="outline-container-org7696687" class="outline-3">
+<h3 id="org7696687"><span class="section-number-3">2.2.</span> Bridge</h3>
 </div>
 
 
 
-<div id="outline-container-org8f64a09" class="outline-3">
-<h3 id="org8f64a09"><span class="section-number-3">2.3.</span> Composite</h3>
+<div id="outline-container-org54887a2" class="outline-3">
+<h3 id="org54887a2"><span class="section-number-3">2.3.</span> Composite</h3>
 </div>
 
 
-<div id="outline-container-orgd3af736" class="outline-3">
-<h3 id="orgd3af736"><span class="section-number-3">2.4.</span> Decorator</h3>
+<div id="outline-container-org0196b76" class="outline-3">
+<h3 id="org0196b76"><span class="section-number-3">2.4.</span> Decorator</h3>
 </div>
 
 
-<div id="outline-container-orgd0271f3" class="outline-3">
-<h3 id="orgd0271f3"><span class="section-number-3">2.5.</span> Facade</h3>
+<div id="outline-container-org3c2df13" class="outline-3">
+<h3 id="org3c2df13"><span class="section-number-3">2.5.</span> Facade</h3>
 </div>
 
-<div id="outline-container-org9e124ca" class="outline-3">
-<h3 id="org9e124ca"><span class="section-number-3">2.6.</span> Flyweight</h3>
-</div>
-
-
-<div id="outline-container-org552b54b" class="outline-3">
-<h3 id="org552b54b"><span class="section-number-3">2.7.</span> Proxy</h3>
-</div>
+<div id="outline-container-org1bc5c09" class="outline-3">
+<h3 id="org1bc5c09"><span class="section-number-3">2.6.</span> Flyweight</h3>
 </div>
 
 
+<div id="outline-container-orge4ac5af" class="outline-3">
+<h3 id="orge4ac5af"><span class="section-number-3">2.7.</span> Proxy</h3>
+</div>
+</div>
 
 
 
 
 
-<div id="outline-container-orga47e54d" class="outline-2">
-<h2 id="orga47e54d"><span class="section-number-2">3.</span> Behavioral Pattern</h2>
+
+
+<div id="outline-container-orgb644f5f" class="outline-2">
+<h2 id="orgb644f5f"><span class="section-number-2">3.</span> Behavioral Pattern</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org6748426" class="outline-3">
-<h3 id="org6748426"><span class="section-number-3">3.1.</span> Chain of Responsibility</h3>
+<div id="outline-container-org9a59697" class="outline-3">
+<h3 id="org9a59697"><span class="section-number-3">3.1.</span> Chain of Responsibility</h3>
 </div>
 
 
 
 
-<div id="outline-container-orga02fcf7" class="outline-3">
-<h3 id="orga02fcf7"><span class="section-number-3">3.2.</span> Command</h3>
+<div id="outline-container-org437eb1e" class="outline-3">
+<h3 id="org437eb1e"><span class="section-number-3">3.2.</span> Command</h3>
 </div>
 
 
-<div id="outline-container-org5e80e6f" class="outline-3">
-<h3 id="org5e80e6f"><span class="section-number-3">3.3.</span> Iterator</h3>
-</div>
-
-
-
-<div id="outline-container-org5591661" class="outline-3">
-<h3 id="org5591661"><span class="section-number-3">3.4.</span> Mediator</h3>
+<div id="outline-container-orgbb1289d" class="outline-3">
+<h3 id="orgbb1289d"><span class="section-number-3">3.3.</span> Iterator</h3>
 </div>
 
 
 
-
-<div id="outline-container-org44d6f68" class="outline-3">
-<h3 id="org44d6f68"><span class="section-number-3">3.5.</span> Memento</h3>
+<div id="outline-container-org44517ac" class="outline-3">
+<h3 id="org44517ac"><span class="section-number-3">3.4.</span> Mediator</h3>
 </div>
 
 
 
-<div id="outline-container-orga02863f" class="outline-3">
-<h3 id="orga02863f"><span class="section-number-3">3.6.</span> Observer</h3>
-</div>
 
-
-<div id="outline-container-orgeb1c081" class="outline-3">
-<h3 id="orgeb1c081"><span class="section-number-3">3.7.</span> State</h3>
-</div>
-
-
-<div id="outline-container-org01a4902" class="outline-3">
-<h3 id="org01a4902"><span class="section-number-3">3.8.</span> Strategy</h3>
-</div>
-
-
-<div id="outline-container-org96a9e44" class="outline-3">
-<h3 id="org96a9e44"><span class="section-number-3">3.9.</span> Template method</h3>
+<div id="outline-container-orge3d195f" class="outline-3">
+<h3 id="orge3d195f"><span class="section-number-3">3.5.</span> Memento</h3>
 </div>
 
 
 
-<div id="outline-container-org3992421" class="outline-3">
-<h3 id="org3992421"><span class="section-number-3">3.10.</span> Visitor</h3>
+<div id="outline-container-org72abeab" class="outline-3">
+<h3 id="org72abeab"><span class="section-number-3">3.6.</span> Observer</h3>
+</div>
+
+
+<div id="outline-container-org0bf306b" class="outline-3">
+<h3 id="org0bf306b"><span class="section-number-3">3.7.</span> State</h3>
+</div>
+
+
+<div id="outline-container-orgf816ea5" class="outline-3">
+<h3 id="orgf816ea5"><span class="section-number-3">3.8.</span> Strategy</h3>
+</div>
+
+
+<div id="outline-container-orgab3cfef" class="outline-3">
+<h3 id="orgab3cfef"><span class="section-number-3">3.9.</span> Template method</h3>
+</div>
+
+
+
+<div id="outline-container-org44ef053" class="outline-3">
+<h3 id="org44ef053"><span class="section-number-3">3.10.</span> Visitor</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lei</p>
-<p class="date">Created: 2023-02-24 Fri 14:29</p>
+<p class="date">Created: 2023-02-24 Fri 16:02</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

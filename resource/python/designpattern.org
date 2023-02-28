@@ -1,8 +1,12 @@
 #+STARTUP: showall indent
 #+STARTUP: hidestars
-#+OPTIONS: toc:2
-
-  
+#+BEGIN_EXPORT html
+---
+layout: default
+title: Benighted on the Ben.
+excerpt: An unplanned bivouac on Ben Nevis.
+---
+#+END_EXPORT
 * Creational Pattern
 
 这个设计模式提供了多个对象创建机制，可以提高现存代码的灵活度和复用程度。
