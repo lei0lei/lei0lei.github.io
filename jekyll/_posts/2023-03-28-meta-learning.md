@@ -1,6 +1,6 @@
 ---
 layout: post
-title: how to use jekyll just-the-doc theme
-category: howtos
+title: Meta learning review
+category: machinelearning
 date: 2023-02-27
 ---
