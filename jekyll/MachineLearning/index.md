@@ -1,5 +1,5 @@
 ---
 layout: page
-title: hello
-permalink: /hello/
+title: MachineLearning
+permalink: /MachineLearning/
 ---
