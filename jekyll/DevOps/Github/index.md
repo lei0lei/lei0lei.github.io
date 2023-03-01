@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: default
 title: Github
-permalink: /Github/
+permalink: /DevOps/Github/
 parent: DevOps
 has_children: true
-nav_order: 1
+has_toc: true
 ---

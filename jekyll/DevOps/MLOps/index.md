@@ -1,8 +1,8 @@
 ---
 layout: page
 title: MLOps
-permalink: /MLOps/
+permalink: /DevOps/MLOps/
 parent: DevOps
 has_children: true
-nav_order: 1
+has_toc: true
 ---
