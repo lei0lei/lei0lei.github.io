@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Gitlab
+title: intro
 permalink: /DevOps/Gitlab/intro/
 parent: Gitlab
 has_toc: true
