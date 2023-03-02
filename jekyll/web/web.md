@@ -1,7 +1,7 @@
 ---
 layout: default
-title: javascript
-permalink: /javascript/
+title: web
+permalink: /web/
 has_children: true
 has_toc: true
 ---

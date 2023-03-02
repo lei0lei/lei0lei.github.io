@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cpp
+title: cpp
 permalink: /cpp/
 has_children: true
 has_toc: true
