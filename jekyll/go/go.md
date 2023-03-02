@@ -1,7 +1,7 @@
 ---
 layout: default
-title: go
-permalink: /go/
+title: Rust
+permalink: /rust/
 has_children: true
 has_toc: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: go
-permalink: /go/
+title: javascript
+permalink: /javascript/
 has_children: true
 has_toc: true
 ---
