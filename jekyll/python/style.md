@@ -13,8 +13,24 @@ has_toc: true
 1. TOC
 {:toc}
 </details>
+
 # 命名传统
+
 ## 变量、函数、包、类命名
+| 类型 | 命名 |  样例|
+|:--|:--|:--|
+|函数|使用小写，下划线分割| my_function|
+|变量|使用小写，下划线分割|x,var,my_variable|
+|类|首字母大写，不要使用下划线|MyClass|
+|方法|小写，下划线分割|class_method|
+|常量|纯大写，下划线分割|MY_CONSTANT|
+|模块|小写，下划线分割|my_module.py|
+|包|小写，不要使用下划线|mypackage|
+
+- 使用描述性名字
+- 不要使用无意义的名字如x,y除非是在用数学函数
+- 不要使用歧义缩写
+
 
 
 ## 下划线
@@ -505,3 +521,162 @@ OtherError
 """
 ```
 可以使用Pyment自动给一个项目生成docstring 
+
+## 代码布局
+
+- 空行，空格提升可读性，顶层函数和类使用两个空行，内部方法使用单空行，不同步骤之间加空行。
+- 每一行限制到79个字符，
+
+```py
+def function(arg_one, arg_two,
+             arg_three, arg_four):
+    return arg_one
+```
+
+```py
+from mypkg import example1, \
+    example2, example3
+```
+
+```py
+# Recommended
+total = (first_variable
+         + second_variable
+         - third_variable)
+```
+
+## 缩进
+
+- 使用4个连续space表示缩进
+- 使用space而不是tab
+- 断行之后使用缩进
+
+```py
+def function(arg_one, arg_two,
+             arg_three, arg_four):
+    return arg_one
+```
+
+```py
+x = 5
+if (x > 3 and
+        x < 10):
+    print(x)
+```
+
+```py
+var = function(
+    arg_one, arg_two,
+    arg_three, arg_four)
+
+def function(
+        arg_one, arg_two,
+        arg_three, arg_four):
+    return arg_one
+```
+下面这种写法是不被推荐的，使用hanging indent时尽量不要在第一行留参数:
+
+```py
+# Not Recommended
+var = function(arg_one, arg_two,
+    arg_three, arg_four)
+```
+
+- 在断行的情况下如何使用括号
+```py
+list_of_numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+    ]
+
+list_of_numbers = [
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+]
+```
+
+## 注释
+- 注释和docstring每行不超过72字符
+- 使用完整语句，大写字母开头
+- 更改代码后更新注释
+- #space 开头，缩进与代码对齐，分段使用#多空一行
+
+```py
+def quadratic(a, b, c, x):
+    # Calculate the solution to a quadratic equation using the quadratic
+    # formula.
+    #
+    # There are always two solutions to a quadratic equation, x_1 and x_2.
+    x_1 = (- b+(b**2-4*a*c)**(1/2)) / (2*a)
+    x_2 = (- b-(b**2-4*a*c)**(1/2)) / (2*a)
+    return x_1, x_2
+```
+- 尽量少用内联的注释
+- 内敛注释和正式代码有至少两个空格
+
+## 表达式和语句空白
+
+- 赋值运算符，比较运算符和逻辑运算符两端有空白
+- 函数参数礼的默认值等号两边不要有空白
+
+```py
+# Recommended
+y = x**2 + 5
+z = (x+y) * (x-y)
+
+# Not Recommended
+y = x ** 2 + 5
+z = (x + y) * (x - y)
+```
+- 切片运算符两边有空白
+- 千万不要在每一行后边添加空白，下面是一些不应该添加空白的地方
+
+```py
+# Recommended
+my_list = [1, 2, 3]
+
+# Not recommended
+my_list = [ 1, 2, 3, ]
+x = 5
+y = 6
+
+# Recommended
+print(x, y)
+
+# Not recommended
+print(x , y)
+
+def double(x):
+    return x * 2
+
+# Recommended
+double(3)
+
+# Not recommended
+double (3)
+
+# Recommended
+list[3]
+
+# Not recommended
+list [3]
+
+# Recommended
+tuple = (1,)
+
+# Not recommended
+tuple = (1, )
+
+# Recommended
+var1 = 5
+var2 = 6
+some_long_var = 7
+
+# Not recommended
+var1          = 5
+var2          = 6
+some_long_var = 7
+```
+
