@@ -522,7 +522,7 @@ OtherError
 ```
 可以使用Pyment自动给一个项目生成docstring 
 
-## 代码布局
+# 代码布局
 
 - 空行，空格提升可读性，顶层函数和类使用两个空行，内部方法使用单空行，不同步骤之间加空行。
 - 每一行限制到79个字符，
@@ -545,7 +545,7 @@ total = (first_variable
          - third_variable)
 ```
 
-## 缩进
+# 缩进
 
 - 使用4个连续space表示缩进
 - 使用space而不是tab
@@ -597,7 +597,7 @@ list_of_numbers = [
 ]
 ```
 
-## 注释
+# 注释
 - 注释和docstring每行不超过72字符
 - 使用完整语句，大写字母开头
 - 更改代码后更新注释
@@ -616,7 +616,7 @@ def quadratic(a, b, c, x):
 - 尽量少用内联的注释
 - 内敛注释和正式代码有至少两个空格
 
-## 表达式和语句空白
+# 表达式和语句空白
 
 - 赋值运算符，比较运算符和逻辑运算符两端有空白
 - 函数参数礼的默认值等号两边不要有空白
@@ -680,3 +680,65 @@ var2          = 6
 some_long_var = 7
 ```
 
+# 一些建议
+
+不使用`==`把布尔值和`True`或者`False`比较。
+```py
+# Not recommended
+my_bool = 6 > 5
+if my_bool == True:
+    return '6 is bigger than 5'
+
+# Recommended
+if my_bool:
+    return '6 is bigger than 5'
+```
+
+如果需要比较一个列表的长度是否为0:
+```py
+# Not recommended
+my_list = []
+if not len(my_list):
+    print('List is empty!')
+
+# Recommended
+my_list = []
+if not my_list:
+    print('List is empty!')
+```
+使用is not而不是not is：
+
+```py
+# Recommended
+if x is not None:
+    return 'x exists!'
+
+# Not recommended
+if not x is None:
+    return 'x exists!'
+```
+
+不要使用`if x:`代替`if x is not None:`:
+
+```py
+# Not Recommended
+if arg:
+    # Do something with arg...
+
+# Recommended
+if arg is not None:
+    # Do something with arg...
+```
+
+使用`.startstith()`和`.endswith()`而不是切片。
+
+# 工具
+
+## Linters
+  - pycodesytyle
+  - flake8
+  
+## Autoformatters
+  - black
+  - autopep8
+  - yapf
