@@ -269,3 +269,29 @@ class PrefixPostfixTest:
 最好不要在自己的程序中使用这种方式命名，可能会与未来python的某个特性冲突。
 
 # docstring
+## __doc__属性
+
+
+
+## docstring
+
+
+### 单行docstring
+
+
+### 多行docstring
+
+
+## Python模块中的docstring
+
+## Python类中的docstring
+
+## help()函数
+
+## python脚本的docstring
+
+
+## Python包中的docstring
+
+
+## docstring格式
