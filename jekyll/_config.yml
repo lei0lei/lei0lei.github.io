@@ -55,3 +55,11 @@ callouts:
   highlight:
     title: tips
     color: yellow
+  
+  warning:
+    title: warning
+    color: red
+
+  note:
+    title: note
+    color: blue
