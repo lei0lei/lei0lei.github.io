@@ -51,3 +51,7 @@ source: '.'
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+callouts:
+  highlight:
+    title: tips
+    color: red
