@@ -54,4 +54,4 @@ source: '.'
 callouts:
   highlight:
     title: tips
-    color: red
+    color: yellow
