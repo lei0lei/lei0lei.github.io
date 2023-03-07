@@ -269,29 +269,230 @@ class PrefixPostfixTest:
 最好不要在自己的程序中使用这种方式命名，可能会与未来python的某个特性冲突。
 
 # docstring
+
+下面是一个docstring的例子:
+
+```py
+def square(n):
+    '''Takes in a number n, returns the square of n'''
+    return n**2
+```
+python docstring是用在函数、方法、类、或者模块中的字符串来对代码进行文档化，要进行访问，
+使用`__doc__`属性。
+
 ## __doc__属性
+当字符串放在函数、模块、方法或者类的定义后边时就会与对象的`__doc__`属性关联，
+可以通过这个属性进行访问。比如:
 
+```py
+def square(n):
+    '''Takes in a number n, returns the square of n'''
+    return n**2
 
-
-## docstring
-
+print(square.__doc__)
+```
 
 ### 单行docstring
-
-
+- 单行docstring只有一行，前后中间都没有空行。
+- 不应该是描述性的必须遵循"Do this, return that" 类似的结构
+```py
+def multiplier(a, b):
+    """Takes in two numbers, returns their product."""
+    return a*b
+```
 ### 多行docstring
+多行docstring包含一个summary，类似单行。后边跟一个空行以及更加
+详细的描述，具体查看:PEP 257.
+#### Python模块中的docstring
+
+  - 列出所有的类函数和对象以及ecxcepions
+  - 每一项都应该改有一行总结
+下面是一个例子:
+
+```
+Create portable serialized representations of Python objects.
+
+See module copyreg for a mechanism for registering custom picklers.
+See module pickletools source for extensive comments.
+
+Classes:
+
+    Pickler
+    Unpickler
+
+Functions:
+
+    dump(object, file)
+    dumps(object) -> string
+    load(file) -> object
+    loads(string) -> object
+
+Misc variables:
+
+    __version__
+    format_version
+    compatible_formats
+```
+#### Python类中的docstring
+- 应该给出类的行为以及其公有方法和实例变量
+- 子类，构造器和方法应该有自己的docstring
+
+```py
+class Person:
+    """
+    A class to represent a person.
+
+    ...
+
+    Attributes
+    ----------
+    name : str
+        first name of the person
+    surname : str
+        family name of the person
+    age : int
+        age of the person
+
+    Methods
+    -------
+    info(additional=""):
+        Prints the person's name and age.
+    """
+
+    def __init__(self, name, surname, age):
+        """
+        Constructs all the necessary attributes for the person object.
+
+        Parameters
+        ----------
+            name : str
+                first name of the person
+            surname : str
+                family name of the person
+            age : int
+                age of the person
+        """
+
+        self.name = name
+        self.surname = surname
+        self.age = age
+
+    def info(self, additional=""):
+        """
+        Prints the person's name and age.
+
+        If the argument 'additional' is passed, then it is appended after the main info.
+
+        Parameters
+        ----------
+        additional : str, optional
+            More info to be displayed (default is None)
+
+        Returns
+        -------
+        None
+        """
+
+        print(f'My name is {self.name} {self.surname}. I am {self.age} years old.' + additional)
+```
+可以使用`help()`函数查看对象对应的docstring.
+#### python函数中的docstring
+- 应该给整个函数一个总结以及器参数和返回值
+- 应该列出所有的exceptions和可选参数
+下面是一个例子:
+
+```py
+def add_binary(a, b):
+    '''
+    Returns the sum of two decimal numbers in binary digits.
+
+            Parameters:
+                    a (int): A decimal integer
+                    b (int): Another decimal integer
+
+            Returns:
+                    binary_sum (str): Binary string of the sum of a and b
+    '''
+    binary_sum = bin(a+b)[2:]
+    return binary_sum
 
 
-## Python模块中的docstring
+print(add_binary.__doc__)
+```
+#### python脚本的docstring
+- 应该给出脚本的函数和命令行语法使用
+- 应该作为所有函数和参数的快速索引
 
-## Python类中的docstring
-
-## help()函数
-
-## python脚本的docstring
-
-
-## Python包中的docstring
-
+#### Python包中的docstring
+- 应该写在`__init__.py`文件中
+- 应该包含包可以导出的所有模块和子包
 
 ## docstring格式
+### Epytest
+```py
+"""
+This is a javadoc style.
+
+@param param1: this is a first param
+@param param2: this is a second param
+@return: this is a description of what is returned
+@raise keyError: raises an exception
+"""
+```
+### reST
+
+```py
+"""
+This is a reST style.
+
+:param param1: this is a first param
+:param param2: this is a second param
+:returns: this is a description of what is returned
+:raises keyError: raises an exception
+"""
+```
+### Google
+```py
+"""
+This is an example of Google style.
+
+Args:
+    param1: This is the first param.
+    param2: This is a second param.
+
+Returns:
+    This is a description of what is returned.
+
+Raises:
+    KeyError: Raises an exception.
+"""
+```
+### Numpydoc
+```py
+"""
+My numpydoc description of a kind
+of very exhautive numpydoc format docstring.
+
+Parameters
+----------
+first : array_like
+    the 1st param name `first`
+second :
+    the 2nd param
+third : {'value', 'other'}, optional
+    the 3rd param, by default 'value'
+
+Returns
+-------
+string
+    a value in a string
+
+Raises
+------
+KeyError
+    when a key error
+OtherError
+    when an other error
+"""
+```
+可以使用Pyment自动给一个项目生成docstring 
