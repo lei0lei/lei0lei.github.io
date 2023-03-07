@@ -243,15 +243,15 @@ class MangledGlobal:
 ```
 首先创建了一个全局变量然后访问一个类的内部变量，由于name mangling就可以访问`__mangled`.python解释器会自动将`__mangled`扩展为`_MangledGlobal_mangled`.
 
-
-⏰ Sidebar: What’s a “dunder” in Python?
-I’ve you’ve heard some experienced Pythonistas talk about Python or watched a few conference talks you may have heard the term dunder. If you’re wondering what that is, here’s your answer:
-
-Double underscores are often referred to as “dunders” in the Python community. The reason is that double underscores appear quite often in Python code and to avoid fatiguing their jaw muscles Pythonistas often shorten “double underscore” to “dunder.”
-
-For example, you’d pronounce __baz as “dunder baz”. Likewise __init__ would be pronounced as “dunder init”, even though one might think it should be “dunder init dunder.” But that’s just yet another quirk in the naming convention.
-
-It’s like a secret handshake for Python developers 🙂
+{: .highlight }
+>⏰ Sidebar: What’s a “dunder” in Python?
+>I’ve you’ve heard some experienced Pythonistas talk about Python or watched a few conference talks you may have heard the term dunder. If you’re wondering what that is, here’s your answer:
+>
+>Double underscores are often referred to as “dunders” in the Python community. The reason is that double underscores appear quite often in Python code and to avoid fatiguing their jaw muscles Pythonistas often shorten “double underscore” to “dunder.”
+>
+>For example, you’d pronounce __baz as “dunder baz”. Likewise __init__ would be pronounced as “dunder init”, even though one might think it should be “dunder init dunder.” But that’s just yet another quirk in the naming convention.
+>
+>It’s like a secret handshake for Python developers 🙂
 
 - 前后双下划线
 如果使用了前后双下划线，命名修饰将不再适用，解释器不会对其有任何影响。
