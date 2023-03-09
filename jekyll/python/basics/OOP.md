@@ -78,3 +78,36 @@ python中，类有两种变体，没有正式的名字，姑且叫做旧风格�
 >>> type(x)
 <type 'instance'>
 ```
+
+新风格的类统一了类和类型的概念。如果`obj`是新风格的类的实例，`type(obj)`和`obj.__class__`相同:
+
+```py
+>>> class Foo:
+...     pass
+>>> obj = Foo()
+>>> obj.__class__
+<class '__main__.Foo'>
+>>> type(obj)
+<class '__main__.Foo'>
+>>> obj.__class__ is type(obj)
+True
+```
+
+```py
+>>> n = 5
+>>> d = { 'x' : 1, 'y' : 2 }
+
+>>> class Foo:
+...     pass
+...
+>>> x = Foo()
+
+>>> for obj in (n, d, x):
+...     print(type(obj) is obj.__class__)
+...
+True
+True
+True
+```
+
+## 类型和类
