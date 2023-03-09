@@ -12,7 +12,7 @@ has_toc: true
   {: .text-delta }
 1. TOC
 {:toc}
-</details
+</details>
 
 
 https://realpython.com/python3-object-oriented-programming/
@@ -50,6 +50,5 @@ https://realpython.com/python-class-constructor/
 https://realpython.com/python-multiple-constructors/
 
 
-# metaclass
+# [metaclass](https://realpython.com/python-metaclasses/)
 
-https://realpython.com/python-metaclasses/
