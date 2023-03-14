@@ -207,12 +207,61 @@ Taking a look at PersonMeta, you’ll notice that there’s another dunder metho
 
 查看一下`PersonMeta`,将会发现由另一个dunder方法`__instancecheck__()`,这个方法用来检查Friend的实力是否是从`Person`接口创建的实例。在使用`isinstance(Friend, Person)`的时候会调用该方法。
 
-
-
-
-
-
-
-
 # 正式接口
+开发者较少时非正式的接口比较有用，但是对于打的应用需要创建正式的python接口，这需要从`abc`模块中拿一些工具来用。
+
+## 使用`abc.ABCMeta`
+
+为了强制子类实例化抽象方法，需要利用内建的`abc`模块中的`ABCMeta`. 回到之前的`UpdatedInformalParserInterface`接口，我们创建了自己的metaclass：`ParserMeta`，重写了dunder方法:`.__instancecheck__()`和`.__subclasscheck__()`。
+
+除了自己创建metaclass,可以使用`abc.ABCMeta`作为metaclass.然后重写`.__subclasshook__()`替代`.__instancecheck__()`和`.__subclasscheck__()`,subclasshook的实现更加可靠。
+
+## 使用`.__subclasshook__()`
+下面是使用`abc.ABCMeta`作为metaclass的`FormalParserInterface`实现。
+
+```py
+import abc
+
+class FormalParserInterface(metaclass=abc.ABCMeta):
+    @classmethod
+    def __subclasshook__(cls, subclass):
+        return (hasattr(subclass, 'load_data_source') and 
+                callable(subclass.load_data_source) and 
+                hasattr(subclass, 'extract_text') and 
+                callable(subclass.extract_text))
+
+class PdfParserNew:
+    """Extract text from a PDF."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text(self, full_file_path: str) -> dict:
+        """Overrides FormalParserInterface.extract_text()"""
+        pass
+
+class EmlParserNew:
+    """Extract text from an email."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text_from_email(self, full_file_path: str) -> dict:
+        """A method defined only in EmlParser.
+        Does not override FormalParserInterface.extract_text()
+        """
+        pass
+```
+如果在`PdfParserNew`和`EmlParserNew`上运行`issubclass()`，将会返回True和False.
+
+## 使用`abc`注册虚拟子类
+
+import `abc`模块之后，可以直接使用`.register()`元方法注册虚拟子类，
+
+
+
+
+
+
+
 
