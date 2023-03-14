@@ -205,6 +205,143 @@ class Dog:
 
 ## 继承
 
+继承允许一个类得到另一个类的属性和方法，新类叫做子类。子类可以覆盖或者扩展父类的属性和方法，换句话说，子类继承了父类的所有属性和方法但同时实现了自己的属性和方法。
+
+比如我们要给狗加入一个品种的属性区分不同的狗，一种方式是直接添加属性，这样既需要在实例化的时候额外传入一个参数；
+
+```py
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age, breed):
+        self.name = name
+        self.age = age
+        self.breed = breed
+```
+```py
+>>> miles = Dog("Miles", 4, "Jack Russell Terrier")
+>>> buddy = Dog("Buddy", 9, "Dachshund")
+>>> jack = Dog("Jack", 3, "Bulldog")
+>>> jim = Dog("Jim", 5, "Bulldog")
+```
+
+但是每只品种的狗有不同的行为，比如斗牛叫声是woof,dachshund叫声是yap,如果只使用一个类每次就需要给speak额外添加一个参数,这会很麻烦，而且一只狗的叫声应该取决于其品种。
+
+```py
+>>> buddy.speak("Yap")
+'Buddy says Yap'
+
+>>> jim.speak("Woof")
+'Jim says Woof'
+
+>>> jack.speak("Woof")
+'Jack says Woof'
+```
+
+创建一个子类可以解决这个问题，每个子类可以继承speak功能进行改造,包括为每个子类定义一个默认参数。
+
+### 父类 VS 子类
+
+```py
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+
+class JackRussellTerrier(Dog):
+    pass
+
+class Dachshund(Dog):
+    pass
+
+class Bulldog(Dog):
+    pass
+```
+
+要创建子类只需要将父类名字放在括号中。
+
+```py
+>>> miles = JackRussellTerrier("Miles", 4)
+>>> buddy = Dachshund("Buddy", 9)
+>>> jack = Bulldog("Jack", 3)
+>>> jim = Bulldog("Jim", 5)
+```
+子类的实例继承了父类的所有属性和方法:
+```py
+>>> miles.species
+'Canis familiaris'
+
+>>> buddy.name
+'Buddy'
+
+>>> print(jack)
+Jack is 3 years old
+
+>>> jim.speak("Woof")
+'Jim says Woof'
+```
+
+要确定对象属于哪个类只需要使用内建的`type()`：
+
+```py
+>>> type(miles)
+<class '__main__.JackRussellTerrier'>
+```
+如果想要知道某个对象是否是类的实例只需要使用内建的`isinstance()`:
+
+```py
+>>> isinstance(miles, Dog)
+True
+```
+
+`isinstance()`有两个参数，第一个是对象，第二个是类。
+
+```py
+>>> isinstance(miles, Bulldog)
+False
+
+>>> isinstance(jack, Dachshund)
+False
+```
+从子类创建的对象都是父类的实例。
+
+### 扩展父类的功能
+
+由于不同品种的狗不同的叫声，可以为子类的`.speak()`方法提供一个默认值，只需要覆盖`.speak()`方法。
+
+```py
+class JackRussellTerrier(Dog):
+    def speak(self, sound="Arf"):
+        return f"{self.name} says {sound}"
+```
+要覆盖父类的方法只需要在子类中命名相同的方法:
+
+```py
+>>> miles = JackRussellTerrier("Miles", 4)
+>>> miles.speak()
+'Miles says Arf'
+```
+有的时候我们会需要完全覆盖父类的方法，但是有时我们需要保留父类的东西，可以在子类中哦功能调用父类的方法,使用`super()`：
+
+```py
+class JackRussellTerrier(Dog):
+    def speak(self, sound="Arf"):
+        return super().speak(sound)
+```
+调用`super()`的时候python回去搜索父类`Dog`中的`.speak方法。
+```py
+>>> miles = JackRussellTerrier("Miles", 4)
+>>> miles.speak()
+'Miles barks: Arf'
+```
 
 # [实例、类和静态方法](https://realpython.com/instance-class-and-static-methods-demystified/)
 
