@@ -7,4 +7,4 @@ grand_parent: python
 has_toc: true
 ---
 
-attrk可以将我们从dunder写法j解放出来
+attrs可以将我们从dunder的写法中解放出来
