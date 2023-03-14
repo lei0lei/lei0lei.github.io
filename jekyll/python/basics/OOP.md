@@ -140,9 +140,68 @@ miles = Dog("Miles", 4)
 ```
 自定义个对象默认上是`mutable`的，换句话说，可以被动态改变，比如lists和dict都是`mutable`，但是string和tuple是`immutable`.
 ### 实例方法
+实例方法是在类里面定义的函数并且只能从类的实力进行调用，实例方法的第一个参数都是`self`,
 
+```py
+class Dog:
+    species = "Canis familiaris"
 
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
+    # Instance method
+    def description(self):
+        return f"{self.name} is {self.age} years old"
+
+    # Another instance method
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+```
+
+`Dog`类有两个实例方法:
+
+- `.description()`返回一个字符串显示狗的name和age.
+- `.speak()`有一个叫做sound的参数并返回name和sound.
+
+```py
+>>> miles = Dog("Miles", 4)
+
+>>> miles.description()
+'Miles is 4 years old'
+
+>>> miles.speak("Woof Woof")
+'Miles says Woof Woof'
+
+>>> miles.speak("Bow Wow")
+'Miles says Bow Wow'
+```
+在写自己的类的时候，包含一个方法来返回这个类的一些信息通常是有用的，但是`.description()`不是那么的`Pythonic`.
+
+当我们`print`一个类的时候:
+
+```py
+>>> print(miles)
+<__main__.Dog object at 0x00aeff70>
+```
+返回的信息并没有什么用，通过改变一个特殊的实例方法`.__str__()`可以改变这个行为:
+
+```py
+class Dog:
+    # Leave other parts of Dog class as-is
+
+    # Replace .description() with __str__()
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+```
+
+```py
+>>> miles = Dog("Miles", 4)
+>>> print(miles)
+'Miles is 4 years old'
+```
+
+前后置双下下划线在python中叫做`dunder methods`。
 
 ## 继承
 
