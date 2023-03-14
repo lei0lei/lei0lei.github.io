@@ -19,6 +19,79 @@ https://realpython.com/python3-object-oriented-programming/
 
 https://realpython.com/python-super/
 
+# [OOP](https://realpython.com/python3-object-oriented-programming/)
+面向对象编程是一个编程范式，将属性和行为绑定到独立的对象上。
+对应的另一种常见的范式是过程式编程。
+## 定义类
+基础的数据结构像number,string以及list，用于表示简单的信息，如果需要表示一些复杂的东西比如追踪一个人员在组织中的行为，需要保存该人员的基础信息比如姓名，年龄，职位，工作年龄，一种方式是使用list表示:
+
+```py
+kirk = ["James Kirk", 34, "Captain", 2265]
+spock = ["Spock", 35, "Science Officer", 2254]
+mccoy = ["Leonard McCoy", "Chief Medical Officer", 2266]
+```
+这种方法存在很多问题，大的代码文件很难管理，如果在其他地方引用kirk很难记住kirk的实际定义。第二，如果每个人员的元素数量并不相同就会产生错误，比如`mccoy`.更好的替代方式就是使用类来方便管理和维护。
+
+### 类vs实例
+类用于创建用户自定义的数据结构，类定义的函数叫做方法，定义了从该类创建的对象操作其数据的行为和方法。
+
+类是一个蓝图表示某个东西应该如何定义，不包含实际的数据，比如一个`Dog`类并不包含实际的狗的年龄和名字。实际包含数据的是类实例化出来的对象。
+
+### 如何定义类
+类的定义使用`class`关键字，后面跟着类的名字和冒号。下面是一个例子:
+
+```py
+class Dog:
+    pass
+```
+`Dog`类的body包含一个语句:pass语句，这是一个占位符。让我们给这个类加一些内容，首先所有的`Dog`对象都必须要定义一个叫做`.__init__()`的方法，每次一个新的对象创建，`.__init__()`都会给属性进行赋值来设置对象的初始状态。`.__init__()`可以包含任意数量的参数，但是第一个参数必须叫做`self`.当创建新的类实例的时候，实例自动传给`self`参数，这样才可以定义新的属性。
+
+```py
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+在`.__init__()`中创建的属性叫做实例属性，实例的属性对不同的对象是不同的可以在`__init__()`之外给一个变量命名。类的属性对所有的类实例相同，在`__init__()`之外可以定义类属性，比如:
+
+```py
+class Dog:
+    # Class attribute
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+类的属性必须有初始值，在实例创建的时候，类属性会自动创建和赋值。
+
+## 实例化类
+创建对象的过程叫做对象的实例化，
+
+```py
+>>> Dog()
+<__main__.Dog object at 0x106702d30>
+```
+现在在内存地址`0x106702d30`处有了新的对象，再来创建一个新的对象，
+
+```py
+>>> a = Dog()
+>>> b = Dog()
+>>> a == b
+False
+```
+如果使用`==`操作符比较两个对象会发现结果是`False`，因为表示内存中的不同对象。
+
+### 类和实例属性
+
+
+### 实例方法
+
+
+
+
+## 继承
+
 
 # [实例、类和静态方法](https://realpython.com/instance-class-and-static-methods-demystified/)
 
