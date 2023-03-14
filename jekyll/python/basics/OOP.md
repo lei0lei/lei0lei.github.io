@@ -83,8 +83,62 @@ False
 如果使用`==`操作符比较两个对象会发现结果是`False`，因为表示内存中的不同对象。
 
 ### 类和实例属性
+```py
+class Dog:
+    species = "Canis familiaris"
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+要实例化一个对象需要给`name`和`age`一个值:
 
+```py
+>>> Dog()
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    Dog()
+TypeError: __init__() missing 2 required positional arguments: 'name' and 'age'
+```
+要初始化直接放在括号里即可:
+```py
+buddy = Dog("Buddy", 9)
+miles = Dog("Miles", 4)
+```
+这会创建两个实例，在实例化`Dog`对象的时候，python 会创建一个新的实例然后传递给`.__init__()`的第一个参数。
 
+创建了实例后可以通过`.`写法来进行属性访问：
+
+```py
+>>> buddy.name
+'Buddy'
+>>> buddy.age
+9
+
+>>> miles.name
+'Miles'
+>>> miles.age
+4
+```
+可以以相同的方式访问类的属性:
+
+```py
+>>> buddy.species
+'Canis familiaris'
+```
+使用类来组织数据的优点是实例保证会有期望的属性，因此总会返回一个值。
+
+尽管属性一定会存在，其值可以动态的改变:
+
+```py
+>>> buddy.age = 10
+>>> buddy.age
+10
+
+>>> miles.species = "Felis silvestris"
+>>> miles.species
+'Felis silvestris'
+```
+自定义个对象默认上是`mutable`的，换句话说，可以被动态改变，比如lists和dict都是`mutable`，但是string和tuple是`immutable`.
 ### 实例方法
 
 
