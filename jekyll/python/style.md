@@ -17,8 +17,9 @@ has_toc: true
 # 命名传统
 
 ## 变量、函数、包、类命名
+
 | 类型 | 命名 |  样例|
-|:--|:--|:--|
+|:------|:------|:------|
 |函数|使用小写，下划线分割| my_function|
 |变量|使用小写，下划线分割|x,var,my_variable|
 |类|首字母大写，不要使用下划线|MyClass|
@@ -26,6 +27,14 @@ has_toc: true
 |常量|纯大写，下划线分割|MY_CONSTANT|
 |模块|小写，下划线分割|my_module.py|
 |包|小写，不要使用下划线|mypackage|
+
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
 
 - 使用描述性名字
 - 不要使用无意义的名字如x,y除非是在用数学函数
