@@ -1,0 +1,611 @@
+{"0": {
+    "doc": "CNN",
+    "title": "CNN",
+    "content": " ",
+    "url": "/MachineLearning/model/CNN",
+    
+    "relUrl": "/MachineLearning/model/CNN"
+  },"1": {
+    "doc": "DP",
+    "title": "DP",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/DP",
+    
+    "relUrl": "/MachineLearning/pytorch/DP"
+  },"2": {
+    "doc": "DependencyInjector",
+    "title": "DependencyInjector",
+    "content": "&lt;/details . ",
+    "url": "/python/DependencyInjector",
+    
+    "relUrl": "/python/DependencyInjector"
+  },"3": {
+    "doc": "DevOps",
+    "title": "DevOps",
+    "content": " ",
+    "url": "/DevOps/",
+    
+    "relUrl": "/DevOps/"
+  },"4": {
+    "doc": "GNN",
+    "title": "GNN",
+    "content": " ",
+    "url": "/MachineLearning/model/GNN",
+    
+    "relUrl": "/MachineLearning/model/GNN"
+  },"5": {
+    "doc": "GSL",
+    "title": "GSL",
+    "content": " ",
+    "url": "/cpp/GSL/",
+    
+    "relUrl": "/cpp/GSL/"
+  },"6": {
+    "doc": "Git",
+    "title": "Git",
+    "content": " ",
+    "url": "/DevOps/Git/",
+    
+    "relUrl": "/DevOps/Git/"
+  },"7": {
+    "doc": "Github",
+    "title": "Github",
+    "content": " ",
+    "url": "/DevOps/Github/",
+    
+    "relUrl": "/DevOps/Github/"
+  },"8": {
+    "doc": "Gitlab",
+    "title": "Gitlab",
+    "content": " ",
+    "url": "/DevOps/Gitlab/",
+    
+    "relUrl": "/DevOps/Gitlab/"
+  },"9": {
+    "doc": "MLOps",
+    "title": "MLOps",
+    "content": " ",
+    "url": "/DevOps/MLOps/",
+    
+    "relUrl": "/DevOps/MLOps/"
+  },"10": {
+    "doc": "MachineLearning",
+    "title": "MachineLearning",
+    "content": " ",
+    "url": "/MachineLearning/",
+    
+    "relUrl": "/MachineLearning/"
+  },"11": {
+    "doc": "NN",
+    "title": "NN",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/NN",
+    
+    "relUrl": "/MachineLearning/pytorch/NN"
+  },"12": {
+    "doc": "OOP",
+    "title": "OOP",
+    "content": "面向对象编程是一个编程范式，将属性和行为绑定到独立的对象上。 对应的另一种常见的范式是过程式编程。 . ",
+    "url": "/python/OOP#oop",
+    
+    "relUrl": "/python/OOP#oop"
+  },"13": {
+    "doc": "OOP",
+    "title": "定义类",
+    "content": "基础的数据结构像number,string以及list，用于表示简单的信息，如果需要表示一些复杂的东西比如追踪一个人员在组织中的行为，需要保存该人员的基础信息比如姓名，年龄，职位，工作年龄，一种方式是使用list表示: . kirk = [\"James Kirk\", 34, \"Captain\", 2265] spock = [\"Spock\", 35, \"Science Officer\", 2254] mccoy = [\"Leonard McCoy\", \"Chief Medical Officer\", 2266] . 这种方法存在很多问题，大的代码文件很难管理，如果在其他地方引用kirk很难记住kirk的实际定义。第二，如果每个人员的元素数量并不相同就会产生错误，比如mccoy.更好的替代方式就是使用类来方便管理和维护。 . 类vs实例 . 类用于创建用户自定义的数据结构，类定义的函数叫做方法，定义了从该类创建的对象操作其数据的行为和方法。 . 类是一个蓝图表示某个东西应该如何定义，不包含实际的数据，比如一个Dog类并不包含实际的狗的年龄和名字。实际包含数据的是类实例化出来的对象。 . 如何定义类 . 类的定义使用class关键字，后面跟着类的名字和冒号。下面是一个例子: . class Dog: pass . Dog类的body包含一个语句:pass语句，这是一个占位符。让我们给这个类加一些内容，首先所有的Dog对象都必须要定义一个叫做.__init__()的方法，每次一个新的对象创建，.__init__()都会给属性进行赋值来设置对象的初始状态。.__init__()可以包含任意数量的参数，但是第一个参数必须叫做self.当创建新的类实例的时候，实例自动传给self参数，这样才可以定义新的属性。 . class Dog: def __init__(self, name, age): self.name = name self.age = age . 在.__init__()中创建的属性叫做实例属性，实例的属性对不同的对象是不同的可以在__init__()之外给一个变量命名。类的属性对所有的类实例相同，在__init__()之外可以定义类属性，比如: . class Dog: # Class attribute species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age . 类的属性必须有初始值，在实例创建的时候，类属性会自动创建和赋值。 . ",
+    "url": "/python/OOP#%E5%AE%9A%E4%B9%89%E7%B1%BB",
+    
+    "relUrl": "/python/OOP#定义类"
+  },"14": {
+    "doc": "OOP",
+    "title": "实例化类",
+    "content": "创建对象的过程叫做对象的实例化， . &gt;&gt;&gt; Dog() &lt;__main__.Dog object at 0x106702d30&gt; . 现在在内存地址0x106702d30处有了新的对象，再来创建一个新的对象， . &gt;&gt;&gt; a = Dog() &gt;&gt;&gt; b = Dog() &gt;&gt;&gt; a == b False . 如果使用==操作符比较两个对象会发现结果是False，因为表示内存中的不同对象。 . 类和实例属性 . class Dog: species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age . 要实例化一个对象需要给name和age一个值: . &gt;&gt;&gt; Dog() Traceback (most recent call last): File \"&lt;pyshell#6&gt;\", line 1, in &lt;module&gt; Dog() TypeError: __init__() missing 2 required positional arguments: 'name' and 'age' . 要初始化直接放在括号里即可: . buddy = Dog(\"Buddy\", 9) miles = Dog(\"Miles\", 4) . 这会创建两个实例，在实例化Dog对象的时候，python 会创建一个新的实例然后传递给.__init__()的第一个参数。 . 创建了实例后可以通过.写法来进行属性访问： . &gt;&gt;&gt; buddy.name 'Buddy' &gt;&gt;&gt; buddy.age 9 &gt;&gt;&gt; miles.name 'Miles' &gt;&gt;&gt; miles.age 4 . 可以以相同的方式访问类的属性: . &gt;&gt;&gt; buddy.species 'Canis familiaris' . 使用类来组织数据的优点是实例保证会有期望的属性，因此总会返回一个值。 . 尽管属性一定会存在，其值可以动态的改变: . &gt;&gt;&gt; buddy.age = 10 &gt;&gt;&gt; buddy.age 10 &gt;&gt;&gt; miles.species = \"Felis silvestris\" &gt;&gt;&gt; miles.species 'Felis silvestris' . 自定义个对象默认上是mutable的，换句话说，可以被动态改变，比如lists和dict都是mutable，但是string和tuple是immutable. 实例方法 . 实例方法是在类里面定义的函数并且只能从类的实力进行调用，实例方法的第一个参数都是self, . class Dog: species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age # Instance method def description(self): return f\"{self.name} is {self.age} years old\" # Another instance method def speak(self, sound): return f\"{self.name} says {sound}\" . Dog类有两个实例方法: . | .description()返回一个字符串显示狗的name和age. | .speak()有一个叫做sound的参数并返回name和sound. | . &gt;&gt;&gt; miles = Dog(\"Miles\", 4) &gt;&gt;&gt; miles.description() 'Miles is 4 years old' &gt;&gt;&gt; miles.speak(\"Woof Woof\") 'Miles says Woof Woof' &gt;&gt;&gt; miles.speak(\"Bow Wow\") 'Miles says Bow Wow' . 在写自己的类的时候，包含一个方法来返回这个类的一些信息通常是有用的，但是.description()不是那么的Pythonic. 当我们print一个类的时候: . &gt;&gt;&gt; print(miles) &lt;__main__.Dog object at 0x00aeff70&gt; . 返回的信息并没有什么用，通过改变一个特殊的实例方法.__str__()可以改变这个行为: . class Dog: # Leave other parts of Dog class as-is # Replace .description() with __str__() def __str__(self): return f\"{self.name} is {self.age} years old\" . &gt;&gt;&gt; miles = Dog(\"Miles\", 4) &gt;&gt;&gt; print(miles) 'Miles is 4 years old' . 前后置双下下划线在python中叫做dunder methods。 . ",
+    "url": "/python/OOP#%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%B1%BB",
+    
+    "relUrl": "/python/OOP#实例化类"
+  },"15": {
+    "doc": "OOP",
+    "title": "继承",
+    "content": "继承允许一个类得到另一个类的属性和方法，新类叫做子类。子类可以覆盖或者扩展父类的属性和方法，换句话说，子类继承了父类的所有属性和方法但同时实现了自己的属性和方法。 . 比如我们要给狗加入一个品种的属性区分不同的狗，一种方式是直接添加属性，这样既需要在实例化的时候额外传入一个参数； . class Dog: species = \"Canis familiaris\" def __init__(self, name, age, breed): self.name = name self.age = age self.breed = breed . &gt;&gt;&gt; miles = Dog(\"Miles\", 4, \"Jack Russell Terrier\") &gt;&gt;&gt; buddy = Dog(\"Buddy\", 9, \"Dachshund\") &gt;&gt;&gt; jack = Dog(\"Jack\", 3, \"Bulldog\") &gt;&gt;&gt; jim = Dog(\"Jim\", 5, \"Bulldog\") . 但是每只品种的狗有不同的行为，比如斗牛叫声是woof,dachshund叫声是yap,如果只使用一个类每次就需要给speak额外添加一个参数,这会很麻烦，而且一只狗的叫声应该取决于其品种。 . &gt;&gt;&gt; buddy.speak(\"Yap\") 'Buddy says Yap' &gt;&gt;&gt; jim.speak(\"Woof\") 'Jim says Woof' &gt;&gt;&gt; jack.speak(\"Woof\") 'Jack says Woof' . 创建一个子类可以解决这个问题，每个子类可以继承speak功能进行改造,包括为每个子类定义一个默认参数。 . 父类 VS 子类 . class Dog: species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age def __str__(self): return f\"{self.name} is {self.age} years old\" def speak(self, sound): return f\"{self.name} says {sound}\" class JackRussellTerrier(Dog): pass class Dachshund(Dog): pass class Bulldog(Dog): pass . 要创建子类只需要将父类名字放在括号中。 . &gt;&gt;&gt; miles = JackRussellTerrier(\"Miles\", 4) &gt;&gt;&gt; buddy = Dachshund(\"Buddy\", 9) &gt;&gt;&gt; jack = Bulldog(\"Jack\", 3) &gt;&gt;&gt; jim = Bulldog(\"Jim\", 5) . 子类的实例继承了父类的所有属性和方法: . &gt;&gt;&gt; miles.species 'Canis familiaris' &gt;&gt;&gt; buddy.name 'Buddy' &gt;&gt;&gt; print(jack) Jack is 3 years old &gt;&gt;&gt; jim.speak(\"Woof\") 'Jim says Woof' . 要确定对象属于哪个类只需要使用内建的type()： . &gt;&gt;&gt; type(miles) &lt;class '__main__.JackRussellTerrier'&gt; . 如果想要知道某个对象是否是类的实例只需要使用内建的isinstance(): . &gt;&gt;&gt; isinstance(miles, Dog) True . isinstance()有两个参数，第一个是对象，第二个是类。 . &gt;&gt;&gt; isinstance(miles, Bulldog) False &gt;&gt;&gt; isinstance(jack, Dachshund) False . 从子类创建的对象都是父类的实例。 . 扩展父类的功能 . 由于不同品种的狗不同的叫声，可以为子类的.speak()方法提供一个默认值，只需要覆盖.speak()方法。 . class JackRussellTerrier(Dog): def speak(self, sound=\"Arf\"): return f\"{self.name} says {sound}\" . 要覆盖父类的方法只需要在子类中命名相同的方法: . &gt;&gt;&gt; miles = JackRussellTerrier(\"Miles\", 4) &gt;&gt;&gt; miles.speak() 'Miles says Arf' . 有的时候我们会需要完全覆盖父类的方法，但是有时我们需要保留父类的东西，可以在子类中哦功能调用父类的方法,使用super()： . class JackRussellTerrier(Dog): def speak(self, sound=\"Arf\"): return super().speak(sound) . 调用super()的时候python回去搜索父类Dog中的`.speak方法。 . &gt;&gt;&gt; miles = JackRussellTerrier(\"Miles\", 4) &gt;&gt;&gt; miles.speak() 'Miles barks: Arf' . ",
+    "url": "/python/OOP#%E7%BB%A7%E6%89%BF",
+    
+    "relUrl": "/python/OOP#继承"
+  },"16": {
+    "doc": "OOP",
+    "title": "实例、类和静态方法",
+    "content": " ",
+    "url": "/python/OOP#%E5%AE%9E%E4%BE%8B%E7%B1%BB%E5%92%8C%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95",
+    
+    "relUrl": "/python/OOP#实例类和静态方法"
+  },"17": {
+    "doc": "OOP",
+    "title": "重载",
+    "content": " ",
+    "url": "/python/OOP#%E9%87%8D%E8%BD%BD",
+    
+    "relUrl": "/python/OOP#重载"
+  },"18": {
+    "doc": "OOP",
+    "title": "属性",
+    "content": " ",
+    "url": "/python/OOP#%E5%B1%9E%E6%80%A7",
+    
+    "relUrl": "/python/OOP#属性"
+  },"19": {
+    "doc": "OOP",
+    "title": "继承和多态",
+    "content": " ",
+    "url": "/python/OOP#%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81",
+    
+    "relUrl": "/python/OOP#继承和多态"
+  },"20": {
+    "doc": "OOP",
+    "title": "dataclass",
+    "content": " ",
+    "url": "/python/OOP#dataclass",
+    
+    "relUrl": "/python/OOP#dataclass"
+  },"21": {
+    "doc": "OOP",
+    "title": "构造器",
+    "content": " ",
+    "url": "/python/OOP#%E6%9E%84%E9%80%A0%E5%99%A8",
+    
+    "relUrl": "/python/OOP#构造器"
+  },"22": {
+    "doc": "OOP",
+    "title": "多重构造器",
+    "content": " ",
+    "url": "/python/OOP#%E5%A4%9A%E9%87%8D%E6%9E%84%E9%80%A0%E5%99%A8",
+    
+    "relUrl": "/python/OOP#多重构造器"
+  },"23": {
+    "doc": "OOP",
+    "title": "metaclass",
+    "content": "元编程是指程序知道自己本身或者有能力控制自身，python对类的元编程叫做metaclass.这是一种隐藏的OOP概念，在使用的时候可能根本意识不到或者说没有必要去意识到。 . python提供了其他OOP语言不支持的能力:可以自定义metaclass.但是metaclass是比较有争议的: . “Metaclasses are deeper magic than 99% of users should ever worry about. If you wonder whether you need them, you don’t (the people who actually need them know with certainty that they need them, and don’t need an explanation about why).” . 有的python学者相信我们永远不该使用自定义的metaclass,大多数情况下自定义的metaclass没有必要。 . 但是python的metaclass还是有必要了解，可能更好的了解python类的内部原理。 . python中，类有两种变体，没有正式的名字，姑且叫做旧风格和新风格的类。 . 在旧风格的类中，类和类型不是一个相同的东西，旧风格的类的实例是用单独的内建类型instance实现的。如果obj是旧风格的类的实例，obj.__class__来指定类，但是type(obj)总是instance,如下面python2.7的例子: . &gt;&gt;&gt; class Foo: ... pass ... &gt;&gt;&gt; x = Foo() &gt;&gt;&gt; x.__class__ &lt;class __main__.Foo at 0x000000000535CC48&gt; &gt;&gt;&gt; type(x) &lt;type 'instance'&gt; . 新风格的类统一了类和类型的概念。如果obj是新风格的类的实例，type(obj)和obj.__class__相同: . &gt;&gt;&gt; class Foo: ... pass &gt;&gt;&gt; obj = Foo() &gt;&gt;&gt; obj.__class__ &lt;class '__main__.Foo'&gt; &gt;&gt;&gt; type(obj) &lt;class '__main__.Foo'&gt; &gt;&gt;&gt; obj.__class__ is type(obj) True . &gt;&gt;&gt; n = 5 &gt;&gt;&gt; d = { 'x' : 1, 'y' : 2 } &gt;&gt;&gt; class Foo: ... pass ... &gt;&gt;&gt; x = Foo() &gt;&gt;&gt; for obj in (n, d, x): ... print(type(obj) is obj.__class__) ... True True True . ",
+    "url": "/python/OOP#metaclass",
+    
+    "relUrl": "/python/OOP#metaclass"
+  },"24": {
+    "doc": "OOP",
+    "title": "类型和类",
+    "content": " ",
+    "url": "/python/OOP#%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB",
+    
+    "relUrl": "/python/OOP#类型和类"
+  },"25": {
+    "doc": "OOP",
+    "title": "OOP",
+    "content": ". | OOP . | 定义类 . | 类vs实例 | 如何定义类 | . | 实例化类 . | 类和实例属性 | 实例方法 | . | 继承 . | 父类 VS 子类 | 扩展父类的功能 | . | . | 实例、类和静态方法 | 重载 | 属性 | 继承和多态 | dataclass | 构造器 | 多重构造器 | metaclass . | 类型和类 | . | . https://realpython.com/python3-object-oriented-programming/ . https://realpython.com/python-super/ . ",
+    "url": "/python/OOP",
+    
+    "relUrl": "/python/OOP"
+  },"26": {
+    "doc": "RNN",
+    "title": "RNN",
+    "content": " ",
+    "url": "/MachineLearning/model/RNN",
+    
+    "relUrl": "/MachineLearning/model/RNN"
+  },"27": {
+    "doc": "STL",
+    "title": "STL",
+    "content": " ",
+    "url": "/cpp/STL/",
+    
+    "relUrl": "/cpp/STL/"
+  },"28": {
+    "doc": "SVM",
+    "title": "SVM",
+    "content": " ",
+    "url": "/MachineLearning/model/SVM",
+    
+    "relUrl": "/MachineLearning/model/SVM"
+  },"29": {
+    "doc": "StandardLibrary",
+    "title": "StandardLibrary",
+    "content": " ",
+    "url": "/cpp/StandardLibrary/",
+    
+    "relUrl": "/cpp/StandardLibrary/"
+  },"30": {
+    "doc": "Transformer",
+    "title": "Transformer",
+    "content": " ",
+    "url": "/MachineLearning/model/Transformer",
+    
+    "relUrl": "/MachineLearning/model/Transformer"
+  },"31": {
+    "doc": "autograd",
+    "title": "autograd",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/autograd",
+    
+    "relUrl": "/MachineLearning/pytorch/autograd"
+  },"32": {
+    "doc": "basis",
+    "title": "Quick",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#quick",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#quick"
+  },"33": {
+    "doc": "basis",
+    "title": "tensor",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#tensor",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#tensor"
+  },"34": {
+    "doc": "basis",
+    "title": "dataload",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#dataload",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#dataload"
+  },"35": {
+    "doc": "basis",
+    "title": "transforms",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#transforms",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#transforms"
+  },"36": {
+    "doc": "basis",
+    "title": "build NN",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#build-nn",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#build-nn"
+  },"37": {
+    "doc": "basis",
+    "title": "autograd",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#autograd",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#autograd"
+  },"38": {
+    "doc": "basis",
+    "title": "optimize",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#optimize",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#optimize"
+  },"39": {
+    "doc": "basis",
+    "title": "save and load",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#save-and-load",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#save-and-load"
+  },"40": {
+    "doc": "basis",
+    "title": "basis",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis",
+    
+    "relUrl": "/MachineLearning/pytorch/basis"
+  },"41": {
+    "doc": "click",
+    "title": "click",
+    "content": " ",
+    "url": "/MachineLearning/packages/click",
+    
+    "relUrl": "/MachineLearning/packages/click"
+  },"42": {
+    "doc": "cpp",
+    "title": "cpp",
+    "content": " ",
+    "url": "/cpp/",
+    
+    "relUrl": "/cpp/"
+  },"43": {
+    "doc": "cuda",
+    "title": "cuda",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/cuda",
+    
+    "relUrl": "/MachineLearning/pytorch/cuda"
+  },"44": {
+    "doc": "DesignPattern",
+    "title": "DesignPattern",
+    "content": " ",
+    "url": "/python/DesignPattern/",
+    
+    "relUrl": "/python/DesignPattern/"
+  },"45": {
+    "doc": "frontend",
+    "title": "frontend",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/frontend",
+    
+    "relUrl": "/MachineLearning/pytorch/frontend"
+  },"46": {
+    "doc": "Factory Method Pattern",
+    "title": "Factory Method Pattern",
+    "content": "资源: https://realpython.com/factory-method-python/ . ",
+    "url": "/MachineLearning/designpattern/functionmethod",
+    
+    "relUrl": "/MachineLearning/designpattern/functionmethod"
+  },"47": {
+    "doc": "functools",
+    "title": "functools",
+    "content": " ",
+    "url": "/MachineLearning/packages/functools",
+    
+    "relUrl": "/MachineLearning/packages/functools"
+  },"48": {
+    "doc": "go",
+    "title": "go",
+    "content": " ",
+    "url": "/go/",
+    
+    "relUrl": "/go/"
+  },"49": {
+    "doc": "Home",
+    "title": "Home",
+    "content": "this is a personal knowledge base . ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"50": {
+    "doc": "internal",
+    "title": "internal",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/internal",
+    
+    "relUrl": "/MachineLearning/pytorch/internal"
+  },"51": {
+    "doc": "iterator",
+    "title": "基础",
+    "content": "iterators和iterables是两种不同但是相关的工具可以用来在一个数据流或者容器内进行迭代。iterator控制着迭代过程，iterable存放这数据内容。 . iterator和iterable是python的基础组件，绝大多数程序中都会遇到。本文章包含: . | 使用iterator protocol创建iterators | 理解iterator和iterable的不同 | 使用iterator和iterable | 使用generator functions和yield语句创建generator iterator | 使用不同的技术构建自己的iterable | 使用asyncio模块以及await和asynv关键字创建异步iterator | . ",
+    "url": "/python/iterator#section",
+    
+    "relUrl": "/python/iterator#section"
+  },"52": {
+    "doc": "iterator",
+    "title": "iterator",
+    "content": ". | 基础 | . &lt;/details . https://realpython.com/python-iterators-iterables/ . ",
+    "url": "/python/iterator",
+    
+    "relUrl": "/python/iterator"
+  },"53": {
+    "doc": "jax",
+    "title": "jax",
+    "content": " ",
+    "url": "/MachineLearning/jax/",
+    
+    "relUrl": "/MachineLearning/jax/"
+  },"54": {
+    "doc": "manim",
+    "title": "manim",
+    "content": " ",
+    "url": "/MachineLearning/packages/manim",
+    
+    "relUrl": "/MachineLearning/packages/manim"
+  },"55": {
+    "doc": "micellaneous",
+    "title": "All posts",
+    "content": "Ecg Classify Mar 02, 2023 how to analyze EEG data Mar 01, 2023 Meta learning review Feb 28, 2023 how to use jekyll just-the-doc theme Feb 27, 2023 Welcome to Jekyll! Feb 24, 2023 ",
+    "url": "/micellaneous/",
+    
+    "relUrl": "/micellaneous/"
+  },"56": {
+    "doc": "micellaneous",
+    "title": "micellaneous",
+    "content": "This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at jekyllrb.com . You can find the source code for Minima at GitHub: jekyll / minima . You can find the source code for Jekyll at GitHub: jekyll / jekyll . ",
+    "url": "/micellaneous/",
+    
+    "relUrl": "/micellaneous/"
+  },"57": {
+    "doc": "model",
+    "title": "model",
+    "content": " ",
+    "url": "/MachineLearning/model/",
+    
+    "relUrl": "/MachineLearning/model/"
+  },"58": {
+    "doc": "numpy",
+    "title": "numpy",
+    "content": " ",
+    "url": "/MachineLearning/packages/numpy",
+    
+    "relUrl": "/MachineLearning/packages/numpy"
+  },"59": {
+    "doc": "optimize",
+    "title": "optimize",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/optimize",
+    
+    "relUrl": "/MachineLearning/pytorch/optimize"
+  },"60": {
+    "doc": "packages",
+    "title": "packages",
+    "content": " ",
+    "url": "/python/packages",
+    
+    "relUrl": "/python/packages"
+  },"61": {
+    "doc": "pandas",
+    "title": "pandas",
+    "content": " ",
+    "url": "/MachineLearning/packages/pandas",
+    
+    "relUrl": "/MachineLearning/packages/pandas"
+  },"62": {
+    "doc": "pants",
+    "title": "pants",
+    "content": " ",
+    "url": "/MachineLearning/packages/pants",
+    
+    "relUrl": "/MachineLearning/packages/pants"
+  },"63": {
+    "doc": "pytest",
+    "title": "pytest",
+    "content": " ",
+    "url": "/MachineLearning/packages/pytest",
+    
+    "relUrl": "/MachineLearning/packages/pytest"
+  },"64": {
+    "doc": "python",
+    "title": "python",
+    "content": " ",
+    "url": "/python/",
+    
+    "relUrl": "/python/"
+  },"65": {
+    "doc": "pytorch",
+    "title": "pytorch",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/",
+    
+    "relUrl": "/MachineLearning/pytorch/"
+  },"66": {
+    "doc": "rich",
+    "title": "rich",
+    "content": "Github仓库: https://github.com/Textualize/rich . 文档: https://rich.readthedocs.io/en/stable/introduction.html . 安装: . python -m pip install rich . 测试: . python -m rich . 最简单的使用方式，用rich的print替换掉原生的。 . from rich import print print(\"Hello, [bold magenta]World[/bold magenta]!\", \":vampire:\", locals()) . 输出: . Hello, World! 🧛 { '__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'print': &lt;function print at 0x7f13bae2add0&gt; } . 可以在python的REPL中安装: . &gt;&gt;&gt; from rich import pretty &gt;&gt;&gt; pretty.install() . ",
+    "url": "/MachineLearning/packages/rich",
+    
+    "relUrl": "/MachineLearning/packages/rich"
+  },"67": {
+    "doc": "rust",
+    "title": "rust",
+    "content": " ",
+    "url": "/rust/",
+    
+    "relUrl": "/rust/"
+  },"68": {
+    "doc": "scipy",
+    "title": "scipy",
+    "content": " ",
+    "url": "/MachineLearning/packages/scipy",
+    
+    "relUrl": "/MachineLearning/packages/scipy"
+  },"69": {
+    "doc": "sqlAlchemy",
+    "title": "sqlAlchemy",
+    "content": " ",
+    "url": "/MachineLearning/packages/sqlAlchemy",
+    
+    "relUrl": "/MachineLearning/packages/sqlAlchemy"
+  },"70": {
+    "doc": "python style",
+    "title": "命名传统",
+    "content": " ",
+    "url": "/python/style#%E5%91%BD%E5%90%8D%E4%BC%A0%E7%BB%9F",
+    
+    "relUrl": "/python/style#命名传统"
+  },"71": {
+    "doc": "python style",
+    "title": "变量、函数、包、类命名",
+    "content": "| 类型 | 命名 | 样例|:–|:–|:–|函数|使用小写，下划线分割| my_function|变量|使用小写，下划线分割|x,var,my_variable|类|首字母大写，不要使用下划线|MyClass|方法|小写，下划线分割|class_method|常量|纯大写，下划线分割|MY_CONSTANT|模块|小写，下划线分割|my_module.py|包|小写，不要使用下划线|mypackage| . | 使用描述性名字 | 不要使用无意义的名字如x,y除非是在用数学函数 | 不要使用歧义缩写 | . ",
+    "url": "/python/style#%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E5%8C%85%E7%B1%BB%E5%91%BD%E5%90%8D",
+    
+    "relUrl": "/python/style#变量函数包类命名"
+  },"72": {
+    "doc": "python style",
+    "title": "下划线",
+    "content": ". | 单下划线 | . 单下划线有时是来表明是一个临时变量或者占位变量。比如在下面的循环中不需要访问index，可以用_来替代。 . for _ in range(32): ... print('Hello, World.') . 也可以用在unpacking表达式中，表示要忽略这个位置解压出来的值，比如下面的代码,下划线就是一个占位变量: . &gt;&gt;&gt; car = ('red', 'auto', 12, 3812.4) &gt;&gt;&gt; color, _, _, mileage = car &gt;&gt;&gt; color 'red' &gt;&gt;&gt; mileage 3812.4 &gt;&gt;&gt; _ 12 . 除此之外单下划线还可以用作表示interpreter eval的最后一个表达式的结果。在解释器会话中可能用到。 . &gt;&gt;&gt; 20 + 3 23 &gt;&gt;&gt; _ 23 &gt;&gt;&gt; print(_) 23 &gt;&gt;&gt; list() [] &gt;&gt;&gt; _.append(1) &gt;&gt;&gt; _.append(2) &gt;&gt;&gt; _.append(3) &gt;&gt;&gt; _ [1, 2, 3] . | 前置单下划线 | . 对于变量或者方法名，前置单下划线表只是一个习惯，完全不会影响程序的行为。前置单下划线告诉编程者ok,这个变量或者方法只能在内使用.这个习惯记录在PEP 8中。 . python没有私有或者公有变量的区别，使用这个习惯就好像在说:这不是一个类的公有接口，不要随便改动。下面是一个例子: . class Test: def __init__(self): self.foo = 11 self._bar = 23 . 如果访问这两个属性会如何?随便访问，没有区别! . &gt;&gt;&gt; t = Test() &gt;&gt;&gt; t.foo 11 &gt;&gt;&gt; t._bar 23 . 不过下划线影响了名字导入模块的方式: . # This is my_module.py: def external_func(): return 23 def _internal_func(): return 42 . 如果使用import *来引入模块中的所有名字,python不会import带前置下划线的名字，除非这个模块定义了__all__ list来覆盖这个行为。 . &gt;&gt;&gt; from my_module import * &gt;&gt;&gt; external_func() 23 &gt;&gt;&gt; _internal_func() NameError: \"name '_internal_func' is not defined\" . 我们应该尽量避免’wildcard import’。正常的import不会被前置单下划线影响。 . &gt;&gt;&gt; import my_module &gt;&gt;&gt; my_module.external_func() 23 &gt;&gt;&gt; my_module._internal_func() 42 . | 后置单下划线 | . 有的时候一个变量的名字被关键字占用了，像class或者def无法作为变量名，这种情况下可以加一个单下划线避免冲突: . &gt;&gt;&gt; def make_object(name, class): SyntaxError: \"invalid syntax\" &gt;&gt;&gt; def make_object(name, class_): ... pass . 这个规则在 PEP 8 中有描述. | 前置双下划线 | . 这种命名方式不像前面只是一种传统，如果类的属性以双下划线开头，会有一些特殊含义。python解释器会重写属性名来避免在子类中出现名字冲突。 . 又叫做name mangling，解释器会改变变量的名使其很难在之后类扩展的过程中发生冲突。下面是一个例子: . class Test: def __init__(self): self.foo = 11 self._bar = 23 self.__baz = 23 . 然后使用内建的dir()函数看一下对象的属性: . &gt;&gt;&gt; t = Test() &gt;&gt;&gt; dir(t) ['_Test__baz', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_bar', 'foo'] . 可以看到名字发生了改变，__baz发生了什么? . 如果细看会发现变成了_Test__baz,这就是python使用了name mangling来保护父类不被子类更改变量。 . 首先创建一个类来扩展Test类并试图在构造器中覆盖现存的属性: . class ExtendedTest(Test): def __init__(self): super().__init__() self.foo = 'overridden' self._bar = 'overridden' self.__baz = 'overridden' . 现在，foo, _bar, 和 __baz 在扩展出来的类的实例是什么? . &gt;&gt;&gt; t2 = ExtendedTest() &gt;&gt;&gt; t2.foo 'overridden' &gt;&gt;&gt; t2._bar 'overridden' &gt;&gt;&gt; t2.__baz AttributeError: \"'ExtendedTest' object has no attribute '__baz'\" Wait, why did we get that AttributeError when we tried to inspect the value of t2.__baz? Name mangling strikes again! It turns out this object doesn’t even have a __baz attribute: &gt;&gt;&gt; dir(t2) ['_ExtendedTest__baz', '_Test__baz', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_bar', 'foo', 'get_vars'] . 正如我们看到的__baz被变成了 got turned into _ExtendedTest__baz`来防止意外的更改: . &gt;&gt;&gt; t2._ExtendedTest__baz 'overridden' . 但是原始的 _Test__baz仍然存在: . &gt;&gt;&gt; t2._Test__baz 42 . 看下面的一个例子: . class ManglingTest: def __init__(self): self.__mangled = 'hello' def get_mangled(self): return self.__mangled &gt;&gt;&gt; ManglingTest().get_mangled() 'hello' &gt;&gt;&gt; ManglingTest().__mangled AttributeError: \"'ManglingTest' object has no attribute '__mangled'\" . name mangling会影响属性和方法名: . class MangledMethod: def __method(self): return 42 def call_it(self): return self.__method() &gt;&gt;&gt; MangledMethod().__method() AttributeError: \"'MangledMethod' object has no attribute '__method'\" &gt;&gt;&gt; MangledMethod().call_it() 42 . 下面是另一个例子: . _MangledGlobal__mangled = 23 class MangledGlobal: def test(self): return __mangled &gt;&gt;&gt; MangledGlobal().test() 23 . 首先创建了一个全局变量然后访问一个类的内部变量，由于name mangling就可以访问__mangled.python解释器会自动将__mangled扩展为_MangledGlobal_mangled. ⏰ Sidebar: What’s a “dunder” in Python? I’ve you’ve heard some experienced Pythonistas talk about Python or watched a few conference talks you may have heard the term dunder. If you’re wondering what that is, here’s your answer: . Double underscores are often referred to as “dunders” in the Python community. The reason is that double underscores appear quite often in Python code and to avoid fatiguing their jaw muscles Pythonistas often shorten “double underscore” to “dunder.” . For example, you’d pronounce baz as “dunder baz”. Likewise __init would be pronounced as “dunder init”, even though one might think it should be “dunder init dunder.” But that’s just yet another quirk in the naming convention. It’s like a secret handshake for Python developers 🙂 . | 前后双下划线 如果使用了前后双下划线，命名修饰将不再适用，解释器不会对其有任何影响。 | . class PrefixPostfixTest: def __init__(self): self.__bam__ = 42 &gt;&gt;&gt; PrefixPostfixTest().__bam__ 42 . 但是这种命名方式为保留方式，只能被语言特征使用，比如__init__是对象构造器，__call__是对象调用器。这种方法经常被叫做魔法方法(magic-method). 最好不要在自己的程序中使用这种方式命名，可能会与未来python的某个特性冲突。 . ",
+    "url": "/python/style#%E4%B8%8B%E5%88%92%E7%BA%BF",
+    
+    "relUrl": "/python/style#下划线"
+  },"73": {
+    "doc": "python style",
+    "title": "docstring",
+    "content": "下面是一个docstring的例子: . def square(n): '''Takes in a number n, returns the square of n''' return n**2 . python docstring是用在函数、方法、类、或者模块中的字符串来对代码进行文档化，要进行访问， 使用__doc__属性。 . ",
+    "url": "/python/style#docstring",
+    
+    "relUrl": "/python/style#docstring"
+  },"74": {
+    "doc": "python style",
+    "title": "__doc__属性",
+    "content": "当字符串放在函数、模块、方法或者类的定义后边时就会与对象的__doc__属性关联， 可以通过这个属性进行访问。比如: . def square(n): '''Takes in a number n, returns the square of n''' return n**2 print(square.__doc__) . 单行docstring . | 单行docstring只有一行，前后中间都没有空行。 | 不应该是描述性的必须遵循”Do this, return that” 类似的结构 def multiplier(a, b): \"\"\"Takes in two numbers, returns their product.\"\"\" return a*b . 多行docstring . | . 多行docstring包含一个summary，类似单行。后边跟一个空行以及更加 详细的描述，具体查看:PEP 257. Python模块中的docstring . | 列出所有的类函数和对象以及ecxcepions | 每一项都应该改有一行总结 下面是一个例子: | . Create portable serialized representations of Python objects. See module copyreg for a mechanism for registering custom picklers. See module pickletools source for extensive comments. Classes: Pickler Unpickler Functions: dump(object, file) dumps(object) -&gt; string load(file) -&gt; object loads(string) -&gt; object Misc variables: __version__ format_version compatible_formats . Python类中的docstring . | 应该给出类的行为以及其公有方法和实例变量 | 子类，构造器和方法应该有自己的docstring | . class Person: \"\"\" A class to represent a person... Attributes ---------- name : str first name of the person surname : str family name of the person age : int age of the person Methods ------- info(additional=\"\"): Prints the person's name and age. \"\"\" def __init__(self, name, surname, age): \"\"\" Constructs all the necessary attributes for the person object. Parameters ---------- name : str first name of the person surname : str family name of the person age : int age of the person \"\"\" self.name = name self.surname = surname self.age = age def info(self, additional=\"\"): \"\"\" Prints the person's name and age. If the argument 'additional' is passed, then it is appended after the main info. Parameters ---------- additional : str, optional More info to be displayed (default is None) Returns ------- None \"\"\" print(f'My name is {self.name} {self.surname}. I am {self.age} years old.' + additional) . 可以使用help()函数查看对象对应的docstring. python函数中的docstring . | 应该给整个函数一个总结以及器参数和返回值 | 应该列出所有的exceptions和可选参数 下面是一个例子: | . def add_binary(a, b): ''' Returns the sum of two decimal numbers in binary digits. Parameters: a (int): A decimal integer b (int): Another decimal integer Returns: binary_sum (str): Binary string of the sum of a and b ''' binary_sum = bin(a+b)[2:] return binary_sum print(add_binary.__doc__) . python脚本的docstring . | 应该给出脚本的函数和命令行语法使用 | 应该作为所有函数和参数的快速索引 | . Python包中的docstring . | 应该写在__init__.py文件中 | 应该包含包可以导出的所有模块和子包 | . ",
+    "url": "/python/style#__doc__%E5%B1%9E%E6%80%A7",
+    
+    "relUrl": "/python/style#__doc__属性"
+  },"75": {
+    "doc": "python style",
+    "title": "docstring格式",
+    "content": "Epytest . \"\"\" This is a javadoc style. @param param1: this is a first param @param param2: this is a second param @return: this is a description of what is returned @raise keyError: raises an exception \"\"\" . reST . \"\"\" This is a reST style. :param param1: this is a first param :param param2: this is a second param :returns: this is a description of what is returned :raises keyError: raises an exception \"\"\" . Google . \"\"\" This is an example of Google style. Args: param1: This is the first param. param2: This is a second param. Returns: This is a description of what is returned. Raises: KeyError: Raises an exception. \"\"\" . Numpydoc . \"\"\" My numpydoc description of a kind of very exhautive numpydoc format docstring. Parameters ---------- first : array_like the 1st param name `first` second : the 2nd param third : {'value', 'other'}, optional the 3rd param, by default 'value' Returns ------- string a value in a string Raises ------ KeyError when a key error OtherError when an other error \"\"\" . 可以使用Pyment自动给一个项目生成docstring . ",
+    "url": "/python/style#docstring%E6%A0%BC%E5%BC%8F",
+    
+    "relUrl": "/python/style#docstring格式"
+  },"76": {
+    "doc": "python style",
+    "title": "代码布局",
+    "content": ". | 空行，空格提升可读性，顶层函数和类使用两个空行，内部方法使用单空行，不同步骤之间加空行。 | 每一行限制到79个字符， | . def function(arg_one, arg_two, arg_three, arg_four): return arg_one . from mypkg import example1, \\ example2, example3 . # Recommended total = (first_variable + second_variable - third_variable) . ",
+    "url": "/python/style#%E4%BB%A3%E7%A0%81%E5%B8%83%E5%B1%80",
+    
+    "relUrl": "/python/style#代码布局"
+  },"77": {
+    "doc": "python style",
+    "title": "缩进",
+    "content": ". | 使用4个连续space表示缩进 | 使用space而不是tab | 断行之后使用缩进 | . def function(arg_one, arg_two, arg_three, arg_four): return arg_one . x = 5 if (x &gt; 3 and x &lt; 10): print(x) . var = function( arg_one, arg_two, arg_three, arg_four) def function( arg_one, arg_two, arg_three, arg_four): return arg_one . 下面这种写法是不被推荐的，使用hanging indent时尽量不要在第一行留参数: . # Not Recommended var = function(arg_one, arg_two, arg_three, arg_four) . | 在断行的情况下如何使用括号 ```py list_of_numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] | . list_of_numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] . # 注释 - 注释和docstring每行不超过72字符 - 使用完整语句，大写字母开头 - 更改代码后更新注释 - #space 开头，缩进与代码对齐，分段使用#多空一行 ```py def quadratic(a, b, c, x): # Calculate the solution to a quadratic equation using the quadratic # formula. # # There are always two solutions to a quadratic equation, x_1 and x_2. x_1 = (- b+(b**2-4*a*c)**(1/2)) / (2*a) x_2 = (- b-(b**2-4*a*c)**(1/2)) / (2*a) return x_1, x_2 . | 尽量少用内联的注释 | 内敛注释和正式代码有至少两个空格 | . ",
+    "url": "/python/style#%E7%BC%A9%E8%BF%9B",
+    
+    "relUrl": "/python/style#缩进"
+  },"78": {
+    "doc": "python style",
+    "title": "表达式和语句空白",
+    "content": ". | 赋值运算符，比较运算符和逻辑运算符两端有空白 | 函数参数礼的默认值等号两边不要有空白 | . # Recommended y = x**2 + 5 z = (x+y) * (x-y) # Not Recommended y = x ** 2 + 5 z = (x + y) * (x - y) . | 切片运算符两边有空白 | 千万不要在每一行后边添加空白，下面是一些不应该添加空白的地方 | . # Recommended my_list = [1, 2, 3] # Not recommended my_list = [ 1, 2, 3, ] x = 5 y = 6 # Recommended print(x, y) # Not recommended print(x , y) def double(x): return x * 2 # Recommended double(3) # Not recommended double (3) # Recommended list[3] # Not recommended list [3] # Recommended tuple = (1,) # Not recommended tuple = (1, ) # Recommended var1 = 5 var2 = 6 some_long_var = 7 # Not recommended var1 = 5 var2 = 6 some_long_var = 7 . ",
+    "url": "/python/style#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5%E7%A9%BA%E7%99%BD",
+    
+    "relUrl": "/python/style#表达式和语句空白"
+  },"79": {
+    "doc": "python style",
+    "title": "一些建议",
+    "content": "不使用==把布尔值和True或者False比较。 . # Not recommended my_bool = 6 &gt; 5 if my_bool == True: return '6 is bigger than 5' # Recommended if my_bool: return '6 is bigger than 5' . 如果需要比较一个列表的长度是否为0: . # Not recommended my_list = [] if not len(my_list): print('List is empty!') # Recommended my_list = [] if not my_list: print('List is empty!') . 使用is not而不是not is： . # Recommended if x is not None: return 'x exists!' # Not recommended if not x is None: return 'x exists!' . 不要使用if x:代替if x is not None:: . # Not Recommended if arg: # Do something with arg... # Recommended if arg is not None: # Do something with arg... 使用.startstith()和.endswith()而不是切片。 . ",
+    "url": "/python/style#%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE",
+    
+    "relUrl": "/python/style#一些建议"
+  },"80": {
+    "doc": "python style",
+    "title": "工具",
+    "content": " ",
+    "url": "/python/style#%E5%B7%A5%E5%85%B7",
+    
+    "relUrl": "/python/style#工具"
+  },"81": {
+    "doc": "python style",
+    "title": "Linters",
+    "content": ". | pycodesytyle | flake8 | . ",
+    "url": "/python/style#linters",
+    
+    "relUrl": "/python/style#linters"
+  },"82": {
+    "doc": "python style",
+    "title": "Autoformatters",
+    "content": ". | black | autopep8 | yapf | . ",
+    "url": "/python/style#autoformatters",
+    
+    "relUrl": "/python/style#autoformatters"
+  },"83": {
+    "doc": "python style",
+    "title": "python style",
+    "content": ". | 命名传统 . | 变量、函数、包、类命名 | 下划线 | . | docstring . | __doc__属性 . | 单行docstring | 多行docstring . | Python模块中的docstring | Python类中的docstring | python函数中的docstring | python脚本的docstring | Python包中的docstring | . | . | docstring格式 . | Epytest | reST | Google | Numpydoc | . | . | 代码布局 | 缩进 | 表达式和语句空白 | 一些建议 | 工具 . | Linters | Autoformatters | . | . ",
+    "url": "/python/style",
+    
+    "relUrl": "/python/style"
+  },"84": {
+    "doc": "tqdm",
+    "title": "tqdm",
+    "content": " ",
+    "url": "/MachineLearning/packages/tqdm",
+    
+    "relUrl": "/MachineLearning/packages/tqdm"
+  },"85": {
+    "doc": "web",
+    "title": "web",
+    "content": " ",
+    "url": "/web/",
+    
+    "relUrl": "/web/"
+  },"86": {
+    "doc": "yolo",
+    "title": "yolo",
+    "content": " ",
+    "url": "/MachineLearning/model/yolo",
+    
+    "relUrl": "/MachineLearning/model/yolo"
+  }
+}
