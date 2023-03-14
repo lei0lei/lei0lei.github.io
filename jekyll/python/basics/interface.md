@@ -256,7 +256,7 @@ class EmlParserNew:
 
 ## 使用`abc`注册虚拟子类
 
-import `abc`模块之后，可以直接使用`.register()`元方法注册虚拟子类，
+import `abc`模块之后，可以直接使用`.register()`元方法注册虚拟子类，这一个例子注册了一个`Doblue`接口作为内建的`__float__`类的虚拟基类。
 
 
 
