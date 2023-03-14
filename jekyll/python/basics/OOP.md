@@ -360,12 +360,150 @@ class JackRussellTerrier(Dog):
 
 # [dataclass](https://realpython.com/python-data-classes/)
 
+在3.7版本之后python加入了数据类，这种类主要包含数据，使用`@dataclass`装饰器:
 
+```py
+from dataclasses import dataclass
 
+@dataclass
+class DataClassCard:
+    rank: str
+    suit: str
+```
 
+dataclass已经实现了一些基础的功能比如实例化，打印，比较大小等。
 
+```py
+>>> queen_of_hearts = DataClassCard('Q', 'Hearts')
+>>> queen_of_hearts.rank
+'Q'
+>>> queen_of_hearts
+DataClassCard(rank='Q', suit='Hearts')
+>>> queen_of_hearts == DataClassCard('Q', 'Hearts')
+True
+```
+正常的类看起来是下面这种：
 
+```py
+class RegularCard:
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+```
+可以看出我们要重复写一些名字，而且因为一些因素有下面一个小问题:
 
+```py
+>>> queen_of_hearts = RegularCard('Q', 'Hearts')
+>>> queen_of_hearts.rank
+'Q'
+>>> queen_of_hearts
+<__main__.RegularCard object at 0x7fb6eee35d30>
+>>> queen_of_hearts == RegularCard('Q', 'Hearts')
+False
+```
+dataclass看上去暗中帮我们做了一些事情，默认情况下,dataclass实现了一个`.__repr__()`方法来提供好看的字符串表示以及`.__eq__()`方法进行对象的比较。对于`RegularCard`如果要看起来像上面一样，需要添加方法:
+
+```py
+class RegularCard
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}'
+                f'(rank={self.rank!r}, suit={self.suit!r})')
+
+    def __eq__(self, other):
+        if other.__class__ is not self.__class__:
+            return NotImplemented
+        return (self.rank, self.suit) == (other.rank, other.suit)
+```
+接下来我们将看到
+
+- 如何给dataclass添加默认值
+- dataclass如何实现对象的排序
+- 如何表示immutable数据
+- dataclass如何处理继承
+
+## 替代dataclass
+
+对于简单的数据结构可能使用过tuple或者dict,比如:
+
+```py
+>>> queen_of_hearts_tuple = ('Q', 'Hearts')
+>>> queen_of_hearts_dict = {'rank': 'Q', 'suit': 'Hearts'}
+```
+
+但是对于编程者来说有许多需要做的事:
+- 需要记住`queen_of_hearts_...`变量表示扑克
+- 对于tuple版本，需要记住属性顺序，`('Spades', 'A')`可能不会报错
+- 如果使用dict版本需要确保属性名是一致的，比如`{'value': 'A', 'suit': 'Spades'}`可能不会有效
+
+下面的写法可能不太雅观:
+
+```py
+>>> queen_of_hearts_tuple[0]  # No named access
+'Q'
+>>> queen_of_hearts_dict['suit']  # Would be nicer with .suit
+'Hearts'
+```
+
+一个替代品是`namedtuple`，用来创建可读的小型数据结构。
+
+```py
+from collections import namedtuple
+
+NamedTupleCard = namedtuple('NamedTupleCard', ['rank', 'suit'])
+```
+`NamedTupleCard`将会给出像dataclass一样的结果:
+
+```py
+>>> queen_of_hearts = NamedTupleCard('Q', 'Hearts')
+>>> queen_of_hearts.rank
+'Q'
+>>> queen_of_hearts
+NamedTupleCard(rank='Q', suit='Hearts')
+>>> queen_of_hearts == NamedTupleCard('Q', 'Hearts')
+True
+```
+
+那么为什么还要使用dataclass, 首先，dataclass 有更丰富的特征，同时`namedtuple`有一些不太好的特征，设计上来看，`namedtuple`就是一个普通的tuple，从比较上来看就能看出来：
+
+```py
+>>> queen_of_hearts == ('Q', 'Hearts')
+True
+```
+看上去没问题但是缺乏类型使其容易出现隐藏的bug,尤其是比较两个不同的`namedtuple`类时:
+
+```py
+>>> Person = namedtuple('Person', ['first_initial', 'last_name']
+>>> ace_of_spades = NamedTupleCard('A', 'Spades')
+>>> ace_of_spades == Person('A', 'Spades')
+True
+```
+
+`namedtuple`还会带来一些限制，比如很难添加默认值，本身也是immutable.
+
+```py
+>>> card = NamedTupleCard('7', 'Diamonds')
+>>> card.rank = '9'
+AttributeError: can't set attribute
+```
+
+dataclass 不会完全取代namedtuple.比如如果需要数据结构的行为像tuple一样，最好使用namedtuple.
+
+另一种方式是[attrs project](https://www.attrs.org/en/stable/),
+
+```py
+import attr
+
+@attr.s
+class AttrsCard:
+    rank = attr.ib()
+    suit = attr.ib()
+```
+
+.
 # [构造器](https://realpython.com/python-class-constructor/)
 
 
