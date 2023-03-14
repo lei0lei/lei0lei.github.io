@@ -201,7 +201,7 @@ class Friend:
 ```
 尽管`Friend`没有明确的继承自`Person`,它实现了`.name()`和`.age()`，因此变成了`Friend`的虚基类，在运行`issubclass(Friend, Person)`的时候应该返回True.
 
-[UML](https://files.realpython.com/media/virtual-base-class.b545144aafef.png)
+![UML](https://files.realpython.com/media/virtual-base-class.b545144aafef.png)
 
 Taking a look at PersonMeta, you’ll notice that there’s another dunder method called .__instancecheck__(). This method is used to check if instances of Friend are created from the Person interface. Your code will call .__instancecheck__() when you use isinstance(Friend, Person).
 
