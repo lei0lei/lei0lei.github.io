@@ -12,7 +12,7 @@ has_toc: true
   {: .text-delta }
 1. TOC
 {:toc}
-</details
+</details>
 
 本教程中，将会:
 - 理解接口如何工作以及如何创建的
@@ -203,7 +203,6 @@ class Friend:
 
 ![UML](https://files.realpython.com/media/virtual-base-class.b545144aafef.png)
 
-Taking a look at PersonMeta, you’ll notice that there’s another dunder method called .__instancecheck__(). This method is used to check if instances of Friend are created from the Person interface. Your code will call .__instancecheck__() when you use isinstance(Friend, Person).
 
 查看一下`PersonMeta`,将会发现由另一个dunder方法`__instancecheck__()`,这个方法用来检查Friend的实力是否是从`Person`接口创建的实例。在使用`isinstance(Friend, Person)`的时候会调用该方法。
 
