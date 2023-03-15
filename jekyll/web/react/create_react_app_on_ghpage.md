@@ -2,6 +2,7 @@
 layout: default
 title: create react app on ghpage
 permalink: /web/react
-has_children: fasle
+parent: react
+grand_parent: web
 has_toc: true
 ---
