@@ -258,10 +258,138 @@ class EmlParserNew:
 
 import `abc`模块之后，可以直接使用`.register()`元方法注册虚拟子类，这一个例子注册了一个`Doblue`接口作为内建的`__float__`类的虚拟基类。
 
+```py
+class Double(metaclass=abc.ABCMeta):
+    """Double precision floating point number."""
+    pass
 
+Double.register(float)
+```
 
+可以使用`.register()`检查效果，
 
+```py
+>>> issubclass(float, Double)
+True
 
+>>> isinstance(1.2345, Double)
+True
+```
 
+通过使用`.register()`元方法，注册了一个`float`的虚拟子类`Double`.
 
+可以使用类装饰其将被装饰的类设置为虚拟子类，
 
+```py
+@Double.register
+class Double64:
+    """A 64-bit double-precision floating-point number."""
+    pass
+
+print(issubclass(Double64, Double))  # True
+```
+
+### 使用带注册的子类检测
+
+在结合使用`.__subclasshook__()`和`.register()`的时候必须小心，因为`.__subclasshook__()`的优先级高于虚拟子类注册。为了确保注册的虚拟子类生效必须给`.__subclasshook__()`方法添加`NotImplemented`.更新后的`FormalParserInterface`为:
+
+```py
+class FormalParserInterface(metaclass=abc.ABCMeta):
+    @classmethod
+    def __subclasshook__(cls, subclass):
+        return (hasattr(subclass, 'load_data_source') and 
+                callable(subclass.load_data_source) and 
+                hasattr(subclass, 'extract_text') and 
+                callable(subclass.extract_text) or 
+                NotImplemented)
+
+class PdfParserNew:
+    """Extract text from a PDF."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text(self, full_file_path: str) -> dict:
+        """Overrides FormalParserInterface.extract_text()"""
+        pass
+
+@FormalParserInterface.register
+class EmlParserNew:
+    """Extract text from an email."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text_from_email(self, full_file_path: str) -> dict:
+        """A method defined only in EmlParser.
+        Does not override FormalParserInterface.extract_text()
+        """
+        pass
+
+print(issubclass(PdfParserNew, FormalParserInterface))  # True
+print(issubclass(EmlParserNew, FormalParserInterface))  # True
+```
+
+`EmlParserNew`被认为是`FormalParserInterface`接口的虚拟子类。这出现了一点问题因为`EmlParserNew`没有覆盖`.extract_text()`.使用虚拟子类注册一定要小心。
+
+### 使用抽象方法声明
+
+抽象方法是python接口声明的方法，但是没有一个有用的实现。抽象方法必须被实现了接口的具体类进行重写。
+
+要在python中创建抽象方法，将`@abc.abstractmethod`装饰其添加到接口的方法中，在下一个例子中，更改`FormalParserInterface`来包含抽象方法`.load_data_source()`和`.extract_text()`.
+
+```py
+class FormalParserInterface(metaclass=abc.ABCMeta):
+    @classmethod
+    def __subclasshook__(cls, subclass):
+        return (hasattr(subclass, 'load_data_source') and 
+                callable(subclass.load_data_source) and 
+                hasattr(subclass, 'extract_text') and 
+                callable(subclass.extract_text) or 
+                NotImplemented)
+
+    @abc.abstractmethod
+    def load_data_source(self, path: str, file_name: str):
+        """Load in the data set"""
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def extract_text(self, full_file_path: str):
+        """Extract text from the data set"""
+        raise NotImplementedError
+
+class PdfParserNew(FormalParserInterface):
+    """Extract text from a PDF."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text(self, full_file_path: str) -> dict:
+        """Overrides FormalParserInterface.extract_text()"""
+        pass
+
+class EmlParserNew(FormalParserInterface):
+    """Extract text from an email."""
+    def load_data_source(self, path: str, file_name: str) -> str:
+        """Overrides FormalParserInterface.load_data_source()"""
+        pass
+
+    def extract_text_from_email(self, full_file_path: str) -> dict:
+        """A method defined only in EmlParser.
+        Does not override FormalParserInterface.extract_text()
+        """
+        pass
+```
+在上边的例子中，最终创建了一个正式接口，当抽象方法没有被重写时会报错。
+
+`PdfParserNew`实例`pdf_parser`不会报错，因为`PdfParserNew`正确重写了`FormalParserInterface`的抽象方法，但是`EmlParserNew`会报错:
+
+```py
+>>> pdf_parser = PdfParserNew()
+>>> eml_parser = EmlParserNew()
+Traceback (most recent call last):
+  File "real_python_interfaces.py", line 53, in <module>
+    eml_interface = EmlParserNew()
+TypeError: Can't instantiate abstract class EmlParserNew with abstract methods extract_text
+```
+回溯消息告诉我们没有覆盖所有的抽象方法，这就是一个正式的python接口。
