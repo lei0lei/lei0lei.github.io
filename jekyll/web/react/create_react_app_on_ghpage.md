@@ -7,4 +7,4 @@ grand_parent: web
 has_toc: true
 ---
 
-hello
+在github pages上部署react app
