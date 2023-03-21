@@ -1,7 +1,7 @@
 ---
 layout: default
-title: pwa-react
-permalink: /web/pwa/pwa-react
+title: service-worker
+permalink: /web/pwa/service-worker
 parent: PWA
 grand_parent: web
 has_toc: true
