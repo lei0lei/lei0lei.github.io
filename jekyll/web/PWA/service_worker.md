@@ -128,7 +128,6 @@ service worker必须从安全的启用了https的endpoint来提供服务，为�
     "description": "Create a new post."
   }
 ]
-
 ```
 - name,名字
 - url, 导航
@@ -151,7 +150,6 @@ service worker必须从安全的启用了https的endpoint来提供服务，为�
     ]
   }
 ]
-
 ```
 `icons`允许我们在快捷方式中显示自定义的图标。
 
@@ -162,7 +160,6 @@ service worker必须从安全的启用了https的endpoint来提供服务，为�
     “display_override”: [“window-controls-overlay”],
     "display": "standalone"
 }
-
 ```
 
 ### 自定义CSS
@@ -182,7 +179,6 @@ service worker必须从安全的启用了https的endpoint来提供服务，为�
     -webkit-app-region: drag;
     app-region: drag;
 }
-
 ```
 `-webkit-app-region`和`app-region`要设置成`drag`.
 
@@ -227,7 +223,6 @@ async function shareFiles(filesArray, shareTitle, shareText) {
         console.log(`System doesn't support sharing.`);
     }
 };
-
 ```
 
 唯一多的是确认文件类型。
@@ -246,7 +241,6 @@ async function shareFiles(filesArray, shareTitle, shareText) {
         "url": "url"
       }
     }
-
 ```
 关键的字段是`action`,这允许我们设置明确的url来打开和处理共享的链接类型。如果想要基于这个共享连接执行某个功能，可以让这个页面解析连接然后决定如何处理共享数据。
 
@@ -259,14 +253,55 @@ async function shareFiles(filesArray, shareTitle, shareText) {
 if ('setAppBadge' in navigator) {
   navigator.setAppBadge(1);
 }
-
 ```
 上述代码检查`setAppBadge`功能是否可用然后调用`navigator.setAppBadge(1)`显示值1.要进行清空使用函数:
 ```js
 navigator.clearAppBadge();
-
 ```
 或者调用:
 ```js
 navigator.setAppBadge(0);
 ```
+badging api可以在pwa中使用或者service worker中使用，常见的方式是在`push`事件中设置`badge`.`badging`通常和`Notification`api 协同使用。
+
+## push notification
+如果想要以更直接的方式在pwa中提醒用户，可以使用这个api,如果用户给了app发送notification的权限，应用可以发送pop up notification显示在操作系统上。
+![示例](https://docs.pwabuilder.com/assets/home/native-features/notifications-action-center.png)
+
+### 权限请求
+
+在pwa显示notificaiton前，需要请求显示权限，可以使用如下函数:
+```js
+Notification.requestPermission();
+```
+
+只需要请求一次权限就可以一直发送请求，在浏览器设置中可以撤回权限。
+
+### 添加`push` listener
+
+有了显示notification的权限之后需要一种方式进行显示，可以添加`push`事件监听器来处理push事件并显示notification：
+```js
+self.addEventListener('push', (event) => {
+  event.waitUntil(
+    self.registration.showNotification('Notification Title', {
+      body: 'Notification Body Text',
+      icon: 'custom-notification-icon.png',
+    });
+  );
+});
+
+```
+上面的代码调用了`showNotification`并传进了`title`参数。以及明确的信息。
+
+### 处理notification点击
+
+在显示了notifications之后，必须添加用户点击notification时的处理逻辑。可以给`notificationclick`事件添加监听器:
+```js
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close(); 
+    var fullPath = self.location.origin + event.notification.data.path; 
+    clients.openWindow(fullPath); 
+});
+```
+
+首先调用`notification.close`移除notification,然后包含`path`字段，添加到原始路径并调用`clients.openWindow`,这回启动pwa然后在想要的位置打开。
