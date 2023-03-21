@@ -233,3 +233,40 @@ async function shareFiles(filesArray, shareTitle, shareText) {
 唯一多的是确认文件类型。
 
 ### share to pwa
+
+可以让pwa从本地操作系统接收共享文件，可以在manifest中添加`share_target`成员:
+```json
+"share_target": {
+      "action": "index.html?share-action",
+      "method": "GET",
+      "enctype": "application/x-www-form-urlencoded",
+      "params": {
+        "title": "title",
+        "text": "text",
+        "url": "url"
+      }
+    }
+
+```
+关键的字段是`action`,这允许我们设置明确的url来打开和处理共享的链接类型。如果想要基于这个共享连接执行某个功能，可以让这个页面解析连接然后决定如何处理共享数据。
+
+## Badging
+
+![示例](https://docs.pwabuilder.com/assets/home/native-features/badging-task-bar.png)
+
+### 显示和清除Badges
+```js
+if ('setAppBadge' in navigator) {
+  navigator.setAppBadge(1);
+}
+
+```
+上述代码检查`setAppBadge`功能是否可用然后调用`navigator.setAppBadge(1)`显示值1.要进行清空使用函数:
+```js
+navigator.clearAppBadge();
+
+```
+或者调用:
+```js
+navigator.setAppBadge(0);
+```
