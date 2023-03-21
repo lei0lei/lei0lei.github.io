@@ -2,7 +2,7 @@
 layout: default
 title: pwa-gh
 permalink: /web/pwa/pwa-gh
-parent: PWA
+parent: pwa
 grand_parent: web
 has_toc: true
 ---

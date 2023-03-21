@@ -2,7 +2,7 @@
 layout: default
 title: service-worker
 permalink: /web/pwa/service-worker
-parent: PWA
+parent: pwa
 grand_parent: web
 has_toc: true
 ---
