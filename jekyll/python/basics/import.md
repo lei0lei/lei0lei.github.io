@@ -1,7 +1,7 @@
 ---
 layout: default
-title: interface
-permalink: /python/interface
+title: import
+permalink: /python/import
 parent: python
 has_toc: true
 ---
@@ -13,3 +13,5 @@ has_toc: true
 1. TOC
 {:toc}
 </details>
+
+本小节介绍python的绝对导入与相对导入。
