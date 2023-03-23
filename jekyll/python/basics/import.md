@@ -399,10 +399,103 @@ a = [100, 200, 300]
 ```
 
 # Packages
+包通过`.`符号支持模块命名空间具有层级的结构，包避免了模块名之间的冲突。
 
+直接使用文件夹层级结构就可以创建一个包，
 
+mod1.py
+```py
+def foo():
+    print('[mod1] foo()')
+
+class Foo:
+    pass
+```
+
+mod2.py
+```py
+def bar():
+    print('[mod2] bar()')
+
+class Bar:
+    pass
+```
+
+```py
+>>> from pkg.mod1 import foo
+>>> foo()
+[mod1] foo()
+
+```
+
+```py
+>>> import pkg.mod1, pkg.mod2
+>>> pkg.mod1.foo()
+[mod1] foo()
+>>> x = pkg.mod2.Bar()
+>>> x
+<pkg.mod2.Bar object at 0x033F7290>
+```
+
+```py
+>>> from pkg.mod2 import Bar as Qux
+>>> x = Qux()
+>>> x
+<pkg.mod2.Bar object at 0x036DFFD0>
+```
+
+```py
+>>> from pkg import mod1
+>>> mod1.foo()
+[mod1] foo()
+
+>>> from pkg import mod2 as quux
+>>> quux.bar()
+[mod2] bar()
+```
+
+```py
+>>> import pkg
+>>> pkg
+<module 'pkg' (namespace)>
+```
+如上所示包的导入和模块的导入没什么不同，
+下面的语句语法上看好像没问题，但是不会把模块放到本地的命名空间中:
+```py
+>>> pkg.mod1
+Traceback (most recent call last):
+  File "<pyshell#34>", line 1, in <module>
+    pkg.mod1
+AttributeError: module 'pkg' has no attribute 'mod1'
+>>> pkg.mod1.foo()
+Traceback (most recent call last):
+  File "<pyshell#35>", line 1, in <module>
+    pkg.mod1.foo()
+AttributeError: module 'pkg' has no attribute 'mod1'
+>>> pkg.mod2.Bar()
+Traceback (most recent call last):
+  File "<pyshell#36>", line 1, in <module>
+    pkg.mod2.Bar()
+AttributeError: module 'pkg' has no attribute 'mod2'
+```
 
 ## 包初始化
+
+如果包的目录下有一个叫做`__init__.py`的文件，在包或者包里面的模块被import时会自动调用。这可以用来执行包的初始化代码，比如初始化包一层的数据:
+
+init.py
+```py
+print(f'Invoking __init__.py for {__name__}')
+A = ['quux', 'corge', 'grault']
+```
+
+
+
+
+
+
+
+
 
 ## `import *`
 
