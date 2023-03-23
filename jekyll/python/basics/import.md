@@ -541,6 +541,103 @@ https://realpython.com/python-namespace-package/
 
 
 ## `import *`
+在之前我们看到了模块的`import *`，下面谈一下包的:
+
+![](https://files.realpython.com/media/pkg3.d2160908ae77.png)
+
+mod1.py
+```py
+def foo():
+    print('[mod1] foo()')
+
+class Foo:
+    pass
+```
+
+mod2.py
+```py
+def bar():
+    print('[mod2] bar()')
+
+class Bar:
+    pass
+```
+
+mod3.py
+```py
+def baz():
+    print('[mod3] baz()')
+
+class Baz:
+    pass
+```
+
+mod4.py
+```py
+def qux():
+    print('[mod4] qux()')
+
+class Qux:
+    pass
+```
+对于模块`import *`会跳过双下划线开头的名字，
+
+```py
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+
+>>> from pkg.mod3 import *
+
+>>> dir()
+['Baz', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'baz']
+>>> baz()
+[mod3] baz()
+>>> Baz
+<class 'pkg.mod3.Baz'>
+```
+
+对于包:
+```py
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+
+>>> from pkg import *
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+```
+没有从包里导入任何名字，python 有这样的传统，如果`__init__`文件中定义了一个`__all__`的列表，在使用`import *`时会调入这个列表中的东西。
+
+对于上面的例子如果使用:
+```py
+__all__ = [
+        'mod1',
+        'mod2',
+        'mod3',
+        'mod4'
+        ]
+```
+
+```py
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+
+>>> from pkg import *
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'mod1', 'mod2', 'mod3', 'mod4']
+>>> mod2.bar()
+[mod2] bar()
+>>> mod4.Qux
+<class 'pkg.mod4.Qux'>
+```
+这样对于包来说使用`import *`就不像模块一样糟糕了。在模块中也可以使用`__all__`。这样就只会import`__all__`中的名字。
+总之`__all__`就是用来控制`import *`的行为的。
+
 
 ## 子包
 
