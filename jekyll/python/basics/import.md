@@ -723,5 +723,69 @@ import abc
 - 如果没找到会搜索sys.path定义的目录列表中搜索，这个列表一般包含当前目录，而且会首先搜索当前目录
 - 在找到模块后会将其绑定到本地作用域上，没找到则会有`ModuleNotFoundError`
 
+PEP8风格的`import`：
+- import 都应该卸载文件的开头在模块注释和docstring的后面
+- import 应该分成几个部分，通常有下面三个部分并用空行隔开:
+  - 标注库导入(内建模块)
+  - 第三方`import`(安装的模块)
+  - 本地`import`
+- 按字母顺序排序
+
+```py
+"""Illustration of good import statement styling.
+
+Note that the imports come after the docstring.
+
+"""
+
+# Standard library imports
+import datetime
+import os
+
+# Third party imports
+from flask import Flask
+from flask_restful import Api
+from flask_sqlalchemy import SQLAlchemy
+
+# Local application imports
+from local_module import local_class
+from local_package import local_function
+```
+## 绝对导入
+绝对导入是从项目根目录开始的导入，
+```py
+└── project
+    ├── package1
+    │   ├── module1.py
+    │   └── module2.py
+    └── package2
+        ├── __init__.py
+        ├── module3.py
+        ├── module4.py
+        └── subpackage1
+            └── module5.py
+```
+
+假设:
+1. package1/module2.py 有函数function1.
+2. package2/__init__.py 有类class1.
+3. package2/subpackage1/module5.py 有函数function2.
+
+下面是绝对导入的例子:
+```py
+from package1 import module1
+from package1.module2 import function1
+from package2 import class1
+from package2.subpackage1.module5 import function2
+```
+
+绝对导入对导入路径非常的清晰，一般建议使用绝对导入，但是目录结构很大的时候绝对导入太过荣誉。
+
+
+## 相对导入
+
+
+
+
 
 # Advanced import

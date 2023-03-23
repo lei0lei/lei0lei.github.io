@@ -17,3 +17,6 @@ has_toc: true
 [awesome-python-decorator](https://github.com/lord63/awesome-python-decorator)
 
 [python wiki](https://wiki.python.org/moin/PythonDecoratorLibrary)
+
+https://towardsdatascience.com/10-fabulous-python-decorators-ab674a732871
+
