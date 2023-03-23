@@ -106,8 +106,220 @@ import mod
 ```
 
 ## import语句
+### `import <module_name>`
+最简单的import语句如下:
+```py
+import <module_name>
+```
+这句话还无法让模块内容被调用者直接可以访问，每个模块都有自己的私有符号表，作为模块中定义的所有对象的全局符号表，因此导入的是一个独立的命名空间。
+`import <module_name>`只是把模块名放到调用者的符号表中，定义在模块中的对象还是在模块的私有符号表中。
+
+从调用者的角度看模块中的对象必须使用`.`符号来访问额模块的内容。
+
+```py
+>>> import mod
+>>> mod
+<module 'mod' from 'C:\\Users\\john\\Documents\\Python\\doc\\mod.py'>
+>>> s
+NameError: name 's' is not defined
+>>> foo('quux')
+NameError: name 'foo' is not defined
+```
+这句话会把mod放到本地符号表中。
+但是`s`和`foo`仍然在模块的私有符号表中，而不在本地的上下文中。
+
+要在本地上下文中访问必须使用以下的形式:
+```py
+>>> mod.s
+'If Comrade Napoleon says it, it must be right.'
+>>> mod.foo('quux')
+arg = quux
+```
+可以使用逗号分割导入多个模块，`import <module_name>[, <module_name> ...]`.
+
+### `from <module_name> import <name(s)>`
+要直接把模块中的名字导入调用者的符号表中可以使用:
+```py
+from <module_name> import <name(s)>
+```
+```py
+>>> from mod import s, foo
+>>> s
+'If Comrade Napoleon says it, it must be right.'
+>>> foo('quux')
+arg = quux
+
+>>> from mod import Foo
+>>> x = Foo()
+>>> x
+<mod.Foo object at 0x02E3AD50>
+```
+这很容易符号已经存在在本地符号表中的名字，比如:
+```py
+>>> a = ['foo', 'bar', 'baz']
+>>> a
+['foo', 'bar', 'baz']
+
+>>> from mod import a
+>>> a
+[100, 200, 300]
+```
+甚至还有一种更讨厌的写法:
+```py
+from <module_name> import *
+```
+很容易忽略掉被覆盖的名字。
+```py
+>>> from mod import *
+>>> s
+'If Comrade Napoleon says it, it must be right.'
+>>> a
+[100, 200, 300]
+>>> foo
+<function foo at 0x03B449C0>
+>>> Foo
+<class 'mod.Foo'>
+```
+### `from <module_name> import <name> as <alt_name>`
+最推荐的写法如下:
+```py
+from <module_name> import <name> as <alt_name>[, <name> as <alt_name> …]
+```
+```py
+>>> s = 'foo'
+>>> a = ['foo', 'bar', 'baz']
+
+>>> from mod import s as string, a as alist
+>>> s
+'foo'
+>>> string
+'If Comrade Napoleon says it, it must be right.'
+>>> a
+['foo', 'bar', 'baz']
+>>> alist
+[100, 200, 300]
+```
+### `import <module_name> as <alt_name>`
+
+也可以单独再起一个别名:
+```py
+>>> import mod as my_module
+>>> my_module.a
+[100, 200, 300]
+>>> my_module.foo('qux')
+arg = qux
+```
+也可以在函数调用的时候再进行`import`,这样包只在函数调用的时候才会可见。
+
+```py
+>>> def bar():
+...     from mod import foo
+...     foo('corge')
+...
+
+>>> bar()
+arg = corge
+```
+但是在python3中不支持如下写法:
+```py
+>>> def bar():
+...     from mod import *
+...
+SyntaxError: import * only allowed at module level
+```
+如果希望避免异常的导入可以使用:
+```py
+>>> try:
+...     # Non-existent module
+...     import baz
+... except ImportError:
+...     print('Module not found')
+...
+
+Module not found
+```
+
+```py
+>>> try:
+...     # Existing module, but non-existent object
+...     from mod import baz
+... except ImportError:
+...     print('Object not found in module')
+...
+
+Object not found in module
+```
 
 ## dir函数
+内建的`dir`函数可以返回命名空间中的名字列表，不带参数的话返回的是本地符号表:
+```py
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+
+>>> qux = [1, 2, 3, 4, 5]
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'qux']
+
+>>> class Bar():
+...     pass
+...
+>>> x = Bar()
+>>> dir()
+['Bar', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'qux', 'x']
+```
+
+这个函数可以用来确定import到底导入了那些名字:
+```py
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+
+>>> import mod
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'mod']
+>>> mod.s
+'If Comrade Napoleon says it, it must be right.'
+>>> mod.foo([1, 2, 3])
+arg = [1, 2, 3]
+
+>>> from mod import a, Foo
+>>> dir()
+['Foo', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'a', 'mod']
+>>> a
+[100, 200, 300]
+>>> x = Foo()
+>>> x
+<mod.Foo object at 0x002EAD50>
+
+>>> from mod import s as string
+>>> dir()
+['Foo', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'a', 'mod', 'string', 'x']
+>>> string
+'If Comrade Napoleon says it, it must be right.'
+```
+列出模块中的名字:
+```py
+>>> import mod
+>>> dir(mod)
+['Foo', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__',
+'__name__', '__package__', '__spec__', 'a', 'foo', 's']
+```
+
+```py
+>>> dir()
+['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__']
+>>> from mod import *
+>>> dir()
+['Foo', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__',
+'__package__', '__spec__', 'a', 'foo', 's']
+```
 
 ## 将模块作为脚本执行
 
