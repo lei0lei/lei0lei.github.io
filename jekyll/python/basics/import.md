@@ -385,7 +385,7 @@ a = [100, 200, 300]
 >>> mod.a
 [100, 200, 300]
 ```
-在后续的导入中并没有执行`print`语句。弱国修改了模块需要重新加载，可以关掉解释器重新打开或者使用`reload()`函数。
+在后续的导入中并没有执行`print`语句。如果修改了模块需要重新加载，可以关掉解释器重新打开或者使用`reload()`函数。
 ```py
 >>> import mod
 a = [100, 200, 300]
@@ -489,12 +489,55 @@ print(f'Invoking __init__.py for {__name__}')
 A = ['quux', 'corge', 'grault']
 ```
 
+![](https://files.realpython.com/media/pkg2.dab97c2f9c58.png)
 
+```py
+>>> import pkg
+Invoking __init__.py for pkg
+>>> pkg.A
+['quux', 'corge', 'grault']
+```
 
+当导入包时会初始化全局列表`A`,包中的模块可以通过import访问全局变量：
 
+mod1.py
+```py
+def foo():
+    from pkg import A
+    print('[mod1] foo() / A = ', A)
 
+class Foo:
+    pass
+```
 
+```py
+>>> from pkg import mod1
+Invoking __init__.py for pkg
+>>> mod1.foo()
+[mod1] foo() / A =  ['quux', 'corge', 'grault']
+```
 
+`__init__.py`还可以用来影响从一个包中对模块的自动导入，比如之前的例子中只把`pkg`放在调用者的本地符号变量而没有导入任何模块，但是如果`__init__.py`包含下列代码:
+
+```py
+print(f'Invoking __init__.py for {__name__}')
+import pkg.mod1, pkg.mod2
+```
+可以实现:
+```py
+>>> import pkg
+Invoking __init__.py for pkg
+>>> pkg.mod1.foo()
+[mod1] foo()
+>>> pkg.mod2.bar()
+[mod2] bar()
+```
+{: .note }
+python3.3之后引入了隐式的命名空间包，可以没有`__init__`文件就能创建包。
+
+## 命名空间包
+
+https://realpython.com/python-namespace-package/
 
 
 ## `import *`
