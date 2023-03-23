@@ -104,6 +104,7 @@ import mod
 >>> re.__file__
 'C:\\Python36\\lib\\re.py'
 ```
+
 ## import语句
 
 ## dir函数
