@@ -13,6 +13,11 @@ has_toc: true
 1. TOC
 {:toc}
 </details>
+
+{: .warning }
+ver: 0.0.1
+
+
 模块化变成将一个大的编程任务分割成几个小的可管理的子任务和模块，单独的模块可以链接在一起组成大的应用。本文将介绍python模块化的两个机制:的module和package.
 
 模块化变成有以下优点:
@@ -638,8 +643,73 @@ __all__ = [
 这样对于包来说使用`import *`就不像模块一样糟糕了。在模块中也可以使用`__all__`。这样就只会import`__all__`中的名字。
 总之`__all__`就是用来控制`import *`的行为的。
 
-
 ## 子包
+包可以在任意层级上嵌入子包，
+
+![](https://files.realpython.com/media/pkg4.a830d6e144bf.png)
+
+这里分成了两个子包，`sub_pkg1`和`sub_pkg2`.
+
+```py
+>>> import pkg.sub_pkg1.mod1
+>>> pkg.sub_pkg1.mod1.foo()
+[mod1] foo()
+
+>>> from pkg.sub_pkg1 import mod2
+>>> mod2.bar()
+[mod2] bar()
+
+>>> from pkg.sub_pkg2.mod3 import baz
+>>> baz()
+[mod3] baz()
+
+>>> from pkg.sub_pkg2.mod4 import qux as grault
+>>> grault()
+[mod4] qux()
+```
+
+在一个子包中的模块可以引用兄弟子包中的对象，比如从`mod3`引用`mod1`中的可以使用绝对导入:
+
+pkg/sub__pkg2/mod3.py
+```py
+def baz():
+    print('[mod3] baz()')
+
+class Baz:
+    pass
+
+from pkg.sub_pkg1.mod1 import foo
+foo()
+```
+
+```py
+>>> from pkg.sub_pkg2 import mod3
+[mod1] foo()
+>>> mod3.foo()
+[mod1] foo()
+```
+也可以使用相对导入:
+
+pkg/sub__pkg2/mod3.py
+```py
+def baz():
+    print('[mod3] baz()')
+
+class Baz:
+    pass
+
+from .. import sub_pkg1
+print(sub_pkg1)
+
+from ..sub_pkg1.mod1 import foo
+foo()
+```
+
+```py
+>>> from pkg.sub_pkg2 import mod3
+<module 'pkg.sub_pkg1' (namespace)>
+[mod1] foo()
+```
 
 # Import
 
