@@ -322,10 +322,81 @@ arg = [1, 2, 3]
 ```
 
 ## 将模块作为脚本执行
+包含模块的py文件又叫做脚本，因此也是可以执行的。`mod.py`:
+```py
+s = "If Comrade Napoleon says it, it must be right."
+a = [100, 200, 300]
+
+def foo(arg):
+    print(f'arg = {arg}')
+
+class Foo:
+    pass
+
+print(s)
+print(a)
+foo('quux')
+x = Foo()
+print(x)
+```
+
+```
+C:\Users\john\Documents>python mod.py
+If Comrade Napoleon says it, it must be right.
+[100, 200, 300]
+arg = quux
+<__main__.Foo object at 0x02F101D0>
+```
+
+但是在进行import的时候这些语句也会执行，可以使用以下的方式区分执行模块还是进行import:
+```py
+s = "If Comrade Napoleon says it, it must be right."
+a = [100, 200, 300]
+
+def foo(arg):
+    print(f'arg = {arg}')
+
+class Foo:
+    pass
+
+if (__name__ == '__main__'):
+    print('Executing as standalone script')
+    print(s)
+    print(a)
+    foo('quux')
+    x = Foo()
+    print(x)
+```
+在导入模块时，python会设置模块的dunder变量`__name__`，如果作为单独的脚本进行执行会设置成`__main__`。
+这一特征在单元测试时比较有用。
 
 ## 重新加载模块
+处于效率的原因，一个解释器会话智慧进行inmport一次，对于函数或者类定义来说比较正常，但是模块可能包含一些初始化的语句，
+```py
+a = [100, 200, 300]
+print('a =', a)
+```
+```py
+>>> import mod
+a = [100, 200, 300]
+>>> import mod
+>>> import mod
 
+>>> mod.a
+[100, 200, 300]
+```
+在后续的导入中并没有执行`print`语句。弱国修改了模块需要重新加载，可以关掉解释器重新打开或者使用`reload()`函数。
+```py
+>>> import mod
+a = [100, 200, 300]
 
+>>> import mod
+
+>>> import importlib
+>>> importlib.reload(mod)
+a = [100, 200, 300]
+<module 'mod' from 'C:\\Users\\john\\Documents\\Python\\doc\\mod.py'>
+```
 
 # Packages
 
