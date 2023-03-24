@@ -12,7 +12,7 @@ has_toc: true
   {: .text-delta }
 1. TOC
 {:toc}
-</details
+</details>
 
 [awesome-python-decorator](https://github.com/lord63/awesome-python-decorator)
 
