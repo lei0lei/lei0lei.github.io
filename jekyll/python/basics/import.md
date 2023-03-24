@@ -779,7 +779,7 @@ from package2 import class1
 from package2.subpackage1.module5 import function2
 ```
 
-绝对导入对导入路径非常的清晰，一般建议使用绝对导入，但是目录结构很大的时候绝对导入太过荣誉。
+绝对导入对导入路径非常的清晰，一般建议使用绝对导入，但是目录结构很大的时候绝对导入太过冗余。
 
 
 ## 相对导入
