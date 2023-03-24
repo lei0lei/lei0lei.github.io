@@ -781,11 +781,57 @@ from package2.subpackage1.module5 import function2
 
 绝对导入对导入路径非常的清晰，一般建议使用绝对导入，但是目录结构很大的时候绝对导入太过冗余。
 
-
 ## 相对导入
+相对导入指的时相对当前位置的导入路径，有两种相对导入，显式和隐式的，python3中不赞成使用隐式导入。
+```py
+from .some_module import some_class
+from ..some_package import some_function
+from . import some_class
+```
 
+相对导入取决于当前位置和导入的包或者模块的位置，`.`意味着导入位置和当前位置相同，`..`意味着导入位置在当前位置的父目录上，`...`意味着在祖父目录上，以此类推。
+假设目录结构如下:
+```
+└── project
+    ├── package1
+    │   ├── module1.py
+    │   └── module2.py
+    └── package2
+        ├── __init__.py
+        ├── module3.py
+        ├── module4.py
+        └── subpackage1
+            └── module5.py
+```
 
+1. package1/module2.py 有函数 function1.
+2. package2/__init__.py 有类 class1.
+3. package2/subpackage1/module5.py 有函数 function2.
 
+将function1 导入到module1中
+```py
+# package1/module1.py
+
+from .module2 import function1
+```
+将class1导入到module3中:
+```py
+# package2/module3.py
+
+from . import class1
+from .subpackage1.module5 import function2
+```
+总之相对导入不建议使用。
 
 
 # Advanced import
+
+## 基础
+
+## 资源import
+
+## 动态import
+
+## import系统
+
+## Tips
