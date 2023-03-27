@@ -12,4 +12,4 @@ has_toc: true
   {: .text-delta }
 1. TOC
 {:toc}
-</details
+</details>
