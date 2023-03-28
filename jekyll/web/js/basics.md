@@ -14,19 +14,13 @@ has_toc: true
 ```html
 <!DOCTYPE HTML>
 <html>
-
 <body>
-
   <p>Before the script...</p>
-
   <script>
     alert( 'Hello, world!' );
   </script>
-
   <p>...After the script.</p>
-
 </body>
-
 </html>
 ```
 
@@ -78,3 +72,107 @@ has_toc: true
 > </script>
 > ```
 > 会忽略掉代码。
+
+# 代码结构
+
+## 语句
+语句可以使用分号或者断行进行隔开，
+```js
+alert('Hello')
+alert('World')
+```
+js不会在`[...]`之前假设有分号，可以尝试以下代码:
+```js
+alert("Hello")
+
+[1, 2].forEach(alert);
+```
+
+```js
+alert("Hello");
+
+[1, 2].forEach(alert);
+```
+
+## 注释
+
+单行注释使用`//`.
+```js
+// This comment occupies a line of its own
+alert('Hello');
+
+alert('World'); // This comment follows the statement
+```
+
+多行注释使用`/*...*/`.
+```js
+/* An example with two messages.
+This is a multiline comment.
+*/
+alert('Hello');
+alert('World');
+```
+
+不支持嵌套注释比如:
+```js
+/*
+  /* nested comment ?!? */
+*/
+alert( 'World' );
+```
+
+# modern mode
+
+很长时间依赖js没有兼容性问题，这可以保证现存的代码运行起来没问题，但是问题是语言开发者可能导致语言出现问题，在ES5出现后给语言加入了一些新的特征，要使旧的代码运行，需要使用声明`"use strict"`.
+
+```js
+"use strict";
+
+// this code works the modern way
+...
+```
+这句话出现在脚本最开头的时候表示整个脚本以现代的方式运行。这句话也可以用在函数里只对函数起作用。
+
+{: .warning :}
+> 确保`'use strict'`出现在脚本开头，否则不会生效。
+
+使用浏览器控制台时默认不会使用`use strict`. 应该摁`Shift+Enter`输入多行，如果在旧的浏览器不行的话使用:
+```js
+(function() {
+  'use strict';
+
+  // ...your code here...
+})()
+```
+现代js支持`class`以及`modules`会自动启用`use strict`
+
+# 变量
+
+
+# 数据类型
+
+
+# 类型转换
+
+
+# 交互
+
+# 算子
+
+# 比较
+
+# 条件
+
+# 逻辑算符
+
+# `？？`
+
+# 循环
+
+# switch
+
+# 函数
+
+# 箭头函数
+
+# js specials
