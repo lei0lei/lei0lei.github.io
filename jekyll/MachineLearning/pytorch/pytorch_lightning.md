@@ -14,6 +14,3 @@ has_toc: true
 1. TOC
 {:toc}
 </details>
-
-
-https://python101.pythonlibrary.org/index.html
