@@ -208,6 +208,7 @@ train_loader = DataLoader(dataset)
 ```
 ## 模型训练
 使用`Trainer`训练模型
+
 ```py
 # model
 autoencoder = LitAutoEncoder(Encoder(), Decoder())
@@ -218,6 +219,7 @@ trainer.fit(model=autoencoder, train_dataloaders=train_loader)
 ```
 ## 干掉训练循环
 `Trainer`在背地里为我们做了以下事情:
+
 ```py
 autoencoder = LitAutoEncoder(Encoder(), Decoder())
 optimizer = autoencoder.configure_optimizers()
@@ -231,6 +233,93 @@ for batch_idx, batch in enumerate(train_loader):
 ```
 
 # 添加验证集和测试集
+
+
+为了确保模型在未见过的数据集上也能使用，数据集一般会分成训练集和测试集，测试集在训练阶段不使用。
+
+## 分割数据集
+
+```py
+import torch.utils.data as data
+from torchvision import datasets
+import torchvision.transforms as transforms
+
+# Load data sets
+transform = transforms.ToTensor()
+train_set = datasets.MNIST(root="MNIST", download=True, train=True, transform=transform)
+test_set = datasets.MNIST(root="MNIST", download=True, train=False, transform=transform)
+```
+## 定义测试循环
+
+实现`test_step`方法，
+
+```py
+class LitAutoEncoder(pl.LightningModule):
+    def training_step(self, batch, batch_idx):
+        ...
+
+    def test_step(self, batch, batch_idx):
+        # this is the test loop
+        x, y = batch
+        x = x.view(x.size(0), -1)
+        z = self.encoder(x)
+        x_hat = self.decoder(z)
+        test_loss = F.mse_loss(x_hat, x)
+        self.log("test_loss", test_loss)
+```
+## 训练之后加入测试步骤
+
+```py
+from torch.utils.data import DataLoader
+
+# initialize the Trainer
+trainer = Trainer()
+
+# test the model
+trainer.test(model, dataloaders=DataLoader(test_set))
+```
+
+## 添加验证循环
+在训练集中分出一部分作为验证集
+
+```py
+# use 20% of training data for validation
+train_set_size = int(len(train_set) * 0.8)
+valid_set_size = len(train_set) - train_set_size
+
+# split the train set into two
+seed = torch.Generator().manual_seed(42)
+train_set, valid_set = data.random_split(train_set, [train_set_size, valid_set_size], generator=seed)
+```
+添加`validation_step`
+
+```py
+class LitAutoEncoder(pl.LightningModule):
+    def training_step(self, batch, batch_idx):
+        ...
+
+    def validation_step(self, batch, batch_idx):
+        # this is the validation loop
+        x, y = batch
+        x = x.view(x.size(0), -1)
+        z = self.encoder(x)
+        x_hat = self.decoder(z)
+        val_loss = F.mse_loss(x_hat, x)
+        self.log("val_loss", val_loss)
+```
+
+```py
+from torch.utils.data import DataLoader
+
+train_loader = DataLoader(train_set)
+valid_loader = DataLoader(valid_set)
+
+# train with both splits
+trainer = Trainer()
+trainer.fit(model, train_loader, valid_loader)
+```
+# 保存模型过程
+
 
 
 
