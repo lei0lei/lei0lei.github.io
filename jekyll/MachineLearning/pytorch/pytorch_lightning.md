@@ -729,6 +729,202 @@ CPU metrics will be tracked by default on the CPU accelerator. To enable it for 
 
 ### 实验跟踪和可视化
 
+#### metrics跟踪
+
+```py
+class LitModel(pl.LightningModule):
+    def training_step(self, batch, batch_idx):
+        value = ...
+        self.log("some_value", value)
+```
+使用`self.log`方法.
+
+记录多个metrics,使用:
+
+```py
+values = {"loss": loss, "acc": acc, "metric_n": metric_n}  # add more items if needed
+self.log_dict(values)
+```
+
+要在进度条里查看使用，
+
+```py
+self.log(..., prog_bar=True)
+```
+
+浏览器中查看，略
+
+metric积累，略
+
+目录保存：
+
+```py
+Trainer(default_root_dir="/your/custom/path")
+```
+
+# 模型推理
+## 产品级部署-1
+### 加载ckpt并预测
+
+```py
+model = LitModel.load_from_checkpoint("best_model.ckpt")
+model.eval()
+x = torch.randn(1, 64)
+
+with torch.no_grad():
+    y_hat = model(x)
+```
+
+### `LightningModule`添加预测过程
+
+```py
+class MyModel(LightningModule):
+    def predict_step(self, batch, batch_idx, dataloader_idx=0):
+        return self(batch)
+```
+
+把dataloader加载到trainer
+
+```py
+data_loader = DataLoader(...)
+model = MyModel()
+trainer = Trainer()
+predictions = trainer.predict(model, data_loader)
+```
+
+### 添加复杂的推理逻辑
+
+```py
+class LitMCdropoutModel(pl.LightningModule):
+    def __init__(self, model, mc_iteration):
+        super().__init__()
+        self.model = model
+        self.dropout = nn.Dropout()
+        self.mc_iteration = mc_iteration
+
+    def predict_step(self, batch, batch_idx):
+        # enable Monte Carlo Dropout
+        self.dropout.train()
+
+        # take average of `self.mc_iteration` iterations
+        pred = [self.dropout(self.model(x)).unsqueeze(0) for _ in range(self.mc_iteration)]
+        pred = torch.vstack(pred).mean(dim=0)
+        return pred
+```
+
+### 使用分布式推理
+
+```py
+import torch
+from lightning.pytorch.callbacks import BasePredictionWriter
+
+
+class CustomWriter(BasePredictionWriter):
+    def __init__(self, output_dir, write_interval):
+        super().__init__(write_interval)
+        self.output_dir = output_dir
+
+    def write_on_epoch_end(self, trainer, pl_module, predictions, batch_indices):
+        # this will create N (num processes) files in `output_dir` each containing
+        # the predictions of it's respective rank
+        torch.save(predictions, os.path.join(self.output_dir, f"predictions_{trainer.global_rank}.pt"))
+
+        # optionally, you can also save `batch_indices` to get the information about the data index
+        # from your prediction data
+        torch.save(batch_indices, os.path.join(self.output_dir, f"batch_indices_{trainer.global_rank}.pt"))
+
+
+# or you can set `writer_interval="batch"` and override `write_on_batch_end` to save
+# predictions at batch level
+pred_writer = CustomWriter(output_dir="pred_path", write_interval="epoch")
+trainer = Trainer(accelerator="gpu", strategy="ddp", devices=8, callbacks=[pred_writer])
+model = BoringModel()
+trainer.predict(model, return_predictions=False)
+```
+
+## 产品级部署-2
+
+### 使用pytorch
+
+```py
+import torch
+
+
+class MyModel(nn.Module):
+    ...
+
+
+model = MyModel()
+checkpoint = torch.load("path/to/lightning/checkpoint.ckpt")
+model.load_state_dict(checkpoint["state_dict"])
+model.eval()
+```
+
+### 从lightning中提取`nn.Modules`
+
+```py
+class Encoder(nn.Module):
+    ...
+
+
+class Decoder(nn.Module):
+    ...
+
+
+class AutoEncoderProd(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.encoder = Encoder()
+        self.decoder = Decoder()
+
+    def forward(self, x):
+        return self.encoder(x)
+
+
+class AutoEncoderSystem(LightningModule):
+    def __init__(self):
+        super().__init__()
+        self.auto_encoder = AutoEncoderProd()
+
+    def forward(self, x):
+        return self.auto_encoder.encoder(x)
+
+    def training_step(self, batch, batch_idx):
+        x, y = batch
+        y_hat = self.auto_encoder.encoder(x)
+        y_hat = self.auto_encoder.decoder(y_hat)
+        loss = ...
+        return loss
+
+
+# train it
+trainer = Trainer(devices=2, accelerator="gpu", strategy="ddp")
+model = AutoEncoderSystem()
+trainer.fit(model, train_dataloader, val_dataloader)
+trainer.save_checkpoint("best_model.ckpt")
+
+
+# create the PyTorch model and load the checkpoint weights
+model = AutoEncoderProd()
+checkpoint = torch.load("best_model.ckpt")
+hyper_parameters = checkpoint["hyper_parameters"]
+
+# if you want to restore any hyperparameters, you can pass them too
+model = AutoEncoderProd(**hyper_parameters)
+
+model_weights = checkpoint["state_dict"]
+
+# update keys by dropping `auto_encoder.`
+for key in list(model_weights):
+    model_weights[key.replace("auto_encoder.", "")] = model_weights.pop(key)
+
+model.load_state_dict(model_weights)
+model.eval()
+x = torch.randn(1, 64)
+
+with torch.no_grad():
+    y_hat = model(x)
+```
 
 
 
