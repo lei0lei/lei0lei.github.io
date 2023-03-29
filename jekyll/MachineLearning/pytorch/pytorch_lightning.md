@@ -332,6 +332,178 @@ lightning的checkpoint包含以下内容:
 - The hyperparameters (init arguments) with which the datamodule was created
 - State of Loops
 
+## 保存ckpt
+
+```py
+# saves checkpoints to 'some/path/' at every epoch end
+trainer = Trainer(default_root_dir="some/path/")
+```
+
+## 加载
+
+```py
+model = MyLightningModule.load_from_checkpoint("/path/to/checkpoint.ckpt")
+
+# disable randomness, dropout, etc...
+model.eval()
+
+# predict with the model
+y_hat = model(x)
+```
+
+超参数保存：
+
+```py
+class MyLightningModule(LightningModule):
+    def __init__(self, learning_rate, another_parameter, *args, **kwargs):
+        super().__init__()
+        self.save_hyperparameters()
+```
+
+```py
+checkpoint = torch.load(checkpoint, map_location=lambda storage, loc: storage)
+print(checkpoint["hyper_parameters"])
+# {"learning_rate": the_value, "another_parameter": the_other_value}
+```
+
+```py
+model = MyLightningModule.load_from_checkpoint("/path/to/checkpoint.ckpt")
+print(model.learning_rate)
+```
+
+使用其他参数初始化:
+
+如果初始化`LightningModule`时使用了`self.save_hyperparameters()`，可以使用不同的超参数初始化模型。
+
+```py
+# if you train and save the model like this it will use these values when loading
+# the weights. But you can overwrite this
+LitModel(in_dim=32, out_dim=10)
+
+# uses in_dim=32, out_dim=10
+model = LitModel.load_from_checkpoint(PATH)
+
+# uses in_dim=128, out_dim=10
+model = LitModel.load_from_checkpoint(PATH, in_dim=128, out_dim=10)
+```
+
+## nn.Module from checkpoint
+
+lightning的ckpt和torch原生的`nn.Modules`完全匹配。
+
+```py
+checkpoint = torch.load(CKPT_PATH)
+print(checkpoint.keys())
+```
+
+假设创建了`LightningModule`
+
+```py
+class Encoder(nn.Module):
+    ...
+
+
+class Decoder(nn.Module):
+    ...
+
+
+class Autoencoder(pl.LightningModule):
+    def __init__(self, encoder, decoder, *args, **kwargs):
+        ...
+
+
+autoencoder = Autoencoder(Encoder(), Decoder())
+```
+
+```py
+checkpoint = torch.load(CKPT_PATH)
+encoder_weights = checkpoint["encoder"]
+decoder_weights = checkpoint["decoder"]
+```
+
+## 禁用ckpt
+
+```py
+trainer = Trainer(enable_checkpointing=False)
+```
+
+## 恢复训练
+
+```py
+model = LitModel()
+trainer = Trainer()
+
+# automatically restores model, epoch, step, LR schedulers, etc...
+trainer.fit(model, ckpt_path="some/path/to/my_checkpoint.ckpt")
+```
+
+# 提前终止训练
+
+重写`on_train_batch_start()`来提前终止训练。
+
+`EarlyStopping` 回调函数可以监控一个metric并在模型训练没有提升的时候提前终止，启用这个功能使用以下过程:
+
+
+- Import EarlyStopping callback.
+
+- Log the metric you want to monitor using log() method.
+
+- Init the callback, and set monitor to the logged metric of your choice.
+
+- Set the mode based on the metric needs to be monitored.
+
+- Pass the EarlyStopping callback to the Trainer callbacks flag.
+
+
+```py
+from lightning.pytorch.callbacks.early_stopping import EarlyStopping
+
+
+class LitModel(LightningModule):
+    def validation_step(self, batch, batch_idx):
+        loss = ...
+        self.log("val_loss", loss)
+
+
+model = LitModel()
+trainer = Trainer(callbacks=[EarlyStopping(monitor="val_loss", mode="min")])
+trainer.fit(model)
+```
+
+可以自定义callback的行为:
+
+```py
+early_stop_callback = EarlyStopping(monitor="val_accuracy", min_delta=0.00, patience=3, verbose=False, mode="max")
+trainer = Trainer(callbacks=[early_stop_callback])
+```
+
+一些其他的参数:
+
+- stopping_threshold: Stops training immediately once the monitored quantity reaches this threshold. It is useful when we know that going beyond a certain optimal value does not further benefit us.
+
+- divergence_threshold: Stops training as soon as the monitored quantity becomes worse than this threshold. When reaching a value this bad, we believes the model cannot recover anymore and it is better to stop early and run with different initial conditions.
+
+- check_finite: When turned on, it stops training if the monitored metric becomes NaN or infinite.
+
+- check_on_train_epoch_end: When turned on, it checks the metric at the end of a training epoch. Use this only when you are monitoring any metric logged within training-specific hooks on epoch-level.
+
+```py
+class MyEarlyStopping(EarlyStopping):
+    def on_validation_end(self, trainer, pl_module):
+        # override this to disable early stopping at the end of val loop
+        pass
+
+    def on_train_end(self, trainer, pl_module):
+        # instead, do it at the end of training loop
+        self._run_early_stopping_check(trainer)
+```
+
+{: .note :}
+The `EarlyStopping` callback runs at the end of every validation epoch by default. However, the frequency of validation can be modified by setting various parameters in the `Trainer`, for example `check_val_every_n_epoch` and `val_check_interval`. It must be noted that the patience parameter counts the number of validation checks with no improvement, and not the number of training epochs. Therefore, with parameters `check_val_every_n_epoch=10` and `patience=3`, the trainer will perform at least 40 training epochs before being stopped.
+
+# 迁移学习
+
+
 
 
 
