@@ -926,6 +926,195 @@ with torch.no_grad():
     y_hat = model(x)
 ```
 
+# GPU训练
+
+## 代码修改
+
+```py
+# before lightning
+def forward(self, x):
+    x = x.cuda(0)
+    layer_1.cuda(0)
+    x_hat = layer_1(x)
+
+
+# after lightning
+def forward(self, x):
+    x_hat = layer_1(x)
+```
+
+使用`tensor.to`和`register_buffer`
+
+```py
+# before lightning
+def forward(self, x):
+    z = torch.Tensor(2, 3)
+    z = z.cuda(0)
+
+
+# with lightning
+def forward(self, x):
+    z = torch.Tensor(2, 3)
+    z = z.to(x)
+```
+
+`LightningModule`知道自己处在哪个设备上，使用`self.device`. 有时需要把tensor存储为模块属性。但是如果它们不是参数仍然会存在cpu上，将这个tensor注册为buffer使用`register_buffer()`.
+
+```py
+class LitModel(LightningModule):
+    def __init__(self):
+        ...
+        self.register_buffer("sigma", torch.eye(3))
+        # you can now access self.sigma anywhere in your module
+```
+
+### Remove samplers
+
+sampler是自动处理的。
+
+### 同步
+
+在分布式模式下必须保证验证和测试step的logging调用在进程间同步，可以给`self.log`添加`sync_dist=True`，这在下游的任务比如测试最好的ckpt比较重要。
+如果使用内建的metric或者使用`TorchMetrics`自定义metric会进行自动的处理更新。
+
+```py
+def validation_step(self, batch, batch_idx):
+    x, y = batch
+    logits = self(x)
+    loss = self.loss(logits, y)
+    # Add sync_dist=True to sync logging across all GPU workers (may have performance impact)
+    self.log("validation_loss", loss, on_step=True, on_epoch=True, sync_dist=True)
+
+
+def test_step(self, batch, batch_idx):
+    x, y = batch
+    logits = self(x)
+    loss = self.loss(logits, y)
+    # Add sync_dist=True to sync logging across all GPU workers (may have performance impact)
+    self.log("test_loss", loss, on_step=True, on_epoch=True, sync_dist=True)
+```
+
+It is possible to perform some computation manually and log the reduced result on rank 0 as follows:
+
+```py
+def __init__(self):
+    super().__init__()
+    self.outputs = []
+
+
+def test_step(self, batch, batch_idx):
+    x, y = batch
+    tensors = self(x)
+    self.outputs.append(tensors)
+    return tensors
+
+
+def on_test_epoch_end(self):
+    mean = torch.mean(self.all_gather(self.outputs))
+    self.outputs.clear()  # free memory
+
+    # When logging only on rank 0, don't forget to add
+    # `rank_zero_only=True` to avoid deadlocks on synchronization.
+    # caveat: monitoring this is unimplemented. see https://github.com/Lightning-AI/lightning/issues/15852
+    if self.trainer.is_global_zero:
+        self.log("my_reduced_metric", mean, rank_zero_only=True)
+```
+
+### pickleable model
+在并行模式下可能出现以下错误:
+
+```
+self._launch(process_obj)
+File "/net/software/local/python/3.6.5/lib/python3.6/multiprocessing/popen_spawn_posix.py", line 47,
+in _launch reduction.dump(process_obj, fp)
+File "/net/software/local/python/3.6.5/lib/python3.6/multiprocessing/reduction.py", line 60, in dump
+ForkingPickler(file, protocol).dump(obj)
+_pickle.PicklingError: Can't pickle <function <lambda> at 0x2b599e088ae8>:
+attribute lookup <lambda> on __main__ failed
+```
+
+这表明并行模式下模型，优化器,dataloader...中存在无法保存的东西，这是由pytorch限制的。
+
+## gpu训练
+
+默认情况下会尽可能在gpu上进行训练:
+
+```py
+# run on as many GPUs as available by default
+trainer = Trainer(accelerator="auto", devices="auto", strategy="auto")
+# equivalent to
+trainer = Trainer()
+
+# run on one GPU
+trainer = Trainer(accelerator="gpu", devices=1)
+# run on multiple GPUs
+trainer = Trainer(accelerator="gpu", devices=8)
+# choose the number of devices automatically
+trainer = Trainer(accelerator="gpu", devices="auto")
+```
+
+{: .note :}
+Setting accelerator="gpu" will also automatically choose the “mps” device on Apple sillicon GPUs. If you want to avoid this, you can set accelerator="cuda" instead.
+
+可以选择gpu设备
+
+```py
+# DEFAULT (int) specifies how many GPUs to use per node
+Trainer(accelerator="gpu", devices=k)
+
+# Above is equivalent to
+Trainer(accelerator="gpu", devices=list(range(k)))
+
+# Specify which GPUs to use (don't use when running on cluster)
+Trainer(accelerator="gpu", devices=[0, 1])
+
+# Equivalent using a string
+Trainer(accelerator="gpu", devices="0, 1")
+
+# To use all available GPUs put -1 or '-1'
+# equivalent to list(range(torch.cuda.device_count()))
+Trainer(accelerator="gpu", devices=-1)
+```
+
+检测可以使用的gpu设备:
+
+```py
+from lightning.pytorch.accelerators import find_usable_cuda_devices
+
+# Find two GPUs on the system that are not already occupied
+trainer = Trainer(accelerator="cuda", devices=find_usable_cuda_devices(2))
+
+from lightning.fabric.accelerators import find_usable_cuda_devices
+
+# Works with Fabric too
+fabric = Fabric(accelerator="cuda", devices=find_usable_cuda_devices(2))
+```
+
+当gpu被设置为`exclusive compute mode`时比较有用。
+
+# 项目模块化
+
+## datamodule
+
+datamodule是用来处理数据的类。下面是5个步骤:
+
+1. Download / tokenize / process.
+2. Clean and (maybe) save to disk.
+3. Load inside Dataset.
+4. Apply transforms (rotate, tokenize, etc…).
+5. Wrap inside a DataLoader.
+然后可以使用:
+
+```py
+model = LitClassifier()
+trainer = Trainer()
+
+imagenet = ImagenetDataModule()
+trainer.fit(model, datamodule=imagenet)
+
+cifar10 = CIFAR10DataModule()
+trainer.fit(model, datamodule=cifar10)
+```
 
 
 
