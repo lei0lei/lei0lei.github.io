@@ -503,6 +503,238 @@ The `EarlyStopping` callback runs at the end of every validation epoch by defaul
 
 # 迁移学习
 
+## 使用预训练的`LightningModule`
+
+```py
+class Encoder(torch.nn.Module):
+    ...
+
+
+class AutoEncoder(LightningModule):
+    def __init__(self):
+        self.encoder = Encoder()
+        self.decoder = Decoder()
+
+
+class CIFAR10Classifier(LightningModule):
+    def __init__(self):
+        # init the pretrained LightningModule
+        self.feature_extractor = AutoEncoder.load_from_checkpoint(PATH)
+        self.feature_extractor.freeze()
+
+        # the autoencoder outputs a 100-dim representation and CIFAR-10 has 10 classes
+        self.classifier = nn.Linear(100, 10)
+
+    def forward(self, x):
+        representations = self.feature_extractor(x)
+        x = self.classifier(representations)
+        ...
+```
+
+```py
+import torchvision.models as models
+
+
+class ImagenetTransferLearning(LightningModule):
+    def __init__(self):
+        super().__init__()
+
+        # init a pretrained resnet
+        backbone = models.resnet50(weights="DEFAULT")
+        num_filters = backbone.fc.in_features
+        layers = list(backbone.children())[:-1]
+        self.feature_extractor = nn.Sequential(*layers)
+
+        # use the pretrained model to classify cifar-10 (10 image classes)
+        num_target_classes = 10
+        self.classifier = nn.Linear(num_filters, num_target_classes)
+
+    def forward(self, x):
+        self.feature_extractor.eval()
+        with torch.no_grad():
+            representations = self.feature_extractor(x).flatten(1)
+        x = self.classifier(representations)
+        ...
+```
+
+```py
+model = ImagenetTransferLearning()
+trainer = Trainer()
+trainer.fit(model)
+```
+
+```py
+model = ImagenetTransferLearning.load_from_checkpoint(PATH)
+model.freeze()
+
+x = some_images_from_cifar10()
+predictions = model(x)
+```
+
+## Bert
+
+```py
+class BertMNLIFinetuner(LightningModule):
+    def __init__(self):
+        super().__init__()
+
+        self.bert = BertModel.from_pretrained("bert-base-cased", output_attentions=True)
+        self.W = nn.Linear(bert.config.hidden_size, 3)
+        self.num_classes = 3
+
+    def forward(self, input_ids, attention_mask, token_type_ids):
+        h, _, attn = self.bert(input_ids=input_ids, attention_mask=attention_mask, token_type_ids=token_type_ids)
+
+        h_cls = h[:, 0]
+        logits = self.W(h_cls)
+        return logits, attn
+```
+
+# 命令行中配置超参数
+
+## ArgumentParser
+
+```py
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+
+# Trainer arguments
+parser.add_argument("--devices", type=int, default=2)
+
+# Hyperparameters for the model
+parser.add_argument("--layer_1_dim", type=int, default=128)
+
+# Parse the user inputs and defaults (returns a argparse.Namespace)
+args = parser.parse_args()
+
+# Use the parsed arguments in your program
+trainer = Trainer(devices=args.devices)
+model = MyModel(layer_1_dim=args.layer_1_dim)
+```
+
+```sh
+python trainer.py --layer_1_dim 64 --devices 1
+```
+## [lightning cli](https://lightning.ai/docs/pytorch/stable/cli/lightning_cli.html)
+
+# debug,可视化以及寻找瓶颈
+
+## debug
+### 设置断点
+
+```py
+def function_to_debug():
+    x = 2
+
+    # set breakpoint
+    import pdb
+
+    pdb.set_trace()
+    y = x**2
+```
+
+### 跑一遍代码
+
+`fast_dev_run`会跑5个batch的训练验证和预测
+
+```py
+Trainer(fast_dev_run=True)
+```
+
+```py
+Trainer(fast_dev_run=7)
+```
+{: .note :}
+This argument will disable tuner, checkpoint callbacks, early stopping callbacks, loggers and logger callbacks like `LearningRateMonitor` and `DeviceStatsMonitor`.
+
+### 缩短epoch长度
+比如使用20%数据集作为训练，1%数据集作为验证
+
+```py
+# use only 10% of training data and 1% of val data
+trainer = Trainer(limit_train_batches=0.1, limit_val_batches=0.01)
+
+# use 10 batches of train and 5 batches of val
+trainer = Trainer(limit_train_batches=10, limit_val_batches=5)
+```
+
+### 简单检查
+在训练开始的时候进行两步验证。
+
+```py
+trainer = Trainer(num_sanity_val_steps=2)
+```
+
+### 显示`LightningModule`权重summary
+
+```py
+trainer.fit(...)
+```
+
+要给子模块添加summary,使用:
+
+```py
+from lightning.pytorch.callbacks import ModelSummary
+
+trainer = Trainer(callbacks=[ModelSummary(max_depth=-1)])
+```
+
+不调用`.fit`的情况下打印summary:
+
+```py
+from lightning.pytorch.utilities.model_summary import ModelSummary
+
+model = LitModel()
+summary = ModelSummary(model, max_depth=-1)
+print(summary)
+```
+
+关闭功能使用:
+
+```py
+Trainer(enable_model_summary=False)
+```
+
+### 查找代码瓶颈
+
+```py
+trainer = Trainer(profiler="simple")
+```
+
+要查看每个函数的运行时间，使用：
+
+```py
+trainer = Trainer(profiler="advanced")
+```
+
+输出到文件中:
+
+```py
+from lightning.pytorch.profilers import AdvancedProfiler
+
+profiler = AdvancedProfiler(dirpath=".", filename="perf_logs")
+trainer = Trainer(profiler=profiler)
+```
+
+查看加速器效果:
+
+```py
+from lightning.pytorch.callbacks import DeviceStatsMonitor
+
+trainer = Trainer(callbacks=[DeviceStatsMonitor()])
+```
+
+CPU metrics will be tracked by default on the CPU accelerator. To enable it for other accelerators set `DeviceStatsMonitor(cpu_stats=True)`. To disable logging CPU metrics, you can specify `DeviceStatsMonitor(cpu_stats=False)`.
+
+### 实验跟踪和可视化
+
+
+
+
+
+
+
 
 
 
