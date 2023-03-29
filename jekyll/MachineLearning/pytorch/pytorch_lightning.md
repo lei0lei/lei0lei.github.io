@@ -319,7 +319,18 @@ trainer = Trainer()
 trainer.fit(model, train_loader, valid_loader)
 ```
 # 保存模型过程
-
+lightning的checkpoint包含以下内容:
+- 16-bit scaling factor (if using 16-bit precision training)
+- Current epoch
+- Global step
+- LightningModule’s state_dict
+- State of all optimizers
+- State of all learning rate schedulers
+- State of all callbacks (for stateful callbacks)
+- State of datamodule (for stateful datamodules)
+- The hyperparameters (init arguments) with which the model was created
+- The hyperparameters (init arguments) with which the datamodule was created
+- State of Loops
 
 
 
