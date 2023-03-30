@@ -1242,11 +1242,199 @@ class MNISTDataModule(pl.LightningDataModule):
 - test_dataloader
 - predict_dataloader
 
+### prepare_data
+
+用多个进程下载和保存数据可能导致数据冲突，Lightning可以确保`prepare_data()`只在cpu的一个进程上调用。对于多节点训练，这个hook取决于`prepare_data_per_node`。`setup()`会在`prepare_data`之后进行调用，there is a barrier in between which ensures that all the processes proceed to setup once the data is prepared and available for use.
+
+- download, i.e. download data only once on the disk from a single process
+
+- tokenize. Since it’s a one time process, it is not recommended to do it on all processes
+
+```py
+class MNISTDataModule(pl.LightningDataModule):
+    def prepare_data(self):
+        # download
+        MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor())
+        MNIST(os.getcwd(), train=False, download=True, transform=transforms.ToTensor())
+```
+
+{: .warning :}
+`prepare_data` is called from the main process. It is not recommended to assign state here (e.g. self.x = y) since it is called on a single process and if you assign states here then they won’t be available for other processes.
+
+### setup
+有时想要在每块GPU上进行数据操作，使用`setup()`:
+
+- count number of classes
+
+- build vocabulary
+
+- perform train/val/test splits
+
+- create datasets
+
+- apply transforms (defined explicitly in your datamodule)
+
+```py
+import lightning.pytorch as pl
 
 
+class MNISTDataModule(pl.LightningDataModule):
+    def setup(self, stage: str):
+        # Assign Train/val split(s) for use in Dataloaders
+        if stage == "fit":
+            mnist_full = MNIST(self.data_dir, train=True, download=True, transform=self.transform)
+            self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000])
+
+        # Assign Test split(s) for use in Dataloaders
+        if stage == "test":
+            self.mnist_test = MNIST(self.data_dir, train=False, download=True, transform=self.transform)
+```
+对于NLP可能想要获得文本tooken,可以:
+
+```py
+class LitDataModule(LightningDataModule):
+    def prepare_data(self):
+        dataset = load_Dataset(...)
+        train_dataset = ...
+        val_dataset = ...
+        # tokenize
+        # save it to disk
+
+    def setup(self, stage):
+        # load it back here
+        dataset = load_dataset_from_disk(...)
+```
+
+`stage`参数用来为trainer设置，trainer.{fit,validate,test,predict}.
+
+{: .note :}
+> setup is called from every process across all the nodes. Setting state here is recommended.
+> 
+> teardown can be used to clean up the state. It is also called from every process across all the nodes.
+
+### train_dataloader
+
+`train_dataloader()`方法用来生成训练dataloader.通常只是封装在`setup`中封装的dataset. trainer的`fit()`方法将会使用这个dataloader. 
+
+```py
+import lightning.pytorch as pl
+
+class MNISTDataModule(pl.LightningDataModule):
+    def train_dataloader(self):
+        return DataLoader(self.mnist_train, batch_size=64)
+```
+
+### val_dataloader
+
+### test_dataloader
+
+### predict_dataloader
 
 
+### transfer_batch_to_device
 
 
+### on_before_batch_transfer
+
+
+### on_after_batch_transfer
+
+
+### load_state_dict
+
+
+### state_dict
+
+
+### teardown
+
+
+### prepare_data_per_node
+
+
+### 使用datamodule
+
+datamodule的使用非常简单:
+
+```py
+dm = MNISTDataModule()
+model = Model()
+trainer.fit(model, datamodule=dm)
+trainer.test(datamodule=dm)
+trainer.validate(datamodule=dm)
+trainer.predict(datamodule=dm)
+```
+
+如果需要数据集的某些信息才能构建模型，手动运行`prepare_data`和`setup`:
+
+```py
+dm = MNISTDataModule()
+dm.prepare_data()
+dm.setup(stage="fit")
+
+model = Model(num_classes=dm.num_classes, width=dm.width, vocab=dm.vocab)
+trainer.fit(model, dm)
+
+dm.setup(stage="test")
+trainer.test(datamodule=dm)
+```
+
+You can access the current used datamodule of a trainer via `trainer.datamodule` and the current used dataloaders via the trainer properties `train_dataloader()`, `val_dataloaders()`, `test_dataloaders()`, and `predict_dataloaders()`.
+
+### 在pytorch中使用DataModules
+
+```py
+# download, etc...
+dm = MNISTDataModule()
+dm.prepare_data()
+
+# splits/transforms
+dm.setup(stage="fit")
+
+# use data
+for batch in dm.train_dataloader():
+    ...
+
+for batch in dm.val_dataloader():
+    ...
+
+dm.teardown(stage="fit")
+
+# lazy load test data
+dm.setup(stage="test")
+for batch in dm.test_dataloader():
+    ...
+
+dm.teardown(stage="test")
+```
+
+### datamodule中的超参数
+
+```py
+import lightning.pytorch as pl
+
+class CustomDataModule(pl.LightningDataModule):
+    def __init__(self, *args, **kwargs):
+        super().__init__()
+        self.save_hyperparameters()
+
+    def configure_optimizers(self):
+        # access the saved hyperparameters
+        opt = optim.Adam(self.parameters(), lr=self.hparams.lr)
+```
+
+### 保存datamodule state
+
+```py
+class LitDataModule(pl.DataModuler):
+    def state_dict(self):
+        # track whatever you want here
+        state = {"current_train_batch_index": self.current_train_batch_index}
+        return state
+
+    def load_state_dict(self, state_dict):
+        # restore the state based on what you tracked in (def state_dict)
+        self.current_train_batch_index = state_dict["current_train_batch_index"]
+```
 
 
