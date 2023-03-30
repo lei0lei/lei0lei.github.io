@@ -1096,6 +1096,8 @@ fabric = Fabric(accelerator="cuda", devices=find_usable_cuda_devices(2))
 
 ## datamodule
 
+<iframe width="420" height="315" src="https://pl-bolts-doc-images.s3.us-east-2.amazonaws.com/pl_docs/pt_dm_vid.m4v" frameborder="0"></iframe>
+
 datamodule是用来处理数据的类。下面是5个步骤:
 
 1. Download / tokenize / process.
@@ -1115,6 +1117,130 @@ trainer.fit(model, datamodule=imagenet)
 cifar10 = CIFAR10DataModule()
 trainer.fit(model, datamodule=cifar10)
 ```
+
+datamodule解决了以下几个问题:
+
+- what splits did you use?
+
+- what transforms did you use?
+
+- what normalization did you use?
+
+- how did you prepare/tokenize the data?
+
+在pytorch中需要这样写:
+
+```py
+# regular PyTorch
+test_data = MNIST(my_path, train=False, download=True)
+predict_data = MNIST(my_path, train=False, download=True)
+train_data = MNIST(my_path, train=True, download=True)
+train_data, val_data = random_split(train_data, [55000, 5000])
+
+train_loader = DataLoader(train_data, batch_size=32)
+val_loader = DataLoader(val_data, batch_size=32)
+test_loader = DataLoader(test_data, batch_size=32)
+predict_loader = DataLoader(predict_data, batch_size=32)
+```
+
+等效的在lightning中:
+
+```py
+class MNISTDataModule(pl.LightningDataModule):
+    def __init__(self, data_dir: str = "path/to/dir", batch_size: int = 32):
+        super().__init__()
+        self.data_dir = data_dir
+        self.batch_size = batch_size
+
+    def setup(self, stage: str):
+        self.mnist_test = MNIST(self.data_dir, train=False)
+        self.mnist_predict = MNIST(self.data_dir, train=False)
+        mnist_full = MNIST(self.data_dir, train=True)
+        self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000])
+
+    def train_dataloader(self):
+        return DataLoader(self.mnist_train, batch_size=self.batch_size)
+
+    def val_dataloader(self):
+        return DataLoader(self.mnist_val, batch_size=self.batch_size)
+
+    def test_dataloader(self):
+        return DataLoader(self.mnist_test, batch_size=self.batch_size)
+
+    def predict_dataloader(self):
+        return DataLoader(self.mnist_predict, batch_size=self.batch_size)
+
+    def teardown(self, stage: str):
+        # Used to clean-up when the run is finished
+        ...
+```
+
+然后就可以复用:
+
+```py
+mnist = MNISTDataModule(my_path)
+model = LitClassifier()
+
+trainer = Trainer()
+trainer.fit(model, mnist)
+```
+
+下面是一个更复杂的例子:
+
+```py
+import lightning.pytorch as pl
+from torch.utils.data import random_split, DataLoader
+
+# Note - you must have torchvision installed for this example
+from torchvision.datasets import MNIST
+from torchvision import transforms
+
+
+class MNISTDataModule(pl.LightningDataModule):
+    def __init__(self, data_dir: str = "./"):
+        super().__init__()
+        self.data_dir = data_dir
+        self.transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
+
+    def prepare_data(self):
+        # download
+        MNIST(self.data_dir, train=True, download=True)
+        MNIST(self.data_dir, train=False, download=True)
+
+    def setup(self, stage: str):
+        # Assign train/val datasets for use in dataloaders
+        if stage == "fit":
+            mnist_full = MNIST(self.data_dir, train=True, transform=self.transform)
+            self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000])
+
+        # Assign test dataset for use in dataloader(s)
+        if stage == "test":
+            self.mnist_test = MNIST(self.data_dir, train=False, transform=self.transform)
+
+        if stage == "predict":
+            self.mnist_predict = MNIST(self.data_dir, train=False, transform=self.transform)
+
+    def train_dataloader(self):
+        return DataLoader(self.mnist_train, batch_size=32)
+
+    def val_dataloader(self):
+        return DataLoader(self.mnist_val, batch_size=32)
+
+    def test_dataloader(self):
+        return DataLoader(self.mnist_test, batch_size=32)
+
+    def predict_dataloader(self):
+        return DataLoader(self.mnist_predict, batch_size=32)
+```
+
+要定义datamodule需要实现以下方法:
+
+- prepare_data (how to download, tokenize, etc…)
+- setup (how to split, define dataset, etc…)
+- train_dataloader
+- val_dataloader
+- test_dataloader
+- predict_dataloader
 
 
 
