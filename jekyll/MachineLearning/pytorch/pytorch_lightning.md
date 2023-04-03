@@ -1437,4 +1437,17 @@ class LitDataModule(pl.DataModuler):
         self.current_train_batch_index = state_dict["current_train_batch_index"]
 ```
 
+## CLI中配置超参数-1
+
+
+
+
+
+
+
+
+
+## CLI中配置超参数-2
+
+
 
