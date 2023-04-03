@@ -1,7 +1,7 @@
 ---
 layout: default
-title: pytorch lightning
-permalink: /python/pytorch-lightning
+title: steps2model
+permalink: /python/steps2model
 parent: pytorch
 grand_parent: MachineLearning
 has_toc: true
