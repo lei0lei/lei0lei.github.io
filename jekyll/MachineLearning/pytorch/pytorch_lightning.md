@@ -2051,10 +2051,183 @@ trainer:
 
 Only model classes that are a subclass of `MyModelBaseClass` would be allowed, and similarly, only subclasses of `MyDataModuleBaseClass`. If as base classes `LightningModule` and `LightningDataModule` is given, then the CLI would allow any lightning module and data module.
 
+子类模式下`--help`选项不会显示特定子类的信息:
+
+```sh
+$ python trainer.py fit --model.help mycode.mymodels.MyModel
+$ python trainer.py fit --model mycode.mymodels.MyModel --print_config
+```
+
+### 有多个子模块的模型
+我们经常需要几个模块，每个模块有自己的配置，一个方式是创建一个模块有每个子模块的参数作为初始参数，这又叫做依赖注入，可以很好的解耦代码。
+
+由于模型的初始参数作为类的type hint,在配置文件中通过class_path和init_args给出，比如模型可以实现为:
+
+```py
+class MyMainModel(LightningModule):
+    def __init__(self, encoder: nn.Module, decoder: nn.Module):
+        """Example encoder-decoder submodules model
+
+        Args:
+            encoder: Instance of a module for encoding
+            decoder: Instance of a module for decoding
+        """
+        super().__init__()
+        self.encoder = encoder
+        self.decoder = decoder
+```
+
+如果CLI实现为`LightningCLI(MyMainModel)`，配置文件如下:
+
+```
+model:
+  encoder:
+    class_path: mycode.myencoders.MyEncoder
+    init_args:
+      ...
+  decoder:
+    class_path: mycode.mydecoders.MyDecoder
+    init_args:
+      ...
+```
+
+也可以结合`subclass_mode_model=True`和子模块，这会有两层class_path.
+
+### 固定optimizer和scheduler
+有的时候需要固定优化器和scheduler,可以手动的为CLI的子类添加参数，
+
+```py
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.add_optimizer_args(torch.optim.Adam)
+        parser.add_lr_scheduler_args(torch.optim.lr_scheduler.ExponentialLR)
+```
+
+```
+optimizer:
+  lr: 0.01
+lr_scheduler:
+  gamma: 0.2
+model:
+  ...
+trainer:
+  ...
+```
+
+```sh
+$ python trainer.py fit --optimizer.lr=0.01 --lr_scheduler.gamma=0.2
+```
+
+
+### 多个optimizer和scheduler
+By default, the CLIs support multiple optimizers and/or learning schedulers, automatically implementing `configure_optimizers`. This behavior can be disabled by providing `auto_configure_optimizers=False` on instantiation of `LightningCLI`. This would be required for example to support multiple optimizers, for each selecting a particular optimizer class. Similar to multiple submodules, this can be done via dependency injection. Unlike the submodules, it is not possible to expect an instance of a class, because optimizers require the module’s parameters to optimize, which are only available after instantiation of the module. Learning schedulers are a similar situation, requiring an optimizer instance. For these cases, dependency injection involves providing a function that instantiates the respective class when called.
+
+```py
+from typing import Iterable
+from torch.optim import Optimizer
+
+
+OptimizerCallable = Callable[[Iterable], Optimizer]
+
+
+class MyModel(LightningModule):
+    def __init__(self, optimizer1: OptimizerCallable, optimizer2: OptimizerCallable):
+        super().__init__()
+        self.optimizer1 = optimizer1
+        self.optimizer2 = optimizer2
+
+    def configure_optimizers(self):
+        optimizer1 = self.optimizer1(self.parameters())
+        optimizer2 = self.optimizer2(self.parameters())
+        return [optimizer1, optimizer2]
+
+
+cli = MyLightningCLI(MyModel, auto_configure_optimizers=False)
+```
+Note the type `Callable[[Iterable], Optimizer]`, which denotes a function that receives a singe argument, some learnable parameters, and returns an optimizer instance. With this, from the command line it is possible to select the class and init arguments for each of the optimizers, as follows:
+
+```sh
+$ python trainer.py fit \
+    --model.optimizer1=Adam \
+    --model.optimizer1.lr=0.01 \
+    --model.optimizer2=AdamW \
+    --model.optimizer2.lr=0.0001
+```
+
+In the example above, the `OptimizerCallable` type alias was created to illustrate what the type hint means. For convenience, this type alias and one for learning schedulers is available in the cli module. An example of a model that uses dependency injection for an optimizer and a learning scheduler is:
+
+
+```py
+from lightning.pytorch.cli import OptimizerCallable, LRSchedulerCallable, LightningCLI
+
+
+class MyModel(LightningModule):
+    def __init__(
+        self,
+        optimizer: OptimizerCallable = torch.optim.Adam,
+        scheduler: LRSchedulerCallable = torch.optim.lr_scheduler.ConstantLR,
+    ):
+        super().__init__()
+        self.optimizer = optimizer
+        self.scheduler = scheduler
+
+    def configure_optimizers(self):
+        optimizer = self.optimizer(self.parameters())
+        scheduler = self.scheduler(optimizer)
+        return {"optimizer": optimizer, "lr_scheduler": scheduler}
+
+
+cli = MyLightningCLI(MyModel, auto_configure_optimizers=False)
+```
+Note that for this example, classes are used as defaults. This is compatible with the type hints, since they are also callables that receive the same first argument and return an instance of the class. Classes that have more than one required argument will not work as default. For these cases a lambda function can be used, e.g. `optimizer: OptimizerCallable = lambda p: torch.optim.SGD(p, lr=0.01)`.
 
 
 
+### 从python运行
 
+`LightningCLI`尽管是拿来辅助命令行操作，某些情况下可以直接从python中运行。首先实现一个正常的CLI脚本，但是添加一个args=None.
+
+```py
+from lightning.pytorch.cli import ArgsType, LightningCLI
+
+
+def cli_main(args: ArgsType = None):
+    cli = LightningCLI(MyModel, ..., args=args)
+    ...
+
+
+if __name__ == "__main__":
+    cli_main()
+```
+
+然后就可以import `cli_main`函数运行，执行`my_cli.py --trainer.max_epochs=100 --model.encoder_layers=24`，等价于:
+
+```py
+from my_module.my_cli import cli_main
+
+cli_main(["--trainer.max_epochs=100", "--model.encoder_layers=24"])
+```
+命令行的所有特征都可以使用，可以给args一个string list或者dict或者jsonargparse,比如在jupyter中:
+
+
+```py
+args = {
+    "trainer": {
+        "max_epochs": 100,
+    },
+    "model": {},
+}
+
+args["model"]["encoder_layers"] = 8
+cli_main(args)
+args["model"]["encoder_layers"] = 12
+cli_main(args)
+args["trainer"]["max_epochs"] = 200
+cli_main(args)
+```
+
+{: .note :}
+`args`参数在从命令行运行的时候必须是`None`,这样才会使用`sys.argv`作为参数，注意， `trainer_defaults`的目的和`args`不同。可以在`cli_main`函数中使用`trainer_default`来更改一些trainer参数的默认值。
 
 ## CLI中配置超参数-6
 
