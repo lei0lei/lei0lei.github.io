@@ -1439,15 +1439,556 @@ class LitDataModule(pl.DataModuler):
 
 ## CLI中配置超参数-1
 
+`LightningCLI`用来减轻CLI实现难度，要使用这个类，需要额外的lightning功能，
+
+```sh
+pip install "pytorch-lightning[extra]"
+```
+
+### 实现CLI
+实例化一个`LightningCLI`对象，然后给`LightningModule`参数，也可以多给一个`LightningDataModule`参数。
+
+```py
+# main.py
+from lightning.pytorch.cli import LightningCLI
+
+# simple demo classes for your convenience
+from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule
 
 
+def cli_main():
+    cli = LightningCLI(DemoModel, BoringDataModule)
+    # note: don't call fit!!
 
 
+if __name__ == "__main__":
+    cli_main()
+    # note: it is good practice to implement the CLI in a function and call it in the main if block
+```
+现在模型可以通过CLI管理:
 
+```sh
+python main.py --help
+```
+会输出:
 
+```
+usage: main.py [-h] [-c CONFIG] [--print_config [={comments,skip_null,skip_default}+]]
+        {fit,validate,test,predict,tune} ...
 
+pytorch-lightning trainer command line tool
+
+optional arguments:
+-h, --help            Show this help message and exit.
+-c CONFIG, --config CONFIG
+                        Path to a configuration file in json or yaml format.
+--print_config [={comments,skip_null,skip_default}+]
+                        Print configuration and exit.
+
+subcommands:
+For more details of each subcommand add it as argument followed by --help.
+
+{fit,validate,test,predict,tune}
+    fit                 Runs the full optimization routine.
+    validate            Perform one evaluation epoch over the validation set.
+    test                Perform one evaluation epoch over the test set.
+    predict             Run inference on your data.
+    tune                Runs routines to tune hyperparameters before training.
+```
+
+### 使用CLI训练模型
+
+```sh
+python main.py fit
+```
+`--help`参数查看可用选项:
+
+```
+$ python main.py fit --help
+
+usage: main.py [options] fit [-h] [-c CONFIG]
+                            [--seed_everything SEED_EVERYTHING] [--trainer CONFIG]
+                            ...
+                            [--ckpt_path CKPT_PATH]
+    --trainer.logger LOGGER
+
+optional arguments:
+<class '__main__.DemoModel'>:
+    --model.out_dim OUT_DIM
+                            (type: int, default: 10)
+    --model.learning_rate LEARNING_RATE
+                            (type: float, default: 0.02)
+<class 'lightning.pytorch.demos.boring_classes.BoringDataModule'>:
+--data CONFIG         Path to a configuration file.
+--data.data_dir DATA_DIR
+                        (type: str, default: ./)
+```
+
+改变参数:
+
+```sh
+# change the learning_rate
+python main.py fit --model.learning_rate 0.1
+
+# change the output dimensions also
+python main.py fit --model.out_dim 10 --model.learning_rate 0.1
+
+# change trainer and data arguments too
+python main.py fit --model.out_dim 2 --model.learning_rate 0.1 --data.data_dir '~/' --trainer.logger False
+```
+{: .note :}
+ `LightningModule` 和 `LightningDataModule`类中的`__init__`的参数在CLI中发挥作用，因此，想要一个参数可以配置，将其添加到类的`__init__`中。 最好在docstring中描述这些参数，这样可以通过`--help`进行查看，最好加上type hint.
 
 ## CLI中配置超参数-2
+lightning支持混合使用模型和数据集，比如:
 
+```sh
+# Mix and match anything
+$ python main.py fit --model=GAN --data=MNIST
+$ python main.py fit --model=Transformer --data=MNIST
+```
+
+`LightningCLI`可以方便实现这一功能，不用像下面一样写过多代码:
+
+```py
+# choose model
+if args.model == "gan":
+    model = GAN(args.feat_dim)
+elif args.model == "transformer":
+    model = Transformer(args.feat_dim)
+...
+
+# choose datamodule
+if args.data == "MNIST":
+    datamodule = MNIST()
+elif args.data == "imagenet":
+    datamodule = Imagenet()
+...
+
+# mix them!
+trainer.fit(model, datamodule)
+```
+
+### 多个LightningModules
+
+```py
+# main.py
+from lightning.pytorch.cli import LightningCLI
+from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule
+
+
+class Model1(DemoModel):
+    def configure_optimizers(self):
+        print("⚡", "using Model1", "⚡")
+        return super().configure_optimizers()
+
+
+class Model2(DemoModel):
+    def configure_optimizers(self):
+        print("⚡", "using Model2", "⚡")
+        return super().configure_optimizers()
+
+
+cli = LightningCLI(datamodule_class=BoringDataModule)
+```
+
+现在可以在CLI中选择模型:
+
+```sh
+# use Model1
+python main.py fit --model Model1
+
+# use Model2
+python main.py fit --model Model2
+```
+
+{: .note :}
+如果不使用`model_class`参数，可以使用基类以及`subclass_mode_model=True`，这样cli只能接收给定基类的子类模型。
+
+### 多个 LightningDataModules
+
+在`LightningCLI`中使用`datamodule_class`参数：
+
+```py
+# main.py
+import torch
+from lightning.pytorch.cli import LightningCLI
+from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule
+
+
+class FakeDataset1(BoringDataModule):
+    def train_dataloader(self):
+        print("⚡", "using FakeDataset1", "⚡")
+        return torch.utils.data.DataLoader(self.random_train)
+
+
+class FakeDataset2(BoringDataModule):
+    def train_dataloader(self):
+        print("⚡", "using FakeDataset2", "⚡")
+        return torch.utils.data.DataLoader(self.random_train)
+
+
+cli = LightningCLI(DemoModel)
+```
+
+现在可以使用任意数据集:
+
+```sh
+# use Model1
+python main.py fit --data FakeDataset1
+
+# use Model2
+python main.py fit --data FakeDataset2
+```
+
+{: .note :}
+Instead of omitting the `datamodule_class` parameter, you can give a base class and `subclass_mode_data=True`. This will make the CLI only accept data modules that are a subclass of the given base class.
+
+
+
+### 多个优化器
+
+使用标准的优化器:
+
+```sh
+python main.py fit --optimizer AdamW
+
+python main.py fit --optimizer SGD --optimizer.lr=0.01
+```
+
+自定义优化器:
+
+```py
+# main.py
+import torch
+from lightning.pytorch.cli import LightningCLI
+from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule
+
+
+class LitAdam(torch.optim.Adam):
+    def step(self, closure):
+        print("⚡", "using LitAdam", "⚡")
+        super().step(closure)
+
+
+class FancyAdam(torch.optim.Adam):
+    def step(self, closure):
+        print("⚡", "using FancyAdam", "⚡")
+        super().step(closure)
+
+
+cli = LightningCLI(DemoModel, BoringDataModule)
+```
+
+```sh
+# use LitAdam
+python main.py fit --optimizer LitAdam
+
+# use FancyAdam
+python main.py fit --optimizer FancyAdam
+```
+
+### 多个scheduler
+
+```sh
+python main.py fit --lr_scheduler CosineAnnealingLR
+python main.py fit --lr_scheduler=ReduceLROnPlateau --lr_scheduler.monitor=epoch
+```
+
+```py
+# main.py
+import torch
+from lightning.pytorch.cli import LightningCLI
+from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule
+
+
+class LitLRScheduler(torch.optim.lr_scheduler.CosineAnnealingLR):
+    def step(self):
+        print("⚡", "using LitLRScheduler", "⚡")
+        super().step()
+
+
+cli = LightningCLI(DemoModel, BoringDataModule)
+```
+
+```py
+# LitLRScheduler
+python main.py fit --lr_scheduler LitLRScheduler
+```
+
+
+### 其他包中的类
+
+```py
+from lightning.pytorch.cli import LightningCLI
+import my_code.models  # noqa: F401
+import my_code.data_modules  # noqa: F401
+import my_code.optimizers  # noqa: F401
+
+cli = LightningCLI()
+```
+
+```sh
+python main.py fit --model Model1 --data FakeDataset1 --optimizer LitAdam --lr_scheduler LitLRScheduler
+```
+
+{: .note :}
+The `# noqa: F401` comment avoids a linter warning that the import is unused.
+
+```sh
+python main.py fit --model my_code.models.Model1
+```
+
+### 模型help
+用多个模型或数据集时CLI的help不会包含对应的参数，用该用以下的方式:
+
+```sh
+python main.py fit --model.help Model1
+python main.py fit --data.help FakeDataset2
+python main.py fit --optimizer.help Adagrad
+python main.py fit --lr_scheduler.help StepLR
+```
+
+## CLI中配置超参数-3
+
+随着参数的增多从CLI中引入参数变得不现实，LightningCLI可以支持从配置文件中接收输入.
+
+```sh
+python main.py fit --config config.yaml
+```
+默认LightningCLI自动保存完整的YAML配置在log目录下。
+
+自动保存通过特定的回调`SaveConfigCallback`实现，这个回调时自动添加到Trainer上的，要禁用，实例化`LightningCLI`时传入`save_config_callback=None`
+
+要改变名字使用:
+
+```py
+cli = LightningCLI(..., save_config_kwargs={"config_filename": "name.yaml"})
+```
+
+### 为CLI准备config文件
+不运行命令只打印参数:
+
+```sh
+python main.py fit --print_config
+```
+会生成:
+
+```
+seed_everything: null
+trainer:
+  logger: true
+  ...
+model:
+  out_dim: 10
+  learning_rate: 0.02
+data:
+  data_dir: ./
+ckpt_path: null
+```
+
+```sh
+python main.py fit --model DemoModel --print_config
+```
+生成:
+
+```
+seed_everything: null
+trainer:
+  ...
+model:
+  class_path: lightning.pytorch.demos.boring_classes.DemoModel
+  init_args:
+    out_dim: 10
+    learning_rate: 0.02
+ckpt_path: null
+```
+{: .note :}
+> 标准的实验过程是:
+> ```sh
+> # Print a configuration to have as reference
+> python main.py fit --print_config > config.yaml
+> # Modify the config to your liking - you can remove all default arguments
+> nano config.yaml
+> # Fit your model using the edited configuration
+> python main.py fit --config config.yaml
+> ```
+
+如果模型定义为:
+
+```py
+# model.py
+class MyModel(pl.LightningModule):
+    def __init__(self, criterion: torch.nn.Module):
+        self.criterion = criterion
+```
+
+config将会是:
+
+```yaml
+model:
+  class_path: model.MyModel
+  init_args:
+    criterion:
+      class_path: torch.nn.CrossEntropyLoss
+      init_args:
+        reduction: mean
+    ...
+```
+
+{: .note :}
+Lighting automatically registers all subclasses of `LightningModule`, so the complete import path is not required for them and can be replaced by the class name.
+
+### 组合配置文件
+可以使用多个配置文件:
+
+```
+# config_1.yaml
+trainer:
+  num_epochs: 10
+  ...
+
+# config_2.yaml
+trainer:
+  num_epochs: 20
+  ...
+```
+会使用最后一个配置的值:
+
+```sh
+$ python main.py fit --config config_1.yaml --config config_2.yaml
+```
+一组选项也可以放在多个文件中:
+
+```
+# trainer.yaml
+num_epochs: 10
+
+# model.yaml
+out_dim: 7
+
+# data.yaml
+data_dir: ./data
+```
+
+```sh
+$ python main.py fit --trainer trainer.yaml --model model.yaml --data data.yaml [...]
+```
+
+## CLI中配置超参数-4
+
+要自定义子命令的参数，在子命令前传递参数:
+
+```sh
+$ python main.py [before] [subcommand] [after]
+$ python main.py  ...         fit       ...
+```
+
+比如:
+
+```
+# config.yaml
+fit:
+    trainer:
+        max_steps: 100
+test:
+    trainer:
+        max_epochs: 10
+```
+
+```sh
+# full routine with max_steps = 100
+$ python main.py --config config.yaml fit
+
+# test only with max_epochs = 10
+$ python main.py --config config.yaml test
+```
+通过环境变量使用config:
+
+```sh
+$ python main.py fit --trainer "$TRAINER_CONFIG" --model "$MODEL_CONFIG" [...]
+```
+
+直接从环境变量运行:
+
+```py
+cli = LightningCLI(..., parser_kwargs={"default_env": True})
+```
+
+运行：
+
+```sh
+$ python main.py fit --help
+```
+
+```
+usage: main.py [options] fit [-h] [-c CONFIG]
+                            ...
+
+optional arguments:
+...
+ARG:   --model.out_dim OUT_DIM
+ENV:   PL_FIT__MODEL__OUT_DIM
+                        (type: int, default: 10)
+ARG:   --model.learning_rate LEARNING_RATE
+ENV:   PL_FIT__MODEL__LEARNING_RATE
+                        (type: float, default: 0.02)
+```
+现在通过环境变量定义:
+
+```sh
+# set the options via env vars
+$ export PL_FIT__MODEL__LEARNING_RATE=0.01
+$ export PL_FIT__MODEL__OUT_DIM=5
+
+$ python main.py fit
+```
+
+设置默认的config文件:
+
+```py
+cli = LightningCLI(MyModel, MyDataModule, parser_kwargs={"default_config_files": ["my_cli_defaults.yaml"]})
+```
+或者:
+
+```py
+cli = LightningCLI(MyModel, MyDataModule, parser_kwargs={"fit": {"default_config_files": ["my_fit_defaults.yaml"]}})
+```
+
+### 变量插入
+受限安装
+
+```sh
+pip install omegaconf
+```
+
+```yaml
+model:
+  encoder_layers: 12
+  decoder_layers:
+  - ${model.encoder_layers}
+  - 4
+```
+
+```py
+cli = LightningCLI(MyModel, parser_kwargs={"parser_mode": "omegaconf"})
+```
+
+```sh
+python main.py --model.encoder_layers=12
+```
+
+{: .note :}
+变量插入有时并不是正确的方法。当一个参数必须从其他设置得到时，不应该由CLI用户在配置文件中设置，比如data和model需要batch_size相同，那么应该使用参数连接而不是变量插入。
+
+## CLI中配置超参数-5
+
+## CLI中配置超参数-6
+
+
+# checkpoint
+
+
+# 实验管理
 
 
