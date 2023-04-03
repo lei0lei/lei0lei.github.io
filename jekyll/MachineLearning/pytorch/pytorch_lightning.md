@@ -1803,6 +1803,7 @@ model:
     learning_rate: 0.02
 ckpt_path: null
 ```
+
 {: .note :}
 > 标准的实验过程是:
 > ```sh
@@ -1956,7 +1957,7 @@ cli = LightningCLI(MyModel, MyDataModule, parser_kwargs={"fit": {"default_config
 ```
 
 ### 变量插入
-受限安装
+首先安装
 
 ```sh
 pip install omegaconf
@@ -1982,6 +1983,78 @@ python main.py --model.encoder_layers=12
 变量插入有时并不是正确的方法。当一个参数必须从其他设置得到时，不应该由CLI用户在配置文件中设置，比如data和model需要batch_size相同，那么应该使用参数连接而不是变量插入。
 
 ## CLI中配置超参数-5
+CLI的目的是尽量减少代码更改，类一旦实例化,CLI会自动调用与子命令关联的trainer函数，可以使用以下代码:
+
+```py
+cli = LightningCLI(MyModel, run=False)  # True by default
+# you'll have to call fit yourself:
+cli.trainer.fit(cli.model)
+```
+不将子命令添加到parser.在实现自定义的逻辑而不去继承CLI时比较有用，但同时又保留了CLI的实例化和参数传递功能。
+
+### Trainer回调和class type参数
+Trainer类的一个很重要的参数是callbacks.不像其他的参数一样，callback应该是Callback子类的示例list.要在配置文件中给出参数，每个callback必须以字典给出,包括class_path entry(给出类的import路径)和init_args(实例化参数),一个简单的定义了两个callback的配置文件如下:
+
+```
+trainer:
+  callbacks:
+    - class_path: lightning.pytorch.callbacks.EarlyStopping
+      init_args:
+        patience: 5
+    - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+      init_args:
+        ...
+```
+`Trainer`中的任意参数以及用户扩展的`LightningModule`和`LightningDataModule`都可以用相同的方式进行配置。如果定义了子类的包在LightningCLI类之前运行，就可以不适用完整的import路径而是直接使用名字。
+
+```sh
+$ python ... \
+    --trainer.callbacks+={CALLBACK_1_NAME} \
+    --trainer.callbacks.{CALLBACK_1_ARGS_1}=... \
+    --trainer.callbacks.{CALLBACK_1_ARGS_2}=... \
+    ...
+    --trainer.callbacks+={CALLBACK_N_NAME} \
+    --trainer.callbacks.{CALLBACK_N_ARGS_1}=... \
+    ...
+```
+
+{: .note :}
+Serialized config files (e.g. `--print_config` or `SaveConfigCallback`) always have the full class_path, even when class name shorthand notation is used in the command line or in input config files.
+
+### 多个模型和数据集
+
+A CLI can be written such that a model and/or a datamodule is specified by an import path and init arguments. For example, with a tool implemented as:
+
+```py
+cli = LightningCLI(MyModelBaseClass, MyDataModuleBaseClass, subclass_mode_model=True, subclass_mode_data=True)
+```
+
+```
+model:
+  class_path: mycode.mymodels.MyModel
+  init_args:
+    decoder_layers:
+    - 2
+    - 4
+    encoder_layers: 12
+data:
+  class_path: mycode.mydatamodules.MyDataModule
+  init_args:
+    ...
+trainer:
+  callbacks:
+    - class_path: lightning.pytorch.callbacks.EarlyStopping
+      init_args:
+        patience: 5
+    ...
+```
+
+Only model classes that are a subclass of `MyModelBaseClass` would be allowed, and similarly, only subclasses of `MyDataModuleBaseClass`. If as base classes `LightningModule` and `LightningDataModule` is given, then the CLI would allow any lightning module and data module.
+
+
+
+
+
 
 ## CLI中配置超参数-6
 
@@ -1991,4 +2064,70 @@ python main.py --model.encoder_layers=12
 
 # 实验管理
 
+
+# PROGRESS BAR
+Lightning支持两种进度条tqdm和rich,默认使用tqdm
+
+也可以使用 `ProgressBar`类自己实现进度条。
+
+## RichProgressBar
+
+```py
+from lightning.pytorch.callbacks import RichProgressBar
+
+trainer = Trainer(callbacks=[RichProgressBar()])
+```
+
+自定义`RichProgressBar`:
+
+```py
+from lightning.pytorch.callbacks import RichProgressBar
+from lightning.pytorch.callbacks.progress.rich_progress import RichProgressBarTheme
+
+# create your own theme!
+progress_bar = RichProgressBar(
+    theme=RichProgressBarTheme(
+        description="green_yellow",
+        progress_bar="green1",
+        progress_bar_finished="green1",
+        progress_bar_pulse="#6206E0",
+        batch_progress="green_yellow",
+        time="grey82",
+        processing_speed="grey82",
+        metrics="grey82",
+    )
+)
+
+trainer = Trainer(callbacks=progress_bar)
+```
+
+```py
+from rich.progress import TextColumn
+
+custom_column = TextColumn("[progress.description]Custom Rich Progress Bar!")
+
+
+class CustomRichProgressBar(RichProgressBar):
+    def configure_columns(self, trainer):
+        return [custom_column]
+
+
+progress_bar = CustomRichProgressBar()
+```
+
+如果想要每个epoch后现实一个新的进度条应该开启`RichProgressBar.leave`，
+
+```py
+from lightning.pytorch.callbacks import RichProgressBar
+
+trainer = Trainer(callbacks=[RichProgressBar(leave=True)])
+```
+
+{: .note :}
+要禁用进度条，使用`trainer = Trainer(enable_progress_bar=False)`
+
+# GPU
+
+
+# 并行
 
