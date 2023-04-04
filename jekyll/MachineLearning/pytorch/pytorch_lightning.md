@@ -2231,6 +2231,136 @@ cli_main(args)
 
 ## CLI中配置超参数-6
 
+自定义 `LightningCLI`.
+
+LightningCLI的初始化参数可以用来自定义一些东西，比如工具描述，环境变量解析，实例化trainer以及配置解析等。但是初始化参数大多数情况下不够用。这个类提供了一些自定义能力，LightningCLI用到的参数解析类是`LightningArgumentParser`，这是argparse的扩展，添加了额外的方法来添加参数，比如`add_class_arguments()`从类的init中添加参数。
+
+`LightningCLI`的`add_arguments_to_parser()`方法可以用来实现添加更多的参数，解析之后参数保存在类的`config`属性之下，`LightningCLI`类还有两个在trainer之前和之后运行的方法，`before_<subcommand>` 和 `after_<subcommand>`.比如在fit前后发送邮件:
+
+```py
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.add_argument("--notification_email", default="will@email.com")
+
+    def before_fit(self):
+        send_email(address=self.config["notification_email"], message="trainer.fit starting")
+
+    def after_fit(self):
+        send_email(address=self.config["notification_email"], message="trainer.fit finished")
+
+
+cli = MyLightningCLI(MyModel)
+```
+
+`self.config`对象是一个命名空间，keys是全局选项。比如，实例化trainer类的参数可以在`self.config['fit']['trainer']`中找到.
+
+### 强制callback
+
+可以通过在命令行传递或者在config中通过`class_path`和`init_args`来添加callback.但是特定的callback必须和模型耦合在一起，可以想下面这样实现:
+
+```py
+from lightning.pytorch.callbacks import EarlyStopping
+
+
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.add_lightning_class_args(EarlyStopping, "my_early_stopping")
+        parser.set_defaults({"my_early_stopping.monitor": "val_loss", "my_early_stopping.patience": 5})
+
+
+cli = MyLightningCLI(MyModel)
+```
+
+```yaml
+model:
+  ...
+trainer:
+  ...
+my_early_stopping:
+  patience: 5
+```
+
+### Class type defaults
+
+```py
+class MyMainModel(LightningModule):
+    def __init__(
+        self,
+        backbone: torch.nn.Module = MyModel(encoder_layers=24),  # BAD PRACTICE!
+    ):
+        super().__init__()
+        self.backbone = backbone
+```
+
+正常的类是可以修改的，如上面的例子。`MyModel`的实例在定义了`MyMainModel`的模块第一次import时创建，这意味着backbone的默认值会在CLI类运行`seed_everything`之前初始化。 如果多次用到了MyMainModel，backbone不会被覆盖，而是在多个地方使用这个实例，使用实例作为默认值也无法生成完整的配置文件。
+
+比较好的解决方法是不去设置默认值或者特定值，在init中检查并实例化。如果类参数没有默认值并使用了CLI子类，可以使用下面的方式:
+
+```py
+default_backbone = {
+    "class_path": "import.path.of.MyModel",
+    "init_args": {
+        "encoder_layers": 24,
+    },
+}
+
+
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.set_defaults({"model.backbone": default_backbone})
+```
+或者:
+
+```py
+from jsonargparse import lazy_instance
+
+
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.set_defaults({"model.backbone": lazy_instance(MyModel, encoder_layers=24)})
+```
+
+### 参数链接
+
+另一种扩展CLI的方式是模型和数据模块具有一个共同的参数，比如两个类都需要知道batchsize,在配置文件中写两次十分容易出错，可以只写一次然后进行广播。
+
+```py
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.link_arguments("data.batch_size", "model.batch_size")
+
+
+cli = MyLightningCLI(MyModel, MyDataModule)
+```
+
+```
+$ python trainer.py fit --help
+  ...
+    --data.batch_size BATCH_SIZE
+                          Number of samples in a batch (type: int, default: 8)
+
+  Linked arguments:
+    data.batch_size --> model.batch_size
+                          Number of samples in a batch (type: int)
+```
+
+有时一个参数值只有在类实例化之后才能使用，一个例子是模型需要类的数量来实例化连接层，但是在实例化数据模块的时候才能得到类数，可以如下面这样:
+
+```py
+class MyLightningCLI(LightningCLI):
+    def add_arguments_to_parser(self, parser):
+        parser.link_arguments("data.num_classes", "model.num_classes", apply_on="instantiate")
+
+
+cli = MyLightningCLI(MyClassModel, MyDataModule)
+```
+
+{: .note :}
+The linking of arguments is intended for things that are meant to be non-configurable. This improves the CLI user experience since it avoids the need to provide more parameters. A related concept is a variable interpolation that keeps things configurable.
+
+
+
+
 
 # checkpoint
 
