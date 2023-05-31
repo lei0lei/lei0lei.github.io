@@ -1,6 +1,6 @@
 ---
 layout: default
-title: howtos
+title: howtos-ghpages
 parent: howtos
 permalink: /how-tos/github-pages/
 has_toc: true
