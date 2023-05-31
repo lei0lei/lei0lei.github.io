@@ -1,7 +1,7 @@
 ---
 layout: default
-title: pwa
-permalink: /web/pwa
+title: flutter
+permalink: /flutter/
 parent: web
 has_children: true
 has_toc: true
