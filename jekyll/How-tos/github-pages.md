@@ -2,7 +2,7 @@
 layout: default
 title: How to use github pages to build personal knowledgebase
 parent: howtos
-permalink: /how-tos/github-pages
+permalink: /how-tos/github-pages/
 has_toc: true
 ---
 <details open markdown="block">
