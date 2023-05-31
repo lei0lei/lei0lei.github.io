@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://lei0lei.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lei0lei.github.io/" rel="alternate" type="text/html" /><updated>2023-05-31T08:11:08+00:00</updated><id>https://lei0lei.github.io/feed.xml</id><title type="html">lei’s blog’</title><subtitle>This is lei's knowledge collection website, not for public use.</subtitle><entry><title type="html">Ecg Classify</title><link href="https://lei0lei.github.io/2023/03/02/ECG-classify.html" rel="alternate" type="text/html" title="Ecg Classify" /><published>2023-03-02T00:00:00+00:00</published><updated>2023-03-02T00:00:00+00:00</updated><id>https://lei0lei.github.io/2023/03/02/ECG-classify</id><content type="html" xml:base="https://lei0lei.github.io/2023/03/02/ECG-classify.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">how to analyze EEG data</title><link href="https://lei0lei.github.io/howtos/2023/03/01/EEG-data-analyze.html" rel="alternate" type="text/html" title="how to analyze EEG data" /><published>2023-03-01T00:00:00+00:00</published><updated>2023-03-01T00:00:00+00:00</updated><id>https://lei0lei.github.io/howtos/2023/03/01/EEG-data-analyze</id><content type="html" xml:base="https://lei0lei.github.io/howtos/2023/03/01/EEG-data-analyze.html"></content><author><name></name></author><category term="howtos" /><summary type="html"></summary></entry><entry><title type="html">Meta learning review</title><link href="https://lei0lei.github.io/machinelearning/2023/02/28/meta-learning.html" rel="alternate" type="text/html" title="Meta learning review" /><published>2023-02-28T00:00:00+00:00</published><updated>2023-02-28T00:00:00+00:00</updated><id>https://lei0lei.github.io/machinelearning/2023/02/28/meta-learning</id><content type="html" xml:base="https://lei0lei.github.io/machinelearning/2023/02/28/meta-learning.html">&lt;h1 id=&quot;基于模型的方法&quot;&gt;基于模型的方法&lt;/h1&gt;
+
+&lt;h1 id=&quot;基于优化的方法&quot;&gt;基于优化的方法&lt;/h1&gt;</content><author><name></name></author><category term="machinelearning" /><summary type="html">基于模型的方法</summary></entry><entry><title type="html">how to use jekyll just-the-doc theme</title><link href="https://lei0lei.github.io/howtos/2023/02/27/jekyll-jtd-intro.html" rel="alternate" type="text/html" title="how to use jekyll just-the-doc theme" /><published>2023-02-27T00:00:00+00:00</published><updated>2023-02-27T00:00:00+00:00</updated><id>https://lei0lei.github.io/howtos/2023/02/27/jekyll-jtd-intro</id><content type="html" xml:base="https://lei0lei.github.io/howtos/2023/02/27/jekyll-jtd-intro.html">&lt;h1 id=&quot;导航&quot;&gt;导航&lt;/h1&gt;
+&lt;h2 id=&quot;主页面导航&quot;&gt;主页面导航&lt;/h2&gt;
+
+&lt;p&gt;J-T-D站点的主导航在页面的左侧，如果屏幕的小的话在顶部。主导航可以形成多层的系统，
+默认情况下所有的页面都会出现在顶层，除非定义了父页面。&lt;/p&gt;
+
+&lt;h2 id=&quot;有序页面&quot;&gt;有序页面&lt;/h2&gt;
+
+&lt;p&gt;要明确页面顺序可以在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;front matter&lt;/code&gt;中使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mnav_order&lt;/code&gt;参数。&lt;/p&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;default&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Customization&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;nav_order&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;参数值决定了顶层页面的次序以及有相同父页面的子页面的次序。可以为不同父页面的子页面复用这
+些参数值。&lt;/p&gt;
+
+&lt;p&gt;参数值可以是数字或者字符串，数值型的参数在字符串型的前面，在省略&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nav_order&lt;/code&gt;时默
+认是页面的title.如果想要页面的顺序独立于页面的title,需要在所有页面上明确设定
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nav_order&lt;/code&gt;,设置了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nav_order&lt;/code&gt;的所有页面出现在以title排序的页面前面。&lt;/p&gt;
+
+&lt;p&gt;默认情况下，大写字符在小写字符前面，可以在配置文件中使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nac_sort:
+case_insensitive&lt;/code&gt;来忽略大小写。字符串可以使用引号闭合，数值类型如果使用引号将会
+按照文本排序。&lt;/p&gt;
+
+&lt;h2 id=&quot;排除页面&quot;&gt;排除页面&lt;/h2&gt;
+
+&lt;p&gt;对于一些不希望放在主导航栏的页面比如404页面可以在frone matter中使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nav_exclude:
+true&lt;/code&gt;参数。&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;default&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;404&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;nav_exclude&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nav_exclude&lt;/code&gt;参数不会影响子页面的自动生成列表，可以用来访问主导航栏之外的页面。&lt;/p&gt;
+
+&lt;p&gt;没有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title&lt;/code&gt;的页面会被自动排除在主导航栏之外。&lt;/p&gt;
+
+&lt;h2 id=&quot;子页面&quot;&gt;子页面&lt;/h2&gt;
+
+&lt;p&gt;有时我们会像样创建有许多section的页面，首先，建议放在同一个目录之下，比如所有文
+档放在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./docs&lt;/code&gt;目录下，每个章节放在一个子目录下比如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./docs/ui-components&lt;/code&gt; 和
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./docs/utilities&lt;/code&gt;，目录结构如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+-- ..
+|-- (Jekyll files)
+|
+|-- docs
+|   |-- ui-components
+|   |   |-- index.md  (parent page)
+|   |   |-- buttons.md
+|   |   |-- code.md
+|   |   |-- labels.md
+|   |   |-- tables.md
+|   |   +-- typography.md
+|   |
+|   |-- utilities
+|   |   |-- index.md      (parent page)
+|   |   |-- color.md
+|   |   |-- layout.md
+|   |   |-- responsive-modifiers.md
+|   |   +-- typography.md
+|   |
+|   |-- (other md files, pages with no children)
+|   +-- ..
+|
+|-- (Jekyll files)
++-- ..
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在父页面上添加frone matter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_children: true&lt;/code&gt;.比如：&lt;/p&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;default&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;UI Components&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;nav_order&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;has_children&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;子页面-1&quot;&gt;子页面&lt;/h2&gt;
+
+&lt;h2 id=&quot;有序子页面&quot;&gt;有序子页面&lt;/h2&gt;
+
+&lt;h2 id=&quot;自动生成toc&quot;&gt;自动生成TOC&lt;/h2&gt;
+
+&lt;h2 id=&quot;子页面的子页面&quot;&gt;子页面的子页面&lt;/h2&gt;
+
+&lt;h2 id=&quot;附加链接&quot;&gt;附加链接&lt;/h2&gt;
+
+&lt;h2 id=&quot;外部导航链接&quot;&gt;外部导航链接&lt;/h2&gt;
+
+&lt;h2 id=&quot;toc-页面导航&quot;&gt;TOC 页面导航&lt;/h2&gt;</content><author><name></name></author><category term="howtos" /><summary type="html">导航 主页面导航</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="https://lei0lei.github.io/jekyll/update/2023/02/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2023-02-24T02:02:49+00:00</published><updated>2023-02-24T02:02:49+00:00</updated><id>https://lei0lei.github.io/jekyll/update/2023/02/24/welcome-to-jekyll</id><content type="html" xml:base="https://lei0lei.github.io/jekyll/update/2023/02/24/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

@@ -1,0 +1,416 @@
+<!DOCTYPE html> <html lang="en-US"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <link rel="stylesheet" href="/assets/css/just-the-docs-default.css"> <script src="/assets/js/vendor/lunr.min.js"></script> <script src="/assets/js/just-the-docs.js"></script> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>python style | lei’s blog’</title> <meta name="generator" content="Jekyll v3.9.3" /> <meta property="og:title" content="python style" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="This is lei’s knowledge collection website, not for public use." /> <meta property="og:description" content="This is lei’s knowledge collection website, not for public use." /> <link rel="canonical" href="https://lei0lei.github.io/python/style" /> <meta property="og:url" content="https://lei0lei.github.io/python/style" /> <meta property="og:site_name" content="lei’s blog’" /> <meta property="og:type" content="website" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="python style" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","description":"This is lei’s knowledge collection website, not for public use.","headline":"python style","url":"https://lei0lei.github.io/python/style"}</script> <!-- End Jekyll SEO tag --> </head> <body> <a class="skip-to-main" href="#main-content">Skip to main content</a> <svg xmlns="http://www.w3.org/2000/svg" class="d-none"> <symbol id="svg-link" viewBox="0 0 24 24"> <title>Link</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"> <title>Menu</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"> <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"> <title>Expand</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"> <polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE --> <symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"> <title id="svg-external-link-title">(external link)</title> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"> <title>Document</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"> <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"> <title>Search</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md --> <symbol id="svg-copy" viewBox="0 0 16 16"> <title>Copy</title> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/> <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/> </svg> </symbol> <symbol id="svg-copied" viewBox="0 0 16 16"> <title>Copied</title> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16"> <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/> </svg> </symbol> </svg> <div class="side-bar"> <div class="site-header"> <a href="/" class="site-title lh-tight"> lei's blog' </a> <a href="#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg> </a> </div> <nav aria-label="Main" id="site-nav" class="site-nav"> <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in DevOps category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/DevOps/" class="nav-list-link">DevOps</a><ul class="nav-list"><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in Git category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/DevOps/Git/" class="nav-list-link">Git</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in Github category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/DevOps/Github/" class="nav-list-link">Github</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in Gitlab category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/DevOps/Gitlab/" class="nav-list-link">Gitlab</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in MLOps category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/DevOps/MLOps/" class="nav-list-link">MLOps</a><ul class="nav-list"></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in MachineLearning category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/MachineLearning/" class="nav-list-link">MachineLearning</a><ul class="nav-list"><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in jax category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/MachineLearning/jax/" class="nav-list-link">jax</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in model category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/MachineLearning/model/" class="nav-list-link">model</a><ul class="nav-list"><li class="nav-list-item "> <a href="/MachineLearning/model/CNN" class="nav-list-link">CNN</a> </li><li class="nav-list-item "> <a href="/MachineLearning/model/GNN" class="nav-list-link">GNN</a> </li><li class="nav-list-item "> <a href="/MachineLearning/model/RNN" class="nav-list-link">RNN</a> </li><li class="nav-list-item "> <a href="/MachineLearning/model/SVM" class="nav-list-link">SVM</a> </li><li class="nav-list-item "> <a href="/MachineLearning/model/Transformer" class="nav-list-link">Transformer</a> </li><li class="nav-list-item "> <a href="/MachineLearning/model/yolo" class="nav-list-link">yolo</a> </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in pytorch category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/MachineLearning/pytorch/" class="nav-list-link">pytorch</a><ul class="nav-list"><li class="nav-list-item "> <a href="/MachineLearning/pytorch/DP" class="nav-list-link">DP</a> </li><li class="nav-list-item "> <a href="/python/DVC" class="nav-list-link">DVC</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/NN" class="nav-list-link">NN</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/autograd" class="nav-list-link">autograd</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/basis" class="nav-list-link">basis</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/cuda" class="nav-list-link">cuda</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/frontend" class="nav-list-link">frontend</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/internal" class="nav-list-link">internal</a> </li><li class="nav-list-item "> <a href="/python/mlflow" class="nav-list-link">mlflow</a> </li><li class="nav-list-item "> <a href="/MachineLearning/pytorch/optimize" class="nav-list-link">optimize</a> </li><li class="nav-list-item "> <a href="/python/pytorch-lightning" class="nav-list-link">pytorch lightning</a> </li><li class="nav-list-item "> <a href="/python/steps2model" class="nav-list-link">steps2model</a> </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in cpp category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/cpp/" class="nav-list-link">cpp</a><ul class="nav-list"><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in GSL category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/cpp/GSL/" class="nav-list-link">GSL</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in STL category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/cpp/STL/" class="nav-list-link">STL</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in StandardLibrary category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/cpp/StandardLibrary/" class="nav-list-link">StandardLibrary</a><ul class="nav-list"></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in designpattern category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/designpattern/" class="nav-list-link">designpattern</a><ul class="nav-list"><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in EventDriven category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/designpattern/EventDriven" class="nav-list-link">EventDriven</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in ServiceOriented category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/designpattern/ServiceOriented" class="nav-list-link">ServiceOriented</a><ul class="nav-list"></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in go category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/go/" class="nav-list-link">go</a><ul class="nav-list"></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in howtos category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/how-tos/" class="nav-list-link">howtos</a><ul class="nav-list"><li class="nav-list-item "><a href="/how-tos/github-pages/" class="nav-list-link">howtos-ghpages</a></li></ul></li><li class="nav-list-item"><a href="/micellaneous/" class="nav-list-link">micellaneous</a></li><li class="nav-list-item active"><a href="#" class="nav-list-expander" aria-label="toggle links in python category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/python/" class="nav-list-link">python</a><ul class="nav-list"><li class="nav-list-item "><a href="/python/101" class="nav-list-link">101</a></li><li class="nav-list-item "><a href="/python/DependencyInjector" class="nav-list-link">DependencyInjector</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in DesignPattern category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/python/DesignPattern/" class="nav-list-link">DesignPattern</a><ul class="nav-list"><li class="nav-list-item "> <a href="/MachineLearning/designpattern/functionmethod" class="nav-list-link">Factory Method Pattern</a> </li></ul></li><li class="nav-list-item "><a href="/python/OOP" class="nav-list-link">OOP</a></li><li class="nav-list-item "><a href="/python/asyncio" class="nav-list-link">asyncio</a></li><li class="nav-list-item "><a href="/python/dataclass" class="nav-list-link">dataclass</a></li><li class="nav-list-item "><a href="/python/decorator" class="nav-list-link">decorator</a></li><li class="nav-list-item "><a href="/python/import" class="nav-list-link">import</a></li><li class="nav-list-item "><a href="/python/interface" class="nav-list-link">interface</a></li><li class="nav-list-item "><a href="/python/iterator" class="nav-list-link">iterator</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in packages category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/python/packages" class="nav-list-link">packages</a><ul class="nav-list"><li class="nav-list-item "> <a href="/MachineLearning/packages/attrs" class="nav-list-link">attrs</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/click" class="nav-list-link">click</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/cookiecutter" class="nav-list-link">cookiecutter</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/functools" class="nav-list-link">functools</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/manim" class="nav-list-link">manim</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/numpy" class="nav-list-link">numpy</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/pandas" class="nav-list-link">pandas</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/pants" class="nav-list-link">pants</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/pytest" class="nav-list-link">pytest</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/rich" class="nav-list-link">rich</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/scipy" class="nav-list-link">scipy</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/sqlAlchemy" class="nav-list-link">sqlAlchemy</a> </li><li class="nav-list-item "> <a href="/MachineLearning/packages/tqdm" class="nav-list-link">tqdm</a> </li></ul></li><li class="nav-list-item active"><a href="/python/style" class="nav-list-link active">python style</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in web category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/web/" class="nav-list-link">web</a><ul class="nav-list"><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in js category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/web/js" class="nav-list-link">js</a><ul class="nav-list"><li class="nav-list-item "> <a href="/web/js/basics" class="nav-list-link">basics</a> </li><li class="nav-list-item "> <a href="/web/js/objects" class="nav-list-link">objects</a> </li><li class="nav-list-item "> <a href="/web/js/styles" class="nav-list-link">styles</a> </li></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in nodejs category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/web/nodejs" class="nav-list-link">nodejs</a><ul class="nav-list"></ul></li><li class="nav-list-item "><a href="#" class="nav-list-expander" aria-label="toggle links in wasm category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="/web/wasm" class="nav-list-link">wasm</a><ul class="nav-list"></ul></li></ul></li></ul> </nav> <footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll. </footer> </div> <div class="main" id="top"> <div id="main-header" class="main-header"> <div class="search"> <div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search lei's blog'" aria-label="Search lei's blog'" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label> </div> <div id="search-results" class="search-results"></div> </div> </div> <div id="main-content-wrap" class="main-content-wrap"> <nav aria-label="Breadcrumb" class="breadcrumb-nav"> <ol class="breadcrumb-nav-list"> <li class="breadcrumb-nav-list-item"><a href="/python/">python</a></li> <li class="breadcrumb-nav-list-item"><span>python style</span></li> </ol> </nav> <div id="main-content" class="main-content" role="main"> <details open=""> <summary class="text-delta"> Table of contents </summary> <ol id="markdown-toc"> <li><a href="#命名传统" id="markdown-toc-命名传统">命名传统</a> <ol> <li><a href="#变量函数包类命名" id="markdown-toc-变量函数包类命名">变量、函数、包、类命名</a></li> <li><a href="#下划线" id="markdown-toc-下划线">下划线</a></li> </ol> </li> <li><a href="#docstring" id="markdown-toc-docstring">docstring</a> <ol> <li><a href="#__doc__属性" id="markdown-toc-__doc__属性">__doc__属性</a> <ol> <li><a href="#单行docstring" id="markdown-toc-单行docstring">单行docstring</a></li> <li><a href="#多行docstring" id="markdown-toc-多行docstring">多行docstring</a> <ol> <li><a href="#python模块中的docstring" id="markdown-toc-python模块中的docstring">Python模块中的docstring</a></li> <li><a href="#python类中的docstring" id="markdown-toc-python类中的docstring">Python类中的docstring</a></li> <li><a href="#python函数中的docstring" id="markdown-toc-python函数中的docstring">python函数中的docstring</a></li> <li><a href="#python脚本的docstring" id="markdown-toc-python脚本的docstring">python脚本的docstring</a></li> <li><a href="#python包中的docstring" id="markdown-toc-python包中的docstring">Python包中的docstring</a></li> </ol> </li> </ol> </li> <li><a href="#docstring格式" id="markdown-toc-docstring格式">docstring格式</a> <ol> <li><a href="#epytest" id="markdown-toc-epytest">Epytest</a></li> <li><a href="#rest" id="markdown-toc-rest">reST</a></li> <li><a href="#google" id="markdown-toc-google">Google</a></li> <li><a href="#numpydoc" id="markdown-toc-numpydoc">Numpydoc</a></li> </ol> </li> </ol> </li> <li><a href="#代码布局" id="markdown-toc-代码布局">代码布局</a></li> <li><a href="#缩进" id="markdown-toc-缩进">缩进</a></li> <li><a href="#表达式和语句空白" id="markdown-toc-表达式和语句空白">表达式和语句空白</a></li> <li><a href="#一些建议" id="markdown-toc-一些建议">一些建议</a></li> <li><a href="#工具" id="markdown-toc-工具">工具</a> <ol> <li><a href="#linters" id="markdown-toc-linters">Linters</a></li> <li><a href="#autoformatters" id="markdown-toc-autoformatters">Autoformatters</a></li> </ol> </li> </ol> </details> <h1 id="命名传统"> <a href="#命名传统" class="anchor-heading" aria-labelledby="命名传统"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 命名传统 </h1> <h2 id="变量函数包类命名"> <a href="#变量函数包类命名" class="anchor-heading" aria-labelledby="变量函数包类命名"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 变量、函数、包、类命名 </h2> <div class="table-wrapper"><table> <thead> <tr> <th style="text-align: left">类型</th> <th>命名</th> <th style="text-align: left">样例</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">函数</td> <td>使用小写，下划线分割</td> <td style="text-align: left">my_function</td> </tr> <tr> <td style="text-align: left">变量</td> <td>使用小写，下划线分割</td> <td style="text-align: left">x,var,my_variable</td> </tr> <tr> <td style="text-align: left">类</td> <td>首字母大写，不要使用下划线</td> <td style="text-align: left">MyClass</td> </tr> <tr> <td style="text-align: left">方法</td> <td>小写，下划线分割</td> <td style="text-align: left">class_method</td> </tr> <tr> <td style="text-align: left">常量</td> <td>纯大写，下划线分割</td> <td style="text-align: left">MY_CONSTANT</td> </tr> <tr> <td style="text-align: left">模块</td> <td>小写，下划线分割</td> <td style="text-align: left">my_module.py</td> </tr> <tr> <td style="text-align: left">包</td> <td>小写，不要使用下划线</td> <td style="text-align: left">mypackage</td> </tr> </tbody> </table></div> <ul> <li>使用描述性名字</li> <li>不要使用无意义的名字如x,y除非是在用数学函数</li> <li>不要使用歧义缩写</li> </ul> <h2 id="下划线"> <a href="#下划线" class="anchor-heading" aria-labelledby="下划线"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 下划线 </h2> <ul> <li>单下划线</li> </ul> <p>单下划线有时是来表明是一个临时变量或者占位变量。比如在下面的循环中不需要访问index，可以用<code class="language-plaintext highlighter-rouge">_</code>来替代。</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+<span class="p">...</span> <span class="k">print</span><span class="p">(</span><span class="s">'Hello, World.'</span><span class="p">)</span>
+</code></pre></div></div> <p>也可以用在unpacking表达式中，表示要忽略这个位置解压出来的值，比如下面的代码,下划线就是一个占位变量:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">car</span> <span class="o">=</span> <span class="p">(</span><span class="s">'red'</span><span class="p">,</span> <span class="s">'auto'</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">3812.4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">color</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">mileage</span> <span class="o">=</span> <span class="n">car</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">color</span>
+<span class="s">'red'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mileage</span>
+<span class="mf">3812.4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
+<span class="mi">12</span>
+</code></pre></div></div> <p>除此之外单下划线还可以用作表示interpreter eval的最后一个表达式的结果。在解释器会话中可能用到。</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="mi">23</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
+<span class="mi">23</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="mi">23</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">()</span>
+<span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div></div> <ul> <li>前置单下划线</li> </ul> <p>对于变量或者方法名，前置单下划线表只是一个习惯，完全不会影响程序的行为。前置单下划线告诉编程者<code class="language-plaintext highlighter-rouge">ok,这个变量或者方法只能在内使用</code>.这个习惯记录在<code class="language-plaintext highlighter-rouge">PEP 8</code>中。</p> <p>python没有私有或者公有变量的区别，使用这个习惯就好像在说:<code class="language-plaintext highlighter-rouge">这不是一个类的公有接口，不要随便改动</code>。下面是一个例子:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">11</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="mi">23</span>
+</code></pre></div></div> <p>如果访问这两个属性会如何?随便访问，没有区别!</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">foo</span>
+<span class="mi">11</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">_bar</span>
+<span class="mi">23</span>
+</code></pre></div></div> <p>不过下划线影响了名字导入模块的方式:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This is my_module.py:
+</span>
+<span class="k">def</span> <span class="nf">external_func</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">23</span>
+
+<span class="k">def</span> <span class="nf">_internal_func</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">42</span>
+</code></pre></div></div> <p>如果使用<code class="language-plaintext highlighter-rouge">import *</code>来引入模块中的所有名字,python不会import带前置下划线的名字，除非这个模块定义了<code class="language-plaintext highlighter-rouge">__all__</code> list来覆盖这个行为。</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">external_func</span><span class="p">()</span>
+<span class="mi">23</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_internal_func</span><span class="p">()</span>
+<span class="nb">NameError</span><span class="p">:</span> <span class="s">"name '_internal_func' is not defined"</span>
+</code></pre></div></div> <p>我们应该尽量避免’wildcard import’。正常的import不会被前置单下划线影响。</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">my_module</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_module</span><span class="p">.</span><span class="n">external_func</span><span class="p">()</span>
+<span class="mi">23</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_module</span><span class="p">.</span><span class="n">_internal_func</span><span class="p">()</span>
+<span class="mi">42</span>
+</code></pre></div></div> <ul> <li>后置单下划线</li> </ul> <p>有的时候一个变量的名字被关键字占用了，像<code class="language-plaintext highlighter-rouge">class</code>或者<code class="language-plaintext highlighter-rouge">def</code>无法作为变量名，这种情况下可以加一个单下划线避免冲突:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">make_object</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">class</span><span class="p">):</span>
+<span class="nb">SyntaxError</span><span class="p">:</span> <span class="s">"invalid syntax"</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">make_object</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">class_</span><span class="p">):</span>
+<span class="p">...</span>     <span class="k">pass</span>
+</code></pre></div></div> <p>这个规则在<code class="language-plaintext highlighter-rouge"> PEP 8 </code>中有描述.</p> <ul> <li>前置双下划线</li> </ul> <p>这种命名方式不像前面只是一种传统，如果类的属性以双下划线开头，会有一些特殊含义。python解释器会重写属性名来避免在子类中出现名字冲突。</p> <p>又叫做<code class="language-plaintext highlighter-rouge">name mangling</code>，解释器会改变变量的名使其很难在之后类扩展的过程中发生冲突。下面是一个例子:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">11</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="mi">23</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__baz</span> <span class="o">=</span> <span class="mi">23</span>
+</code></pre></div></div> <p>然后使用内建的<code class="language-plaintext highlighter-rouge">dir()</code>函数看一下对象的属性:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Test</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'_Test__baz'</span><span class="p">,</span> <span class="s">'__class__'</span><span class="p">,</span> <span class="s">'__delattr__'</span><span class="p">,</span> <span class="s">'__dict__'</span><span class="p">,</span> <span class="s">'__dir__'</span><span class="p">,</span>
+ <span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__eq__'</span><span class="p">,</span> <span class="s">'__format__'</span><span class="p">,</span> <span class="s">'__ge__'</span><span class="p">,</span> <span class="s">'__getattribute__'</span><span class="p">,</span>
+ <span class="s">'__gt__'</span><span class="p">,</span> <span class="s">'__hash__'</span><span class="p">,</span> <span class="s">'__init__'</span><span class="p">,</span> <span class="s">'__le__'</span><span class="p">,</span> <span class="s">'__lt__'</span><span class="p">,</span> <span class="s">'__module__'</span><span class="p">,</span>
+ <span class="s">'__ne__'</span><span class="p">,</span> <span class="s">'__new__'</span><span class="p">,</span> <span class="s">'__reduce__'</span><span class="p">,</span> <span class="s">'__reduce_ex__'</span><span class="p">,</span> <span class="s">'__repr__'</span><span class="p">,</span>
+ <span class="s">'__setattr__'</span><span class="p">,</span> <span class="s">'__sizeof__'</span><span class="p">,</span> <span class="s">'__str__'</span><span class="p">,</span> <span class="s">'__subclasshook__'</span><span class="p">,</span>
+ <span class="s">'__weakref__'</span><span class="p">,</span> <span class="s">'_bar'</span><span class="p">,</span> <span class="s">'foo'</span><span class="p">]</span>
+</code></pre></div></div> <p>可以看到名字发生了改变，<code class="language-plaintext highlighter-rouge">__baz</code>发生了什么?</p> <p>如果细看会发现变成了<code class="language-plaintext highlighter-rouge">_Test__baz</code>,这就是python使用了name mangling来保护父类不被子类更改变量。</p> <p>首先创建一个类来扩展Test类并试图在构造器中覆盖现存的属性:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ExtendedTest</span><span class="p">(</span><span class="n">Test</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">foo</span> <span class="o">=</span> <span class="s">'overridden'</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="s">'overridden'</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__baz</span> <span class="o">=</span> <span class="s">'overridden'</span>
+</code></pre></div></div> <p>现在，foo, _bar, 和 __baz 在扩展出来的类的实例是什么?</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">ExtendedTest</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span><span class="p">.</span><span class="n">foo</span>
+<span class="s">'overridden'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span><span class="p">.</span><span class="n">_bar</span>
+<span class="s">'overridden'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span><span class="p">.</span><span class="n">__baz</span>
+<span class="nb">AttributeError</span><span class="p">:</span> <span class="s">"'ExtendedTest' object has no attribute '__baz'"</span>
+<span class="n">Wait</span><span class="p">,</span> <span class="n">why</span> <span class="n">did</span> <span class="n">we</span> <span class="n">get</span> <span class="n">that</span> <span class="nb">AttributeError</span> <span class="n">when</span> <span class="n">we</span> <span class="n">tried</span> <span class="n">to</span> <span class="n">inspect</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">t2</span><span class="p">.</span><span class="n">__baz</span><span class="err">?</span> <span class="n">Name</span> <span class="n">mangling</span> <span class="n">strikes</span> <span class="n">again</span><span class="err">!</span> <span class="n">It</span> <span class="n">turns</span> <span class="n">out</span> <span class="n">this</span> <span class="nb">object</span> <span class="n">doesn</span><span class="err">’</span><span class="n">t</span> <span class="n">even</span> <span class="n">have</span> <span class="n">a</span> <span class="n">__baz</span> <span class="n">attribute</span><span class="p">:</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'_ExtendedTest__baz'</span><span class="p">,</span> <span class="s">'_Test__baz'</span><span class="p">,</span> <span class="s">'__class__'</span><span class="p">,</span> <span class="s">'__delattr__'</span><span class="p">,</span>
+ <span class="s">'__dict__'</span><span class="p">,</span> <span class="s">'__dir__'</span><span class="p">,</span> <span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__eq__'</span><span class="p">,</span> <span class="s">'__format__'</span><span class="p">,</span> <span class="s">'__ge__'</span><span class="p">,</span>
+ <span class="s">'__getattribute__'</span><span class="p">,</span> <span class="s">'__gt__'</span><span class="p">,</span> <span class="s">'__hash__'</span><span class="p">,</span> <span class="s">'__init__'</span><span class="p">,</span> <span class="s">'__le__'</span><span class="p">,</span>
+ <span class="s">'__lt__'</span><span class="p">,</span> <span class="s">'__module__'</span><span class="p">,</span> <span class="s">'__ne__'</span><span class="p">,</span> <span class="s">'__new__'</span><span class="p">,</span> <span class="s">'__reduce__'</span><span class="p">,</span>
+ <span class="s">'__reduce_ex__'</span><span class="p">,</span> <span class="s">'__repr__'</span><span class="p">,</span> <span class="s">'__setattr__'</span><span class="p">,</span> <span class="s">'__sizeof__'</span><span class="p">,</span> <span class="s">'__str__'</span><span class="p">,</span>
+ <span class="s">'__subclasshook__'</span><span class="p">,</span> <span class="s">'__weakref__'</span><span class="p">,</span> <span class="s">'_bar'</span><span class="p">,</span> <span class="s">'foo'</span><span class="p">,</span> <span class="s">'get_vars'</span><span class="p">]</span>
+</code></pre></div></div> <p>正如我们看到的<code class="language-plaintext highlighter-rouge">__baz</code>被变成了<code class="language-plaintext highlighter-rouge"> got turned into </code>_ExtendedTest__baz`来防止意外的更改:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span><span class="p">.</span><span class="n">_ExtendedTest__baz</span>
+<span class="s">'overridden'</span>
+</code></pre></div></div> <p>但是原始的 <code class="language-plaintext highlighter-rouge">_Test__baz</code>仍然存在:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t2</span><span class="p">.</span><span class="n">_Test__baz</span>
+<span class="mi">42</span>
+</code></pre></div></div> <p>看下面的一个例子:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ManglingTest</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__mangled</span> <span class="o">=</span> <span class="s">'hello'</span>
+
+    <span class="k">def</span> <span class="nf">get_mangled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__mangled</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ManglingTest</span><span class="p">().</span><span class="n">get_mangled</span><span class="p">()</span>
+<span class="s">'hello'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ManglingTest</span><span class="p">().</span><span class="n">__mangled</span>
+<span class="nb">AttributeError</span><span class="p">:</span> <span class="s">"'ManglingTest' object has no attribute '__mangled'"</span>
+</code></pre></div></div> <p>name mangling会影响属性和方法名:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MangledMethod</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">42</span>
+
+    <span class="k">def</span> <span class="nf">call_it</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__method</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MangledMethod</span><span class="p">().</span><span class="n">__method</span><span class="p">()</span>
+<span class="nb">AttributeError</span><span class="p">:</span> <span class="s">"'MangledMethod' object has no attribute '__method'"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MangledMethod</span><span class="p">().</span><span class="n">call_it</span><span class="p">()</span>
+<span class="mi">42</span>
+</code></pre></div></div> <p>下面是另一个例子:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">_MangledGlobal__mangled</span> <span class="o">=</span> <span class="mi">23</span>
+
+<span class="k">class</span> <span class="nc">MangledGlobal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">__mangled</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MangledGlobal</span><span class="p">().</span><span class="n">test</span><span class="p">()</span>
+<span class="mi">23</span>
+</code></pre></div></div> <p>首先创建了一个全局变量然后访问一个类的内部变量，由于name mangling就可以访问<code class="language-plaintext highlighter-rouge">__mangled</code>.python解释器会自动将<code class="language-plaintext highlighter-rouge">__mangled</code>扩展为<code class="language-plaintext highlighter-rouge">_MangledGlobal_mangled</code>.</p> <blockquote class="highlight"> <blockquote> <p>⏰ Sidebar: What’s a “dunder” in Python? I’ve you’ve heard some experienced Pythonistas talk about Python or watched a few conference talks you may have heard the term dunder. If you’re wondering what that is, here’s your answer:</p> <p>Double underscores are often referred to as “dunders” in the Python community. The reason is that double underscores appear quite often in Python code and to avoid fatiguing their jaw muscles Pythonistas often shorten “double underscore” to “dunder.”</p> <p>For example, you’d pronounce <strong>baz as “dunder baz”. Likewise __init</strong> would be pronounced as “dunder init”, even though one might think it should be “dunder init dunder.” But that’s just yet another quirk in the naming convention.</p> <p>It’s like a secret handshake for Python developers 🙂</p> </blockquote> </blockquote> <ul> <li>前后双下划线 如果使用了前后双下划线，命名修饰将不再适用，解释器不会对其有任何影响。</li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">PrefixPostfixTest</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__bam__</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">PrefixPostfixTest</span><span class="p">().</span><span class="n">__bam__</span>
+<span class="mi">42</span>
+</code></pre></div></div> <p>但是这种命名方式为保留方式，只能被语言特征使用，比如<code class="language-plaintext highlighter-rouge">__init__</code>是对象构造器，<code class="language-plaintext highlighter-rouge">__call__</code>是对象调用器。这种方法经常被叫做魔法方法(magic-method). 最好不要在自己的程序中使用这种方式命名，可能会与未来python的某个特性冲突。</p> <h1 id="docstring"> <a href="#docstring" class="anchor-heading" aria-labelledby="docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> docstring </h1> <p>下面是一个docstring的例子:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="s">'''Takes in a number n, returns the square of n'''</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span>
+</code></pre></div></div> <p>python docstring是用在函数、方法、类、或者模块中的字符串来对代码进行文档化，要进行访问， 使用<code class="language-plaintext highlighter-rouge">__doc__</code>属性。</p> <h2 id="__doc__属性"> <a href="#__doc__属性" class="anchor-heading" aria-labelledby="__doc__属性"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> __doc__属性 </h2> <p>当字符串放在函数、模块、方法或者类的定义后边时就会与对象的<code class="language-plaintext highlighter-rouge">__doc__</code>属性关联， 可以通过这个属性进行访问。比如:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="s">'''Takes in a number n, returns the square of n'''</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">square</span><span class="p">.</span><span class="n">__doc__</span><span class="p">)</span>
+</code></pre></div></div> <h3 id="单行docstring"> <a href="#单行docstring" class="anchor-heading" aria-labelledby="单行docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 单行docstring </h3> <ul> <li>单行docstring只有一行，前后中间都没有空行。</li> <li>不应该是描述性的必须遵循”Do this, return that” 类似的结构 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">multiplier</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="s">"""Takes in two numbers, returns their product."""</span>
+  <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+</code></pre></div> </div> <h3 id="多行docstring"> <a href="#多行docstring" class="anchor-heading" aria-labelledby="多行docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 多行docstring </h3> </li> </ul> <p>多行docstring包含一个summary，类似单行。后边跟一个空行以及更加 详细的描述，具体查看:PEP 257.</p> <h4 id="python模块中的docstring"> <a href="#python模块中的docstring" class="anchor-heading" aria-labelledby="python模块中的docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Python模块中的docstring </h4> <ul> <li>列出所有的类函数和对象以及ecxcepions</li> <li>每一项都应该改有一行总结 下面是一个例子:</li> </ul> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Create portable serialized representations of Python objects.
+
+See module copyreg for a mechanism for registering custom picklers.
+See module pickletools source for extensive comments.
+
+Classes:
+
+    Pickler
+    Unpickler
+
+Functions:
+
+    dump(object, file)
+    dumps(object) -&gt; string
+    load(file) -&gt; object
+    loads(string) -&gt; object
+
+Misc variables:
+
+    __version__
+    format_version
+    compatible_formats
+</code></pre></div></div> <h4 id="python类中的docstring"> <a href="#python类中的docstring" class="anchor-heading" aria-labelledby="python类中的docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Python类中的docstring </h4> <ul> <li>应该给出类的行为以及其公有方法和实例变量</li> <li>子类，构造器和方法应该有自己的docstring</li> </ul> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="s">"""
+    A class to represent a person.
+
+    ...
+
+    Attributes
+    ----------
+    name : str
+        first name of the person
+    surname : str
+        family name of the person
+    age : int
+        age of the person
+
+    Methods
+    -------
+    info(additional=""):
+        Prints the person's name and age.
+    """</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="s">"""
+        Constructs all the necessary attributes for the person object.
+
+        Parameters
+        ----------
+            name : str
+                first name of the person
+            surname : str
+                family name of the person
+            age : int
+                age of the person
+        """</span>
+
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">surname</span> <span class="o">=</span> <span class="n">surname</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">additional</span><span class="o">=</span><span class="s">""</span><span class="p">):</span>
+        <span class="s">"""
+        Prints the person's name and age.
+
+        If the argument 'additional' is passed, then it is appended after the main info.
+
+        Parameters
+        ----------
+        additional : str, optional
+            More info to be displayed (default is None)
+
+        Returns
+        -------
+        None
+        """</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'My name is </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">surname</span><span class="si">}</span><span class="s">. I am </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">age</span><span class="si">}</span><span class="s"> years old.'</span> <span class="o">+</span> <span class="n">additional</span><span class="p">)</span>
+</code></pre></div></div> <p>可以使用<code class="language-plaintext highlighter-rouge">help()</code>函数查看对象对应的docstring.</p> <h4 id="python函数中的docstring"> <a href="#python函数中的docstring" class="anchor-heading" aria-labelledby="python函数中的docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> python函数中的docstring </h4> <ul> <li>应该给整个函数一个总结以及器参数和返回值</li> <li>应该列出所有的exceptions和可选参数 下面是一个例子:</li> </ul> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add_binary</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">'''
+    Returns the sum of two decimal numbers in binary digits.
+
+            Parameters:
+                    a (int): A decimal integer
+                    b (int): Another decimal integer
+
+            Returns:
+                    binary_sum (str): Binary string of the sum of a and b
+    '''</span>
+    <span class="n">binary_sum</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">binary_sum</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">add_binary</span><span class="p">.</span><span class="n">__doc__</span><span class="p">)</span>
+</code></pre></div></div> <h4 id="python脚本的docstring"> <a href="#python脚本的docstring" class="anchor-heading" aria-labelledby="python脚本的docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> python脚本的docstring </h4> <ul> <li>应该给出脚本的函数和命令行语法使用</li> <li>应该作为所有函数和参数的快速索引</li> </ul> <h4 id="python包中的docstring"> <a href="#python包中的docstring" class="anchor-heading" aria-labelledby="python包中的docstring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Python包中的docstring </h4> <ul> <li>应该写在<code class="language-plaintext highlighter-rouge">__init__.py</code>文件中</li> <li>应该包含包可以导出的所有模块和子包</li> </ul> <h2 id="docstring格式"> <a href="#docstring格式" class="anchor-heading" aria-labelledby="docstring格式"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> docstring格式 </h2> <h3 id="epytest"> <a href="#epytest" class="anchor-heading" aria-labelledby="epytest"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Epytest </h3> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+This is a javadoc style.
+
+@param param1: this is a first param
+@param param2: this is a second param
+@return: this is a description of what is returned
+@raise keyError: raises an exception
+"""</span>
+</code></pre></div></div> <h3 id="rest"> <a href="#rest" class="anchor-heading" aria-labelledby="rest"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> reST </h3> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+This is a reST style.
+
+:param param1: this is a first param
+:param param2: this is a second param
+:returns: this is a description of what is returned
+:raises keyError: raises an exception
+"""</span>
+</code></pre></div></div> <h3 id="google"> <a href="#google" class="anchor-heading" aria-labelledby="google"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Google </h3> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+This is an example of Google style.
+
+Args:
+    param1: This is the first param.
+    param2: This is a second param.
+
+Returns:
+    This is a description of what is returned.
+
+Raises:
+    KeyError: Raises an exception.
+"""</span>
+</code></pre></div></div> <h3 id="numpydoc"> <a href="#numpydoc" class="anchor-heading" aria-labelledby="numpydoc"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Numpydoc </h3> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""
+My numpydoc description of a kind
+of very exhautive numpydoc format docstring.
+
+Parameters
+----------
+first : array_like
+    the 1st param name `first`
+second :
+    the 2nd param
+third : {'value', 'other'}, optional
+    the 3rd param, by default 'value'
+
+Returns
+-------
+string
+    a value in a string
+
+Raises
+------
+KeyError
+    when a key error
+OtherError
+    when an other error
+"""</span>
+</code></pre></div></div> <p>可以使用Pyment自动给一个项目生成docstring</p> <h1 id="代码布局"> <a href="#代码布局" class="anchor-heading" aria-labelledby="代码布局"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 代码布局 </h1> <ul> <li>空行，空格提升可读性，顶层函数和类使用两个空行，内部方法使用单空行，不同步骤之间加空行。</li> <li>每一行限制到79个字符，</li> </ul> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">arg_one</span><span class="p">,</span> <span class="n">arg_two</span><span class="p">,</span>
+             <span class="n">arg_three</span><span class="p">,</span> <span class="n">arg_four</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">arg_one</span>
+</code></pre></div></div> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">mypkg</span> <span class="kn">import</span> <span class="n">example1</span><span class="p">,</span> \
+    <span class="n">example2</span><span class="p">,</span> <span class="n">example3</span>
+</code></pre></div></div> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Recommended
+</span><span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="n">first_variable</span>
+         <span class="o">+</span> <span class="n">second_variable</span>
+         <span class="o">-</span> <span class="n">third_variable</span><span class="p">)</span>
+</code></pre></div></div> <h1 id="缩进"> <a href="#缩进" class="anchor-heading" aria-labelledby="缩进"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 缩进 </h1> <ul> <li>使用4个连续space表示缩进</li> <li>使用space而不是tab</li> <li>断行之后使用缩进</li> </ul> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">arg_one</span><span class="p">,</span> <span class="n">arg_two</span><span class="p">,</span>
+             <span class="n">arg_three</span><span class="p">,</span> <span class="n">arg_four</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">arg_one</span>
+</code></pre></div></div> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">and</span>
+        <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span>
+    <span class="n">arg_one</span><span class="p">,</span> <span class="n">arg_two</span><span class="p">,</span>
+    <span class="n">arg_three</span><span class="p">,</span> <span class="n">arg_four</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">function</span><span class="p">(</span>
+        <span class="n">arg_one</span><span class="p">,</span> <span class="n">arg_two</span><span class="p">,</span>
+        <span class="n">arg_three</span><span class="p">,</span> <span class="n">arg_four</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">arg_one</span>
+</code></pre></div></div> <p>下面这种写法是不被推荐的，使用hanging indent时尽量不要在第一行留参数:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Not Recommended
+</span><span class="n">var</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">arg_one</span><span class="p">,</span> <span class="n">arg_two</span><span class="p">,</span>
+    <span class="n">arg_three</span><span class="p">,</span> <span class="n">arg_four</span><span class="p">)</span>
+</code></pre></div></div> <ul> <li>在断行的情况下如何使用括号 ```py list_of_numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]</li> </ul> <p>list_of_numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+# 注释
+- 注释和docstring每行不超过72字符
+- 使用完整语句，大写字母开头
+- 更改代码后更新注释
+- #space 开头，缩进与代码对齐，分段使用#多空一行
+
+```py
+def quadratic(a, b, c, x):
+    # Calculate the solution to a quadratic equation using the quadratic
+    # formula.
+    #
+    # There are always two solutions to a quadratic equation, x_1 and x_2.
+    x_1 = (- b+(b**2-4*a*c)**(1/2)) / (2*a)
+    x_2 = (- b-(b**2-4*a*c)**(1/2)) / (2*a)
+    return x_1, x_2
+</code></pre></div></div> <ul> <li>尽量少用内联的注释</li> <li>内敛注释和正式代码有至少两个空格</li> </ul> <h1 id="表达式和语句空白"> <a href="#表达式和语句空白" class="anchor-heading" aria-labelledby="表达式和语句空白"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 表达式和语句空白 </h1> <ul> <li>赋值运算符，比较运算符和逻辑运算符两端有空白</li> <li>函数参数礼的默认值等号两边不要有空白</li> </ul> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Recommended
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Not Recommended
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></div> <ul> <li>切片运算符两边有空白</li> <li>千万不要在每一行后边添加空白，下面是一些不应该添加空白的地方</li> </ul> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Recommended
+</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Not recommended
+</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># Recommended
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Not recommended
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="c1"># Recommended
+</span><span class="n">double</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Not recommended
+</span><span class="n">double</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Recommended
+</span><span class="nb">list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Not recommended
+</span><span class="nb">list</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Recommended
+</span><span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+
+<span class="c1"># Not recommended
+</span><span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">)</span>
+
+<span class="c1"># Recommended
+</span><span class="n">var1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var2</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">some_long_var</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="c1"># Not recommended
+</span><span class="n">var1</span>          <span class="o">=</span> <span class="mi">5</span>
+<span class="n">var2</span>          <span class="o">=</span> <span class="mi">6</span>
+<span class="n">some_long_var</span> <span class="o">=</span> <span class="mi">7</span>
+</code></pre></div></div> <h1 id="一些建议"> <a href="#一些建议" class="anchor-heading" aria-labelledby="一些建议"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 一些建议 </h1> <p>不使用<code class="language-plaintext highlighter-rouge">==</code>把布尔值和<code class="language-plaintext highlighter-rouge">True</code>或者<code class="language-plaintext highlighter-rouge">False</code>比较。</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Not recommended
+</span><span class="n">my_bool</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="n">my_bool</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s">'6 is bigger than 5'</span>
+
+<span class="c1"># Recommended
+</span><span class="k">if</span> <span class="n">my_bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s">'6 is bigger than 5'</span>
+</code></pre></div></div> <p>如果需要比较一个列表的长度是否为0:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Not recommended
+</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'List is empty!'</span><span class="p">)</span>
+
+<span class="c1"># Recommended
+</span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">my_list</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'List is empty!'</span><span class="p">)</span>
+</code></pre></div></div> <p>使用is not而不是not is：</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Recommended
+</span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s">'x exists!'</span>
+
+<span class="c1"># Not recommended
+</span><span class="k">if</span> <span class="ow">not</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s">'x exists!'</span>
+</code></pre></div></div> <p>不要使用<code class="language-plaintext highlighter-rouge">if x:</code>代替<code class="language-plaintext highlighter-rouge">if x is not None:</code>:</p> <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Not Recommended
+</span><span class="k">if</span> <span class="n">arg</span><span class="p">:</span>
+    <span class="c1"># Do something with arg...
+</span>
+<span class="c1"># Recommended
+</span><span class="k">if</span> <span class="n">arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="c1"># Do something with arg...
+</span></code></pre></div></div> <p>使用<code class="language-plaintext highlighter-rouge">.startstith()</code>和<code class="language-plaintext highlighter-rouge">.endswith()</code>而不是切片。</p> <h1 id="工具"> <a href="#工具" class="anchor-heading" aria-labelledby="工具"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 工具 </h1> <h2 id="linters"> <a href="#linters" class="anchor-heading" aria-labelledby="linters"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Linters </h2> <ul> <li>pycodesytyle</li> <li>flake8</li> </ul> <h2 id="autoformatters"> <a href="#autoformatters" class="anchor-heading" aria-labelledby="autoformatters"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Autoformatters </h2> <ul> <li>black</li> <li>autopep8</li> <li>yapf</li> </ul> </div> </div> <div class="search-overlay"></div> </div> </body> </html>

@@ -1,0 +1,1598 @@
+{"0": {
+    "doc": 101,
+    "title": 101,
+    "content": "https://python101.pythonlibrary.org/index.html . ",
+    "url": "/python/101",
+    
+    "relUrl": "/python/101"
+  },"1": {
+    "doc": "CNN",
+    "title": "CNN",
+    "content": " ",
+    "url": "/MachineLearning/model/CNN",
+    
+    "relUrl": "/MachineLearning/model/CNN"
+  },"2": {
+    "doc": "DP",
+    "title": "DP",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/DP",
+    
+    "relUrl": "/MachineLearning/pytorch/DP"
+  },"3": {
+    "doc": "DependencyInjector",
+    "title": "DependencyInjector",
+    "content": " ",
+    "url": "/python/DependencyInjector",
+    
+    "relUrl": "/python/DependencyInjector"
+  },"4": {
+    "doc": "DevOps",
+    "title": "DevOps",
+    "content": " ",
+    "url": "/DevOps/",
+    
+    "relUrl": "/DevOps/"
+  },"5": {
+    "doc": "EventDriven",
+    "title": "EventDriven",
+    "content": " ",
+    "url": "/designpattern/EventDriven",
+    
+    "relUrl": "/designpattern/EventDriven"
+  },"6": {
+    "doc": "GNN",
+    "title": "GNN",
+    "content": " ",
+    "url": "/MachineLearning/model/GNN",
+    
+    "relUrl": "/MachineLearning/model/GNN"
+  },"7": {
+    "doc": "GSL",
+    "title": "GSL",
+    "content": " ",
+    "url": "/cpp/GSL/",
+    
+    "relUrl": "/cpp/GSL/"
+  },"8": {
+    "doc": "Git",
+    "title": "Git",
+    "content": " ",
+    "url": "/DevOps/Git/",
+    
+    "relUrl": "/DevOps/Git/"
+  },"9": {
+    "doc": "Github",
+    "title": "Github",
+    "content": " ",
+    "url": "/DevOps/Github/",
+    
+    "relUrl": "/DevOps/Github/"
+  },"10": {
+    "doc": "Gitlab",
+    "title": "Gitlab",
+    "content": " ",
+    "url": "/DevOps/Gitlab/",
+    
+    "relUrl": "/DevOps/Gitlab/"
+  },"11": {
+    "doc": "MLOps",
+    "title": "MLOps",
+    "content": " ",
+    "url": "/DevOps/MLOps/",
+    
+    "relUrl": "/DevOps/MLOps/"
+  },"12": {
+    "doc": "MachineLearning",
+    "title": "MachineLearning",
+    "content": " ",
+    "url": "/MachineLearning/",
+    
+    "relUrl": "/MachineLearning/"
+  },"13": {
+    "doc": "NN",
+    "title": "NN",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/NN",
+    
+    "relUrl": "/MachineLearning/pytorch/NN"
+  },"14": {
+    "doc": "OOP",
+    "title": "OOP",
+    "content": "面向对象编程是一个编程范式，将属性和行为绑定到独立的对象上。 对应的另一种常见的范式是过程式编程。 . ",
+    "url": "/python/OOP#oop",
+    
+    "relUrl": "/python/OOP#oop"
+  },"15": {
+    "doc": "OOP",
+    "title": "定义类",
+    "content": "基础的数据结构像number,string以及list，用于表示简单的信息，如果需要表示一些复杂的东西比如追踪一个人员在组织中的行为，需要保存该人员的基础信息比如姓名，年龄，职位，工作年龄，一种方式是使用list表示: . kirk = [\"James Kirk\", 34, \"Captain\", 2265] spock = [\"Spock\", 35, \"Science Officer\", 2254] mccoy = [\"Leonard McCoy\", \"Chief Medical Officer\", 2266] . 这种方法存在很多问题，大的代码文件很难管理，如果在其他地方引用kirk很难记住kirk的实际定义。第二，如果每个人员的元素数量并不相同就会产生错误，比如mccoy.更好的替代方式就是使用类来方便管理和维护。 . 类vs实例 . 类用于创建用户自定义的数据结构，类定义的函数叫做方法，定义了从该类创建的对象操作其数据的行为和方法。 . 类是一个蓝图表示某个东西应该如何定义，不包含实际的数据，比如一个Dog类并不包含实际的狗的年龄和名字。实际包含数据的是类实例化出来的对象。 . 如何定义类 . 类的定义使用class关键字，后面跟着类的名字和冒号。下面是一个例子: . class Dog: pass . Dog类的body包含一个语句:pass语句，这是一个占位符。让我们给这个类加一些内容，首先所有的Dog对象都必须要定义一个叫做.__init__()的方法，每次一个新的对象创建，.__init__()都会给属性进行赋值来设置对象的初始状态。.__init__()可以包含任意数量的参数，但是第一个参数必须叫做self.当创建新的类实例的时候，实例自动传给self参数，这样才可以定义新的属性。 . class Dog: def __init__(self, name, age): self.name = name self.age = age . 在.__init__()中创建的属性叫做实例属性，实例的属性对不同的对象是不同的可以在__init__()之外给一个变量命名。类的属性对所有的类实例相同，在__init__()之外可以定义类属性，比如: . class Dog: # Class attribute species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age . 类的属性必须有初始值，在实例创建的时候，类属性会自动创建和赋值。 . ",
+    "url": "/python/OOP#%E5%AE%9A%E4%B9%89%E7%B1%BB",
+    
+    "relUrl": "/python/OOP#定义类"
+  },"16": {
+    "doc": "OOP",
+    "title": "实例化类",
+    "content": "创建对象的过程叫做对象的实例化， . &gt;&gt;&gt; Dog() &lt;__main__.Dog object at 0x106702d30&gt; . 现在在内存地址0x106702d30处有了新的对象，再来创建一个新的对象， . &gt;&gt;&gt; a = Dog() &gt;&gt;&gt; b = Dog() &gt;&gt;&gt; a == b False . 如果使用==操作符比较两个对象会发现结果是False，因为表示内存中的不同对象。 . 类和实例属性 . class Dog: species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age . 要实例化一个对象需要给name和age一个值: . &gt;&gt;&gt; Dog() Traceback (most recent call last): File \"&lt;pyshell#6&gt;\", line 1, in &lt;module&gt; Dog() TypeError: __init__() missing 2 required positional arguments: 'name' and 'age' . 要初始化直接放在括号里即可: . buddy = Dog(\"Buddy\", 9) miles = Dog(\"Miles\", 4) . 这会创建两个实例，在实例化Dog对象的时候，python 会创建一个新的实例然后传递给.__init__()的第一个参数。 . 创建了实例后可以通过.写法来进行属性访问： . &gt;&gt;&gt; buddy.name 'Buddy' &gt;&gt;&gt; buddy.age 9 &gt;&gt;&gt; miles.name 'Miles' &gt;&gt;&gt; miles.age 4 . 可以以相同的方式访问类的属性: . &gt;&gt;&gt; buddy.species 'Canis familiaris' . 使用类来组织数据的优点是实例保证会有期望的属性，因此总会返回一个值。 . 尽管属性一定会存在，其值可以动态的改变: . &gt;&gt;&gt; buddy.age = 10 &gt;&gt;&gt; buddy.age 10 &gt;&gt;&gt; miles.species = \"Felis silvestris\" &gt;&gt;&gt; miles.species 'Felis silvestris' . 自定义个对象默认上是mutable的，换句话说，可以被动态改变，比如lists和dict都是mutable，但是string和tuple是immutable. 实例方法 . 实例方法是在类里面定义的函数并且只能从类的实力进行调用，实例方法的第一个参数都是self, . class Dog: species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age # Instance method def description(self): return f\"{self.name} is {self.age} years old\" # Another instance method def speak(self, sound): return f\"{self.name} says {sound}\" . Dog类有两个实例方法: . | .description()返回一个字符串显示狗的name和age. | .speak()有一个叫做sound的参数并返回name和sound. | . &gt;&gt;&gt; miles = Dog(\"Miles\", 4) &gt;&gt;&gt; miles.description() 'Miles is 4 years old' &gt;&gt;&gt; miles.speak(\"Woof Woof\") 'Miles says Woof Woof' &gt;&gt;&gt; miles.speak(\"Bow Wow\") 'Miles says Bow Wow' . 在写自己的类的时候，包含一个方法来返回这个类的一些信息通常是有用的，但是.description()不是那么的Pythonic. 当我们print一个类的时候: . &gt;&gt;&gt; print(miles) &lt;__main__.Dog object at 0x00aeff70&gt; . 返回的信息并没有什么用，通过改变一个特殊的实例方法.__str__()可以改变这个行为: . class Dog: # Leave other parts of Dog class as-is # Replace .description() with __str__() def __str__(self): return f\"{self.name} is {self.age} years old\" . &gt;&gt;&gt; miles = Dog(\"Miles\", 4) &gt;&gt;&gt; print(miles) 'Miles is 4 years old' . 前后置双下下划线在python中叫做dunder methods。 . ",
+    "url": "/python/OOP#%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%B1%BB",
+    
+    "relUrl": "/python/OOP#实例化类"
+  },"17": {
+    "doc": "OOP",
+    "title": "继承",
+    "content": "继承允许一个类得到另一个类的属性和方法，新类叫做子类。子类可以覆盖或者扩展父类的属性和方法，换句话说，子类继承了父类的所有属性和方法但同时实现了自己的属性和方法。 . 比如我们要给狗加入一个品种的属性区分不同的狗，一种方式是直接添加属性，这样既需要在实例化的时候额外传入一个参数； . class Dog: species = \"Canis familiaris\" def __init__(self, name, age, breed): self.name = name self.age = age self.breed = breed . &gt;&gt;&gt; miles = Dog(\"Miles\", 4, \"Jack Russell Terrier\") &gt;&gt;&gt; buddy = Dog(\"Buddy\", 9, \"Dachshund\") &gt;&gt;&gt; jack = Dog(\"Jack\", 3, \"Bulldog\") &gt;&gt;&gt; jim = Dog(\"Jim\", 5, \"Bulldog\") . 但是每只品种的狗有不同的行为，比如斗牛叫声是woof,dachshund叫声是yap,如果只使用一个类每次就需要给speak额外添加一个参数,这会很麻烦，而且一只狗的叫声应该取决于其品种。 . &gt;&gt;&gt; buddy.speak(\"Yap\") 'Buddy says Yap' &gt;&gt;&gt; jim.speak(\"Woof\") 'Jim says Woof' &gt;&gt;&gt; jack.speak(\"Woof\") 'Jack says Woof' . 创建一个子类可以解决这个问题，每个子类可以继承speak功能进行改造,包括为每个子类定义一个默认参数。 . 父类 VS 子类 . class Dog: species = \"Canis familiaris\" def __init__(self, name, age): self.name = name self.age = age def __str__(self): return f\"{self.name} is {self.age} years old\" def speak(self, sound): return f\"{self.name} says {sound}\" class JackRussellTerrier(Dog): pass class Dachshund(Dog): pass class Bulldog(Dog): pass . 要创建子类只需要将父类名字放在括号中。 . &gt;&gt;&gt; miles = JackRussellTerrier(\"Miles\", 4) &gt;&gt;&gt; buddy = Dachshund(\"Buddy\", 9) &gt;&gt;&gt; jack = Bulldog(\"Jack\", 3) &gt;&gt;&gt; jim = Bulldog(\"Jim\", 5) . 子类的实例继承了父类的所有属性和方法: . &gt;&gt;&gt; miles.species 'Canis familiaris' &gt;&gt;&gt; buddy.name 'Buddy' &gt;&gt;&gt; print(jack) Jack is 3 years old &gt;&gt;&gt; jim.speak(\"Woof\") 'Jim says Woof' . 要确定对象属于哪个类只需要使用内建的type()： . &gt;&gt;&gt; type(miles) &lt;class '__main__.JackRussellTerrier'&gt; . 如果想要知道某个对象是否是类的实例只需要使用内建的isinstance(): . &gt;&gt;&gt; isinstance(miles, Dog) True . isinstance()有两个参数，第一个是对象，第二个是类。 . &gt;&gt;&gt; isinstance(miles, Bulldog) False &gt;&gt;&gt; isinstance(jack, Dachshund) False . 从子类创建的对象都是父类的实例。 . 扩展父类的功能 . 由于不同品种的狗不同的叫声，可以为子类的.speak()方法提供一个默认值，只需要覆盖.speak()方法。 . class JackRussellTerrier(Dog): def speak(self, sound=\"Arf\"): return f\"{self.name} says {sound}\" . 要覆盖父类的方法只需要在子类中命名相同的方法: . &gt;&gt;&gt; miles = JackRussellTerrier(\"Miles\", 4) &gt;&gt;&gt; miles.speak() 'Miles says Arf' . 有的时候我们会需要完全覆盖父类的方法，但是有时我们需要保留父类的东西，可以在子类中哦功能调用父类的方法,使用super()： . class JackRussellTerrier(Dog): def speak(self, sound=\"Arf\"): return super().speak(sound) . 调用super()的时候python回去搜索父类Dog中的`.speak方法。 . &gt;&gt;&gt; miles = JackRussellTerrier(\"Miles\", 4) &gt;&gt;&gt; miles.speak() 'Miles barks: Arf' . ",
+    "url": "/python/OOP#%E7%BB%A7%E6%89%BF",
+    
+    "relUrl": "/python/OOP#继承"
+  },"18": {
+    "doc": "OOP",
+    "title": "实例、类和静态方法",
+    "content": " ",
+    "url": "/python/OOP#%E5%AE%9E%E4%BE%8B%E7%B1%BB%E5%92%8C%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95",
+    
+    "relUrl": "/python/OOP#实例类和静态方法"
+  },"19": {
+    "doc": "OOP",
+    "title": "重载",
+    "content": " ",
+    "url": "/python/OOP#%E9%87%8D%E8%BD%BD",
+    
+    "relUrl": "/python/OOP#重载"
+  },"20": {
+    "doc": "OOP",
+    "title": "属性",
+    "content": " ",
+    "url": "/python/OOP#%E5%B1%9E%E6%80%A7",
+    
+    "relUrl": "/python/OOP#属性"
+  },"21": {
+    "doc": "OOP",
+    "title": "继承和多态",
+    "content": " ",
+    "url": "/python/OOP#%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81",
+    
+    "relUrl": "/python/OOP#继承和多态"
+  },"22": {
+    "doc": "OOP",
+    "title": "dataclass",
+    "content": "在3.7版本之后python加入了数据类，这种类主要包含数据，使用@dataclass装饰器: . from dataclasses import dataclass @dataclass class DataClassCard: rank: str suit: str . dataclass已经实现了一些基础的功能比如实例化，打印，比较大小等。 . &gt;&gt;&gt; queen_of_hearts = DataClassCard('Q', 'Hearts') &gt;&gt;&gt; queen_of_hearts.rank 'Q' &gt;&gt;&gt; queen_of_hearts DataClassCard(rank='Q', suit='Hearts') &gt;&gt;&gt; queen_of_hearts == DataClassCard('Q', 'Hearts') True . 正常的类看起来是下面这种： . class RegularCard: def __init__(self, rank, suit): self.rank = rank self.suit = suit . 可以看出我们要重复写一些名字，而且因为一些因素有下面一个小问题: . &gt;&gt;&gt; queen_of_hearts = RegularCard('Q', 'Hearts') &gt;&gt;&gt; queen_of_hearts.rank 'Q' &gt;&gt;&gt; queen_of_hearts &lt;__main__.RegularCard object at 0x7fb6eee35d30&gt; &gt;&gt;&gt; queen_of_hearts == RegularCard('Q', 'Hearts') False . dataclass看上去暗中帮我们做了一些事情，默认情况下,dataclass实现了一个.__repr__()方法来提供好看的字符串表示以及.__eq__()方法进行对象的比较。对于RegularCard如果要看起来像上面一样，需要添加方法: . class RegularCard def __init__(self, rank, suit): self.rank = rank self.suit = suit def __repr__(self): return (f'{self.__class__.__name__}' f'(rank={self.rank!r}, suit={self.suit!r})') def __eq__(self, other): if other.__class__ is not self.__class__: return NotImplemented return (self.rank, self.suit) == (other.rank, other.suit) . 接下来我们将看到 . | 如何给dataclass添加默认值 | dataclass如何实现对象的排序 | 如何表示immutable数据 | dataclass如何处理继承 | . ",
+    "url": "/python/OOP#dataclass",
+    
+    "relUrl": "/python/OOP#dataclass"
+  },"23": {
+    "doc": "OOP",
+    "title": "替代dataclass",
+    "content": "对于简单的数据结构可能使用过tuple或者dict,比如: . &gt;&gt;&gt; queen_of_hearts_tuple = ('Q', 'Hearts') &gt;&gt;&gt; queen_of_hearts_dict = {'rank': 'Q', 'suit': 'Hearts'} . 但是对于编程者来说有许多需要做的事: . | 需要记住queen_of_hearts_...变量表示扑克 | 对于tuple版本，需要记住属性顺序，('Spades', 'A')可能不会报错 | 如果使用dict版本需要确保属性名是一致的，比如{'value': 'A', 'suit': 'Spades'}可能不会有效 | . 下面的写法可能不太雅观: . &gt;&gt;&gt; queen_of_hearts_tuple[0] # No named access 'Q' &gt;&gt;&gt; queen_of_hearts_dict['suit'] # Would be nicer with .suit 'Hearts' . 一个替代品是namedtuple，用来创建可读的小型数据结构。 . from collections import namedtuple NamedTupleCard = namedtuple('NamedTupleCard', ['rank', 'suit']) . NamedTupleCard将会给出像dataclass一样的结果: . &gt;&gt;&gt; queen_of_hearts = NamedTupleCard('Q', 'Hearts') &gt;&gt;&gt; queen_of_hearts.rank 'Q' &gt;&gt;&gt; queen_of_hearts NamedTupleCard(rank='Q', suit='Hearts') &gt;&gt;&gt; queen_of_hearts == NamedTupleCard('Q', 'Hearts') True . 那么为什么还要使用dataclass, 首先，dataclass 有更丰富的特征，同时namedtuple有一些不太好的特征，设计上来看，namedtuple就是一个普通的tuple，从比较上来看就能看出来： . &gt;&gt;&gt; queen_of_hearts == ('Q', 'Hearts') True . 看上去没问题但是缺乏类型使其容易出现隐藏的bug,尤其是比较两个不同的namedtuple类时: . &gt;&gt;&gt; Person = namedtuple('Person', ['first_initial', 'last_name'] &gt;&gt;&gt; ace_of_spades = NamedTupleCard('A', 'Spades') &gt;&gt;&gt; ace_of_spades == Person('A', 'Spades') True . namedtuple还会带来一些限制，比如很难添加默认值，本身也是immutable. &gt;&gt;&gt; card = NamedTupleCard('7', 'Diamonds') &gt;&gt;&gt; card.rank = '9' AttributeError: can't set attribute . dataclass 不会完全取代namedtuple.比如如果需要数据结构的行为像tuple一样，最好使用namedtuple. 另一种方式是attrs project, . import attr @attr.s class AttrsCard: rank = attr.ib() suit = attr.ib() . ",
+    "url": "/python/OOP#%E6%9B%BF%E4%BB%A3dataclass",
+    
+    "relUrl": "/python/OOP#替代dataclass"
+  },"24": {
+    "doc": "OOP",
+    "title": "构造器",
+    "content": " ",
+    "url": "/python/OOP#%E6%9E%84%E9%80%A0%E5%99%A8",
+    
+    "relUrl": "/python/OOP#构造器"
+  },"25": {
+    "doc": "OOP",
+    "title": "多重构造器",
+    "content": " ",
+    "url": "/python/OOP#%E5%A4%9A%E9%87%8D%E6%9E%84%E9%80%A0%E5%99%A8",
+    
+    "relUrl": "/python/OOP#多重构造器"
+  },"26": {
+    "doc": "OOP",
+    "title": "metaclass",
+    "content": "元编程是指程序知道自己本身或者有能力控制自身，python对类的元编程叫做metaclass.这是一种隐藏的OOP概念，在使用的时候可能根本意识不到或者说没有必要去意识到。 . python提供了其他OOP语言不支持的能力:可以自定义metaclass.但是metaclass是比较有争议的: . “Metaclasses are deeper magic than 99% of users should ever worry about. If you wonder whether you need them, you don’t (the people who actually need them know with certainty that they need them, and don’t need an explanation about why).” . 有的python学者相信我们永远不该使用自定义的metaclass,大多数情况下自定义的metaclass没有必要。 . 但是python的metaclass还是有必要了解，可能更好的了解python类的内部原理。 . python中，类有两种变体，没有正式的名字，姑且叫做旧风格和新风格的类。 . 在旧风格的类中，类和类型不是一个相同的东西，旧风格的类的实例是用单独的内建类型instance实现的。如果obj是旧风格的类的实例，obj.__class__来指定类，但是type(obj)总是instance,如下面python2.7的例子: . &gt;&gt;&gt; class Foo: ... pass ... &gt;&gt;&gt; x = Foo() &gt;&gt;&gt; x.__class__ &lt;class __main__.Foo at 0x000000000535CC48&gt; &gt;&gt;&gt; type(x) &lt;type 'instance'&gt; . 新风格的类统一了类和类型的概念。如果obj是新风格的类的实例，type(obj)和obj.__class__相同: . &gt;&gt;&gt; class Foo: ... pass &gt;&gt;&gt; obj = Foo() &gt;&gt;&gt; obj.__class__ &lt;class '__main__.Foo'&gt; &gt;&gt;&gt; type(obj) &lt;class '__main__.Foo'&gt; &gt;&gt;&gt; obj.__class__ is type(obj) True . &gt;&gt;&gt; n = 5 &gt;&gt;&gt; d = { 'x' : 1, 'y' : 2 } &gt;&gt;&gt; class Foo: ... pass ... &gt;&gt;&gt; x = Foo() &gt;&gt;&gt; for obj in (n, d, x): ... print(type(obj) is obj.__class__) ... True True True . ",
+    "url": "/python/OOP#metaclass",
+    
+    "relUrl": "/python/OOP#metaclass"
+  },"27": {
+    "doc": "OOP",
+    "title": "类型和类",
+    "content": " ",
+    "url": "/python/OOP#%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB",
+    
+    "relUrl": "/python/OOP#类型和类"
+  },"28": {
+    "doc": "OOP",
+    "title": "OOP",
+    "content": ". | OOP . | 定义类 . | 类vs实例 | 如何定义类 | . | 实例化类 . | 类和实例属性 | 实例方法 | . | 继承 . | 父类 VS 子类 | 扩展父类的功能 | . | . | 实例、类和静态方法 | 重载 | 属性 | 继承和多态 | dataclass . | 替代dataclass | . | 构造器 | 多重构造器 | metaclass . | 类型和类 | . | . https://realpython.com/python3-object-oriented-programming/ . https://realpython.com/python-super/ . ",
+    "url": "/python/OOP",
+    
+    "relUrl": "/python/OOP"
+  },"29": {
+    "doc": "RNN",
+    "title": "RNN",
+    "content": " ",
+    "url": "/MachineLearning/model/RNN",
+    
+    "relUrl": "/MachineLearning/model/RNN"
+  },"30": {
+    "doc": "STL",
+    "title": "STL",
+    "content": " ",
+    "url": "/cpp/STL/",
+    
+    "relUrl": "/cpp/STL/"
+  },"31": {
+    "doc": "SVM",
+    "title": "SVM",
+    "content": " ",
+    "url": "/MachineLearning/model/SVM",
+    
+    "relUrl": "/MachineLearning/model/SVM"
+  },"32": {
+    "doc": "ServiceOriented",
+    "title": "ServiceOriented",
+    "content": " ",
+    "url": "/designpattern/ServiceOriented",
+    
+    "relUrl": "/designpattern/ServiceOriented"
+  },"33": {
+    "doc": "StandardLibrary",
+    "title": "StandardLibrary",
+    "content": " ",
+    "url": "/cpp/StandardLibrary/",
+    
+    "relUrl": "/cpp/StandardLibrary/"
+  },"34": {
+    "doc": "Transformer",
+    "title": "Transformer",
+    "content": " ",
+    "url": "/MachineLearning/model/Transformer",
+    
+    "relUrl": "/MachineLearning/model/Transformer"
+  },"35": {
+    "doc": "asyncio",
+    "title": "asyncio",
+    "content": " ",
+    "url": "/python/asyncio",
+    
+    "relUrl": "/python/asyncio"
+  },"36": {
+    "doc": "attrs",
+    "title": "概览",
+    "content": "为了简化写类的过程，attrs提供了一个类装饰器以及在类上定义属性的声明式方式。 . &gt;&gt;&gt; from attrs import asdict, define, make_class, Factory &gt;&gt;&gt; @define class SomeClass: a_number: int = 42 list_of_numbers: list[int] = Factory(list) def hard_math(self, another_number): return self.a_number + sum(self.list_of_numbers) * another_number &gt;&gt;&gt; sc = SomeClass(1, [1, 2, 3]) &gt;&gt;&gt; sc SomeClass(a_number=1, list_of_numbers=[1, 2, 3]) &gt;&gt;&gt; sc.hard_math(3) 19 &gt;&gt;&gt; sc == SomeClass(1, [1, 2, 3]) True &gt;&gt;&gt; sc != SomeClass(2, [3, 2, 1]) True &gt;&gt;&gt; asdict(sc) {'a_number': 1, 'list_of_numbers': [1, 2, 3]} &gt;&gt;&gt; SomeClass() SomeClass(a_number=42, list_of_numbers=[]) &gt;&gt;&gt; C = make_class(\"C\", [\"a\", \"b\"]) &gt;&gt;&gt; C(\"foo\", \"bar\") C(a='foo', b='bar') . 在声明了属性之后attrs提供了: . | 简明的类属性概括 | 易读的__repr__ | 比较大小方法 | 初始化器 | … | . 现在我们无需重复的写一些代码也没有运行时性能问题了，yeah. 不想要类型注解?没问题，对attrs类型是可选的，将attrs.field赋值给属性而不是使用类型标注。 . 上面的例子使用了attrs在20.1.0引入的api.相比与dataclass，attrs更加的灵活，比如可以为numpy数组定义比较运算符。 . ",
+    "url": "/MachineLearning/packages/attrs#%E6%A6%82%E8%A7%88",
+    
+    "relUrl": "/MachineLearning/packages/attrs#概览"
+  },"37": {
+    "doc": "attrs",
+    "title": "理念",
+    "content": ". | 创建更好的类,可以用于只有数据的容器比如namedtuple或者types.SimpleNamespace | 只是一个附带了写好的方法的普通类 | 只跟踪dunder方法. | 没有运行时影响 | . ",
+    "url": "/MachineLearning/packages/attrs#%E7%90%86%E5%BF%B5",
+    
+    "relUrl": "/MachineLearning/packages/attrs#理念"
+  },"38": {
+    "doc": "attrs",
+    "title": "例子",
+    "content": "最简单的使用方式是: . &gt;&gt;&gt; from attrs import define, field &gt;&gt;&gt; @define class Empty: pass &gt;&gt;&gt; Empty() Empty() &gt;&gt;&gt; Empty() == Empty() True &gt;&gt;&gt; Empty() is Empty() False . 让我们在类中加一些数据: . &gt;&gt;&gt; @define class Coordinates: x: int y: int . &gt;&gt;&gt; c1 = Coordinates(1, 2) &gt;&gt;&gt; c1 Coordinates(x=1, y=2) &gt;&gt;&gt; c2 = Coordinates(x=2, y=1) &gt;&gt;&gt; c2 Coordinates(x=2, y=1) &gt;&gt;&gt; c1 == c2 False . 对于私有属性，attrs会加一个前置单下划线作为关键字参数， . &gt;&gt;&gt; @define class C: _x: int &gt;&gt;&gt; C(x=1) C(_x=1) . 如果想初始化自己的私有属性可以: . &gt;&gt;&gt; @define class C: _x: int = field(init=False, default=42) &gt;&gt;&gt; C() C(_x=42) &gt;&gt;&gt; C(23) Traceback (most recent call last): ... TypeError: __init__() takes exactly 1 argument (2 given) . ",
+    "url": "/MachineLearning/packages/attrs#%E4%BE%8B%E5%AD%90",
+    
+    "relUrl": "/MachineLearning/packages/attrs#例子"
+  },"39": {
+    "doc": "attrs",
+    "title": "attrs",
+    "content": ". | 概览 . | 理念 | . | 例子 | . attrs可以将我们从dunder的写法中解放出来. ",
+    "url": "/MachineLearning/packages/attrs",
+    
+    "relUrl": "/MachineLearning/packages/attrs"
+  },"40": {
+    "doc": "autograd",
+    "title": "autograd",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/autograd",
+    
+    "relUrl": "/MachineLearning/pytorch/autograd"
+  },"41": {
+    "doc": "basics",
+    "title": "hello world",
+    "content": " ",
+    "url": "/web/js/basics#hello-world",
+    
+    "relUrl": "/web/js/basics#hello-world"
+  },"42": {
+    "doc": "basics",
+    "title": "The “script” tag",
+    "content": "使用script tag可以将javascript代码嵌入到html页面的几乎所有地方。比如: . &lt;!DOCTYPE HTML&gt; &lt;html&gt; &lt;body&gt; &lt;p&gt;Before the script...&lt;/p&gt; &lt;script&gt; alert( 'Hello, world!' ); &lt;/script&gt; &lt;p&gt;...After the script.&lt;/p&gt; &lt;/body&gt; &lt;/html&gt; . ",
+    "url": "/web/js/basics#the-script-tag",
+    
+    "relUrl": "/web/js/basics#the-script-tag"
+  },"43": {
+    "doc": "basics",
+    "title": "现代标记语言",
+    "content": "&lt;script&gt; tag有一些比较过时的属性: . | &lt;script type=…&gt;,html4中需要脚本具有类型，通常是type=\"text/javascript\".但是现在不再需要了，现代的html完全改变了这个属性的意义，现在可以用于js模块。 . | &lt;script language=…&gt;这个属性用来显式脚本的语言，由于js是默认语言，因此现在没必要使用了。 . | . 比较旧的代码中可能发现: . &lt;script type=\"text/javascript\"&gt;&lt;!-- ... //--&gt;&lt;/script&gt; . 但是现在不再使用了。 . ",
+    "url": "/web/js/basics#%E7%8E%B0%E4%BB%A3%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80",
+    
+    "relUrl": "/web/js/basics#现代标记语言"
+  },"44": {
+    "doc": "basics",
+    "title": "外部脚本",
+    "content": "如果有很多的代码可以把js单独放在一个文件中，然后使用src属性连接到html: . &lt;script src=\"/path/to/script.js\"&gt;&lt;/script&gt; . /path/to/script.js 是脚本相对于站点root的绝对路径。也可以使用相对当前页面的路径，比如src=\"script.js\",就像src=\"./script.js\",意味着当前路径下的文件”script.js”. 也可以使用url： . &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js\"&gt;&lt;/script&gt; . 要加入多个脚本: . &lt;script src=\"/js/script1.js\"&gt;&lt;/script&gt; &lt;script src=\"/js/script2.js\"&gt;&lt;/script&gt; . 注意: . 应该只把最简单的脚本加到html中，复杂脚本放到单独文件中，单独的文件使得浏览器可以下载放到缓存中。其他页面引用的时候直接从缓存中取而不是再下载。 . 设置了src后会忽视脚本内容 . 单独的&lt;script&gt; tag不能同时有src属性和代码，比如 . &lt;script src=\"file.js\"&gt; alert(1); // the content is ignored, because src is set &lt;/script&gt; . 会忽略掉代码。 . ",
+    "url": "/web/js/basics#%E5%A4%96%E9%83%A8%E8%84%9A%E6%9C%AC",
+    
+    "relUrl": "/web/js/basics#外部脚本"
+  },"45": {
+    "doc": "basics",
+    "title": "代码结构",
+    "content": " ",
+    "url": "/web/js/basics#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84",
+    
+    "relUrl": "/web/js/basics#代码结构"
+  },"46": {
+    "doc": "basics",
+    "title": "语句",
+    "content": "语句可以使用分号或者断行进行隔开， . alert('Hello') alert('World') . js不会在[...]之前假设有分号，可以尝试以下代码: . alert(\"Hello\") [1, 2].forEach(alert); . alert(\"Hello\"); [1, 2].forEach(alert); . ",
+    "url": "/web/js/basics#%E8%AF%AD%E5%8F%A5",
+    
+    "relUrl": "/web/js/basics#语句"
+  },"47": {
+    "doc": "basics",
+    "title": "注释",
+    "content": "单行注释使用//. // This comment occupies a line of its own alert('Hello'); alert('World'); // This comment follows the statement . 多行注释使用/*...*/. /* An example with two messages. This is a multiline comment. */ alert('Hello'); alert('World'); . 不支持嵌套注释比如: . /* /* nested comment ?!? */ */ alert( 'World' ); . ",
+    "url": "/web/js/basics#%E6%B3%A8%E9%87%8A",
+    
+    "relUrl": "/web/js/basics#注释"
+  },"48": {
+    "doc": "basics",
+    "title": "modern mode",
+    "content": "很长时间依赖js没有兼容性问题，这可以保证现存的代码运行起来没问题，但是问题是语言开发者可能导致语言出现问题，在ES5出现后给语言加入了一些新的特征，要使旧的代码运行，需要使用声明\"use strict\". \"use strict\"; // this code works the modern way ... 这句话出现在脚本最开头的时候表示整个脚本以现代的方式运行。这句话也可以用在函数里只对函数起作用。 . 确保'use strict'出现在脚本开头，否则不会生效。 . 使用浏览器控制台时默认不会使用use strict. 应该摁Shift+Enter输入多行，如果在旧的浏览器不行的话使用: . (function() { 'use strict'; // ...your code here... })() . 现代js支持class以及modules会自动启用use strict . ",
+    "url": "/web/js/basics#modern-mode",
+    
+    "relUrl": "/web/js/basics#modern-mode"
+  },"49": {
+    "doc": "basics",
+    "title": "变量",
+    "content": " ",
+    "url": "/web/js/basics#%E5%8F%98%E9%87%8F",
+    
+    "relUrl": "/web/js/basics#变量"
+  },"50": {
+    "doc": "basics",
+    "title": "数据类型",
+    "content": " ",
+    "url": "/web/js/basics#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B",
+    
+    "relUrl": "/web/js/basics#数据类型"
+  },"51": {
+    "doc": "basics",
+    "title": "类型转换",
+    "content": " ",
+    "url": "/web/js/basics#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2",
+    
+    "relUrl": "/web/js/basics#类型转换"
+  },"52": {
+    "doc": "basics",
+    "title": "交互",
+    "content": " ",
+    "url": "/web/js/basics#%E4%BA%A4%E4%BA%92",
+    
+    "relUrl": "/web/js/basics#交互"
+  },"53": {
+    "doc": "basics",
+    "title": "算子",
+    "content": " ",
+    "url": "/web/js/basics#%E7%AE%97%E5%AD%90",
+    
+    "relUrl": "/web/js/basics#算子"
+  },"54": {
+    "doc": "basics",
+    "title": "比较",
+    "content": " ",
+    "url": "/web/js/basics#%E6%AF%94%E8%BE%83",
+    
+    "relUrl": "/web/js/basics#比较"
+  },"55": {
+    "doc": "basics",
+    "title": "条件",
+    "content": " ",
+    "url": "/web/js/basics#%E6%9D%A1%E4%BB%B6",
+    
+    "relUrl": "/web/js/basics#条件"
+  },"56": {
+    "doc": "basics",
+    "title": "逻辑算符",
+    "content": " ",
+    "url": "/web/js/basics#%E9%80%BB%E8%BE%91%E7%AE%97%E7%AC%A6",
+    
+    "relUrl": "/web/js/basics#逻辑算符"
+  },"57": {
+    "doc": "basics",
+    "title": "？？",
+    "content": " ",
+    "url": "/web/js/basics",
+    
+    "relUrl": "/web/js/basics"
+  },"58": {
+    "doc": "basics",
+    "title": "循环",
+    "content": " ",
+    "url": "/web/js/basics#%E5%BE%AA%E7%8E%AF",
+    
+    "relUrl": "/web/js/basics#循环"
+  },"59": {
+    "doc": "basics",
+    "title": "switch",
+    "content": " ",
+    "url": "/web/js/basics#switch",
+    
+    "relUrl": "/web/js/basics#switch"
+  },"60": {
+    "doc": "basics",
+    "title": "函数",
+    "content": " ",
+    "url": "/web/js/basics#%E5%87%BD%E6%95%B0",
+    
+    "relUrl": "/web/js/basics#函数"
+  },"61": {
+    "doc": "basics",
+    "title": "箭头函数",
+    "content": " ",
+    "url": "/web/js/basics#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0",
+    
+    "relUrl": "/web/js/basics#箭头函数"
+  },"62": {
+    "doc": "basics",
+    "title": "js specials",
+    "content": " ",
+    "url": "/web/js/basics#js-specials",
+    
+    "relUrl": "/web/js/basics#js-specials"
+  },"63": {
+    "doc": "basics",
+    "title": "basics",
+    "content": " ",
+    "url": "/web/js/basics",
+    
+    "relUrl": "/web/js/basics"
+  },"64": {
+    "doc": "basis",
+    "title": "Quick",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#quick",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#quick"
+  },"65": {
+    "doc": "basis",
+    "title": "tensor",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#tensor",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#tensor"
+  },"66": {
+    "doc": "basis",
+    "title": "dataload",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#dataload",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#dataload"
+  },"67": {
+    "doc": "basis",
+    "title": "transforms",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#transforms",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#transforms"
+  },"68": {
+    "doc": "basis",
+    "title": "build NN",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#build-nn",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#build-nn"
+  },"69": {
+    "doc": "basis",
+    "title": "autograd",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#autograd",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#autograd"
+  },"70": {
+    "doc": "basis",
+    "title": "optimize",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#optimize",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#optimize"
+  },"71": {
+    "doc": "basis",
+    "title": "save and load",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis#save-and-load",
+    
+    "relUrl": "/MachineLearning/pytorch/basis#save-and-load"
+  },"72": {
+    "doc": "basis",
+    "title": "basis",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/basis",
+    
+    "relUrl": "/MachineLearning/pytorch/basis"
+  },"73": {
+    "doc": "click",
+    "title": "click",
+    "content": " ",
+    "url": "/MachineLearning/packages/click",
+    
+    "relUrl": "/MachineLearning/packages/click"
+  },"74": {
+    "doc": "cookiecutter",
+    "title": "cookiecutter",
+    "content": " ",
+    "url": "/MachineLearning/packages/cookiecutter",
+    
+    "relUrl": "/MachineLearning/packages/cookiecutter"
+  },"75": {
+    "doc": "cpp",
+    "title": "cpp",
+    "content": " ",
+    "url": "/cpp/",
+    
+    "relUrl": "/cpp/"
+  },"76": {
+    "doc": "cuda",
+    "title": "cuda",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/cuda",
+    
+    "relUrl": "/MachineLearning/pytorch/cuda"
+  },"77": {
+    "doc": "dataclass",
+    "title": "dataclass",
+    "content": " ",
+    "url": "/python/dataclass",
+    
+    "relUrl": "/python/dataclass"
+  },"78": {
+    "doc": "decorator",
+    "title": "decorator",
+    "content": "awesome-python-decorator . python wiki . https://towardsdatascience.com/10-fabulous-python-decorators-ab674a732871 . ",
+    "url": "/python/decorator",
+    
+    "relUrl": "/python/decorator"
+  },"79": {
+    "doc": "designpattern",
+    "title": "designpattern",
+    "content": " ",
+    "url": "/designpattern/",
+    
+    "relUrl": "/designpattern/"
+  },"80": {
+    "doc": "DesignPattern",
+    "title": "DesignPattern",
+    "content": " ",
+    "url": "/python/DesignPattern/",
+    
+    "relUrl": "/python/DesignPattern/"
+  },"81": {
+    "doc": "DVC",
+    "title": "DVC",
+    "content": " ",
+    "url": "/python/DVC",
+    
+    "relUrl": "/python/DVC"
+  },"82": {
+    "doc": "frontend",
+    "title": "frontend",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/frontend",
+    
+    "relUrl": "/MachineLearning/pytorch/frontend"
+  },"83": {
+    "doc": "Factory Method Pattern",
+    "title": "Factory Method Pattern",
+    "content": "资源: https://realpython.com/factory-method-python/ . ",
+    "url": "/MachineLearning/designpattern/functionmethod",
+    
+    "relUrl": "/MachineLearning/designpattern/functionmethod"
+  },"84": {
+    "doc": "functools",
+    "title": "functools",
+    "content": " ",
+    "url": "/MachineLearning/packages/functools",
+    
+    "relUrl": "/MachineLearning/packages/functools"
+  },"85": {
+    "doc": "howtos-ghpages",
+    "title": "github设置",
+    "content": "创建github公有仓库,如果是用户或者组织页面，仓库名使用&lt;user&gt;.github.io。 . 创建站点， . ",
+    "url": "/how-tos/github-pages/#github%E8%AE%BE%E7%BD%AE",
+    
+    "relUrl": "/how-tos/github-pages/#github设置"
+  },"86": {
+    "doc": "howtos-ghpages",
+    "title": "配置发布源",
+    "content": "可以在某个特定分支push了改变时发布站点或者写一个GitHub Actions来发布站点。 . ",
+    "url": "/how-tos/github-pages/#%E9%85%8D%E7%BD%AE%E5%8F%91%E5%B8%83%E6%BA%90",
+    
+    "relUrl": "/how-tos/github-pages/#配置发布源"
+  },"87": {
+    "doc": "howtos-ghpages",
+    "title": "从GitHub Actions发布",
+    "content": ". | 在站点仓库的设置页面中选择actions, | . ",
+    "url": "/how-tos/github-pages/#%E4%BB%8Egithub-actions%E5%8F%91%E5%B8%83",
+    
+    "relUrl": "/how-tos/github-pages/#从github-actions发布"
+  },"88": {
+    "doc": "howtos-ghpages",
+    "title": "howtos-ghpages",
+    "content": ". | github设置 | 配置发布源 . | 从GitHub Actions发布 | . | . ",
+    "url": "/how-tos/github-pages/",
+    
+    "relUrl": "/how-tos/github-pages/"
+  },"89": {
+    "doc": "go",
+    "title": "go",
+    "content": " ",
+    "url": "/go/",
+    
+    "relUrl": "/go/"
+  },"90": {
+    "doc": "howtos",
+    "title": "howtos",
+    "content": " ",
+    "url": "/how-tos/",
+    
+    "relUrl": "/how-tos/"
+  },"91": {
+    "doc": "import",
+    "title": "Modules",
+    "content": "python中模块的定义有三种方式: . | 用python写成 | 用C写然后在运行时进行动态加载，比如re模块 | 内建的模块直接包含在解释器中比如itertools模块 | . 这三种方式都是通过import语句进行导入模块内容。本文主要介绍以python代码写成的模块，比如我们创建一个mod.py. s = \"If Comrade Napoleon says it, it must be right.\" a = [100, 200, 300] def foo(arg): print(f'arg = {arg}') class Foo: pass . &gt;&gt;&gt; import mod &gt;&gt;&gt; print(mod.s) If Comrade Napoleon says it, it must be right. &gt;&gt;&gt; mod.a [100, 200, 300] &gt;&gt;&gt; mod.foo(['quux', 'corge', 'grault']) arg = ['quux', 'corge', 'grault'] &gt;&gt;&gt; x = mod.Foo() &gt;&gt;&gt; x &lt;mod.Foo object at 0x03C181F0&gt; . ",
+    "url": "/python/import#modules",
+    
+    "relUrl": "/python/import#modules"
+  },"92": {
+    "doc": "import",
+    "title": "模块的搜索路径",
+    "content": "当我们输入以下语句时会发生什么: . import mod . 解释器会从一个目录列表中搜索mod.py，目录列表如下: . | 如果使用解释器，当前目录或者输入脚本运行目录 | 在PYTHONPATH环境变量中包含的目录 | python安装时配置的依赖安装的列表目录 | . 这个搜索路径可以从python的变量sys.path中查看。 . &gt;&gt;&gt; import sys &gt;&gt;&gt; sys.path ['', 'C:\\\\Users\\\\john\\\\Documents\\\\Python\\\\doc', 'C:\\\\Python36\\\\Lib\\\\idlelib', 'C:\\\\Python36\\\\python36.zip', 'C:\\\\Python36\\\\DLLs', 'C:\\\\Python36\\\\lib', 'C:\\\\Python36', 'C:\\\\Python36\\\\lib\\\\site-packages'] . 为了保证调用时可以找到mod.py，需要做下面的其中一件事: . | 如果使用解释器，将mod.py放到输入脚本对应的目录或者当前目录 | 更改环境变量PYTHONPATH来包含mod.py所处的目录 | 将mod.py放到依赖安装的目录下 | . 当然也可以在运行时更改sys.path.比如: . &gt;&gt;&gt; sys.path.append(r'C:\\Users\\john') &gt;&gt;&gt; sys.path ['', 'C:\\\\Users\\\\john\\\\Documents\\\\Python\\\\doc', 'C:\\\\Python36\\\\Lib\\\\idlelib', 'C:\\\\Python36\\\\python36.zip', 'C:\\\\Python36\\\\DLLs', 'C:\\\\Python36\\\\lib', 'C:\\\\Python36', 'C:\\\\Python36\\\\lib\\\\site-packages', 'C:\\\\Users\\\\john'] &gt;&gt;&gt; import mod . 导入一个模块之后，可以通过__file__属性查看文件从哪里导入的: . &gt;&gt;&gt; import mod &gt;&gt;&gt; mod.__file__ 'C:\\\\Users\\\\john\\\\mod.py' &gt;&gt;&gt; import re &gt;&gt;&gt; re.__file__ 'C:\\\\Python36\\\\lib\\\\re.py' . ",
+    "url": "/python/import#%E6%A8%A1%E5%9D%97%E7%9A%84%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84",
+    
+    "relUrl": "/python/import#模块的搜索路径"
+  },"93": {
+    "doc": "import",
+    "title": "import语句",
+    "content": "import &lt;module_name&gt; . 最简单的import语句如下: . import &lt;module_name&gt; . 这句话还无法让模块内容被调用者直接可以访问，每个模块都有自己的私有符号表，作为模块中定义的所有对象的全局符号表，因此导入的是一个独立的命名空间。 import &lt;module_name&gt;只是把模块名放到调用者的符号表中，定义在模块中的对象还是在模块的私有符号表中。 . 从调用者的角度看模块中的对象必须使用.符号来访问额模块的内容。 . &gt;&gt;&gt; import mod &gt;&gt;&gt; mod &lt;module 'mod' from 'C:\\\\Users\\\\john\\\\Documents\\\\Python\\\\doc\\\\mod.py'&gt; &gt;&gt;&gt; s NameError: name 's' is not defined &gt;&gt;&gt; foo('quux') NameError: name 'foo' is not defined . 这句话会把mod放到本地符号表中。 但是s和foo仍然在模块的私有符号表中，而不在本地的上下文中。 . 要在本地上下文中访问必须使用以下的形式: . &gt;&gt;&gt; mod.s 'If Comrade Napoleon says it, it must be right.' &gt;&gt;&gt; mod.foo('quux') arg = quux . 可以使用逗号分割导入多个模块，import &lt;module_name&gt;[, &lt;module_name&gt; ...]. from &lt;module_name&gt; import &lt;name(s)&gt; . 要直接把模块中的名字导入调用者的符号表中可以使用: . from &lt;module_name&gt; import &lt;name(s)&gt; . &gt;&gt;&gt; from mod import s, foo &gt;&gt;&gt; s 'If Comrade Napoleon says it, it must be right.' &gt;&gt;&gt; foo('quux') arg = quux &gt;&gt;&gt; from mod import Foo &gt;&gt;&gt; x = Foo() &gt;&gt;&gt; x &lt;mod.Foo object at 0x02E3AD50&gt; . 这很容易符号已经存在在本地符号表中的名字，比如: . &gt;&gt;&gt; a = ['foo', 'bar', 'baz'] &gt;&gt;&gt; a ['foo', 'bar', 'baz'] &gt;&gt;&gt; from mod import a &gt;&gt;&gt; a [100, 200, 300] . 甚至还有一种更讨厌的写法: . from &lt;module_name&gt; import * . 很容易忽略掉被覆盖的名字。 . &gt;&gt;&gt; from mod import * &gt;&gt;&gt; s 'If Comrade Napoleon says it, it must be right.' &gt;&gt;&gt; a [100, 200, 300] &gt;&gt;&gt; foo &lt;function foo at 0x03B449C0&gt; &gt;&gt;&gt; Foo &lt;class 'mod.Foo'&gt; . from &lt;module_name&gt; import &lt;name&gt; as &lt;alt_name&gt; . 最推荐的写法如下: . from &lt;module_name&gt; import &lt;name&gt; as &lt;alt_name&gt;[, &lt;name&gt; as &lt;alt_name&gt; …] . &gt;&gt;&gt; s = 'foo' &gt;&gt;&gt; a = ['foo', 'bar', 'baz'] &gt;&gt;&gt; from mod import s as string, a as alist &gt;&gt;&gt; s 'foo' &gt;&gt;&gt; string 'If Comrade Napoleon says it, it must be right.' &gt;&gt;&gt; a ['foo', 'bar', 'baz'] &gt;&gt;&gt; alist [100, 200, 300] . import &lt;module_name&gt; as &lt;alt_name&gt; . 也可以单独再起一个别名: . &gt;&gt;&gt; import mod as my_module &gt;&gt;&gt; my_module.a [100, 200, 300] &gt;&gt;&gt; my_module.foo('qux') arg = qux . 也可以在函数调用的时候再进行import,这样包只在函数调用的时候才会可见。 . &gt;&gt;&gt; def bar(): ... from mod import foo ... foo('corge') ... &gt;&gt;&gt; bar() arg = corge . 但是在python3中不支持如下写法: . &gt;&gt;&gt; def bar(): ... from mod import * ... SyntaxError: import * only allowed at module level . 如果希望避免异常的导入可以使用: . &gt;&gt;&gt; try: ... # Non-existent module ... import baz ... except ImportError: ... print('Module not found') ... Module not found . &gt;&gt;&gt; try: ... # Existing module, but non-existent object ... from mod import baz ... except ImportError: ... print('Object not found in module') ... Object not found in module . ",
+    "url": "/python/import#import%E8%AF%AD%E5%8F%A5",
+    
+    "relUrl": "/python/import#import语句"
+  },"94": {
+    "doc": "import",
+    "title": "dir函数",
+    "content": "内建的dir函数可以返回命名空间中的名字列表，不带参数的话返回的是本地符号表: . &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] &gt;&gt;&gt; qux = [1, 2, 3, 4, 5] &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'qux'] &gt;&gt;&gt; class Bar(): ... pass ... &gt;&gt;&gt; x = Bar() &gt;&gt;&gt; dir() ['Bar', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'qux', 'x'] . 这个函数可以用来确定import到底导入了那些名字: . &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] &gt;&gt;&gt; import mod &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'mod'] &gt;&gt;&gt; mod.s 'If Comrade Napoleon says it, it must be right.' &gt;&gt;&gt; mod.foo([1, 2, 3]) arg = [1, 2, 3] &gt;&gt;&gt; from mod import a, Foo &gt;&gt;&gt; dir() ['Foo', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'a', 'mod'] &gt;&gt;&gt; a [100, 200, 300] &gt;&gt;&gt; x = Foo() &gt;&gt;&gt; x &lt;mod.Foo object at 0x002EAD50&gt; &gt;&gt;&gt; from mod import s as string &gt;&gt;&gt; dir() ['Foo', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'a', 'mod', 'string', 'x'] &gt;&gt;&gt; string 'If Comrade Napoleon says it, it must be right.' . 列出模块中的名字: . &gt;&gt;&gt; import mod &gt;&gt;&gt; dir(mod) ['Foo', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'a', 'foo', 's'] . &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] &gt;&gt;&gt; from mod import * &gt;&gt;&gt; dir() ['Foo', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'a', 'foo', 's'] . ",
+    "url": "/python/import#dir%E5%87%BD%E6%95%B0",
+    
+    "relUrl": "/python/import#dir函数"
+  },"95": {
+    "doc": "import",
+    "title": "将模块作为脚本执行",
+    "content": "包含模块的py文件又叫做脚本，因此也是可以执行的。mod.py: . s = \"If Comrade Napoleon says it, it must be right.\" a = [100, 200, 300] def foo(arg): print(f'arg = {arg}') class Foo: pass print(s) print(a) foo('quux') x = Foo() print(x) . C:\\Users\\john\\Documents&gt;python mod.py If Comrade Napoleon says it, it must be right. [100, 200, 300] arg = quux &lt;__main__.Foo object at 0x02F101D0&gt; . 但是在进行import的时候这些语句也会执行，可以使用以下的方式区分执行模块还是进行import: . s = \"If Comrade Napoleon says it, it must be right.\" a = [100, 200, 300] def foo(arg): print(f'arg = {arg}') class Foo: pass if (__name__ == '__main__'): print('Executing as standalone script') print(s) print(a) foo('quux') x = Foo() print(x) . 在导入模块时，python会设置模块的dunder变量__name__，如果作为单独的脚本进行执行会设置成__main__。 这一特征在单元测试时比较有用。 . ",
+    "url": "/python/import#%E5%B0%86%E6%A8%A1%E5%9D%97%E4%BD%9C%E4%B8%BA%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C",
+    
+    "relUrl": "/python/import#将模块作为脚本执行"
+  },"96": {
+    "doc": "import",
+    "title": "重新加载模块",
+    "content": "处于效率的原因，一个解释器会话智慧进行inmport一次，对于函数或者类定义来说比较正常，但是模块可能包含一些初始化的语句， . a = [100, 200, 300] print('a =', a) . &gt;&gt;&gt; import mod a = [100, 200, 300] &gt;&gt;&gt; import mod &gt;&gt;&gt; import mod &gt;&gt;&gt; mod.a [100, 200, 300] . 在后续的导入中并没有执行print语句。如果修改了模块需要重新加载，可以关掉解释器重新打开或者使用reload()函数。 . &gt;&gt;&gt; import mod a = [100, 200, 300] &gt;&gt;&gt; import mod &gt;&gt;&gt; import importlib &gt;&gt;&gt; importlib.reload(mod) a = [100, 200, 300] &lt;module 'mod' from 'C:\\\\Users\\\\john\\\\Documents\\\\Python\\\\doc\\\\mod.py'&gt; . ",
+    "url": "/python/import#%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97",
+    
+    "relUrl": "/python/import#重新加载模块"
+  },"97": {
+    "doc": "import",
+    "title": "Packages",
+    "content": "包通过.符号支持模块命名空间具有层级的结构，包避免了模块名之间的冲突。 . 直接使用文件夹层级结构就可以创建一个包， . mod1.py . def foo(): print('[mod1] foo()') class Foo: pass . mod2.py . def bar(): print('[mod2] bar()') class Bar: pass . &gt;&gt;&gt; from pkg.mod1 import foo &gt;&gt;&gt; foo() [mod1] foo() . &gt;&gt;&gt; import pkg.mod1, pkg.mod2 &gt;&gt;&gt; pkg.mod1.foo() [mod1] foo() &gt;&gt;&gt; x = pkg.mod2.Bar() &gt;&gt;&gt; x &lt;pkg.mod2.Bar object at 0x033F7290&gt; . &gt;&gt;&gt; from pkg.mod2 import Bar as Qux &gt;&gt;&gt; x = Qux() &gt;&gt;&gt; x &lt;pkg.mod2.Bar object at 0x036DFFD0&gt; . &gt;&gt;&gt; from pkg import mod1 &gt;&gt;&gt; mod1.foo() [mod1] foo() &gt;&gt;&gt; from pkg import mod2 as quux &gt;&gt;&gt; quux.bar() [mod2] bar() . &gt;&gt;&gt; import pkg &gt;&gt;&gt; pkg &lt;module 'pkg' (namespace)&gt; . 如上所示包的导入和模块的导入没什么不同， 下面的语句语法上看好像没问题，但是不会把模块放到本地的命名空间中: . &gt;&gt;&gt; pkg.mod1 Traceback (most recent call last): File \"&lt;pyshell#34&gt;\", line 1, in &lt;module&gt; pkg.mod1 AttributeError: module 'pkg' has no attribute 'mod1' &gt;&gt;&gt; pkg.mod1.foo() Traceback (most recent call last): File \"&lt;pyshell#35&gt;\", line 1, in &lt;module&gt; pkg.mod1.foo() AttributeError: module 'pkg' has no attribute 'mod1' &gt;&gt;&gt; pkg.mod2.Bar() Traceback (most recent call last): File \"&lt;pyshell#36&gt;\", line 1, in &lt;module&gt; pkg.mod2.Bar() AttributeError: module 'pkg' has no attribute 'mod2' . ",
+    "url": "/python/import#packages",
+    
+    "relUrl": "/python/import#packages"
+  },"98": {
+    "doc": "import",
+    "title": "包初始化",
+    "content": "如果包的目录下有一个叫做__init__.py的文件，在包或者包里面的模块被import时会自动调用。这可以用来执行包的初始化代码，比如初始化包一层的数据: . init.py . print(f'Invoking __init__.py for {__name__}') A = ['quux', 'corge', 'grault'] . &gt;&gt;&gt; import pkg Invoking __init__.py for pkg &gt;&gt;&gt; pkg.A ['quux', 'corge', 'grault'] . 当导入包时会初始化全局列表A,包中的模块可以通过import访问全局变量： . mod1.py . def foo(): from pkg import A print('[mod1] foo() / A = ', A) class Foo: pass . &gt;&gt;&gt; from pkg import mod1 Invoking __init__.py for pkg &gt;&gt;&gt; mod1.foo() [mod1] foo() / A = ['quux', 'corge', 'grault'] . __init__.py还可以用来影响从一个包中对模块的自动导入，比如之前的例子中只把pkg放在调用者的本地符号变量而没有导入任何模块，但是如果__init__.py包含下列代码: . print(f'Invoking __init__.py for {__name__}') import pkg.mod1, pkg.mod2 . 可以实现: . &gt;&gt;&gt; import pkg Invoking __init__.py for pkg &gt;&gt;&gt; pkg.mod1.foo() [mod1] foo() &gt;&gt;&gt; pkg.mod2.bar() [mod2] bar() . python3.3之后引入了隐式的命名空间包，可以没有__init__文件就能创建包。 . ",
+    "url": "/python/import#%E5%8C%85%E5%88%9D%E5%A7%8B%E5%8C%96",
+    
+    "relUrl": "/python/import#包初始化"
+  },"99": {
+    "doc": "import",
+    "title": "命名空间包",
+    "content": "https://realpython.com/python-namespace-package/ . ",
+    "url": "/python/import#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%8C%85",
+    
+    "relUrl": "/python/import#命名空间包"
+  },"100": {
+    "doc": "import",
+    "title": "import *",
+    "content": "在之前我们看到了模块的import *，下面谈一下包的: . mod1.py . def foo(): print('[mod1] foo()') class Foo: pass . mod2.py . def bar(): print('[mod2] bar()') class Bar: pass . mod3.py . def baz(): print('[mod3] baz()') class Baz: pass . mod4.py . def qux(): print('[mod4] qux()') class Qux: pass . 对于模块import *会跳过双下划线开头的名字， . &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] &gt;&gt;&gt; from pkg.mod3 import * &gt;&gt;&gt; dir() ['Baz', '__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'baz'] &gt;&gt;&gt; baz() [mod3] baz() &gt;&gt;&gt; Baz &lt;class 'pkg.mod3.Baz'&gt; . 对于包: . &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] &gt;&gt;&gt; from pkg import * &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] . 没有从包里导入任何名字，python 有这样的传统，如果__init__文件中定义了一个__all__的列表，在使用import *时会调入这个列表中的东西。 . 对于上面的例子如果使用: . __all__ = [ 'mod1', 'mod2', 'mod3', 'mod4' ] . &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__'] &gt;&gt;&gt; from pkg import * &gt;&gt;&gt; dir() ['__annotations__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', 'mod1', 'mod2', 'mod3', 'mod4'] &gt;&gt;&gt; mod2.bar() [mod2] bar() &gt;&gt;&gt; mod4.Qux &lt;class 'pkg.mod4.Qux'&gt; . 这样对于包来说使用import *就不像模块一样糟糕了。在模块中也可以使用__all__。这样就只会import__all__中的名字。 总之__all__就是用来控制import *的行为的。 . ",
+    "url": "/python/import#import-",
+    
+    "relUrl": "/python/import#import-"
+  },"101": {
+    "doc": "import",
+    "title": "子包",
+    "content": "包可以在任意层级上嵌入子包， . 这里分成了两个子包，sub_pkg1和sub_pkg2. &gt;&gt;&gt; import pkg.sub_pkg1.mod1 &gt;&gt;&gt; pkg.sub_pkg1.mod1.foo() [mod1] foo() &gt;&gt;&gt; from pkg.sub_pkg1 import mod2 &gt;&gt;&gt; mod2.bar() [mod2] bar() &gt;&gt;&gt; from pkg.sub_pkg2.mod3 import baz &gt;&gt;&gt; baz() [mod3] baz() &gt;&gt;&gt; from pkg.sub_pkg2.mod4 import qux as grault &gt;&gt;&gt; grault() [mod4] qux() . 在一个子包中的模块可以引用兄弟子包中的对象，比如从mod3引用mod1中的可以使用绝对导入: . pkg/sub__pkg2/mod3.py . def baz(): print('[mod3] baz()') class Baz: pass from pkg.sub_pkg1.mod1 import foo foo() . &gt;&gt;&gt; from pkg.sub_pkg2 import mod3 [mod1] foo() &gt;&gt;&gt; mod3.foo() [mod1] foo() . 也可以使用相对导入: . pkg/sub__pkg2/mod3.py . def baz(): print('[mod3] baz()') class Baz: pass from .. import sub_pkg1 print(sub_pkg1) from ..sub_pkg1.mod1 import foo foo() . &gt;&gt;&gt; from pkg.sub_pkg2 import mod3 &lt;module 'pkg.sub_pkg1' (namespace)&gt; [mod1] foo() . ",
+    "url": "/python/import#%E5%AD%90%E5%8C%85",
+    
+    "relUrl": "/python/import#子包"
+  },"102": {
+    "doc": "import",
+    "title": "Import",
+    "content": "python的import如何工作的?当我们输入: . import abc . | python首先在sys.modules查找名字abc，所有之前导入的模块名字会缓存在其中。 | 如果没在模块缓存中找到，将会在内建的模块(python标准库)中进行搜索 | 如果没找到会搜索sys.path定义的目录列表中搜索，这个列表一般包含当前目录，而且会首先搜索当前目录 | 在找到模块后会将其绑定到本地作用域上，没找到则会有ModuleNotFoundError | . PEP8风格的import： . | import 都应该卸载文件的开头在模块注释和docstring的后面 | import 应该分成几个部分，通常有下面三个部分并用空行隔开: . | 标注库导入(内建模块) | 第三方import(安装的模块) | 本地import | . | 按字母顺序排序 | . \"\"\"Illustration of good import statement styling. Note that the imports come after the docstring. \"\"\" # Standard library imports import datetime import os # Third party imports from flask import Flask from flask_restful import Api from flask_sqlalchemy import SQLAlchemy # Local application imports from local_module import local_class from local_package import local_function . ",
+    "url": "/python/import#import",
+    
+    "relUrl": "/python/import#import"
+  },"103": {
+    "doc": "import",
+    "title": "绝对导入",
+    "content": "绝对导入是从项目根目录开始的导入， . └── project ├── package1 │ ├── module1.py │ └── module2.py └── package2 ├── __init__.py ├── module3.py ├── module4.py └── subpackage1 └── module5.py . 假设: . | package1/module2.py 有函数function1. | package2/init.py 有类class1. | package2/subpackage1/module5.py 有函数function2. | . 下面是绝对导入的例子: . from package1 import module1 from package1.module2 import function1 from package2 import class1 from package2.subpackage1.module5 import function2 . 绝对导入对导入路径非常的清晰，一般建议使用绝对导入，但是目录结构很大的时候绝对导入太过冗余。 . ",
+    "url": "/python/import#%E7%BB%9D%E5%AF%B9%E5%AF%BC%E5%85%A5",
+    
+    "relUrl": "/python/import#绝对导入"
+  },"104": {
+    "doc": "import",
+    "title": "相对导入",
+    "content": "相对导入指的时相对当前位置的导入路径，有两种相对导入，显式和隐式的，python3中不赞成使用隐式导入。 . from .some_module import some_class from ..some_package import some_function from . import some_class . 相对导入取决于当前位置和导入的包或者模块的位置，.意味着导入位置和当前位置相同，..意味着导入位置在当前位置的父目录上，...意味着在祖父目录上，以此类推。 假设目录结构如下: . └── project ├── package1 │ ├── module1.py │ └── module2.py └── package2 ├── __init__.py ├── module3.py ├── module4.py └── subpackage1 └── module5.py . | package1/module2.py 有函数 function1. | package2/init.py 有类 class1. | package2/subpackage1/module5.py 有函数 function2. | . 将function1 导入到module1中 . # package1/module1.py from .module2 import function1 . 将class1导入到module3中: . # package2/module3.py from . import class1 from .subpackage1.module5 import function2 . 总之相对导入不建议使用。 . ",
+    "url": "/python/import#%E7%9B%B8%E5%AF%B9%E5%AF%BC%E5%85%A5",
+    
+    "relUrl": "/python/import#相对导入"
+  },"105": {
+    "doc": "import",
+    "title": "Advanced import",
+    "content": " ",
+    "url": "/python/import#advanced-import",
+    
+    "relUrl": "/python/import#advanced-import"
+  },"106": {
+    "doc": "import",
+    "title": "基础",
+    "content": " ",
+    "url": "/python/import#%E5%9F%BA%E7%A1%80",
+    
+    "relUrl": "/python/import#基础"
+  },"107": {
+    "doc": "import",
+    "title": "资源import",
+    "content": " ",
+    "url": "/python/import#%E8%B5%84%E6%BA%90import",
+    
+    "relUrl": "/python/import#资源import"
+  },"108": {
+    "doc": "import",
+    "title": "动态import",
+    "content": " ",
+    "url": "/python/import#%E5%8A%A8%E6%80%81import",
+    
+    "relUrl": "/python/import#动态import"
+  },"109": {
+    "doc": "import",
+    "title": "import系统",
+    "content": " ",
+    "url": "/python/import#import%E7%B3%BB%E7%BB%9F",
+    
+    "relUrl": "/python/import#import系统"
+  },"110": {
+    "doc": "import",
+    "title": "Tips",
+    "content": " ",
+    "url": "/python/import#tips",
+    
+    "relUrl": "/python/import#tips"
+  },"111": {
+    "doc": "import",
+    "title": "import",
+    "content": ". | Modules . | 模块的搜索路径 | import语句 . | import &lt;module_name&gt; | from &lt;module_name&gt; import &lt;name(s)&gt; | from &lt;module_name&gt; import &lt;name&gt; as &lt;alt_name&gt; | import &lt;module_name&gt; as &lt;alt_name&gt; | . | dir函数 | 将模块作为脚本执行 | 重新加载模块 | . | Packages . | 包初始化 | 命名空间包 | import * | 子包 | . | Import . | 绝对导入 | 相对导入 | . | Advanced import . | 基础 | 资源import | 动态import | import系统 | Tips | . | . ver: 0.0.1 . 模块化变成将一个大的编程任务分割成几个小的可管理的子任务和模块，单独的模块可以链接在一起组成大的应用。本文将介绍python模块化的两个机制:的module和package. 模块化变成有以下优点: . | 简单，将问题分割成更小的问题，减小问题领域，开发更容易更少出错。 | 可维护，不同的问题领域之间有逻辑边界，一个模块出问题不会影响程序的其他部分,更有利于多人合作。 | 可服用，一个模块定义的功能可以方便的被程序的其他部分进行复用，不需要多复制一份代码 | 作用域清晰，模块可以定义单独的命名空间，避免了标识符在程序的不同地方发生冲突。 | . 在python中，函数，模块和包都是提升程序模块化的手段。 . ",
+    "url": "/python/import",
+    
+    "relUrl": "/python/import"
+  },"112": {
+    "doc": "Home",
+    "title": "Home",
+    "content": "this is a personal knowledge base . ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"113": {
+    "doc": "interface",
+    "title": "概览",
+    "content": "接口式一个设计类的蓝图，像类一样，接口定义了方法，但是这些方法是抽象的，抽象方法是接口定义的但是不由接口进行实现，由类进行实现，给出接口的抽象方法的具体意义。 . python定义接口与其他语言不同，其他语言可能会有interface关键字，python没有。 . ",
+    "url": "/python/interface#%E6%A6%82%E8%A7%88",
+    
+    "relUrl": "/python/interface#概览"
+  },"114": {
+    "doc": "interface",
+    "title": "非正式接口",
+    "content": "在一些情况下，可能不需要严格遵守python接口规则，python的动态特征允许我们实现一个非正式的接口。一个非正式的接口是一种可以进行方法覆盖的类，但是没有严格要求。 . class InformalParserInterface: def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Load in the file for extracting text.\"\"\" pass def extract_text(self, full_file_name: str) -&gt; dict: \"\"\"Extract text from the currently loaded file.\"\"\" pass . InformalParserInterface定义了两个方法:.load_data_source()和.extract_text()。这些方法定义了但是没有进行实现，在从这个类进行继承创建具体的类时才会进行实现。 . InformalParserInterface就像一个标准的类一样，需要依靠duck typing告诉用于这个类应该用作接口。 . 具体类是实现了接口中方法的子类， . class PdfParser(InformalParserInterface): \"\"\"Extract text from a PDF\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides InformalParserInterface.load_data_source()\"\"\" pass def extract_text(self, full_file_path: str) -&gt; dict: \"\"\"Overrides InformalParserInterface.extract_text()\"\"\" pass class EmlParser(InformalParserInterface): \"\"\"Extract text from an email\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides InformalParserInterface.load_data_source()\"\"\" pass def extract_text_from_email(self, full_file_path: str) -&gt; dict: \"\"\"A method defined only in EmlParser. Does not override InformalParserInterface.extract_text() \"\"\" pass . 现在我们定义了接口的两个具体实现，但是EmlParser没有合适的定义.extract_text().要进行检查的话， . &gt;&gt;&gt; # Check if both PdfParser and EmlParser implement InformalParserInterface &gt;&gt;&gt; issubclass(PdfParser, InformalParserInterface) True &gt;&gt;&gt; issubclass(EmlParser, InformalParserInterface) True . 这可能会出现问题，因为EmlParser没有完整实现接口。可以检查两个子类的mro(method resolution order)： . &gt;&gt;&gt; PdfParser.__mro__ (__main__.PdfParser, __main__.InformalParserInterface, object) &gt;&gt;&gt; EmlParser.__mro__ (__main__.EmlParser, __main__.InformalParserInterface, object) . 如果我们想要issubclass(EmlParser, InformalParserInterface)返回False,可以创建metaclass来覆盖两个dunder方法: . | .__instancecheck__() | .__subclasscheck__() | . class ParserMeta(type): \"\"\"A Parser metaclass that will be used for parser class creation. \"\"\" def __instancecheck__(cls, instance): return cls.__subclasscheck__(type(instance)) def __subclasscheck__(cls, subclass): return (hasattr(subclass, 'load_data_source') and callable(subclass.load_data_source) and hasattr(subclass, 'extract_text') and callable(subclass.extract_text)) class UpdatedInformalParserInterface(metaclass=ParserMeta): \"\"\"This interface is used for concrete classes to inherit from. There is no need to define the ParserMeta methods as any class as they are implicitly made available via .__subclasscheck__(). \"\"\" pass . 下面是具体的实现: . class PdfParserNew: \"\"\"Extract text from a PDF.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides UpdatedInformalParserInterface.load_data_source()\"\"\" pass def extract_text(self, full_file_path: str) -&gt; dict: \"\"\"Overrides UpdatedInformalParserInterface.extract_text()\"\"\" pass . PdfParserNew重写了两个方法因此issubclass(PdfParserNew, UpdatedInformalParserInterface)返回True. 使用metaclass，不需要明确的定义子类，子类必须定义对应的方法否则issubclass(EmlParserNew, UpdatedInformalParserInterface)会返回False. &gt;&gt;&gt; issubclass(PdfParserNew, UpdatedInformalParserInterface) True &gt;&gt;&gt; issubclass(EmlParserNew, UpdatedInformalParserInterface) False . 现在看一下MRO： . &gt;&gt;&gt; PdfParserNew.__mro__ (&lt;class '__main__.PdfParserNew'&gt;, &lt;class 'object'&gt;) . 可以看出UpdatedInformalParserInterface是PdfParserNew的父类，但是并没有出现在MRO中，因为UpdatedInformalParserInterface是PdfParserNew。 . 这种写法和标准的子类方式的区别在于虚基类使用了.__subclasscheck__()dunder方法来隐式的检查一个类是否是父类的虚拟子类，另外虚拟基类不会出现在子类的MRO中。 . class PersonMeta(type): \"\"\"A person metaclass\"\"\" def __instancecheck__(cls, instance): return cls.__subclasscheck__(type(instance)) def __subclasscheck__(cls, subclass): return (hasattr(subclass, 'name') and callable(subclass.name) and hasattr(subclass, 'age') and callable(subclass.age)) class PersonSuper: \"\"\"A person superclass\"\"\" def name(self) -&gt; str: pass def age(self) -&gt; int: pass class Person(metaclass=PersonMeta): \"\"\"Person interface built from PersonMeta metaclass.\"\"\" pass . | metaclass PersonMeta | 基类 PersonSuper | 接口 Person | . 创建完虚基类之后可以定义两个具体类，Employee继承自PersonSuper，Friend隐式的继承自Person. # Inheriting subclasses class Employee(PersonSuper): \"\"\"Inherits from PersonSuper PersonSuper will appear in Employee.__mro__ \"\"\" pass class Friend: \"\"\"Built implicitly from Person Friend is a virtual subclass of Person since both required methods exist. Person not in Friend.__mro__ \"\"\" def name(self): pass def age(self): pass . 尽管Friend没有明确的继承自Person,它实现了.name()和.age()，因此变成了Friend的虚基类，在运行issubclass(Friend, Person)的时候应该返回True. 查看一下PersonMeta,将会发现由另一个dunder方法__instancecheck__(),这个方法用来检查Friend的实力是否是从Person接口创建的实例。在使用isinstance(Friend, Person)的时候会调用该方法。 . ",
+    "url": "/python/interface#%E9%9D%9E%E6%AD%A3%E5%BC%8F%E6%8E%A5%E5%8F%A3",
+    
+    "relUrl": "/python/interface#非正式接口"
+  },"115": {
+    "doc": "interface",
+    "title": "正式接口",
+    "content": "开发者较少时非正式的接口比较有用，但是对于打的应用需要创建正式的python接口，这需要从abc模块中拿一些工具来用。 . ",
+    "url": "/python/interface#%E6%AD%A3%E5%BC%8F%E6%8E%A5%E5%8F%A3",
+    
+    "relUrl": "/python/interface#正式接口"
+  },"116": {
+    "doc": "interface",
+    "title": "使用abc.ABCMeta",
+    "content": "为了强制子类实例化抽象方法，需要利用内建的abc模块中的ABCMeta. 回到之前的UpdatedInformalParserInterface接口，我们创建了自己的metaclass：ParserMeta，重写了dunder方法:.__instancecheck__()和.__subclasscheck__()。 . 除了自己创建metaclass,可以使用abc.ABCMeta作为metaclass.然后重写.__subclasshook__()替代.__instancecheck__()和.__subclasscheck__(),subclasshook的实现更加可靠。 . ",
+    "url": "/python/interface#%E4%BD%BF%E7%94%A8abcabcmeta",
+    
+    "relUrl": "/python/interface#使用abcabcmeta"
+  },"117": {
+    "doc": "interface",
+    "title": "使用.__subclasshook__()",
+    "content": "下面是使用abc.ABCMeta作为metaclass的FormalParserInterface实现。 . import abc class FormalParserInterface(metaclass=abc.ABCMeta): @classmethod def __subclasshook__(cls, subclass): return (hasattr(subclass, 'load_data_source') and callable(subclass.load_data_source) and hasattr(subclass, 'extract_text') and callable(subclass.extract_text)) class PdfParserNew: \"\"\"Extract text from a PDF.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides FormalParserInterface.load_data_source()\"\"\" pass def extract_text(self, full_file_path: str) -&gt; dict: \"\"\"Overrides FormalParserInterface.extract_text()\"\"\" pass class EmlParserNew: \"\"\"Extract text from an email.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides FormalParserInterface.load_data_source()\"\"\" pass def extract_text_from_email(self, full_file_path: str) -&gt; dict: \"\"\"A method defined only in EmlParser. Does not override FormalParserInterface.extract_text() \"\"\" pass . 如果在PdfParserNew和EmlParserNew上运行issubclass()，将会返回True和False. ",
+    "url": "/python/interface#%E4%BD%BF%E7%94%A8__subclasshook__",
+    
+    "relUrl": "/python/interface#使用__subclasshook__"
+  },"118": {
+    "doc": "interface",
+    "title": "使用abc注册虚拟子类",
+    "content": "import abc模块之后，可以直接使用.register()元方法注册虚拟子类，这一个例子注册了一个Doblue接口作为内建的__float__类的虚拟基类。 . class Double(metaclass=abc.ABCMeta): \"\"\"Double precision floating point number.\"\"\" pass Double.register(float) . 可以使用.register()检查效果， . &gt;&gt;&gt; issubclass(float, Double) True &gt;&gt;&gt; isinstance(1.2345, Double) True . 通过使用.register()元方法，注册了一个float的虚拟子类Double. 可以使用类装饰其将被装饰的类设置为虚拟子类， . @Double.register class Double64: \"\"\"A 64-bit double-precision floating-point number.\"\"\" pass print(issubclass(Double64, Double)) # True . 使用带注册的子类检测 . 在结合使用.__subclasshook__()和.register()的时候必须小心，因为.__subclasshook__()的优先级高于虚拟子类注册。为了确保注册的虚拟子类生效必须给.__subclasshook__()方法添加NotImplemented.更新后的FormalParserInterface为: . class FormalParserInterface(metaclass=abc.ABCMeta): @classmethod def __subclasshook__(cls, subclass): return (hasattr(subclass, 'load_data_source') and callable(subclass.load_data_source) and hasattr(subclass, 'extract_text') and callable(subclass.extract_text) or NotImplemented) class PdfParserNew: \"\"\"Extract text from a PDF.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides FormalParserInterface.load_data_source()\"\"\" pass def extract_text(self, full_file_path: str) -&gt; dict: \"\"\"Overrides FormalParserInterface.extract_text()\"\"\" pass @FormalParserInterface.register class EmlParserNew: \"\"\"Extract text from an email.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides FormalParserInterface.load_data_source()\"\"\" pass def extract_text_from_email(self, full_file_path: str) -&gt; dict: \"\"\"A method defined only in EmlParser. Does not override FormalParserInterface.extract_text() \"\"\" pass print(issubclass(PdfParserNew, FormalParserInterface)) # True print(issubclass(EmlParserNew, FormalParserInterface)) # True . EmlParserNew被认为是FormalParserInterface接口的虚拟子类。这出现了一点问题因为EmlParserNew没有覆盖.extract_text().使用虚拟子类注册一定要小心。 . 使用抽象方法声明 . 抽象方法是python接口声明的方法，但是没有一个有用的实现。抽象方法必须被实现了接口的具体类进行重写。 . 要在python中创建抽象方法，将@abc.abstractmethod装饰其添加到接口的方法中，在下一个例子中，更改FormalParserInterface来包含抽象方法.load_data_source()和.extract_text(). class FormalParserInterface(metaclass=abc.ABCMeta): @classmethod def __subclasshook__(cls, subclass): return (hasattr(subclass, 'load_data_source') and callable(subclass.load_data_source) and hasattr(subclass, 'extract_text') and callable(subclass.extract_text) or NotImplemented) @abc.abstractmethod def load_data_source(self, path: str, file_name: str): \"\"\"Load in the data set\"\"\" raise NotImplementedError @abc.abstractmethod def extract_text(self, full_file_path: str): \"\"\"Extract text from the data set\"\"\" raise NotImplementedError class PdfParserNew(FormalParserInterface): \"\"\"Extract text from a PDF.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides FormalParserInterface.load_data_source()\"\"\" pass def extract_text(self, full_file_path: str) -&gt; dict: \"\"\"Overrides FormalParserInterface.extract_text()\"\"\" pass class EmlParserNew(FormalParserInterface): \"\"\"Extract text from an email.\"\"\" def load_data_source(self, path: str, file_name: str) -&gt; str: \"\"\"Overrides FormalParserInterface.load_data_source()\"\"\" pass def extract_text_from_email(self, full_file_path: str) -&gt; dict: \"\"\"A method defined only in EmlParser. Does not override FormalParserInterface.extract_text() \"\"\" pass . 在上边的例子中，最终创建了一个正式接口，当抽象方法没有被重写时会报错。 . PdfParserNew实例pdf_parser不会报错，因为PdfParserNew正确重写了FormalParserInterface的抽象方法，但是EmlParserNew会报错: . &gt;&gt;&gt; pdf_parser = PdfParserNew() &gt;&gt;&gt; eml_parser = EmlParserNew() Traceback (most recent call last): File \"real_python_interfaces.py\", line 53, in &lt;module&gt; eml_interface = EmlParserNew() TypeError: Can't instantiate abstract class EmlParserNew with abstract methods extract_text . 回溯消息告诉我们没有覆盖所有的抽象方法，这就是一个正式的python接口。 . ",
+    "url": "/python/interface#%E4%BD%BF%E7%94%A8abc%E6%B3%A8%E5%86%8C%E8%99%9A%E6%8B%9F%E5%AD%90%E7%B1%BB",
+    
+    "relUrl": "/python/interface#使用abc注册虚拟子类"
+  },"119": {
+    "doc": "interface",
+    "title": "interface",
+    "content": ". | 概览 | 非正式接口 | 正式接口 . | 使用abc.ABCMeta | 使用.__subclasshook__() | 使用abc注册虚拟子类 . | 使用带注册的子类检测 | 使用抽象方法声明 | . | . | . 本教程中，将会: . | 理解接口如何工作以及如何创建的 | 理解接口的在动态语言的重要性 | 实现非正式的接口 | 使用abc.ABCMeta和@abc.abstractmethod实现正式接口 | . ",
+    "url": "/python/interface",
+    
+    "relUrl": "/python/interface"
+  },"120": {
+    "doc": "internal",
+    "title": "internal",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/internal",
+    
+    "relUrl": "/MachineLearning/pytorch/internal"
+  },"121": {
+    "doc": "iterator",
+    "title": "基础",
+    "content": "iterators和iterables是两种不同但是相关的工具可以用来在一个数据流或者容器内进行迭代。iterator控制着迭代过程，iterable存放这数据内容。 . iterator和iterable是python的基础组件，绝大多数程序中都会遇到。本文章包含: . | 使用iterator protocol创建iterators | 理解iterator和iterable的不同 | 使用iterator和iterable | 使用generator functions和yield语句创建generator iterator | 使用不同的技术构建自己的iterable | 使用asyncio模块以及await和asynv关键字创建异步iterator | . ",
+    "url": "/python/iterator#%E5%9F%BA%E7%A1%80",
+    
+    "relUrl": "/python/iterator#基础"
+  },"122": {
+    "doc": "iterator",
+    "title": "iterator",
+    "content": ". | 基础 | . https://realpython.com/python-iterators-iterables/ . ",
+    "url": "/python/iterator",
+    
+    "relUrl": "/python/iterator"
+  },"123": {
+    "doc": "jax",
+    "title": "jax",
+    "content": " ",
+    "url": "/MachineLearning/jax/",
+    
+    "relUrl": "/MachineLearning/jax/"
+  },"124": {
+    "doc": "js",
+    "title": "What is JavaScript?",
+    "content": "JavaScript 最开始的作用是使得web页面’活起来’.这种语言中的程序叫做脚本，可以直接在页面的html中写然后在页面加载的时候自动运行。 . 为何叫做javascript? . 最开始的时候叫做Livescript，但是由于当时java很火，因此为了营销… 后来javascript变成完全独立的语言，有自己的specification叫做ECMAScript. 现在javascript不仅可以在浏览器中运行也能在服务器上运行或者在有js引擎的机器上运行。浏览器里又一个叫做javascript虚拟机的嵌入式引擎，不同的引擎有不同的名字: . | v8, chrome opera edge | spidermonkey, firefox | chakra, ie | javascriptcore,nitro,squirrelfish safari | . 引擎如何工作的？ . | 引擎读取脚本 | 将脚本转化(编译)为机器码 | 机器码非常快的运行 | . 引擎对这个过程的每一步进行优化，在编译好的脚本运行的时候甚至都会进行监控分析数据流然后进一步优化机器码 . ",
+    "url": "/web/js#what-is-javascript",
+    
+    "relUrl": "/web/js#what-is-javascript"
+  },"125": {
+    "doc": "js",
+    "title": "浏览器内javascript可以做什么?",
+    "content": "现代js是一个”安全”的编程语言，不提供对内存或者cpu的底层访问，因为为浏览器写的不需要这样做。js的能力很大程度上依赖于运行的环境，比如nodejs支持js读写任何文件，发起网络请求等，浏览器内的js可以做到和web页面相关的错做，和用户以及webserver进行交互.比如: . | 给页面添加新的html,更改现在的内容或者风格 | 响应用户的动作，运行鼠标点击移动键盘按键等 | 通过网络向远程服务器发送请求，下载和上传文件(AJAX,COMET) | 获取或者设置cookies,显示信息，向访问者发送问题 | 记住客户端数据 | . ",
+    "url": "/web/js#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85javascript%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88",
+    
+    "relUrl": "/web/js#浏览器内javascript可以做什么"
+  },"126": {
+    "doc": "js",
+    "title": "浏览器内javascript做不到什么?",
+    "content": "在浏览器中的javascript受到限制来保护用户的安全，防止有害的页面获取隐私信息或者危害用户的数据。比如下面这些无法做到的: . | 读写硬盘上的任意文件，拷贝或者执行文件。无法直接访问系统函数 | 现代浏览器运行处理文件但是访问受限并且在用户允许的条件下才行，比如将文件拖动到浏览器或者通过 tag进行选择 | 可以和相机mac或者其他设备进行交互但是明确需要用户的权限。 | 不同的tab之间一般是隔离的，有时js可以打开另一个窗口但是这种情况下也无法访问来自另一个网站的页面(不同的域名协议或者端口),这叫做”same origin policy”，要想实现两个页面必须同意信息交互，并包含特定的js代码来处理 | js很容易通过网络和服务器进行交互，但是从另外的网站或域名接收信息是受限的，当然并不是不可能，需要远程在http header进行特殊操作。 | . 如果在浏览器外比如服务器上，这种限制就不存在，现代浏览器允许申请额外的权限。 . javascript有一些很好的特征: . | 完全集成html/css | Simple things are done simply. | 默认支持所有主流浏览器 | . ",
+    "url": "/web/js#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85javascript%E5%81%9A%E4%B8%8D%E5%88%B0%E4%BB%80%E4%B9%88",
+    
+    "relUrl": "/web/js#浏览器内javascript做不到什么"
+  },"127": {
+    "doc": "js",
+    "title": "js “之外”",
+    "content": "js的语法无法满足所有人的需要，不同的人可能需要不同的特征。于是出先了一些新的语言可以在浏览器中运行之前转换成javascript.现代工具可以使得转换非常迅速进行自动转换，下面是一些其他语言: . | CoffeeScript JavaScript语法糖，语法更短, ruby开发这会比较喜欢. | TypeScript 添加了严格数据类型来简化开发和支持复杂系统，由microsoft开发. | Flow 添加了数据类型但是方式不同，facebook开发. | Dart 一个独立的语言，有自己的浏览器外环境运行的引擎但是可以转换成js，google开发. | Brython 可以用python开发而不用js. | Kotlin 现代化简明并安全的语言 | . 类似的还有许多其他的语言，但是本质上我们必须了解js. ",
+    "url": "/web/js#js-%E4%B9%8B%E5%A4%96",
+    
+    "relUrl": "/web/js#js-之外"
+  },"128": {
+    "doc": "js",
+    "title": "js",
+    "content": " ",
+    "url": "/web/js",
+    
+    "relUrl": "/web/js"
+  },"129": {
+    "doc": "manim",
+    "title": "manim",
+    "content": " ",
+    "url": "/MachineLearning/packages/manim",
+    
+    "relUrl": "/MachineLearning/packages/manim"
+  },"130": {
+    "doc": "micellaneous",
+    "title": "All posts",
+    "content": "Ecg Classify Mar 02, 2023 how to analyze EEG data Mar 01, 2023 Meta learning review Feb 28, 2023 how to use jekyll just-the-doc theme Feb 27, 2023 Welcome to Jekyll! Feb 24, 2023 ",
+    "url": "/micellaneous/",
+    
+    "relUrl": "/micellaneous/"
+  },"131": {
+    "doc": "micellaneous",
+    "title": "micellaneous",
+    "content": "This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at jekyllrb.com . You can find the source code for Minima at GitHub: jekyll / minima . You can find the source code for Jekyll at GitHub: jekyll / jekyll . ",
+    "url": "/micellaneous/",
+    
+    "relUrl": "/micellaneous/"
+  },"132": {
+    "doc": "mlflow",
+    "title": "Quick start",
+    "content": " ",
+    "url": "/python/mlflow#quick-start",
+    
+    "relUrl": "/python/mlflow#quick-start"
+  },"133": {
+    "doc": "mlflow",
+    "title": "安装",
+    "content": "pip install mlflow[extras] . ",
+    "url": "/python/mlflow#%E5%AE%89%E8%A3%85",
+    
+    "relUrl": "/python/mlflow#安装"
+  },"134": {
+    "doc": "mlflow",
+    "title": "使用tracking api",
+    "content": "Tracking API 可以让我们在代码中设置记录metrics和artifacts并查看运行历史。下面是一个例子: . import os from random import random, randint from mlflow import log_metric, log_param, log_artifacts if __name__ == \"__main__\": # Log a parameter (key-value pair) log_param(\"param1\", randint(0, 100)) # Log a metric; metrics can be updated throughout the run log_metric(\"foo\", random()) log_metric(\"foo\", random() + 1) log_metric(\"foo\", random() + 2) # Log an artifact (output file) if not os.path.exists(\"outputs\"): os.makedirs(\"outputs\") with open(\"outputs/test.txt\", \"w\") as f: f.write(\"hello world!\") log_artifacts(\"outputs\") . tracking api 会把数据写入./mlrun目录下的文件中，可以运行: . mlflow ui . 打开localhost:5000. ",
+    "url": "/python/mlflow#%E4%BD%BF%E7%94%A8tracking-api",
+    
+    "relUrl": "/python/mlflow#使用tracking-api"
+  },"135": {
+    "doc": "mlflow",
+    "title": "运行mlflow项目",
+    "content": "mlflow允许将代码和依赖打包成项目，没个项目包含本身的代码和MLproject文件(定义了依赖，项目可运行的命令和参数)。 . mlflow run sklearn_elasticnet_wine -P alpha=0.5 mlflow run https://github.com/mlflow/mlflow-example.git -P alpha=5.0 . ",
+    "url": "/python/mlflow#%E8%BF%90%E8%A1%8Cmlflow%E9%A1%B9%E7%9B%AE",
+    
+    "relUrl": "/python/mlflow#运行mlflow项目"
+  },"136": {
+    "doc": "mlflow",
+    "title": "Saving and Serving Models",
+    "content": " ",
+    "url": "/python/mlflow#saving-and-serving-models",
+    
+    "relUrl": "/python/mlflow#saving-and-serving-models"
+  },"137": {
+    "doc": "mlflow",
+    "title": "mlflow",
+    "content": ". | Quick start . | 安装 | 使用tracking api | 运行mlflow项目 | Saving and Serving Models | . | . ",
+    "url": "/python/mlflow",
+    
+    "relUrl": "/python/mlflow"
+  },"138": {
+    "doc": "model",
+    "title": "model",
+    "content": " ",
+    "url": "/MachineLearning/model/",
+    
+    "relUrl": "/MachineLearning/model/"
+  },"139": {
+    "doc": "nodejs",
+    "title": "nodejs",
+    "content": " ",
+    "url": "/web/nodejs",
+    
+    "relUrl": "/web/nodejs"
+  },"140": {
+    "doc": "numpy",
+    "title": "numpy",
+    "content": " ",
+    "url": "/MachineLearning/packages/numpy",
+    
+    "relUrl": "/MachineLearning/packages/numpy"
+  },"141": {
+    "doc": "objects",
+    "title": "objects",
+    "content": " ",
+    "url": "/web/js/objects",
+    
+    "relUrl": "/web/js/objects"
+  },"142": {
+    "doc": "optimize",
+    "title": "optimize",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/optimize",
+    
+    "relUrl": "/MachineLearning/pytorch/optimize"
+  },"143": {
+    "doc": "packages",
+    "title": "packages",
+    "content": " ",
+    "url": "/python/packages",
+    
+    "relUrl": "/python/packages"
+  },"144": {
+    "doc": "pandas",
+    "title": "pandas",
+    "content": " ",
+    "url": "/MachineLearning/packages/pandas",
+    
+    "relUrl": "/MachineLearning/packages/pandas"
+  },"145": {
+    "doc": "pants",
+    "title": "pants",
+    "content": " ",
+    "url": "/MachineLearning/packages/pants",
+    
+    "relUrl": "/MachineLearning/packages/pants"
+  },"146": {
+    "doc": "pytest",
+    "title": "pytest",
+    "content": " ",
+    "url": "/MachineLearning/packages/pytest",
+    
+    "relUrl": "/MachineLearning/packages/pytest"
+  },"147": {
+    "doc": "python",
+    "title": "python",
+    "content": " ",
+    "url": "/python/",
+    
+    "relUrl": "/python/"
+  },"148": {
+    "doc": "pytorch",
+    "title": "pytorch",
+    "content": " ",
+    "url": "/MachineLearning/pytorch/",
+    
+    "relUrl": "/MachineLearning/pytorch/"
+  },"149": {
+    "doc": "pytorch lightning",
+    "title": "7个关键步骤",
+    "content": " ",
+    "url": "/python/pytorch-lightning#7%E4%B8%AA%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4",
+    
+    "relUrl": "/python/pytorch-lightning#7个关键步骤"
+  },"150": {
+    "doc": "pytorch lightning",
+    "title": "定义LightningModule",
+    "content": "LightningModule把pytorch的nn.module放到了一起，数据处理，训练等步骤都包在一个类中。 . import os from torch import optim, nn, utils, Tensor from torchvision.datasets import MNIST from torchvision.transforms import ToTensor import lightning.pytorch as pl # define any number of nn.Modules (or use your current ones) encoder = nn.Sequential(nn.Linear(28 * 28, 64), nn.ReLU(), nn.Linear(64, 3)) decoder = nn.Sequential(nn.Linear(3, 64), nn.ReLU(), nn.Linear(64, 28 * 28)) # define the LightningModule class LitAutoEncoder(pl.LightningModule): def __init__(self, encoder, decoder): super().__init__() self.encoder = encoder self.decoder = decoder def training_step(self, batch, batch_idx): # training_step defines the train loop. # it is independent of forward x, y = batch x = x.view(x.size(0), -1) z = self.encoder(x) x_hat = self.decoder(z) loss = nn.functional.mse_loss(x_hat, x) # Logging to TensorBoard (if installed) by default self.log(\"train_loss\", loss) return loss def configure_optimizers(self): optimizer = optim.Adam(self.parameters(), lr=1e-3) return optimizer # init the autoencoder autoencoder = LitAutoEncoder(encoder, decoder) . ",
+    "url": "/python/pytorch-lightning#%E5%AE%9A%E4%B9%89lightningmodule",
+    
+    "relUrl": "/python/pytorch-lightning#定义lightningmodule"
+  },"151": {
+    "doc": "pytorch lightning",
+    "title": "定义数据集",
+    "content": "lightning支持任何iterable类型。 . dataset = MNIST(os.getcwd(), download=True, transform=ToTensor()) train_loader = utils.data.DataLoader(dataset) . ",
+    "url": "/python/pytorch-lightning#%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E9%9B%86",
+    
+    "relUrl": "/python/pytorch-lightning#定义数据集"
+  },"152": {
+    "doc": "pytorch lightning",
+    "title": "模型训练",
+    "content": "Lightning 的Trainer 可以混合使用任意的 LightningModule 和任意的数据集。 . # train the model (hint: here are some helpful Trainer arguments for rapid idea iteration) trainer = pl.Trainer(limit_train_batches=100, max_epochs=1) trainer.fit(model=autoencoder, train_dataloaders=train_loader) . Trainer支持40多种tricks. | Epoch and batch iteration | optimizer.step(), loss.backward(), optimizer.zero_grad() 调用 | 调用model.eval(), 阶段禁用或者启用grads. | Checkpoint 保存和加载 | Tensorboard (see loggers options) | Multi-GPU | TPU | 16-bit precision AMP | . ",
+    "url": "/python/pytorch-lightning#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83",
+    
+    "relUrl": "/python/pytorch-lightning#模型训练"
+  },"153": {
+    "doc": "pytorch lightning",
+    "title": "模型的使用",
+    "content": "支持产品级部署 . # load checkpoint checkpoint = \"./lightning_logs/version_0/checkpoints/epoch=0-step=100.ckpt\" autoencoder = LitAutoEncoder.load_from_checkpoint(checkpoint, encoder=encoder, decoder=decoder) # choose your trained nn.Module encoder = autoencoder.encoder encoder.eval() # embed 4 fake images! fake_image_batch = Tensor(4, 28 * 28) embeddings = encoder(fake_image_batch) print(\"⚡\" * 20, \"\\nPredictions (4 image embeddings):\\n\", embeddings, \"\\n\", \"⚡\" * 20) . ",
+    "url": "/python/pytorch-lightning#%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8",
+    
+    "relUrl": "/python/pytorch-lightning#模型的使用"
+  },"154": {
+    "doc": "pytorch lightning",
+    "title": "训练可视化",
+    "content": "tensorboard --logdir . ",
+    "url": "/python/pytorch-lightning#%E8%AE%AD%E7%BB%83%E5%8F%AF%E8%A7%86%E5%8C%96",
+    
+    "relUrl": "/python/pytorch-lightning#训练可视化"
+  },"155": {
+    "doc": "pytorch lightning",
+    "title": "Supercharge training",
+    "content": "在trainer中传入参数支持高级的训练特征。 . # train on 4 GPUs trainer = Trainer( devices=4, accelerator=\"gpu\", ) # train 1TB+ parameter models with Deepspeed/fsdp trainer = Trainer( devices=4, accelerator=\"gpu\", strategy=\"deepspeed_stage_2\", precision=16 ) # 20+ helpful flags for rapid idea iteration trainer = Trainer( max_epochs=10, min_epochs=5, overfit_batches=1 ) # access the latest state of the art techniques trainer = Trainer(callbacks=[StochasticWeightAveraging(...)]) . lightning提供了额外的灵活度，可以自定义训练循环， . class LitAutoEncoder(pl.LightningModule): def backward(self, loss): loss.backward() . 扩展trainer： . trainer = Trainer(callbacks=[AWSCheckpoints()]) . ",
+    "url": "/python/pytorch-lightning#supercharge-training",
+    
+    "relUrl": "/python/pytorch-lightning#supercharge-training"
+  },"156": {
+    "doc": "pytorch lightning",
+    "title": "模型训练",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83-1",
+    
+    "relUrl": "/python/pytorch-lightning#模型训练-1"
+  },"157": {
+    "doc": "pytorch lightning",
+    "title": "import",
+    "content": "import os import torch from torch import nn import torch.nn.functional as F from torchvision import transforms from torchvision.datasets import MNIST from torch.utils.data import DataLoader import lightning.pytorch as pl . ",
+    "url": "/python/pytorch-lightning#import",
+    
+    "relUrl": "/python/pytorch-lightning#import"
+  },"158": {
+    "doc": "pytorch lightning",
+    "title": "定义nn.Modules",
+    "content": "class Encoder(nn.Module): def __init__(self): super().__init__() self.l1 = nn.Sequential(nn.Linear(28 * 28, 64), nn.ReLU(), nn.Linear(64, 3)) def forward(self, x): return self.l1(x) class Decoder(nn.Module): def __init__(self): super().__init__() self.l1 = nn.Sequential(nn.Linear(3, 64), nn.ReLU(), nn.Linear(64, 28 * 28)) def forward(self, x): return self.l1(x) . ",
+    "url": "/python/pytorch-lightning#%E5%AE%9A%E4%B9%89nnmodules",
+    
+    "relUrl": "/python/pytorch-lightning#定义nnmodules"
+  },"159": {
+    "doc": "pytorch lightning",
+    "title": "定义LightningModule",
+    "content": ". | training_step定义nn.Modules的交互 | configure_optimizers定义模型的优化器 class LitAutoEncoder(pl.LightningModule): def __init__(self, encoder, decoder): super().__init__() self.encoder = encoder self.decoder = decoder def training_step(self, batch, batch_idx): # training_step defines the train loop. x, y = batch x = x.view(x.size(0), -1) z = self.encoder(x) x_hat = self.decoder(z) loss = F.mse_loss(x_hat, x) return loss def configure_optimizers(self): optimizer = torch.optim.Adam(self.parameters(), lr=1e-3) return optimizer . ",
+    "url": "/python/pytorch-lightning#%E5%AE%9A%E4%B9%89lightningmodule-1",
+    
+    "relUrl": "/python/pytorch-lightning#定义lightningmodule-1"
+  },"160": {
+    "doc": "pytorch lightning",
+    "title": "定义训练集",
+    "content": "定义pytorch的DataLoader . dataset = MNIST(os.getcwd(), download=True, transform=transforms.ToTensor()) train_loader = DataLoader(dataset) . ",
+    "url": "/python/pytorch-lightning#%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E9%9B%86",
+    
+    "relUrl": "/python/pytorch-lightning#定义训练集"
+  },"161": {
+    "doc": "pytorch lightning",
+    "title": "模型训练",
+    "content": "使用Trainer训练模型 . | . # model autoencoder = LitAutoEncoder(Encoder(), Decoder()) # train model trainer = pl.Trainer() trainer.fit(model=autoencoder, train_dataloaders=train_loader) . ",
+    "url": "/python/pytorch-lightning#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83-2",
+    
+    "relUrl": "/python/pytorch-lightning#模型训练-2"
+  },"162": {
+    "doc": "pytorch lightning",
+    "title": "干掉训练循环",
+    "content": "Trainer在背地里为我们做了以下事情: . autoencoder = LitAutoEncoder(Encoder(), Decoder()) optimizer = autoencoder.configure_optimizers() for batch_idx, batch in enumerate(train_loader): loss = autoencoder.training_step(batch, batch_idx) loss.backward() optimizer.step() optimizer.zero_grad() . ",
+    "url": "/python/pytorch-lightning#%E5%B9%B2%E6%8E%89%E8%AE%AD%E7%BB%83%E5%BE%AA%E7%8E%AF",
+    
+    "relUrl": "/python/pytorch-lightning#干掉训练循环"
+  },"163": {
+    "doc": "pytorch lightning",
+    "title": "添加验证集和测试集",
+    "content": "为了确保模型在未见过的数据集上也能使用，数据集一般会分成训练集和测试集，测试集在训练阶段不使用。 . ",
+    "url": "/python/pytorch-lightning#%E6%B7%BB%E5%8A%A0%E9%AA%8C%E8%AF%81%E9%9B%86%E5%92%8C%E6%B5%8B%E8%AF%95%E9%9B%86",
+    
+    "relUrl": "/python/pytorch-lightning#添加验证集和测试集"
+  },"164": {
+    "doc": "pytorch lightning",
+    "title": "分割数据集",
+    "content": "import torch.utils.data as data from torchvision import datasets import torchvision.transforms as transforms # Load data sets transform = transforms.ToTensor() train_set = datasets.MNIST(root=\"MNIST\", download=True, train=True, transform=transform) test_set = datasets.MNIST(root=\"MNIST\", download=True, train=False, transform=transform) . ",
+    "url": "/python/pytorch-lightning#%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86",
+    
+    "relUrl": "/python/pytorch-lightning#分割数据集"
+  },"165": {
+    "doc": "pytorch lightning",
+    "title": "定义测试循环",
+    "content": "实现test_step方法， . class LitAutoEncoder(pl.LightningModule): def training_step(self, batch, batch_idx): ... def test_step(self, batch, batch_idx): # this is the test loop x, y = batch x = x.view(x.size(0), -1) z = self.encoder(x) x_hat = self.decoder(z) test_loss = F.mse_loss(x_hat, x) self.log(\"test_loss\", test_loss) . ",
+    "url": "/python/pytorch-lightning#%E5%AE%9A%E4%B9%89%E6%B5%8B%E8%AF%95%E5%BE%AA%E7%8E%AF",
+    
+    "relUrl": "/python/pytorch-lightning#定义测试循环"
+  },"166": {
+    "doc": "pytorch lightning",
+    "title": "训练之后加入测试步骤",
+    "content": "from torch.utils.data import DataLoader # initialize the Trainer trainer = Trainer() # test the model trainer.test(model, dataloaders=DataLoader(test_set)) . ",
+    "url": "/python/pytorch-lightning#%E8%AE%AD%E7%BB%83%E4%B9%8B%E5%90%8E%E5%8A%A0%E5%85%A5%E6%B5%8B%E8%AF%95%E6%AD%A5%E9%AA%A4",
+    
+    "relUrl": "/python/pytorch-lightning#训练之后加入测试步骤"
+  },"167": {
+    "doc": "pytorch lightning",
+    "title": "添加验证循环",
+    "content": "在训练集中分出一部分作为验证集 . # use 20% of training data for validation train_set_size = int(len(train_set) * 0.8) valid_set_size = len(train_set) - train_set_size # split the train set into two seed = torch.Generator().manual_seed(42) train_set, valid_set = data.random_split(train_set, [train_set_size, valid_set_size], generator=seed) . 添加validation_step . class LitAutoEncoder(pl.LightningModule): def training_step(self, batch, batch_idx): ... def validation_step(self, batch, batch_idx): # this is the validation loop x, y = batch x = x.view(x.size(0), -1) z = self.encoder(x) x_hat = self.decoder(z) val_loss = F.mse_loss(x_hat, x) self.log(\"val_loss\", val_loss) . from torch.utils.data import DataLoader train_loader = DataLoader(train_set) valid_loader = DataLoader(valid_set) # train with both splits trainer = Trainer() trainer.fit(model, train_loader, valid_loader) . ",
+    "url": "/python/pytorch-lightning#%E6%B7%BB%E5%8A%A0%E9%AA%8C%E8%AF%81%E5%BE%AA%E7%8E%AF",
+    
+    "relUrl": "/python/pytorch-lightning#添加验证循环"
+  },"168": {
+    "doc": "pytorch lightning",
+    "title": "保存模型过程",
+    "content": "lightning的checkpoint包含以下内容: . | 16-bit scaling factor (if using 16-bit precision training) | Current epoch | Global step | LightningModule’s state_dict | State of all optimizers | State of all learning rate schedulers | State of all callbacks (for stateful callbacks) | State of datamodule (for stateful datamodules) | The hyperparameters (init arguments) with which the model was created | The hyperparameters (init arguments) with which the datamodule was created | State of Loops | . ",
+    "url": "/python/pytorch-lightning#%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B%E8%BF%87%E7%A8%8B",
+    
+    "relUrl": "/python/pytorch-lightning#保存模型过程"
+  },"169": {
+    "doc": "pytorch lightning",
+    "title": "保存ckpt",
+    "content": "# saves checkpoints to 'some/path/' at every epoch end trainer = Trainer(default_root_dir=\"some/path/\") . ",
+    "url": "/python/pytorch-lightning#%E4%BF%9D%E5%AD%98ckpt",
+    
+    "relUrl": "/python/pytorch-lightning#保存ckpt"
+  },"170": {
+    "doc": "pytorch lightning",
+    "title": "加载",
+    "content": "model = MyLightningModule.load_from_checkpoint(\"/path/to/checkpoint.ckpt\") # disable randomness, dropout, etc... model.eval() # predict with the model y_hat = model(x) . 超参数保存： . class MyLightningModule(LightningModule): def __init__(self, learning_rate, another_parameter, *args, **kwargs): super().__init__() self.save_hyperparameters() . checkpoint = torch.load(checkpoint, map_location=lambda storage, loc: storage) print(checkpoint[\"hyper_parameters\"]) # {\"learning_rate\": the_value, \"another_parameter\": the_other_value} . model = MyLightningModule.load_from_checkpoint(\"/path/to/checkpoint.ckpt\") print(model.learning_rate) . 使用其他参数初始化: . 如果初始化LightningModule时使用了self.save_hyperparameters()，可以使用不同的超参数初始化模型。 . # if you train and save the model like this it will use these values when loading # the weights. But you can overwrite this LitModel(in_dim=32, out_dim=10) # uses in_dim=32, out_dim=10 model = LitModel.load_from_checkpoint(PATH) # uses in_dim=128, out_dim=10 model = LitModel.load_from_checkpoint(PATH, in_dim=128, out_dim=10) . ",
+    "url": "/python/pytorch-lightning#%E5%8A%A0%E8%BD%BD",
+    
+    "relUrl": "/python/pytorch-lightning#加载"
+  },"171": {
+    "doc": "pytorch lightning",
+    "title": "nn.Module from checkpoint",
+    "content": "lightning的ckpt和torch原生的nn.Modules完全匹配。 . checkpoint = torch.load(CKPT_PATH) print(checkpoint.keys()) . 假设创建了LightningModule . class Encoder(nn.Module): ... class Decoder(nn.Module): ... class Autoencoder(pl.LightningModule): def __init__(self, encoder, decoder, *args, **kwargs): ... autoencoder = Autoencoder(Encoder(), Decoder()) . checkpoint = torch.load(CKPT_PATH) encoder_weights = checkpoint[\"encoder\"] decoder_weights = checkpoint[\"decoder\"] . ",
+    "url": "/python/pytorch-lightning#nnmodule-from-checkpoint",
+    
+    "relUrl": "/python/pytorch-lightning#nnmodule-from-checkpoint"
+  },"172": {
+    "doc": "pytorch lightning",
+    "title": "禁用ckpt",
+    "content": "trainer = Trainer(enable_checkpointing=False) . ",
+    "url": "/python/pytorch-lightning#%E7%A6%81%E7%94%A8ckpt",
+    
+    "relUrl": "/python/pytorch-lightning#禁用ckpt"
+  },"173": {
+    "doc": "pytorch lightning",
+    "title": "恢复训练",
+    "content": "model = LitModel() trainer = Trainer() # automatically restores model, epoch, step, LR schedulers, etc... trainer.fit(model, ckpt_path=\"some/path/to/my_checkpoint.ckpt\") . ",
+    "url": "/python/pytorch-lightning#%E6%81%A2%E5%A4%8D%E8%AE%AD%E7%BB%83",
+    
+    "relUrl": "/python/pytorch-lightning#恢复训练"
+  },"174": {
+    "doc": "pytorch lightning",
+    "title": "提前终止训练",
+    "content": "重写on_train_batch_start()来提前终止训练。 . EarlyStopping 回调函数可以监控一个metric并在模型训练没有提升的时候提前终止，启用这个功能使用以下过程: . | Import EarlyStopping callback. | Log the metric you want to monitor using log() method. | Init the callback, and set monitor to the logged metric of your choice. | Set the mode based on the metric needs to be monitored. | Pass the EarlyStopping callback to the Trainer callbacks flag. | . from lightning.pytorch.callbacks.early_stopping import EarlyStopping class LitModel(LightningModule): def validation_step(self, batch, batch_idx): loss = ... self.log(\"val_loss\", loss) model = LitModel() trainer = Trainer(callbacks=[EarlyStopping(monitor=\"val_loss\", mode=\"min\")]) trainer.fit(model) . 可以自定义callback的行为: . early_stop_callback = EarlyStopping(monitor=\"val_accuracy\", min_delta=0.00, patience=3, verbose=False, mode=\"max\") trainer = Trainer(callbacks=[early_stop_callback]) . 一些其他的参数: . | stopping_threshold: Stops training immediately once the monitored quantity reaches this threshold. It is useful when we know that going beyond a certain optimal value does not further benefit us. | divergence_threshold: Stops training as soon as the monitored quantity becomes worse than this threshold. When reaching a value this bad, we believes the model cannot recover anymore and it is better to stop early and run with different initial conditions. | check_finite: When turned on, it stops training if the monitored metric becomes NaN or infinite. | check_on_train_epoch_end: When turned on, it checks the metric at the end of a training epoch. Use this only when you are monitoring any metric logged within training-specific hooks on epoch-level. | . class MyEarlyStopping(EarlyStopping): def on_validation_end(self, trainer, pl_module): # override this to disable early stopping at the end of val loop pass def on_train_end(self, trainer, pl_module): # instead, do it at the end of training loop self._run_early_stopping_check(trainer) . The EarlyStopping callback runs at the end of every validation epoch by default. However, the frequency of validation can be modified by setting various parameters in the Trainer, for example check_val_every_n_epoch and val_check_interval. It must be noted that the patience parameter counts the number of validation checks with no improvement, and not the number of training epochs. Therefore, with parameters check_val_every_n_epoch=10 and patience=3, the trainer will perform at least 40 training epochs before being stopped. ",
+    "url": "/python/pytorch-lightning#%E6%8F%90%E5%89%8D%E7%BB%88%E6%AD%A2%E8%AE%AD%E7%BB%83",
+    
+    "relUrl": "/python/pytorch-lightning#提前终止训练"
+  },"175": {
+    "doc": "pytorch lightning",
+    "title": "迁移学习",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0",
+    
+    "relUrl": "/python/pytorch-lightning#迁移学习"
+  },"176": {
+    "doc": "pytorch lightning",
+    "title": "使用预训练的LightningModule",
+    "content": "class Encoder(torch.nn.Module): ... class AutoEncoder(LightningModule): def __init__(self): self.encoder = Encoder() self.decoder = Decoder() class CIFAR10Classifier(LightningModule): def __init__(self): # init the pretrained LightningModule self.feature_extractor = AutoEncoder.load_from_checkpoint(PATH) self.feature_extractor.freeze() # the autoencoder outputs a 100-dim representation and CIFAR-10 has 10 classes self.classifier = nn.Linear(100, 10) def forward(self, x): representations = self.feature_extractor(x) x = self.classifier(representations) ... import torchvision.models as models class ImagenetTransferLearning(LightningModule): def __init__(self): super().__init__() # init a pretrained resnet backbone = models.resnet50(weights=\"DEFAULT\") num_filters = backbone.fc.in_features layers = list(backbone.children())[:-1] self.feature_extractor = nn.Sequential(*layers) # use the pretrained model to classify cifar-10 (10 image classes) num_target_classes = 10 self.classifier = nn.Linear(num_filters, num_target_classes) def forward(self, x): self.feature_extractor.eval() with torch.no_grad(): representations = self.feature_extractor(x).flatten(1) x = self.classifier(representations) ... model = ImagenetTransferLearning() trainer = Trainer() trainer.fit(model) . model = ImagenetTransferLearning.load_from_checkpoint(PATH) model.freeze() x = some_images_from_cifar10() predictions = model(x) . ",
+    "url": "/python/pytorch-lightning#%E4%BD%BF%E7%94%A8%E9%A2%84%E8%AE%AD%E7%BB%83%E7%9A%84lightningmodule",
+    
+    "relUrl": "/python/pytorch-lightning#使用预训练的lightningmodule"
+  },"177": {
+    "doc": "pytorch lightning",
+    "title": "Bert",
+    "content": "class BertMNLIFinetuner(LightningModule): def __init__(self): super().__init__() self.bert = BertModel.from_pretrained(\"bert-base-cased\", output_attentions=True) self.W = nn.Linear(bert.config.hidden_size, 3) self.num_classes = 3 def forward(self, input_ids, attention_mask, token_type_ids): h, _, attn = self.bert(input_ids=input_ids, attention_mask=attention_mask, token_type_ids=token_type_ids) h_cls = h[:, 0] logits = self.W(h_cls) return logits, attn . ",
+    "url": "/python/pytorch-lightning#bert",
+    
+    "relUrl": "/python/pytorch-lightning#bert"
+  },"178": {
+    "doc": "pytorch lightning",
+    "title": "命令行中配置超参数",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0",
+    
+    "relUrl": "/python/pytorch-lightning#命令行中配置超参数"
+  },"179": {
+    "doc": "pytorch lightning",
+    "title": "ArgumentParser",
+    "content": "from argparse import ArgumentParser parser = ArgumentParser() # Trainer arguments parser.add_argument(\"--devices\", type=int, default=2) # Hyperparameters for the model parser.add_argument(\"--layer_1_dim\", type=int, default=128) # Parse the user inputs and defaults (returns a argparse.Namespace) args = parser.parse_args() # Use the parsed arguments in your program trainer = Trainer(devices=args.devices) model = MyModel(layer_1_dim=args.layer_1_dim) . python trainer.py --layer_1_dim 64 --devices 1 . ",
+    "url": "/python/pytorch-lightning#argumentparser",
+    
+    "relUrl": "/python/pytorch-lightning#argumentparser"
+  },"180": {
+    "doc": "pytorch lightning",
+    "title": "lightning cli",
+    "content": " ",
+    "url": "/python/pytorch-lightning#lightning-cli",
+    
+    "relUrl": "/python/pytorch-lightning#lightning-cli"
+  },"181": {
+    "doc": "pytorch lightning",
+    "title": "debug,可视化以及寻找瓶颈",
+    "content": " ",
+    "url": "/python/pytorch-lightning#debug%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%A5%E5%8F%8A%E5%AF%BB%E6%89%BE%E7%93%B6%E9%A2%88",
+    
+    "relUrl": "/python/pytorch-lightning#debug可视化以及寻找瓶颈"
+  },"182": {
+    "doc": "pytorch lightning",
+    "title": "debug",
+    "content": "设置断点 . def function_to_debug(): x = 2 # set breakpoint import pdb pdb.set_trace() y = x**2 . 跑一遍代码 . fast_dev_run会跑5个batch的训练验证和预测 . Trainer(fast_dev_run=True) . Trainer(fast_dev_run=7) . This argument will disable tuner, checkpoint callbacks, early stopping callbacks, loggers and logger callbacks like LearningRateMonitor and DeviceStatsMonitor. 缩短epoch长度 . 比如使用20%数据集作为训练，1%数据集作为验证 . # use only 10% of training data and 1% of val data trainer = Trainer(limit_train_batches=0.1, limit_val_batches=0.01) # use 10 batches of train and 5 batches of val trainer = Trainer(limit_train_batches=10, limit_val_batches=5) . 简单检查 . 在训练开始的时候进行两步验证。 . trainer = Trainer(num_sanity_val_steps=2) . 显示LightningModule权重summary . trainer.fit(...) . 要给子模块添加summary,使用: . from lightning.pytorch.callbacks import ModelSummary trainer = Trainer(callbacks=[ModelSummary(max_depth=-1)]) . 不调用.fit的情况下打印summary: . from lightning.pytorch.utilities.model_summary import ModelSummary model = LitModel() summary = ModelSummary(model, max_depth=-1) print(summary) . 关闭功能使用: . Trainer(enable_model_summary=False) . 查找代码瓶颈 . trainer = Trainer(profiler=\"simple\") . 要查看每个函数的运行时间，使用： . trainer = Trainer(profiler=\"advanced\") . 输出到文件中: . from lightning.pytorch.profilers import AdvancedProfiler profiler = AdvancedProfiler(dirpath=\".\", filename=\"perf_logs\") trainer = Trainer(profiler=profiler) . 查看加速器效果: . from lightning.pytorch.callbacks import DeviceStatsMonitor trainer = Trainer(callbacks=[DeviceStatsMonitor()]) . CPU metrics will be tracked by default on the CPU accelerator. To enable it for other accelerators set DeviceStatsMonitor(cpu_stats=True). To disable logging CPU metrics, you can specify DeviceStatsMonitor(cpu_stats=False). 实验跟踪和可视化 . metrics跟踪 . class LitModel(pl.LightningModule): def training_step(self, batch, batch_idx): value = ... self.log(\"some_value\", value) . 使用self.log方法. 记录多个metrics,使用: . values = {\"loss\": loss, \"acc\": acc, \"metric_n\": metric_n} # add more items if needed self.log_dict(values) . 要在进度条里查看使用， . self.log(..., prog_bar=True) . 浏览器中查看，略 . metric积累，略 . 目录保存： . Trainer(default_root_dir=\"/your/custom/path\") . ",
+    "url": "/python/pytorch-lightning#debug",
+    
+    "relUrl": "/python/pytorch-lightning#debug"
+  },"183": {
+    "doc": "pytorch lightning",
+    "title": "模型推理",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86",
+    
+    "relUrl": "/python/pytorch-lightning#模型推理"
+  },"184": {
+    "doc": "pytorch lightning",
+    "title": "产品级部署-1",
+    "content": "加载ckpt并预测 . model = LitModel.load_from_checkpoint(\"best_model.ckpt\") model.eval() x = torch.randn(1, 64) with torch.no_grad(): y_hat = model(x) . LightningModule添加预测过程 . class MyModel(LightningModule): def predict_step(self, batch, batch_idx, dataloader_idx=0): return self(batch) . 把dataloader加载到trainer . data_loader = DataLoader(...) model = MyModel() trainer = Trainer() predictions = trainer.predict(model, data_loader) . 添加复杂的推理逻辑 . class LitMCdropoutModel(pl.LightningModule): def __init__(self, model, mc_iteration): super().__init__() self.model = model self.dropout = nn.Dropout() self.mc_iteration = mc_iteration def predict_step(self, batch, batch_idx): # enable Monte Carlo Dropout self.dropout.train() # take average of `self.mc_iteration` iterations pred = [self.dropout(self.model(x)).unsqueeze(0) for _ in range(self.mc_iteration)] pred = torch.vstack(pred).mean(dim=0) return pred . 使用分布式推理 . import torch from lightning.pytorch.callbacks import BasePredictionWriter class CustomWriter(BasePredictionWriter): def __init__(self, output_dir, write_interval): super().__init__(write_interval) self.output_dir = output_dir def write_on_epoch_end(self, trainer, pl_module, predictions, batch_indices): # this will create N (num processes) files in `output_dir` each containing # the predictions of it's respective rank torch.save(predictions, os.path.join(self.output_dir, f\"predictions_{trainer.global_rank}.pt\")) # optionally, you can also save `batch_indices` to get the information about the data index # from your prediction data torch.save(batch_indices, os.path.join(self.output_dir, f\"batch_indices_{trainer.global_rank}.pt\")) # or you can set `writer_interval=\"batch\"` and override `write_on_batch_end` to save # predictions at batch level pred_writer = CustomWriter(output_dir=\"pred_path\", write_interval=\"epoch\") trainer = Trainer(accelerator=\"gpu\", strategy=\"ddp\", devices=8, callbacks=[pred_writer]) model = BoringModel() trainer.predict(model, return_predictions=False) . ",
+    "url": "/python/pytorch-lightning#%E4%BA%A7%E5%93%81%E7%BA%A7%E9%83%A8%E7%BD%B2-1",
+    
+    "relUrl": "/python/pytorch-lightning#产品级部署-1"
+  },"185": {
+    "doc": "pytorch lightning",
+    "title": "产品级部署-2",
+    "content": "使用pytorch . import torch class MyModel(nn.Module): ... model = MyModel() checkpoint = torch.load(\"path/to/lightning/checkpoint.ckpt\") model.load_state_dict(checkpoint[\"state_dict\"]) model.eval() . 从lightning中提取nn.Modules . class Encoder(nn.Module): ... class Decoder(nn.Module): ... class AutoEncoderProd(nn.Module): def __init__(self): super().__init__() self.encoder = Encoder() self.decoder = Decoder() def forward(self, x): return self.encoder(x) class AutoEncoderSystem(LightningModule): def __init__(self): super().__init__() self.auto_encoder = AutoEncoderProd() def forward(self, x): return self.auto_encoder.encoder(x) def training_step(self, batch, batch_idx): x, y = batch y_hat = self.auto_encoder.encoder(x) y_hat = self.auto_encoder.decoder(y_hat) loss = ... return loss # train it trainer = Trainer(devices=2, accelerator=\"gpu\", strategy=\"ddp\") model = AutoEncoderSystem() trainer.fit(model, train_dataloader, val_dataloader) trainer.save_checkpoint(\"best_model.ckpt\") # create the PyTorch model and load the checkpoint weights model = AutoEncoderProd() checkpoint = torch.load(\"best_model.ckpt\") hyper_parameters = checkpoint[\"hyper_parameters\"] # if you want to restore any hyperparameters, you can pass them too model = AutoEncoderProd(**hyper_parameters) model_weights = checkpoint[\"state_dict\"] # update keys by dropping `auto_encoder.` for key in list(model_weights): model_weights[key.replace(\"auto_encoder.\", \"\")] = model_weights.pop(key) model.load_state_dict(model_weights) model.eval() x = torch.randn(1, 64) with torch.no_grad(): y_hat = model(x) . ",
+    "url": "/python/pytorch-lightning#%E4%BA%A7%E5%93%81%E7%BA%A7%E9%83%A8%E7%BD%B2-2",
+    
+    "relUrl": "/python/pytorch-lightning#产品级部署-2"
+  },"186": {
+    "doc": "pytorch lightning",
+    "title": "GPU训练",
+    "content": " ",
+    "url": "/python/pytorch-lightning#gpu%E8%AE%AD%E7%BB%83",
+    
+    "relUrl": "/python/pytorch-lightning#gpu训练"
+  },"187": {
+    "doc": "pytorch lightning",
+    "title": "代码修改",
+    "content": "# before lightning def forward(self, x): x = x.cuda(0) layer_1.cuda(0) x_hat = layer_1(x) # after lightning def forward(self, x): x_hat = layer_1(x) . 使用tensor.to和register_buffer . # before lightning def forward(self, x): z = torch.Tensor(2, 3) z = z.cuda(0) # with lightning def forward(self, x): z = torch.Tensor(2, 3) z = z.to(x) . LightningModule知道自己处在哪个设备上，使用self.device. 有时需要把tensor存储为模块属性。但是如果它们不是参数仍然会存在cpu上，将这个tensor注册为buffer使用register_buffer(). class LitModel(LightningModule): def __init__(self): ... self.register_buffer(\"sigma\", torch.eye(3)) # you can now access self.sigma anywhere in your module . Remove samplers . sampler是自动处理的。 . 同步 . 在分布式模式下必须保证验证和测试step的logging调用在进程间同步，可以给self.log添加sync_dist=True，这在下游的任务比如测试最好的ckpt比较重要。 如果使用内建的metric或者使用TorchMetrics自定义metric会进行自动的处理更新。 . def validation_step(self, batch, batch_idx): x, y = batch logits = self(x) loss = self.loss(logits, y) # Add sync_dist=True to sync logging across all GPU workers (may have performance impact) self.log(\"validation_loss\", loss, on_step=True, on_epoch=True, sync_dist=True) def test_step(self, batch, batch_idx): x, y = batch logits = self(x) loss = self.loss(logits, y) # Add sync_dist=True to sync logging across all GPU workers (may have performance impact) self.log(\"test_loss\", loss, on_step=True, on_epoch=True, sync_dist=True) . It is possible to perform some computation manually and log the reduced result on rank 0 as follows: . def __init__(self): super().__init__() self.outputs = [] def test_step(self, batch, batch_idx): x, y = batch tensors = self(x) self.outputs.append(tensors) return tensors def on_test_epoch_end(self): mean = torch.mean(self.all_gather(self.outputs)) self.outputs.clear() # free memory # When logging only on rank 0, don't forget to add # `rank_zero_only=True` to avoid deadlocks on synchronization. # caveat: monitoring this is unimplemented. see https://github.com/Lightning-AI/lightning/issues/15852 if self.trainer.is_global_zero: self.log(\"my_reduced_metric\", mean, rank_zero_only=True) . pickleable model . 在并行模式下可能出现以下错误: . self._launch(process_obj) File \"/net/software/local/python/3.6.5/lib/python3.6/multiprocessing/popen_spawn_posix.py\", line 47, in _launch reduction.dump(process_obj, fp) File \"/net/software/local/python/3.6.5/lib/python3.6/multiprocessing/reduction.py\", line 60, in dump ForkingPickler(file, protocol).dump(obj) _pickle.PicklingError: Can't pickle &lt;function &lt;lambda&gt; at 0x2b599e088ae8&gt;: attribute lookup &lt;lambda&gt; on __main__ failed . 这表明并行模式下模型，优化器,dataloader…中存在无法保存的东西，这是由pytorch限制的。 . ",
+    "url": "/python/pytorch-lightning#%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9",
+    
+    "relUrl": "/python/pytorch-lightning#代码修改"
+  },"188": {
+    "doc": "pytorch lightning",
+    "title": "gpu训练",
+    "content": "默认情况下会尽可能在gpu上进行训练: . # run on as many GPUs as available by default trainer = Trainer(accelerator=\"auto\", devices=\"auto\", strategy=\"auto\") # equivalent to trainer = Trainer() # run on one GPU trainer = Trainer(accelerator=\"gpu\", devices=1) # run on multiple GPUs trainer = Trainer(accelerator=\"gpu\", devices=8) # choose the number of devices automatically trainer = Trainer(accelerator=\"gpu\", devices=\"auto\") . Setting accelerator=”gpu” will also automatically choose the “mps” device on Apple sillicon GPUs. If you want to avoid this, you can set accelerator=”cuda” instead. 可以选择gpu设备 . # DEFAULT (int) specifies how many GPUs to use per node Trainer(accelerator=\"gpu\", devices=k) # Above is equivalent to Trainer(accelerator=\"gpu\", devices=list(range(k))) # Specify which GPUs to use (don't use when running on cluster) Trainer(accelerator=\"gpu\", devices=[0, 1]) # Equivalent using a string Trainer(accelerator=\"gpu\", devices=\"0, 1\") # To use all available GPUs put -1 or '-1' # equivalent to list(range(torch.cuda.device_count())) Trainer(accelerator=\"gpu\", devices=-1) . 检测可以使用的gpu设备: . from lightning.pytorch.accelerators import find_usable_cuda_devices # Find two GPUs on the system that are not already occupied trainer = Trainer(accelerator=\"cuda\", devices=find_usable_cuda_devices(2)) from lightning.fabric.accelerators import find_usable_cuda_devices # Works with Fabric too fabric = Fabric(accelerator=\"cuda\", devices=find_usable_cuda_devices(2)) . 当gpu被设置为exclusive compute mode时比较有用。 . ",
+    "url": "/python/pytorch-lightning#gpu%E8%AE%AD%E7%BB%83-1",
+    
+    "relUrl": "/python/pytorch-lightning#gpu训练-1"
+  },"189": {
+    "doc": "pytorch lightning",
+    "title": "项目模块化",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%E5%8C%96",
+    
+    "relUrl": "/python/pytorch-lightning#项目模块化"
+  },"190": {
+    "doc": "pytorch lightning",
+    "title": "datamodule",
+    "content": "datamodule是用来处理数据的类。下面是5个步骤: . | Download / tokenize / process. | Clean and (maybe) save to disk. | Load inside Dataset. | Apply transforms (rotate, tokenize, etc…). | Wrap inside a DataLoader. 然后可以使用: | . model = LitClassifier() trainer = Trainer() imagenet = ImagenetDataModule() trainer.fit(model, datamodule=imagenet) cifar10 = CIFAR10DataModule() trainer.fit(model, datamodule=cifar10) . datamodule解决了以下几个问题: . | what splits did you use? . | what transforms did you use? . | what normalization did you use? . | how did you prepare/tokenize the data? . | . 在pytorch中需要这样写: . # regular PyTorch test_data = MNIST(my_path, train=False, download=True) predict_data = MNIST(my_path, train=False, download=True) train_data = MNIST(my_path, train=True, download=True) train_data, val_data = random_split(train_data, [55000, 5000]) train_loader = DataLoader(train_data, batch_size=32) val_loader = DataLoader(val_data, batch_size=32) test_loader = DataLoader(test_data, batch_size=32) predict_loader = DataLoader(predict_data, batch_size=32) . 等效的在lightning中: . class MNISTDataModule(pl.LightningDataModule): def __init__(self, data_dir: str = \"path/to/dir\", batch_size: int = 32): super().__init__() self.data_dir = data_dir self.batch_size = batch_size def setup(self, stage: str): self.mnist_test = MNIST(self.data_dir, train=False) self.mnist_predict = MNIST(self.data_dir, train=False) mnist_full = MNIST(self.data_dir, train=True) self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000]) def train_dataloader(self): return DataLoader(self.mnist_train, batch_size=self.batch_size) def val_dataloader(self): return DataLoader(self.mnist_val, batch_size=self.batch_size) def test_dataloader(self): return DataLoader(self.mnist_test, batch_size=self.batch_size) def predict_dataloader(self): return DataLoader(self.mnist_predict, batch_size=self.batch_size) def teardown(self, stage: str): # Used to clean-up when the run is finished ... 然后就可以复用: . mnist = MNISTDataModule(my_path) model = LitClassifier() trainer = Trainer() trainer.fit(model, mnist) . 下面是一个更复杂的例子: . import lightning.pytorch as pl from torch.utils.data import random_split, DataLoader # Note - you must have torchvision installed for this example from torchvision.datasets import MNIST from torchvision import transforms class MNISTDataModule(pl.LightningDataModule): def __init__(self, data_dir: str = \"./\"): super().__init__() self.data_dir = data_dir self.transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]) def prepare_data(self): # download MNIST(self.data_dir, train=True, download=True) MNIST(self.data_dir, train=False, download=True) def setup(self, stage: str): # Assign train/val datasets for use in dataloaders if stage == \"fit\": mnist_full = MNIST(self.data_dir, train=True, transform=self.transform) self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000]) # Assign test dataset for use in dataloader(s) if stage == \"test\": self.mnist_test = MNIST(self.data_dir, train=False, transform=self.transform) if stage == \"predict\": self.mnist_predict = MNIST(self.data_dir, train=False, transform=self.transform) def train_dataloader(self): return DataLoader(self.mnist_train, batch_size=32) def val_dataloader(self): return DataLoader(self.mnist_val, batch_size=32) def test_dataloader(self): return DataLoader(self.mnist_test, batch_size=32) def predict_dataloader(self): return DataLoader(self.mnist_predict, batch_size=32) . 要定义datamodule需要实现以下方法: . | prepare_data (how to download, tokenize, etc…) | setup (how to split, define dataset, etc…) | train_dataloader | val_dataloader | test_dataloader | predict_dataloader | . prepare_data . 用多个进程下载和保存数据可能导致数据冲突，Lightning可以确保prepare_data()只在cpu的一个进程上调用。对于多节点训练，这个hook取决于prepare_data_per_node。setup()会在prepare_data之后进行调用，there is a barrier in between which ensures that all the processes proceed to setup once the data is prepared and available for use. | download, i.e. download data only once on the disk from a single process . | tokenize. Since it’s a one time process, it is not recommended to do it on all processes . | . class MNISTDataModule(pl.LightningDataModule): def prepare_data(self): # download MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()) MNIST(os.getcwd(), train=False, download=True, transform=transforms.ToTensor()) . prepare_data is called from the main process. It is not recommended to assign state here (e.g. self.x = y) since it is called on a single process and if you assign states here then they won’t be available for other processes. setup . 有时想要在每块GPU上进行数据操作，使用setup(): . | count number of classes . | build vocabulary . | perform train/val/test splits . | create datasets . | apply transforms (defined explicitly in your datamodule) . | . import lightning.pytorch as pl class MNISTDataModule(pl.LightningDataModule): def setup(self, stage: str): # Assign Train/val split(s) for use in Dataloaders if stage == \"fit\": mnist_full = MNIST(self.data_dir, train=True, download=True, transform=self.transform) self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000]) # Assign Test split(s) for use in Dataloaders if stage == \"test\": self.mnist_test = MNIST(self.data_dir, train=False, download=True, transform=self.transform) . 对于NLP可能想要获得文本tooken,可以: . class LitDataModule(LightningDataModule): def prepare_data(self): dataset = load_Dataset(...) train_dataset = ... val_dataset = ... # tokenize # save it to disk def setup(self, stage): # load it back here dataset = load_dataset_from_disk(...) . stage参数用来为trainer设置，trainer.{fit,validate,test,predict}. setup is called from every process across all the nodes. Setting state here is recommended. teardown can be used to clean up the state. It is also called from every process across all the nodes. train_dataloader . train_dataloader()方法用来生成训练dataloader.通常只是封装在setup中封装的dataset. trainer的fit()方法将会使用这个dataloader. import lightning.pytorch as pl class MNISTDataModule(pl.LightningDataModule): def train_dataloader(self): return DataLoader(self.mnist_train, batch_size=64) . val_dataloader . test_dataloader . predict_dataloader . transfer_batch_to_device . on_before_batch_transfer . on_after_batch_transfer . load_state_dict . state_dict . teardown . prepare_data_per_node . 使用datamodule . datamodule的使用非常简单: . dm = MNISTDataModule() model = Model() trainer.fit(model, datamodule=dm) trainer.test(datamodule=dm) trainer.validate(datamodule=dm) trainer.predict(datamodule=dm) . 如果需要数据集的某些信息才能构建模型，手动运行prepare_data和setup: . dm = MNISTDataModule() dm.prepare_data() dm.setup(stage=\"fit\") model = Model(num_classes=dm.num_classes, width=dm.width, vocab=dm.vocab) trainer.fit(model, dm) dm.setup(stage=\"test\") trainer.test(datamodule=dm) . You can access the current used datamodule of a trainer via trainer.datamodule and the current used dataloaders via the trainer properties train_dataloader(), val_dataloaders(), test_dataloaders(), and predict_dataloaders(). 在pytorch中使用DataModules . # download, etc... dm = MNISTDataModule() dm.prepare_data() # splits/transforms dm.setup(stage=\"fit\") # use data for batch in dm.train_dataloader(): ... for batch in dm.val_dataloader(): ... dm.teardown(stage=\"fit\") # lazy load test data dm.setup(stage=\"test\") for batch in dm.test_dataloader(): ... dm.teardown(stage=\"test\") . datamodule中的超参数 . import lightning.pytorch as pl class CustomDataModule(pl.LightningDataModule): def __init__(self, *args, **kwargs): super().__init__() self.save_hyperparameters() def configure_optimizers(self): # access the saved hyperparameters opt = optim.Adam(self.parameters(), lr=self.hparams.lr) . 保存datamodule state . class LitDataModule(pl.DataModuler): def state_dict(self): # track whatever you want here state = {\"current_train_batch_index\": self.current_train_batch_index} return state def load_state_dict(self, state_dict): # restore the state based on what you tracked in (def state_dict) self.current_train_batch_index = state_dict[\"current_train_batch_index\"] . ",
+    "url": "/python/pytorch-lightning#datamodule",
+    
+    "relUrl": "/python/pytorch-lightning#datamodule"
+  },"191": {
+    "doc": "pytorch lightning",
+    "title": "CLI中配置超参数-1",
+    "content": "LightningCLI用来减轻CLI实现难度，要使用这个类，需要额外的lightning功能， . pip install \"pytorch-lightning[extra]\" . 实现CLI . 实例化一个LightningCLI对象，然后给LightningModule参数，也可以多给一个LightningDataModule参数。 . # main.py from lightning.pytorch.cli import LightningCLI # simple demo classes for your convenience from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule def cli_main(): cli = LightningCLI(DemoModel, BoringDataModule) # note: don't call fit!! if __name__ == \"__main__\": cli_main() # note: it is good practice to implement the CLI in a function and call it in the main if block . 现在模型可以通过CLI管理: . python main.py --help . 会输出: . usage: main.py [-h] [-c CONFIG] [--print_config [={comments,skip_null,skip_default}+]] {fit,validate,test,predict,tune} ... pytorch-lightning trainer command line tool optional arguments: -h, --help Show this help message and exit. -c CONFIG, --config CONFIG Path to a configuration file in json or yaml format. --print_config [={comments,skip_null,skip_default}+] Print configuration and exit. subcommands: For more details of each subcommand add it as argument followed by --help. {fit,validate,test,predict,tune} fit Runs the full optimization routine. validate Perform one evaluation epoch over the validation set. test Perform one evaluation epoch over the test set. predict Run inference on your data. tune Runs routines to tune hyperparameters before training. 使用CLI训练模型 . python main.py fit . --help参数查看可用选项: . $ python main.py fit --help usage: main.py [options] fit [-h] [-c CONFIG] [--seed_everything SEED_EVERYTHING] [--trainer CONFIG] ... [--ckpt_path CKPT_PATH] --trainer.logger LOGGER optional arguments: &lt;class '__main__.DemoModel'&gt;: --model.out_dim OUT_DIM (type: int, default: 10) --model.learning_rate LEARNING_RATE (type: float, default: 0.02) &lt;class 'lightning.pytorch.demos.boring_classes.BoringDataModule'&gt;: --data CONFIG Path to a configuration file. --data.data_dir DATA_DIR (type: str, default: ./) . 改变参数: . # change the learning_rate python main.py fit --model.learning_rate 0.1 # change the output dimensions also python main.py fit --model.out_dim 10 --model.learning_rate 0.1 # change trainer and data arguments too python main.py fit --model.out_dim 2 --model.learning_rate 0.1 --data.data_dir '~/' --trainer.logger False . LightningModule 和 LightningDataModule类中的__init__的参数在CLI中发挥作用，因此，想要一个参数可以配置，将其添加到类的__init__中。 最好在docstring中描述这些参数，这样可以通过--help进行查看，最好加上type hint. ",
+    "url": "/python/pytorch-lightning#cli%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0-1",
+    
+    "relUrl": "/python/pytorch-lightning#cli中配置超参数-1"
+  },"192": {
+    "doc": "pytorch lightning",
+    "title": "CLI中配置超参数-2",
+    "content": "lightning支持混合使用模型和数据集，比如: . # Mix and match anything $ python main.py fit --model=GAN --data=MNIST $ python main.py fit --model=Transformer --data=MNIST . LightningCLI可以方便实现这一功能，不用像下面一样写过多代码: . # choose model if args.model == \"gan\": model = GAN(args.feat_dim) elif args.model == \"transformer\": model = Transformer(args.feat_dim) ... # choose datamodule if args.data == \"MNIST\": datamodule = MNIST() elif args.data == \"imagenet\": datamodule = Imagenet() ... # mix them! trainer.fit(model, datamodule) . 多个LightningModules . # main.py from lightning.pytorch.cli import LightningCLI from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule class Model1(DemoModel): def configure_optimizers(self): print(\"⚡\", \"using Model1\", \"⚡\") return super().configure_optimizers() class Model2(DemoModel): def configure_optimizers(self): print(\"⚡\", \"using Model2\", \"⚡\") return super().configure_optimizers() cli = LightningCLI(datamodule_class=BoringDataModule) . 现在可以在CLI中选择模型: . # use Model1 python main.py fit --model Model1 # use Model2 python main.py fit --model Model2 . 如果不使用model_class参数，可以使用基类以及subclass_mode_model=True，这样cli只能接收给定基类的子类模型。 . 多个 LightningDataModules . 在LightningCLI中使用datamodule_class参数： . # main.py import torch from lightning.pytorch.cli import LightningCLI from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule class FakeDataset1(BoringDataModule): def train_dataloader(self): print(\"⚡\", \"using FakeDataset1\", \"⚡\") return torch.utils.data.DataLoader(self.random_train) class FakeDataset2(BoringDataModule): def train_dataloader(self): print(\"⚡\", \"using FakeDataset2\", \"⚡\") return torch.utils.data.DataLoader(self.random_train) cli = LightningCLI(DemoModel) . 现在可以使用任意数据集: . # use Model1 python main.py fit --data FakeDataset1 # use Model2 python main.py fit --data FakeDataset2 . Instead of omitting the datamodule_class parameter, you can give a base class and subclass_mode_data=True. This will make the CLI only accept data modules that are a subclass of the given base class. 多个优化器 . 使用标准的优化器: . python main.py fit --optimizer AdamW python main.py fit --optimizer SGD --optimizer.lr=0.01 . 自定义优化器: . # main.py import torch from lightning.pytorch.cli import LightningCLI from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule class LitAdam(torch.optim.Adam): def step(self, closure): print(\"⚡\", \"using LitAdam\", \"⚡\") super().step(closure) class FancyAdam(torch.optim.Adam): def step(self, closure): print(\"⚡\", \"using FancyAdam\", \"⚡\") super().step(closure) cli = LightningCLI(DemoModel, BoringDataModule) . # use LitAdam python main.py fit --optimizer LitAdam # use FancyAdam python main.py fit --optimizer FancyAdam . 多个scheduler . python main.py fit --lr_scheduler CosineAnnealingLR python main.py fit --lr_scheduler=ReduceLROnPlateau --lr_scheduler.monitor=epoch . # main.py import torch from lightning.pytorch.cli import LightningCLI from lightning.pytorch.demos.boring_classes import DemoModel, BoringDataModule class LitLRScheduler(torch.optim.lr_scheduler.CosineAnnealingLR): def step(self): print(\"⚡\", \"using LitLRScheduler\", \"⚡\") super().step() cli = LightningCLI(DemoModel, BoringDataModule) . # LitLRScheduler python main.py fit --lr_scheduler LitLRScheduler . 其他包中的类 . from lightning.pytorch.cli import LightningCLI import my_code.models # noqa: F401 import my_code.data_modules # noqa: F401 import my_code.optimizers # noqa: F401 cli = LightningCLI() . python main.py fit --model Model1 --data FakeDataset1 --optimizer LitAdam --lr_scheduler LitLRScheduler . The # noqa: F401 comment avoids a linter warning that the import is unused. python main.py fit --model my_code.models.Model1 . 模型help . 用多个模型或数据集时CLI的help不会包含对应的参数，用该用以下的方式: . python main.py fit --model.help Model1 python main.py fit --data.help FakeDataset2 python main.py fit --optimizer.help Adagrad python main.py fit --lr_scheduler.help StepLR . ",
+    "url": "/python/pytorch-lightning#cli%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0-2",
+    
+    "relUrl": "/python/pytorch-lightning#cli中配置超参数-2"
+  },"193": {
+    "doc": "pytorch lightning",
+    "title": "CLI中配置超参数-3",
+    "content": "随着参数的增多从CLI中引入参数变得不现实，LightningCLI可以支持从配置文件中接收输入. python main.py fit --config config.yaml . 默认LightningCLI自动保存完整的YAML配置在log目录下。 . 自动保存通过特定的回调SaveConfigCallback实现，这个回调时自动添加到Trainer上的，要禁用，实例化LightningCLI时传入save_config_callback=None . 要改变名字使用: . cli = LightningCLI(..., save_config_kwargs={\"config_filename\": \"name.yaml\"}) . 为CLI准备config文件 . 不运行命令只打印参数: . python main.py fit --print_config . 会生成: . seed_everything: null trainer: logger: true ... model: out_dim: 10 learning_rate: 0.02 data: data_dir: ./ ckpt_path: null . python main.py fit --model DemoModel --print_config . 生成: . seed_everything: null trainer: ... model: class_path: lightning.pytorch.demos.boring_classes.DemoModel init_args: out_dim: 10 learning_rate: 0.02 ckpt_path: null . 标准的实验过程是: . # Print a configuration to have as reference python main.py fit --print_config &gt; config.yaml # Modify the config to your liking - you can remove all default arguments nano config.yaml # Fit your model using the edited configuration python main.py fit --config config.yaml . 如果模型定义为: . # model.py class MyModel(pl.LightningModule): def __init__(self, criterion: torch.nn.Module): self.criterion = criterion . config将会是: . model: class_path: model.MyModel init_args: criterion: class_path: torch.nn.CrossEntropyLoss init_args: reduction: mean ... Lighting automatically registers all subclasses of LightningModule, so the complete import path is not required for them and can be replaced by the class name. 组合配置文件 . 可以使用多个配置文件: . # config_1.yaml trainer: num_epochs: 10 ... # config_2.yaml trainer: num_epochs: 20 ... 会使用最后一个配置的值: . $ python main.py fit --config config_1.yaml --config config_2.yaml . 一组选项也可以放在多个文件中: . # trainer.yaml num_epochs: 10 # model.yaml out_dim: 7 # data.yaml data_dir: ./data . $ python main.py fit --trainer trainer.yaml --model model.yaml --data data.yaml [...] . ",
+    "url": "/python/pytorch-lightning#cli%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0-3",
+    
+    "relUrl": "/python/pytorch-lightning#cli中配置超参数-3"
+  },"194": {
+    "doc": "pytorch lightning",
+    "title": "CLI中配置超参数-4",
+    "content": "要自定义子命令的参数，在子命令前传递参数: . $ python main.py [before] [subcommand] [after] $ python main.py ... fit ... 比如: . # config.yaml fit: trainer: max_steps: 100 test: trainer: max_epochs: 10 . # full routine with max_steps = 100 $ python main.py --config config.yaml fit # test only with max_epochs = 10 $ python main.py --config config.yaml test . 通过环境变量使用config: . $ python main.py fit --trainer \"$TRAINER_CONFIG\" --model \"$MODEL_CONFIG\" [...] . 直接从环境变量运行: . cli = LightningCLI(..., parser_kwargs={\"default_env\": True}) . 运行： . $ python main.py fit --help . usage: main.py [options] fit [-h] [-c CONFIG] ... optional arguments: ... ARG: --model.out_dim OUT_DIM ENV: PL_FIT__MODEL__OUT_DIM (type: int, default: 10) ARG: --model.learning_rate LEARNING_RATE ENV: PL_FIT__MODEL__LEARNING_RATE (type: float, default: 0.02) . 现在通过环境变量定义: . # set the options via env vars $ export PL_FIT__MODEL__LEARNING_RATE=0.01 $ export PL_FIT__MODEL__OUT_DIM=5 $ python main.py fit . 设置默认的config文件: . cli = LightningCLI(MyModel, MyDataModule, parser_kwargs={\"default_config_files\": [\"my_cli_defaults.yaml\"]}) . 或者: . cli = LightningCLI(MyModel, MyDataModule, parser_kwargs={\"fit\": {\"default_config_files\": [\"my_fit_defaults.yaml\"]}}) . 变量插入 . 首先安装 . pip install omegaconf . model: encoder_layers: 12 decoder_layers: - ${model.encoder_layers} - 4 . cli = LightningCLI(MyModel, parser_kwargs={\"parser_mode\": \"omegaconf\"}) . python main.py --model.encoder_layers=12 . 变量插入有时并不是正确的方法。当一个参数必须从其他设置得到时，不应该由CLI用户在配置文件中设置，比如data和model需要batch_size相同，那么应该使用参数连接而不是变量插入。 . ",
+    "url": "/python/pytorch-lightning#cli%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0-4",
+    
+    "relUrl": "/python/pytorch-lightning#cli中配置超参数-4"
+  },"195": {
+    "doc": "pytorch lightning",
+    "title": "CLI中配置超参数-5",
+    "content": "CLI的目的是尽量减少代码更改，类一旦实例化,CLI会自动调用与子命令关联的trainer函数，可以使用以下代码: . cli = LightningCLI(MyModel, run=False) # True by default # you'll have to call fit yourself: cli.trainer.fit(cli.model) . 不将子命令添加到parser.在实现自定义的逻辑而不去继承CLI时比较有用，但同时又保留了CLI的实例化和参数传递功能。 . Trainer回调和class type参数 . Trainer类的一个很重要的参数是callbacks.不像其他的参数一样，callback应该是Callback子类的示例list.要在配置文件中给出参数，每个callback必须以字典给出,包括class_path entry(给出类的import路径)和init_args(实例化参数),一个简单的定义了两个callback的配置文件如下: . trainer: callbacks: - class_path: lightning.pytorch.callbacks.EarlyStopping init_args: patience: 5 - class_path: lightning.pytorch.callbacks.LearningRateMonitor init_args: ... Trainer中的任意参数以及用户扩展的LightningModule和LightningDataModule都可以用相同的方式进行配置。如果定义了子类的包在LightningCLI类之前运行，就可以不适用完整的import路径而是直接使用名字。 . $ python ... \\ --trainer.callbacks+={CALLBACK_1_NAME} \\ --trainer.callbacks.{CALLBACK_1_ARGS_1}=... \\ --trainer.callbacks.{CALLBACK_1_ARGS_2}=... \\ ... --trainer.callbacks+={CALLBACK_N_NAME} \\ --trainer.callbacks.{CALLBACK_N_ARGS_1}=... \\ ... Serialized config files (e.g. --print_config or SaveConfigCallback) always have the full class_path, even when class name shorthand notation is used in the command line or in input config files. 多个模型和数据集 . A CLI can be written such that a model and/or a datamodule is specified by an import path and init arguments. For example, with a tool implemented as: . cli = LightningCLI(MyModelBaseClass, MyDataModuleBaseClass, subclass_mode_model=True, subclass_mode_data=True) . model: class_path: mycode.mymodels.MyModel init_args: decoder_layers: - 2 - 4 encoder_layers: 12 data: class_path: mycode.mydatamodules.MyDataModule init_args: ... trainer: callbacks: - class_path: lightning.pytorch.callbacks.EarlyStopping init_args: patience: 5 ... Only model classes that are a subclass of MyModelBaseClass would be allowed, and similarly, only subclasses of MyDataModuleBaseClass. If as base classes LightningModule and LightningDataModule is given, then the CLI would allow any lightning module and data module. 子类模式下--help选项不会显示特定子类的信息: . $ python trainer.py fit --model.help mycode.mymodels.MyModel $ python trainer.py fit --model mycode.mymodels.MyModel --print_config . 有多个子模块的模型 . 我们经常需要几个模块，每个模块有自己的配置，一个方式是创建一个模块有每个子模块的参数作为初始参数，这又叫做依赖注入，可以很好的解耦代码。 . 由于模型的初始参数作为类的type hint,在配置文件中通过class_path和init_args给出，比如模型可以实现为: . class MyMainModel(LightningModule): def __init__(self, encoder: nn.Module, decoder: nn.Module): \"\"\"Example encoder-decoder submodules model Args: encoder: Instance of a module for encoding decoder: Instance of a module for decoding \"\"\" super().__init__() self.encoder = encoder self.decoder = decoder . 如果CLI实现为LightningCLI(MyMainModel)，配置文件如下: . model: encoder: class_path: mycode.myencoders.MyEncoder init_args: ... decoder: class_path: mycode.mydecoders.MyDecoder init_args: ... 也可以结合subclass_mode_model=True和子模块，这会有两层class_path. 固定optimizer和scheduler . 有的时候需要固定优化器和scheduler,可以手动的为CLI的子类添加参数， . class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.add_optimizer_args(torch.optim.Adam) parser.add_lr_scheduler_args(torch.optim.lr_scheduler.ExponentialLR) . optimizer: lr: 0.01 lr_scheduler: gamma: 0.2 model: ... trainer: ... $ python trainer.py fit --optimizer.lr=0.01 --lr_scheduler.gamma=0.2 . 多个optimizer和scheduler . By default, the CLIs support multiple optimizers and/or learning schedulers, automatically implementing configure_optimizers. This behavior can be disabled by providing auto_configure_optimizers=False on instantiation of LightningCLI. This would be required for example to support multiple optimizers, for each selecting a particular optimizer class. Similar to multiple submodules, this can be done via dependency injection. Unlike the submodules, it is not possible to expect an instance of a class, because optimizers require the module’s parameters to optimize, which are only available after instantiation of the module. Learning schedulers are a similar situation, requiring an optimizer instance. For these cases, dependency injection involves providing a function that instantiates the respective class when called. from typing import Iterable from torch.optim import Optimizer OptimizerCallable = Callable[[Iterable], Optimizer] class MyModel(LightningModule): def __init__(self, optimizer1: OptimizerCallable, optimizer2: OptimizerCallable): super().__init__() self.optimizer1 = optimizer1 self.optimizer2 = optimizer2 def configure_optimizers(self): optimizer1 = self.optimizer1(self.parameters()) optimizer2 = self.optimizer2(self.parameters()) return [optimizer1, optimizer2] cli = MyLightningCLI(MyModel, auto_configure_optimizers=False) . Note the type Callable[[Iterable], Optimizer], which denotes a function that receives a singe argument, some learnable parameters, and returns an optimizer instance. With this, from the command line it is possible to select the class and init arguments for each of the optimizers, as follows: . $ python trainer.py fit \\ --model.optimizer1=Adam \\ --model.optimizer1.lr=0.01 \\ --model.optimizer2=AdamW \\ --model.optimizer2.lr=0.0001 . In the example above, the OptimizerCallable type alias was created to illustrate what the type hint means. For convenience, this type alias and one for learning schedulers is available in the cli module. An example of a model that uses dependency injection for an optimizer and a learning scheduler is: . from lightning.pytorch.cli import OptimizerCallable, LRSchedulerCallable, LightningCLI class MyModel(LightningModule): def __init__( self, optimizer: OptimizerCallable = torch.optim.Adam, scheduler: LRSchedulerCallable = torch.optim.lr_scheduler.ConstantLR, ): super().__init__() self.optimizer = optimizer self.scheduler = scheduler def configure_optimizers(self): optimizer = self.optimizer(self.parameters()) scheduler = self.scheduler(optimizer) return {\"optimizer\": optimizer, \"lr_scheduler\": scheduler} cli = MyLightningCLI(MyModel, auto_configure_optimizers=False) . Note that for this example, classes are used as defaults. This is compatible with the type hints, since they are also callables that receive the same first argument and return an instance of the class. Classes that have more than one required argument will not work as default. For these cases a lambda function can be used, e.g. optimizer: OptimizerCallable = lambda p: torch.optim.SGD(p, lr=0.01). 从python运行 . LightningCLI尽管是拿来辅助命令行操作，某些情况下可以直接从python中运行。首先实现一个正常的CLI脚本，但是添加一个args=None. from lightning.pytorch.cli import ArgsType, LightningCLI def cli_main(args: ArgsType = None): cli = LightningCLI(MyModel, ..., args=args) ... if __name__ == \"__main__\": cli_main() . 然后就可以import cli_main函数运行，执行my_cli.py --trainer.max_epochs=100 --model.encoder_layers=24，等价于: . from my_module.my_cli import cli_main cli_main([\"--trainer.max_epochs=100\", \"--model.encoder_layers=24\"]) . 命令行的所有特征都可以使用，可以给args一个string list或者dict或者jsonargparse,比如在jupyter中: . args = { \"trainer\": { \"max_epochs\": 100, }, \"model\": {}, } args[\"model\"][\"encoder_layers\"] = 8 cli_main(args) args[\"model\"][\"encoder_layers\"] = 12 cli_main(args) args[\"trainer\"][\"max_epochs\"] = 200 cli_main(args) . args参数在从命令行运行的时候必须是None,这样才会使用sys.argv作为参数，注意， trainer_defaults的目的和args不同。可以在cli_main函数中使用trainer_default来更改一些trainer参数的默认值。 . ",
+    "url": "/python/pytorch-lightning#cli%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0-5",
+    
+    "relUrl": "/python/pytorch-lightning#cli中配置超参数-5"
+  },"196": {
+    "doc": "pytorch lightning",
+    "title": "CLI中配置超参数-6",
+    "content": "自定义 LightningCLI. LightningCLI的初始化参数可以用来自定义一些东西，比如工具描述，环境变量解析，实例化trainer以及配置解析等。但是初始化参数大多数情况下不够用。这个类提供了一些自定义能力，LightningCLI用到的参数解析类是LightningArgumentParser，这是argparse的扩展，添加了额外的方法来添加参数，比如add_class_arguments()从类的init中添加参数。 . LightningCLI的add_arguments_to_parser()方法可以用来实现添加更多的参数，解析之后参数保存在类的config属性之下，LightningCLI类还有两个在trainer之前和之后运行的方法，before_&lt;subcommand&gt; 和 after_&lt;subcommand&gt;.比如在fit前后发送邮件: . class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.add_argument(\"--notification_email\", default=\"will@email.com\") def before_fit(self): send_email(address=self.config[\"notification_email\"], message=\"trainer.fit starting\") def after_fit(self): send_email(address=self.config[\"notification_email\"], message=\"trainer.fit finished\") cli = MyLightningCLI(MyModel) . self.config对象是一个命名空间，keys是全局选项。比如，实例化trainer类的参数可以在self.config['fit']['trainer']中找到. 强制callback . 可以通过在命令行传递或者在config中通过class_path和init_args来添加callback.但是特定的callback必须和模型耦合在一起，可以想下面这样实现: . from lightning.pytorch.callbacks import EarlyStopping class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.add_lightning_class_args(EarlyStopping, \"my_early_stopping\") parser.set_defaults({\"my_early_stopping.monitor\": \"val_loss\", \"my_early_stopping.patience\": 5}) cli = MyLightningCLI(MyModel) . model: ... trainer: ... my_early_stopping: patience: 5 . Class type defaults . class MyMainModel(LightningModule): def __init__( self, backbone: torch.nn.Module = MyModel(encoder_layers=24), # BAD PRACTICE! ): super().__init__() self.backbone = backbone . 正常的类是可以修改的，如上面的例子。MyModel的实例在定义了MyMainModel的模块第一次import时创建，这意味着backbone的默认值会在CLI类运行seed_everything之前初始化。 如果多次用到了MyMainModel，backbone不会被覆盖，而是在多个地方使用这个实例，使用实例作为默认值也无法生成完整的配置文件。 . 比较好的解决方法是不去设置默认值或者特定值，在init中检查并实例化。如果类参数没有默认值并使用了CLI子类，可以使用下面的方式: . default_backbone = { \"class_path\": \"import.path.of.MyModel\", \"init_args\": { \"encoder_layers\": 24, }, } class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.set_defaults({\"model.backbone\": default_backbone}) . 或者: . from jsonargparse import lazy_instance class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.set_defaults({\"model.backbone\": lazy_instance(MyModel, encoder_layers=24)}) . 参数链接 . 另一种扩展CLI的方式是模型和数据模块具有一个共同的参数，比如两个类都需要知道batchsize,在配置文件中写两次十分容易出错，可以只写一次然后进行广播。 . class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.link_arguments(\"data.batch_size\", \"model.batch_size\") cli = MyLightningCLI(MyModel, MyDataModule) . $ python trainer.py fit --help ... --data.batch_size BATCH_SIZE Number of samples in a batch (type: int, default: 8) Linked arguments: data.batch_size --&gt; model.batch_size Number of samples in a batch (type: int) . 有时一个参数值只有在类实例化之后才能使用，一个例子是模型需要类的数量来实例化连接层，但是在实例化数据模块的时候才能得到类数，可以如下面这样: . class MyLightningCLI(LightningCLI): def add_arguments_to_parser(self, parser): parser.link_arguments(\"data.num_classes\", \"model.num_classes\", apply_on=\"instantiate\") cli = MyLightningCLI(MyClassModel, MyDataModule) . The linking of arguments is intended for things that are meant to be non-configurable. This improves the CLI user experience since it avoids the need to provide more parameters. A related concept is a variable interpolation that keeps things configurable. ",
+    "url": "/python/pytorch-lightning#cli%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%B6%85%E5%8F%82%E6%95%B0-6",
+    
+    "relUrl": "/python/pytorch-lightning#cli中配置超参数-6"
+  },"197": {
+    "doc": "pytorch lightning",
+    "title": "checkpoint",
+    "content": " ",
+    "url": "/python/pytorch-lightning#checkpoint",
+    
+    "relUrl": "/python/pytorch-lightning#checkpoint"
+  },"198": {
+    "doc": "pytorch lightning",
+    "title": "实验管理",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E5%AE%9E%E9%AA%8C%E7%AE%A1%E7%90%86",
+    
+    "relUrl": "/python/pytorch-lightning#实验管理"
+  },"199": {
+    "doc": "pytorch lightning",
+    "title": "PROGRESS BAR",
+    "content": "Lightning支持两种进度条tqdm和rich,默认使用tqdm . 也可以使用 ProgressBar类自己实现进度条。 . ",
+    "url": "/python/pytorch-lightning#progress-bar",
+    
+    "relUrl": "/python/pytorch-lightning#progress-bar"
+  },"200": {
+    "doc": "pytorch lightning",
+    "title": "RichProgressBar",
+    "content": "from lightning.pytorch.callbacks import RichProgressBar trainer = Trainer(callbacks=[RichProgressBar()]) . 自定义RichProgressBar: . from lightning.pytorch.callbacks import RichProgressBar from lightning.pytorch.callbacks.progress.rich_progress import RichProgressBarTheme # create your own theme! progress_bar = RichProgressBar( theme=RichProgressBarTheme( description=\"green_yellow\", progress_bar=\"green1\", progress_bar_finished=\"green1\", progress_bar_pulse=\"#6206E0\", batch_progress=\"green_yellow\", time=\"grey82\", processing_speed=\"grey82\", metrics=\"grey82\", ) ) trainer = Trainer(callbacks=progress_bar) . from rich.progress import TextColumn custom_column = TextColumn(\"[progress.description]Custom Rich Progress Bar!\") class CustomRichProgressBar(RichProgressBar): def configure_columns(self, trainer): return [custom_column] progress_bar = CustomRichProgressBar() . 如果想要每个epoch后现实一个新的进度条应该开启RichProgressBar.leave， . from lightning.pytorch.callbacks import RichProgressBar trainer = Trainer(callbacks=[RichProgressBar(leave=True)]) . 要禁用进度条，使用trainer = Trainer(enable_progress_bar=False) . ",
+    "url": "/python/pytorch-lightning#richprogressbar",
+    
+    "relUrl": "/python/pytorch-lightning#richprogressbar"
+  },"201": {
+    "doc": "pytorch lightning",
+    "title": "GPU",
+    "content": " ",
+    "url": "/python/pytorch-lightning#gpu",
+    
+    "relUrl": "/python/pytorch-lightning#gpu"
+  },"202": {
+    "doc": "pytorch lightning",
+    "title": "并行",
+    "content": " ",
+    "url": "/python/pytorch-lightning#%E5%B9%B6%E8%A1%8C",
+    
+    "relUrl": "/python/pytorch-lightning#并行"
+  },"203": {
+    "doc": "pytorch lightning",
+    "title": "pytorch lightning",
+    "content": ". | 7个关键步骤 . | 定义LightningModule | 定义数据集 | 模型训练 | 模型的使用 | 训练可视化 | Supercharge training | . | 模型训练 . | import | 定义nn.Modules | 定义LightningModule | 定义训练集 | 模型训练 | 干掉训练循环 | . | 添加验证集和测试集 . | 分割数据集 | 定义测试循环 | 训练之后加入测试步骤 | 添加验证循环 | . | 保存模型过程 . | 保存ckpt | 加载 | nn.Module from checkpoint | 禁用ckpt | 恢复训练 | . | 提前终止训练 | 迁移学习 . | 使用预训练的LightningModule | Bert | . | 命令行中配置超参数 . | ArgumentParser | lightning cli | . | debug,可视化以及寻找瓶颈 . | debug . | 设置断点 | 跑一遍代码 | 缩短epoch长度 | 简单检查 | 显示LightningModule权重summary | 查找代码瓶颈 | 实验跟踪和可视化 . | metrics跟踪 | . | . | . | 模型推理 . | 产品级部署-1 . | 加载ckpt并预测 | LightningModule添加预测过程 | 添加复杂的推理逻辑 | 使用分布式推理 | . | 产品级部署-2 . | 使用pytorch | 从lightning中提取nn.Modules | . | . | GPU训练 . | 代码修改 . | Remove samplers | 同步 | pickleable model | . | gpu训练 | . | 项目模块化 . | datamodule . | prepare_data | setup | train_dataloader | val_dataloader | test_dataloader | predict_dataloader | transfer_batch_to_device | on_before_batch_transfer | on_after_batch_transfer | load_state_dict | state_dict | teardown | prepare_data_per_node | 使用datamodule | 在pytorch中使用DataModules | datamodule中的超参数 | 保存datamodule state | . | CLI中配置超参数-1 . | 实现CLI | 使用CLI训练模型 | . | CLI中配置超参数-2 . | 多个LightningModules | 多个 LightningDataModules | 多个优化器 | 多个scheduler | 其他包中的类 | 模型help | . | CLI中配置超参数-3 . | 为CLI准备config文件 | 组合配置文件 | . | CLI中配置超参数-4 . | 变量插入 | . | CLI中配置超参数-5 . | Trainer回调和class type参数 | 多个模型和数据集 | 有多个子模块的模型 | 固定optimizer和scheduler | 多个optimizer和scheduler | 从python运行 | . | CLI中配置超参数-6 . | 强制callback | Class type defaults | 参数链接 | . | . | checkpoint | 实验管理 | PROGRESS BAR . | RichProgressBar | . | GPU | 并行 | . ",
+    "url": "/python/pytorch-lightning",
+    
+    "relUrl": "/python/pytorch-lightning"
+  },"204": {
+    "doc": "rich",
+    "title": "rich",
+    "content": "Github仓库: https://github.com/Textualize/rich . 文档: https://rich.readthedocs.io/en/stable/introduction.html . 安装: . python -m pip install rich . 测试: . python -m rich . 最简单的使用方式，用rich的print替换掉原生的。 . from rich import print print(\"Hello, [bold magenta]World[/bold magenta]!\", \":vampire:\", locals()) . 输出: . Hello, World! 🧛 { '__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'print': &lt;function print at 0x7f13bae2add0&gt; } . 可以在python的REPL中安装: . &gt;&gt;&gt; from rich import pretty &gt;&gt;&gt; pretty.install() . ",
+    "url": "/MachineLearning/packages/rich",
+    
+    "relUrl": "/MachineLearning/packages/rich"
+  },"205": {
+    "doc": "scipy",
+    "title": "scipy",
+    "content": " ",
+    "url": "/MachineLearning/packages/scipy",
+    
+    "relUrl": "/MachineLearning/packages/scipy"
+  },"206": {
+    "doc": "sqlAlchemy",
+    "title": "sqlAlchemy",
+    "content": " ",
+    "url": "/MachineLearning/packages/sqlAlchemy",
+    
+    "relUrl": "/MachineLearning/packages/sqlAlchemy"
+  },"207": {
+    "doc": "steps2model",
+    "title": "tuning",
+    "content": " ",
+    "url": "/python/steps2model#tuning",
+    
+    "relUrl": "/python/steps2model#tuning"
+  },"208": {
+    "doc": "steps2model",
+    "title": "steps2model",
+    "content": ". | tuning | . ",
+    "url": "/python/steps2model",
+    
+    "relUrl": "/python/steps2model"
+  },"209": {
+    "doc": "python style",
+    "title": "命名传统",
+    "content": " ",
+    "url": "/python/style#%E5%91%BD%E5%90%8D%E4%BC%A0%E7%BB%9F",
+    
+    "relUrl": "/python/style#命名传统"
+  },"210": {
+    "doc": "python style",
+    "title": "变量、函数、包、类命名",
+    "content": "| 类型 | 命名 | 样例 | . | 函数 | 使用小写，下划线分割 | my_function | . | 变量 | 使用小写，下划线分割 | x,var,my_variable | . | 类 | 首字母大写，不要使用下划线 | MyClass | . | 方法 | 小写，下划线分割 | class_method | . | 常量 | 纯大写，下划线分割 | MY_CONSTANT | . | 模块 | 小写，下划线分割 | my_module.py | . | 包 | 小写，不要使用下划线 | mypackage | . | 使用描述性名字 | 不要使用无意义的名字如x,y除非是在用数学函数 | 不要使用歧义缩写 | . ",
+    "url": "/python/style#%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E5%8C%85%E7%B1%BB%E5%91%BD%E5%90%8D",
+    
+    "relUrl": "/python/style#变量函数包类命名"
+  },"211": {
+    "doc": "python style",
+    "title": "下划线",
+    "content": ". | 单下划线 | . 单下划线有时是来表明是一个临时变量或者占位变量。比如在下面的循环中不需要访问index，可以用_来替代。 . for _ in range(32): ... print('Hello, World.') . 也可以用在unpacking表达式中，表示要忽略这个位置解压出来的值，比如下面的代码,下划线就是一个占位变量: . &gt;&gt;&gt; car = ('red', 'auto', 12, 3812.4) &gt;&gt;&gt; color, _, _, mileage = car &gt;&gt;&gt; color 'red' &gt;&gt;&gt; mileage 3812.4 &gt;&gt;&gt; _ 12 . 除此之外单下划线还可以用作表示interpreter eval的最后一个表达式的结果。在解释器会话中可能用到。 . &gt;&gt;&gt; 20 + 3 23 &gt;&gt;&gt; _ 23 &gt;&gt;&gt; print(_) 23 &gt;&gt;&gt; list() [] &gt;&gt;&gt; _.append(1) &gt;&gt;&gt; _.append(2) &gt;&gt;&gt; _.append(3) &gt;&gt;&gt; _ [1, 2, 3] . | 前置单下划线 | . 对于变量或者方法名，前置单下划线表只是一个习惯，完全不会影响程序的行为。前置单下划线告诉编程者ok,这个变量或者方法只能在内使用.这个习惯记录在PEP 8中。 . python没有私有或者公有变量的区别，使用这个习惯就好像在说:这不是一个类的公有接口，不要随便改动。下面是一个例子: . class Test: def __init__(self): self.foo = 11 self._bar = 23 . 如果访问这两个属性会如何?随便访问，没有区别! . &gt;&gt;&gt; t = Test() &gt;&gt;&gt; t.foo 11 &gt;&gt;&gt; t._bar 23 . 不过下划线影响了名字导入模块的方式: . # This is my_module.py: def external_func(): return 23 def _internal_func(): return 42 . 如果使用import *来引入模块中的所有名字,python不会import带前置下划线的名字，除非这个模块定义了__all__ list来覆盖这个行为。 . &gt;&gt;&gt; from my_module import * &gt;&gt;&gt; external_func() 23 &gt;&gt;&gt; _internal_func() NameError: \"name '_internal_func' is not defined\" . 我们应该尽量避免’wildcard import’。正常的import不会被前置单下划线影响。 . &gt;&gt;&gt; import my_module &gt;&gt;&gt; my_module.external_func() 23 &gt;&gt;&gt; my_module._internal_func() 42 . | 后置单下划线 | . 有的时候一个变量的名字被关键字占用了，像class或者def无法作为变量名，这种情况下可以加一个单下划线避免冲突: . &gt;&gt;&gt; def make_object(name, class): SyntaxError: \"invalid syntax\" &gt;&gt;&gt; def make_object(name, class_): ... pass . 这个规则在 PEP 8 中有描述. | 前置双下划线 | . 这种命名方式不像前面只是一种传统，如果类的属性以双下划线开头，会有一些特殊含义。python解释器会重写属性名来避免在子类中出现名字冲突。 . 又叫做name mangling，解释器会改变变量的名使其很难在之后类扩展的过程中发生冲突。下面是一个例子: . class Test: def __init__(self): self.foo = 11 self._bar = 23 self.__baz = 23 . 然后使用内建的dir()函数看一下对象的属性: . &gt;&gt;&gt; t = Test() &gt;&gt;&gt; dir(t) ['_Test__baz', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_bar', 'foo'] . 可以看到名字发生了改变，__baz发生了什么? . 如果细看会发现变成了_Test__baz,这就是python使用了name mangling来保护父类不被子类更改变量。 . 首先创建一个类来扩展Test类并试图在构造器中覆盖现存的属性: . class ExtendedTest(Test): def __init__(self): super().__init__() self.foo = 'overridden' self._bar = 'overridden' self.__baz = 'overridden' . 现在，foo, _bar, 和 __baz 在扩展出来的类的实例是什么? . &gt;&gt;&gt; t2 = ExtendedTest() &gt;&gt;&gt; t2.foo 'overridden' &gt;&gt;&gt; t2._bar 'overridden' &gt;&gt;&gt; t2.__baz AttributeError: \"'ExtendedTest' object has no attribute '__baz'\" Wait, why did we get that AttributeError when we tried to inspect the value of t2.__baz? Name mangling strikes again! It turns out this object doesn’t even have a __baz attribute: &gt;&gt;&gt; dir(t2) ['_ExtendedTest__baz', '_Test__baz', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_bar', 'foo', 'get_vars'] . 正如我们看到的__baz被变成了 got turned into _ExtendedTest__baz`来防止意外的更改: . &gt;&gt;&gt; t2._ExtendedTest__baz 'overridden' . 但是原始的 _Test__baz仍然存在: . &gt;&gt;&gt; t2._Test__baz 42 . 看下面的一个例子: . class ManglingTest: def __init__(self): self.__mangled = 'hello' def get_mangled(self): return self.__mangled &gt;&gt;&gt; ManglingTest().get_mangled() 'hello' &gt;&gt;&gt; ManglingTest().__mangled AttributeError: \"'ManglingTest' object has no attribute '__mangled'\" . name mangling会影响属性和方法名: . class MangledMethod: def __method(self): return 42 def call_it(self): return self.__method() &gt;&gt;&gt; MangledMethod().__method() AttributeError: \"'MangledMethod' object has no attribute '__method'\" &gt;&gt;&gt; MangledMethod().call_it() 42 . 下面是另一个例子: . _MangledGlobal__mangled = 23 class MangledGlobal: def test(self): return __mangled &gt;&gt;&gt; MangledGlobal().test() 23 . 首先创建了一个全局变量然后访问一个类的内部变量，由于name mangling就可以访问__mangled.python解释器会自动将__mangled扩展为_MangledGlobal_mangled. ⏰ Sidebar: What’s a “dunder” in Python? I’ve you’ve heard some experienced Pythonistas talk about Python or watched a few conference talks you may have heard the term dunder. If you’re wondering what that is, here’s your answer: . Double underscores are often referred to as “dunders” in the Python community. The reason is that double underscores appear quite often in Python code and to avoid fatiguing their jaw muscles Pythonistas often shorten “double underscore” to “dunder.” . For example, you’d pronounce baz as “dunder baz”. Likewise __init would be pronounced as “dunder init”, even though one might think it should be “dunder init dunder.” But that’s just yet another quirk in the naming convention. It’s like a secret handshake for Python developers 🙂 . | 前后双下划线 如果使用了前后双下划线，命名修饰将不再适用，解释器不会对其有任何影响。 | . class PrefixPostfixTest: def __init__(self): self.__bam__ = 42 &gt;&gt;&gt; PrefixPostfixTest().__bam__ 42 . 但是这种命名方式为保留方式，只能被语言特征使用，比如__init__是对象构造器，__call__是对象调用器。这种方法经常被叫做魔法方法(magic-method). 最好不要在自己的程序中使用这种方式命名，可能会与未来python的某个特性冲突。 . ",
+    "url": "/python/style#%E4%B8%8B%E5%88%92%E7%BA%BF",
+    
+    "relUrl": "/python/style#下划线"
+  },"212": {
+    "doc": "python style",
+    "title": "docstring",
+    "content": "下面是一个docstring的例子: . def square(n): '''Takes in a number n, returns the square of n''' return n**2 . python docstring是用在函数、方法、类、或者模块中的字符串来对代码进行文档化，要进行访问， 使用__doc__属性。 . ",
+    "url": "/python/style#docstring",
+    
+    "relUrl": "/python/style#docstring"
+  },"213": {
+    "doc": "python style",
+    "title": "__doc__属性",
+    "content": "当字符串放在函数、模块、方法或者类的定义后边时就会与对象的__doc__属性关联， 可以通过这个属性进行访问。比如: . def square(n): '''Takes in a number n, returns the square of n''' return n**2 print(square.__doc__) . 单行docstring . | 单行docstring只有一行，前后中间都没有空行。 | 不应该是描述性的必须遵循”Do this, return that” 类似的结构 def multiplier(a, b): \"\"\"Takes in two numbers, returns their product.\"\"\" return a*b . 多行docstring . | . 多行docstring包含一个summary，类似单行。后边跟一个空行以及更加 详细的描述，具体查看:PEP 257. Python模块中的docstring . | 列出所有的类函数和对象以及ecxcepions | 每一项都应该改有一行总结 下面是一个例子: | . Create portable serialized representations of Python objects. See module copyreg for a mechanism for registering custom picklers. See module pickletools source for extensive comments. Classes: Pickler Unpickler Functions: dump(object, file) dumps(object) -&gt; string load(file) -&gt; object loads(string) -&gt; object Misc variables: __version__ format_version compatible_formats . Python类中的docstring . | 应该给出类的行为以及其公有方法和实例变量 | 子类，构造器和方法应该有自己的docstring | . class Person: \"\"\" A class to represent a person... Attributes ---------- name : str first name of the person surname : str family name of the person age : int age of the person Methods ------- info(additional=\"\"): Prints the person's name and age. \"\"\" def __init__(self, name, surname, age): \"\"\" Constructs all the necessary attributes for the person object. Parameters ---------- name : str first name of the person surname : str family name of the person age : int age of the person \"\"\" self.name = name self.surname = surname self.age = age def info(self, additional=\"\"): \"\"\" Prints the person's name and age. If the argument 'additional' is passed, then it is appended after the main info. Parameters ---------- additional : str, optional More info to be displayed (default is None) Returns ------- None \"\"\" print(f'My name is {self.name} {self.surname}. I am {self.age} years old.' + additional) . 可以使用help()函数查看对象对应的docstring. python函数中的docstring . | 应该给整个函数一个总结以及器参数和返回值 | 应该列出所有的exceptions和可选参数 下面是一个例子: | . def add_binary(a, b): ''' Returns the sum of two decimal numbers in binary digits. Parameters: a (int): A decimal integer b (int): Another decimal integer Returns: binary_sum (str): Binary string of the sum of a and b ''' binary_sum = bin(a+b)[2:] return binary_sum print(add_binary.__doc__) . python脚本的docstring . | 应该给出脚本的函数和命令行语法使用 | 应该作为所有函数和参数的快速索引 | . Python包中的docstring . | 应该写在__init__.py文件中 | 应该包含包可以导出的所有模块和子包 | . ",
+    "url": "/python/style#__doc__%E5%B1%9E%E6%80%A7",
+    
+    "relUrl": "/python/style#__doc__属性"
+  },"214": {
+    "doc": "python style",
+    "title": "docstring格式",
+    "content": "Epytest . \"\"\" This is a javadoc style. @param param1: this is a first param @param param2: this is a second param @return: this is a description of what is returned @raise keyError: raises an exception \"\"\" . reST . \"\"\" This is a reST style. :param param1: this is a first param :param param2: this is a second param :returns: this is a description of what is returned :raises keyError: raises an exception \"\"\" . Google . \"\"\" This is an example of Google style. Args: param1: This is the first param. param2: This is a second param. Returns: This is a description of what is returned. Raises: KeyError: Raises an exception. \"\"\" . Numpydoc . \"\"\" My numpydoc description of a kind of very exhautive numpydoc format docstring. Parameters ---------- first : array_like the 1st param name `first` second : the 2nd param third : {'value', 'other'}, optional the 3rd param, by default 'value' Returns ------- string a value in a string Raises ------ KeyError when a key error OtherError when an other error \"\"\" . 可以使用Pyment自动给一个项目生成docstring . ",
+    "url": "/python/style#docstring%E6%A0%BC%E5%BC%8F",
+    
+    "relUrl": "/python/style#docstring格式"
+  },"215": {
+    "doc": "python style",
+    "title": "代码布局",
+    "content": ". | 空行，空格提升可读性，顶层函数和类使用两个空行，内部方法使用单空行，不同步骤之间加空行。 | 每一行限制到79个字符， | . def function(arg_one, arg_two, arg_three, arg_four): return arg_one . from mypkg import example1, \\ example2, example3 . # Recommended total = (first_variable + second_variable - third_variable) . ",
+    "url": "/python/style#%E4%BB%A3%E7%A0%81%E5%B8%83%E5%B1%80",
+    
+    "relUrl": "/python/style#代码布局"
+  },"216": {
+    "doc": "python style",
+    "title": "缩进",
+    "content": ". | 使用4个连续space表示缩进 | 使用space而不是tab | 断行之后使用缩进 | . def function(arg_one, arg_two, arg_three, arg_four): return arg_one . x = 5 if (x &gt; 3 and x &lt; 10): print(x) . var = function( arg_one, arg_two, arg_three, arg_four) def function( arg_one, arg_two, arg_three, arg_four): return arg_one . 下面这种写法是不被推荐的，使用hanging indent时尽量不要在第一行留参数: . # Not Recommended var = function(arg_one, arg_two, arg_three, arg_four) . | 在断行的情况下如何使用括号 ```py list_of_numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] | . list_of_numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] . # 注释 - 注释和docstring每行不超过72字符 - 使用完整语句，大写字母开头 - 更改代码后更新注释 - #space 开头，缩进与代码对齐，分段使用#多空一行 ```py def quadratic(a, b, c, x): # Calculate the solution to a quadratic equation using the quadratic # formula. # # There are always two solutions to a quadratic equation, x_1 and x_2. x_1 = (- b+(b**2-4*a*c)**(1/2)) / (2*a) x_2 = (- b-(b**2-4*a*c)**(1/2)) / (2*a) return x_1, x_2 . | 尽量少用内联的注释 | 内敛注释和正式代码有至少两个空格 | . ",
+    "url": "/python/style#%E7%BC%A9%E8%BF%9B",
+    
+    "relUrl": "/python/style#缩进"
+  },"217": {
+    "doc": "python style",
+    "title": "表达式和语句空白",
+    "content": ". | 赋值运算符，比较运算符和逻辑运算符两端有空白 | 函数参数礼的默认值等号两边不要有空白 | . # Recommended y = x**2 + 5 z = (x+y) * (x-y) # Not Recommended y = x ** 2 + 5 z = (x + y) * (x - y) . | 切片运算符两边有空白 | 千万不要在每一行后边添加空白，下面是一些不应该添加空白的地方 | . # Recommended my_list = [1, 2, 3] # Not recommended my_list = [ 1, 2, 3, ] x = 5 y = 6 # Recommended print(x, y) # Not recommended print(x , y) def double(x): return x * 2 # Recommended double(3) # Not recommended double (3) # Recommended list[3] # Not recommended list [3] # Recommended tuple = (1,) # Not recommended tuple = (1, ) # Recommended var1 = 5 var2 = 6 some_long_var = 7 # Not recommended var1 = 5 var2 = 6 some_long_var = 7 . ",
+    "url": "/python/style#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%AF%AD%E5%8F%A5%E7%A9%BA%E7%99%BD",
+    
+    "relUrl": "/python/style#表达式和语句空白"
+  },"218": {
+    "doc": "python style",
+    "title": "一些建议",
+    "content": "不使用==把布尔值和True或者False比较。 . # Not recommended my_bool = 6 &gt; 5 if my_bool == True: return '6 is bigger than 5' # Recommended if my_bool: return '6 is bigger than 5' . 如果需要比较一个列表的长度是否为0: . # Not recommended my_list = [] if not len(my_list): print('List is empty!') # Recommended my_list = [] if not my_list: print('List is empty!') . 使用is not而不是not is： . # Recommended if x is not None: return 'x exists!' # Not recommended if not x is None: return 'x exists!' . 不要使用if x:代替if x is not None:: . # Not Recommended if arg: # Do something with arg... # Recommended if arg is not None: # Do something with arg... 使用.startstith()和.endswith()而不是切片。 . ",
+    "url": "/python/style#%E4%B8%80%E4%BA%9B%E5%BB%BA%E8%AE%AE",
+    
+    "relUrl": "/python/style#一些建议"
+  },"219": {
+    "doc": "python style",
+    "title": "工具",
+    "content": " ",
+    "url": "/python/style#%E5%B7%A5%E5%85%B7",
+    
+    "relUrl": "/python/style#工具"
+  },"220": {
+    "doc": "python style",
+    "title": "Linters",
+    "content": ". | pycodesytyle | flake8 | . ",
+    "url": "/python/style#linters",
+    
+    "relUrl": "/python/style#linters"
+  },"221": {
+    "doc": "python style",
+    "title": "Autoformatters",
+    "content": ". | black | autopep8 | yapf | . ",
+    "url": "/python/style#autoformatters",
+    
+    "relUrl": "/python/style#autoformatters"
+  },"222": {
+    "doc": "python style",
+    "title": "python style",
+    "content": ". | 命名传统 . | 变量、函数、包、类命名 | 下划线 | . | docstring . | __doc__属性 . | 单行docstring | 多行docstring . | Python模块中的docstring | Python类中的docstring | python函数中的docstring | python脚本的docstring | Python包中的docstring | . | . | docstring格式 . | Epytest | reST | Google | Numpydoc | . | . | 代码布局 | 缩进 | 表达式和语句空白 | 一些建议 | 工具 . | Linters | Autoformatters | . | . ",
+    "url": "/python/style",
+    
+    "relUrl": "/python/style"
+  },"223": {
+    "doc": "styles",
+    "title": "styles",
+    "content": " ",
+    "url": "/web/js/styles",
+    
+    "relUrl": "/web/js/styles"
+  },"224": {
+    "doc": "tqdm",
+    "title": "tqdm",
+    "content": " ",
+    "url": "/MachineLearning/packages/tqdm",
+    
+    "relUrl": "/MachineLearning/packages/tqdm"
+  },"225": {
+    "doc": "wasm",
+    "title": "wasm",
+    "content": " ",
+    "url": "/web/wasm",
+    
+    "relUrl": "/web/wasm"
+  },"226": {
+    "doc": "web",
+    "title": "web",
+    "content": "https://colorlib.com/wp/npm-packages-node-js/ . https://www.turing.com/blog/top-npm-packages-for-node-js-developers/ . ",
+    "url": "/web/",
+    
+    "relUrl": "/web/"
+  },"227": {
+    "doc": "yolo",
+    "title": "yolo",
+    "content": " ",
+    "url": "/MachineLearning/model/yolo",
+    
+    "relUrl": "/MachineLearning/model/yolo"
+  }
+}
