@@ -1,6 +1,6 @@
 ---
 layout: default
-title: How to use github pages to build personal knowledgebase
+title: howtos
 parent: howtos
 permalink: /how-tos/github-pages/
 has_toc: true
